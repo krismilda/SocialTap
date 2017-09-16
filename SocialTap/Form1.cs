@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Emgu.CV;
 
-using Emgu.CV;                  
-using Emgu.CV.CvEnum;           
-using Emgu.CV.Structure;        
-using Emgu.CV.UI;               
 
 namespace SocialTap
 {
@@ -21,23 +11,23 @@ namespace SocialTap
         {
             InitializeComponent();
         }
-   
+
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
-           DialogResult drChosenFile;
-           drChosenFile = openFileDialog1.ShowDialog();
-
+            DialogResult drChosenFile;
+            drChosenFile = openFileDialog.ShowDialog();
             Mat image;
 
             try
             {
-                image = new Mat(openFileDialog1.FileName);
+                image = new Mat(openFileDialog.FileName);
             }
-            catch(Exception exp)
+            catch (Exception exp)
             {
                 errorMessage.Text = "Wrong image format";
                 image = null;
             }
+
             imageBox.Image = image;
 
 

@@ -34,7 +34,7 @@
             this.errorMessage = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.imageBox = new Emgu.CV.UI.ImageBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
@@ -104,9 +104,9 @@
             this.imageBox.TabIndex = 2;
             this.imageBox.TabStop = false;
             // 
-            // openFileDialog1
+            // openFileDialog
             // 
-            this.openFileDialog1.FileName = "FileName";
+            this.openFileDialog.FileName = "FileName";
             // 
             // MainForm
             // 
@@ -136,7 +136,7 @@
         private System.Windows.Forms.Label errorMessage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Emgu.CV.UI.ImageBox imageBox;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 
