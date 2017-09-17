@@ -5,10 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace SocialTap
+namespace social_tap
 {
     class SimpleImageAnalysis
     {
+        private Bitmap _Img;
+
+        public SimpleImageAnalysis(Bitmap img)
+        {
+            _Img = img;
+        }
+
         public static Bitmap CreateImage(String url)
         {
             System.Net.WebRequest request =
@@ -19,17 +26,17 @@ namespace SocialTap
             return new Bitmap(responseStream);
         }
 
-        public static int CountGlassVolume(Bitmap img)
+        private int CountGlassVolume()
         {
             Color borderPixel;
             int x = 0;
             int volume = 0;
 
-            for (int i = 0; i < img.Height; i++)
+            for (int i = 0; i < _Img.Height; i++)
             {
-                for (int j = 0; j < img.Width; j++)
+                for (int j = 0; j < _Img.Width; j++)
                 {
-                    Color pixel = img.GetPixel(j, i);
+                    Color pixel = _Img.GetPixel(j, i);
 
                     if ((pixel.R < 250) && (pixel.G < 250) && (pixel.B < 250)
                         && (pixel.R >= 0) && (pixel.G >= 0) && (pixel.B >= 0))
@@ -37,16 +44,16 @@ namespace SocialTap
                         borderPixel = pixel;
                         x = j;
 
-                        while ((pixel == borderPixel) && (j < img.Width - 1))
+                        while ((pixel == borderPixel) && (j < _Img.Width - 1))
                         {
                             j++;
-                            pixel = img.GetPixel(j, i);
+                            pixel = _Img.GetPixel(j, i);
                         }
 
-                        while ((pixel != borderPixel) && (j < img.Width - 1))
+                        while ((pixel != borderPixel) && (j < _Img.Width - 1))
                         {
                             j++;
-                            pixel = img.GetPixel(j, i);
+                            pixel = _Img.GetPixel(j, i);
                         }
 
                         if (pixel == borderPixel)
@@ -61,15 +68,15 @@ namespace SocialTap
             return volume;
         }
 
-        public static int CountLiquidVolume(Bitmap img)
+        private int CountLiquidVolume()
         {
             int volume = 0;
 
-            for (int i = 0; i < img.Width; i++)
+            for (int i = 0; i < _Img.Width; i++)
             {
-                for (int j = 0; j < img.Height; j++)
+                for (int j = 0; j < _Img.Height; j++)
                 {
-                    Color pixel = img.GetPixel(i, j);
+                    Color pixel = _Img.GetPixel(i, j);
 
                     if ((pixel.R == 0) && (pixel.G == 162) && (pixel.B == 232))
                     {
@@ -79,6 +86,19 @@ namespace SocialTap
             }
 
             return volume;
+        }
+
+        public int CalculatePercentageOfLiquid()
+        {
+            int volumeOfGlass;
+            int volumeOfLiquid;
+            int percentage;
+
+            volumeOfGlass = this.CountGlassVolume();
+            volumeOfLiquid = this.CountLiquidVolume();
+            percentage = (volumeOfLiquid * 100) / volumeOfGlass;
+
+            return percentage;
         }
 
     }
