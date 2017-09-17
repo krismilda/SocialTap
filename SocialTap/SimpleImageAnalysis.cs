@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace social_tap
 {
-    class SimpleImageAnalysis
+   public class SimpleImageAnalysis
     {
         private Bitmap _Img;
 

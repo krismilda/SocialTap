@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using Emgu.CV;
-
+using System.Drawing;
+using social_tap;
 
 namespace SocialTap
 {
@@ -29,7 +30,10 @@ namespace SocialTap
             }
 
             imageBox.Image = image;
-
+            Bitmap bitmap = new Bitmap(image.Bitmap);
+            SimpleImageAnalysis imageInformation = new SimpleImageAnalysis(bitmap);
+            int percentageOfLiquid = imageInformation.CalculatePercentageOfLiquid();
+            lblPercentage.Text = percentageOfLiquid.ToString();
 
         }
     }
