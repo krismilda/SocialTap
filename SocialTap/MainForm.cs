@@ -11,6 +11,9 @@ namespace SocialTap
         public MainForm()
         {
             InitializeComponent();
+            CurrentCoordinate currentCoordinate = new CurrentCoordinate();
+            currentCoordinate.CalculateCurrentCoordinates();
+            lblName.Text = currentCoordinate.getCurrentCoordinates();
         }
 
         private void btnOpenFile_Click(object sender, EventArgs e)
@@ -22,19 +25,19 @@ namespace SocialTap
             try
             {
                 image = new Mat(openFileDialog.FileName);
+                imageBox.Image = image;
+
+                Bitmap bitmap = new Bitmap(image.Bitmap);
+                SimpleImageAnalysis imageInformation = new SimpleImageAnalysis(bitmap);
+                int percentageOfLiquid = imageInformation.CalculatePercentageOfLiquid();
+                lblPercentage.Text = percentageOfLiquid.ToString();
             }
-            catch (Exception exp)
+            catch (ArgumentException)
             {
                 errorMessage.Text = "Wrong image format";
                 image = null;
             }
-
-            imageBox.Image = image;
-            Bitmap bitmap = new Bitmap(image.Bitmap);
-            SimpleImageAnalysis imageInformation = new SimpleImageAnalysis(bitmap);
-            int percentageOfLiquid = imageInformation.CalculatePercentageOfLiquid();
-            lblPercentage.Text = percentageOfLiquid.ToString();
-
         }
+
     }
 }

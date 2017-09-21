@@ -32,11 +32,13 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.errorMessage = new System.Windows.Forms.Label();
+            this.lblPercentageText = new System.Windows.Forms.Label();
+            this.lblPercentage = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.imageBox = new Emgu.CV.UI.ImageBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.lblPercentageText = new System.Windows.Forms.Label();
-            this.lblPercentage = new System.Windows.Forms.Label();
+            this.lblNameText = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
@@ -50,16 +52,19 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 323F));
             this.tableLayoutPanel1.Controls.Add(this.btnOpenFile, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblNameText, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblPercentageText, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblPercentage, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.errorMessage, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblPercentageText, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblPercentage, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 3);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.85449F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(463, 75);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(463, 79);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnOpenFile
@@ -84,39 +89,10 @@
             this.errorMessage.TabIndex = 1;
             this.errorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.AutoSize = true;
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.imageBox, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 86);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(463, 432);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // imageBox
-            // 
-            this.imageBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imageBox.Location = new System.Drawing.Point(4, 4);
-            this.imageBox.Margin = new System.Windows.Forms.Padding(4);
-            this.imageBox.Name = "imageBox";
-            this.imageBox.Size = new System.Drawing.Size(455, 424);
-            this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imageBox.TabIndex = 2;
-            this.imageBox.TabStop = false;
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "FileName";
-            // 
             // lblPercentageText
             // 
             this.lblPercentageText.AutoSize = true;
-            this.lblPercentageText.Location = new System.Drawing.Point(3, 40);
+            this.lblPercentageText.Location = new System.Drawing.Point(3, 56);
             this.lblPercentageText.Name = "lblPercentageText";
             this.lblPercentageText.Size = new System.Drawing.Size(134, 19);
             this.lblPercentageText.TabIndex = 2;
@@ -125,10 +101,56 @@
             // lblPercentage
             // 
             this.lblPercentage.AutoSize = true;
-            this.lblPercentage.Location = new System.Drawing.Point(143, 40);
+            this.lblPercentage.Location = new System.Drawing.Point(143, 56);
             this.lblPercentage.Name = "lblPercentage";
             this.lblPercentage.Size = new System.Drawing.Size(0, 19);
             this.lblPercentage.TabIndex = 3;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.AutoSize = true;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.imageBox, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 90);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(463, 476);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // imageBox
+            // 
+            this.imageBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageBox.Location = new System.Drawing.Point(4, 4);
+            this.imageBox.Margin = new System.Windows.Forms.Padding(4);
+            this.imageBox.Name = "imageBox";
+            this.imageBox.Size = new System.Drawing.Size(455, 468);
+            this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imageBox.TabIndex = 2;
+            this.imageBox.TabStop = false;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "FileName";
+            // 
+            // lblNameText
+            // 
+            this.lblNameText.AutoSize = true;
+            this.lblNameText.Location = new System.Drawing.Point(3, 37);
+            this.lblNameText.Name = "lblNameText";
+            this.lblNameText.Size = new System.Drawing.Size(46, 19);
+            this.lblNameText.TabIndex = 4;
+            this.lblNameText.Text = "Name";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(143, 37);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(0, 19);
+            this.lblName.TabIndex = 5;
             // 
             // MainForm
             // 
@@ -161,6 +183,8 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Label lblPercentageText;
         private System.Windows.Forms.Label lblPercentage;
+        private System.Windows.Forms.Label lblNameText;
+        private System.Windows.Forms.Label lblName;
     }
 }
 
