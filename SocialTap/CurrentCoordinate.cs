@@ -19,7 +19,7 @@ namespace SocialTap
             GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
             do
             {
-                watcher.TryStart(true, TimeSpan.FromMilliseconds(200000));
+                watcher.TryStart(true, TimeSpan.FromMilliseconds(2000));
 
             } while (watcher.Status.ToString().Equals("NoData"));
 
@@ -32,7 +32,7 @@ namespace SocialTap
                 longitude = coordinate.Longitude;
             }
         }
-        public String getCurrentCoordinates()
+        public String GetCurrentCoordinates()
         {
             NumberFormatInfo nnumberFormat = new NumberFormatInfo();
             nnumberFormat.NumberDecimalSeparator = ".";

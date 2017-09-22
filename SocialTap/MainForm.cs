@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using Emgu.CV;
 using System.Drawing;
 using social_tap;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SocialTap
 {
@@ -11,11 +13,15 @@ namespace SocialTap
         public MainForm()
         {
             InitializeComponent();
-            CurrentCoordinate currentCoordinate = new CurrentCoordinate();
-            currentCoordinate.CalculateCurrentCoordinates();
-            lblName.Text = currentCoordinate.getCurrentCoordinates();
+            getLocationInformation();
         }
-
+        public async void getLocationInformation()
+        {
+            CurrentLocationName googleApiData = new CurrentLocationName();
+            GooglePlacesApiResponse responseData = await googleApiData.GetApiResponseData();
+            lblName.Text = responseData.results[0].name;
+            lblAddress.Text = responseData.results[0].vicinity;
+        }
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
             DialogResult drChosenFile;
@@ -26,7 +32,6 @@ namespace SocialTap
             {
                 image = new Mat(openFileDialog.FileName);
                 imageBox.Image = image;
-
                 Bitmap bitmap = new Bitmap(image.Bitmap);
                 SimpleImageAnalysis imageInformation = new SimpleImageAnalysis(bitmap);
                 int percentageOfLiquid = imageInformation.CalculatePercentageOfLiquid();
@@ -35,7 +40,6 @@ namespace SocialTap
             catch (ArgumentException)
             {
                 errorMessage.Text = "Wrong image format";
-                image = null;
             }
         }
 
