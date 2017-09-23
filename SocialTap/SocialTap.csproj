@@ -51,22 +51,38 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Emgu.CV.DebuggerVisualizers.VS2017">
       <HintPath>..\..\..\..\..\..\..\Emgu\emgucv-windesktop 3.2.0.2682\bin\Emgu.CV.DebuggerVisualizers.VS2017.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Emgu.CV.UI">
       <HintPath>..\..\..\..\..\..\..\Emgu\emgucv-windesktop 3.2.0.2682\bin\Emgu.CV.UI.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Emgu.CV.UI.GL">
       <HintPath>..\..\..\..\..\..\..\Emgu\emgucv-windesktop 3.2.0.2682\bin\Emgu.CV.UI.GL.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Emgu.CV.World, Version=3.2.0.2682, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Emgu\emgucv-windesktop 3.2.0.2682\bin\Emgu.CV.World.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -113,7 +129,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="concrt140.dll" />
+    <Content Include="cvextern.dll" />
+    <Content Include="msvcp140.dll" />
+    <Content Include="opencv_ffmpeg320_64.dll" />
     <Content Include="Test Images\Glass1.bmp" />
+    <Content Include="vcruntime140.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

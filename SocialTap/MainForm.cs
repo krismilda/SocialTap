@@ -34,7 +34,7 @@ namespace SocialTap
             SimpleImageAnalysis imageInformation = new SimpleImageAnalysis(bitmap);
             int percentageOfLiquid = imageInformation.CalculatePercentageOfLiquid();
             lblPercentage.Text = percentageOfLiquid.ToString();
-
+            
         }
     }
 }
