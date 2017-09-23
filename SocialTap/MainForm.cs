@@ -15,17 +15,8 @@ namespace SocialTap
     {
         public MainForm()
         {
-            InitializeComponent();
-            getLocationInformation();
+            InitializeComponent();            
         }
-        public async void getLocationInformation()
-        {
-            CurrentLocationName googleApiData = new CurrentLocationName();
-            GooglePlacesApiResponse responseData = await googleApiData.GetApiResponseData();
-            lblName.Text = responseData.results[0].name;
-            lblAddress.Text = responseData.results[0].vicinity;
-        }
-
         public async void GetLocationInformation()
         {
             GooglePlacesApiData googleApiData = new GooglePlacesApiData();
