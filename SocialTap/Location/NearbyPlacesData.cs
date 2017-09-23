@@ -12,10 +12,9 @@ using System.Xml;
 
 namespace SocialTap
 {
-    public class GooglePlacesApiData
+    public class NearbyPlacesData
     {
-
-        public async Task<GooglePlacesApiResponse> GetApiResponseData()
+        public async Task<GooglePlacesApiData> GetApiResponseData()
         {
             CurrentCoordinate currentCoordinate = new CurrentCoordinate();
             currentCoordinate.CalculateCurrentCoordinates();
@@ -23,19 +22,19 @@ namespace SocialTap
             HttpClient client = new HttpClient();
             HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get,"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+currentCoordinates+ "&rankby=distance&key=AIzaSyAoqL_K1g-5kTuinL-60Tmcf9udFtc9SLg");
             HttpResponseMessage responseMessage =await client.SendAsync(requestMessage);
-            GooglePlacesApiResponse responseData = JsonConvert.DeserializeObject<GooglePlacesApiResponse>(await responseMessage.Content.ReadAsStringAsync());
-            return responseData;
+            GooglePlacesApiData nearbyLocationData = JsonConvert.DeserializeObject<GooglePlacesApiData>(await responseMessage.Content.ReadAsStringAsync());
+            return nearbyLocationData;
         }
-        public async Task<GooglePlacesApiResponse> GetApiResponseData(String type)
+        public async Task<GooglePlacesApiData> GetApiResponseData(String type)
         {
             CurrentCoordinate currentCoordinate = new CurrentCoordinate();
             currentCoordinate.CalculateCurrentCoordinates();
             String currentCoordinates = CoordinatesConverter.GetConvertedCoordinates(currentCoordinate.latitude, currentCoordinate.longitude);
             HttpClient client = new HttpClient();
-            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + currentCoordinates + "&rankby=distance&type="+type+"&key=AIzaSyAoqL_K1g-5kTuinL-60Tmcf9udFtc9SLg");
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" +currentCoordinates+ "&rankby=distance&type=+"+type+"&key=AIzaSyAoqL_K1g-5kTuinL-60Tmcf9udFtc9SLg");
             HttpResponseMessage responseMessage = await client.SendAsync(requestMessage);
-            GooglePlacesApiResponse responseData = JsonConvert.DeserializeObject<GooglePlacesApiResponse>(await responseMessage.Content.ReadAsStringAsync());
-            return responseData;
+            GooglePlacesApiData nearbyLocationData = JsonConvert.DeserializeObject<GooglePlacesApiData>(await responseMessage.Content.ReadAsStringAsync());
+            return nearbyLocationData;
         }
     }
 }

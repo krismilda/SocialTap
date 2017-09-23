@@ -42,11 +42,19 @@
             this.imageBox = new Emgu.CV.UI.ImageBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.cmbType = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnFindMap = new System.Windows.Forms.Button();
+            this.cmdZoom = new System.Windows.Forms.ComboBox();
+            this.cmbType = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblZoomText = new System.Windows.Forms.PictureBox();
+            this.TblNearbyLocation = new System.Windows.Forms.DataGridView();
+            this.ColumnNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
@@ -54,6 +62,8 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblZoomText)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -191,52 +201,88 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnCount = 4;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.41457F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 283F));
-            this.tableLayoutPanel4.Controls.Add(this.cmbType, 1, 0);
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 294F));
+            this.tableLayoutPanel4.Controls.Add(this.label1, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnFindMap, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.cmdZoom, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.cmbType, 1, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.13044F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(355, 31);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(617, 30);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
-            // cmbType
+            // label1
             // 
-            this.cmbType.FormattingEnabled = true;
-            this.cmbType.Items.AddRange(new object[] {
-            "Restaurant",
-            "Bar",
-            "Cafe"});
-            this.cmbType.Location = new System.Drawing.Point(75, 3);
-            this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(194, 27);
-            this.cmbType.TabIndex = 1;
-            this.cmbType.Text = "Restaurant";
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(275, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Zoom";
             // 
             // btnFindMap
             // 
             this.btnFindMap.Location = new System.Drawing.Point(3, 3);
             this.btnFindMap.Name = "btnFindMap";
-            this.btnFindMap.Size = new System.Drawing.Size(66, 25);
+            this.btnFindMap.Size = new System.Drawing.Size(60, 24);
             this.btnFindMap.TabIndex = 0;
             this.btnFindMap.Text = "FIND";
             this.btnFindMap.UseVisualStyleBackColor = true;
+            this.btnFindMap.Click += new System.EventHandler(this.btnFindMap_Click);
+            // 
+            // cmdZoom
+            // 
+            this.cmdZoom.FormattingEnabled = true;
+            this.cmdZoom.Items.AddRange(new object[] {
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"});
+            this.cmdZoom.Location = new System.Drawing.Point(326, 3);
+            this.cmdZoom.Name = "cmdZoom";
+            this.cmdZoom.Size = new System.Drawing.Size(70, 27);
+            this.cmdZoom.TabIndex = 3;
+            this.cmdZoom.Text = "15";
+            // 
+            // cmbType
+            // 
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Items.AddRange(new object[] {
+            "restaurant",
+            "bar",
+            "cafe"});
+            this.cmbType.Location = new System.Drawing.Point(78, 3);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(176, 27);
+            this.cmbType.TabIndex = 1;
+            this.cmbType.Text = "restaurant";
             // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.0803F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.9197F));
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel8, 1, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 1);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, -1);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(734, 482);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1071, 484);
             this.tableLayoutPanel6.TabIndex = 3;
             // 
             // tableLayoutPanel7
@@ -258,33 +304,89 @@
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(370, 3);
+            this.tableLayoutPanel8.Controls.Add(this.lblZoomText, 0, 2);
+            this.tableLayoutPanel8.Controls.Add(this.TblNearbyLocation, 0, 1);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(368, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 2;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.403361F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.59664F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(361, 476);
+            this.tableLayoutPanel8.RowCount = 3;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.23809F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(623, 476);
             this.tableLayoutPanel8.TabIndex = 1;
+            // 
+            // lblZoomText
+            // 
+            this.lblZoomText.Location = new System.Drawing.Point(3, 179);
+            this.lblZoomText.Name = "lblZoomText";
+            this.lblZoomText.Size = new System.Drawing.Size(615, 294);
+            this.lblZoomText.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.lblZoomText.TabIndex = 3;
+            this.lblZoomText.TabStop = false;
+            // 
+            // TblNearbyLocation
+            // 
+            this.TblNearbyLocation.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.TblNearbyLocation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.TblNearbyLocation.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.TblNearbyLocation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TblNearbyLocation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnNr,
+            this.ColumnName,
+            this.ColumnAddress,
+            this.ColumnPercentage});
+            this.TblNearbyLocation.Location = new System.Drawing.Point(3, 39);
+            this.TblNearbyLocation.Name = "TblNearbyLocation";
+            this.TblNearbyLocation.Size = new System.Drawing.Size(617, 134);
+            this.TblNearbyLocation.TabIndex = 4;
+            // 
+            // ColumnNr
+            // 
+            this.ColumnNr.HeaderText = "Nr.";
+            this.ColumnNr.Name = "ColumnNr";
+            this.ColumnNr.Width = 50;
+            // 
+            // ColumnName
+            // 
+            this.ColumnName.HeaderText = "Name";
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.Width = 207;
+            // 
+            // ColumnAddress
+            // 
+            this.ColumnAddress.HeaderText = "Address";
+            this.ColumnAddress.Name = "ColumnAddress";
+            this.ColumnAddress.Width = 220;
+            // 
+            // ColumnPercentage
+            // 
+            this.ColumnPercentage.HeaderText = "Percentage";
+            this.ColumnPercentage.Name = "ColumnPercentage";
+            this.ColumnPercentage.Width = 80;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 480);
+            this.ClientSize = new System.Drawing.Size(996, 480);
             this.Controls.Add(this.tableLayoutPanel6);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Social Tap";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lblZoomText)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -309,6 +411,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.PictureBox lblZoomText;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmdZoom;
+        private System.Windows.Forms.DataGridView TblNearbyLocation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPercentage;
     }
 }
 

@@ -11,8 +11,8 @@ namespace SocialTap
 {
     public class CurrentCoordinate
     {
-        private double latitude { get; set; }
-        private double longitude { get; set; }
+        public double latitude { get; set; }
+        public double longitude { get; set; }
 
         public void CalculateCurrentCoordinates()
         {
@@ -31,12 +31,6 @@ namespace SocialTap
                 latitude = coordinate.Latitude;
                 longitude = coordinate.Longitude;
             }
-        }
-        public String GetCurrentCoordinates()
-        {
-            NumberFormatInfo nnumberFormat = new NumberFormatInfo();
-            nnumberFormat.NumberDecimalSeparator = ".";
-            return latitude.ToString(nnumberFormat) + "," + longitude.ToString(nnumberFormat);
         }
     }
 }

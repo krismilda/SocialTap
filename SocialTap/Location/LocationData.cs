@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocialTap.Location;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace SocialTap
 {
     public class LocationData
     {
-        public Object geometry { get; set; }
+        public Geometry geometry { get; set; }
         public string icon { get; set; }
         public string id { get; set; }
         public string name { get; set; }
