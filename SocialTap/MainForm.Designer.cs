@@ -32,6 +32,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.lblNameText = new System.Windows.Forms.Label();
+
             this.lblName = new System.Windows.Forms.Label();
             this.errorMessage = new System.Windows.Forms.Label();
             this.lblAddressText = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.imageBox = new Emgu.CV.UI.ImageBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnFindMap = new System.Windows.Forms.Button();
@@ -55,6 +57,7 @@
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
@@ -78,6 +81,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lblNameText, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.errorMessage, 1, 0);
+
             this.tableLayoutPanel1.Controls.Add(this.lblAddressText, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblPercentage, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblAddress, 1, 2);
@@ -92,6 +96,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(350, 91);
+
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnOpenFile
@@ -107,18 +112,39 @@
             // 
             // lblNameText
             // 
+
             this.lblNameText.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblNameText.AutoSize = true;
             this.lblNameText.Location = new System.Drawing.Point(3, 34);
+          
             this.lblNameText.Name = "lblNameText";
             this.lblNameText.Size = new System.Drawing.Size(46, 19);
             this.lblNameText.TabIndex = 4;
             this.lblNameText.Text = "Name";
             // 
+
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(143, 34);
+
+            // lblPercentageText
+            // 
+            this.lblPercentageText.AutoSize = true;
+            this.lblPercentageText.Location = new System.Drawing.Point(3, 81);
+            this.lblPercentageText.Name = "lblPercentageText";
+            this.lblPercentageText.Size = new System.Drawing.Size(134, 19);
+            this.lblPercentageText.TabIndex = 2;
+            this.lblPercentageText.Text = "Percentage of Liquid";
+            // 
+            // lblPercentage
+            // 
+            this.lblPercentage.AutoSize = true;
+            this.lblPercentage.Location = new System.Drawing.Point(143, 81);
+            this.lblPercentage.Name = "lblPercentage";
+            this.lblPercentage.Size = new System.Drawing.Size(0, 19);
+            this.lblPercentage.TabIndex = 3;
+
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(0, 19);
             this.lblName.TabIndex = 5;
@@ -176,12 +202,16 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.imageBox, 0, 0);
+
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 103);
+
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+
             this.tableLayoutPanel2.Size = new System.Drawing.Size(351, 365);
+
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // imageBox
@@ -190,8 +220,10 @@
             this.imageBox.Location = new System.Drawing.Point(4, 4);
             this.imageBox.Margin = new System.Windows.Forms.Padding(4);
             this.imageBox.Name = "imageBox";
+
             this.imageBox.Size = new System.Drawing.Size(343, 357);
             this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+
             this.imageBox.TabIndex = 2;
             this.imageBox.TabStop = false;
             // 
@@ -199,6 +231,7 @@
             // 
             this.openFileDialog.FileName = "FileName";
             // 
+
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 4;
@@ -363,6 +396,23 @@
             this.ColumnPercentage.HeaderText = "Percentage";
             this.ColumnPercentage.Name = "ColumnPercentage";
             this.ColumnPercentage.Width = 80;
+            // lblAddressText
+            // 
+            this.lblAddressText.AutoSize = true;
+            this.lblAddressText.Location = new System.Drawing.Point(3, 61);
+            this.lblAddressText.Name = "lblAddressText";
+            this.lblAddressText.Size = new System.Drawing.Size(60, 19);
+            this.lblAddressText.TabIndex = 6;
+            this.lblAddressText.Text = "Address";
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Location = new System.Drawing.Point(143, 61);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(0, 19);
+            this.lblAddress.TabIndex = 7;
+
             // 
             // MainForm
             // 
@@ -405,6 +455,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblAddressText;
         private System.Windows.Forms.Label lblAddress;
+
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button btnFindMap;
         private System.Windows.Forms.ComboBox cmbType;
@@ -419,6 +470,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPercentage;
+
     }
 }
 

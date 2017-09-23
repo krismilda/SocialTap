@@ -5,7 +5,9 @@ using System.Drawing;
 using social_tap;
 using System.Threading;
 using System.Threading.Tasks;
+
 using SocialTap.Maps;
+
 
 namespace SocialTap
 {
@@ -14,7 +16,16 @@ namespace SocialTap
         public MainForm()
         {
             InitializeComponent();
+            getLocationInformation();
         }
+        public async void getLocationInformation()
+        {
+            CurrentLocationName googleApiData = new CurrentLocationName();
+            GooglePlacesApiResponse responseData = await googleApiData.GetApiResponseData();
+            lblName.Text = responseData.results[0].name;
+            lblAddress.Text = responseData.results[0].vicinity;
+        }
+
         public async void GetLocationInformation()
         {
             GooglePlacesApiData googleApiData = new GooglePlacesApiData();
@@ -22,6 +33,7 @@ namespace SocialTap
             lblName.Text = responseData.results[0].name;
             lblAddress.Text = responseData.results[0].vicinity;
         }
+
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
             DialogResult drChosenFile;
@@ -41,6 +53,7 @@ namespace SocialTap
             {
                 errorMessage.Text = "Wrong image format";
             }
+
         }
 
         private void btnFindMap_Click(object sender, EventArgs e)
@@ -60,6 +73,7 @@ namespace SocialTap
             {
                    TblNearbyLocation.Rows.Add(i+1, nearbyPlacesData.placesList[i].name, nearbyPlacesData.placesList[i].address, nearbyPlacesData.placesList[i].percentage);
             }
+
 
         }
 
