@@ -111,7 +111,6 @@
             // 
             // lblNameText
             // 
-            this.lblNameText.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblNameText.AutoSize = true;
             this.lblNameText.Location = new System.Drawing.Point(3, 34);
             this.lblNameText.Name = "lblNameText";
@@ -140,7 +139,6 @@
             // 
             // lblAddressText
             // 
-            this.lblAddressText.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblAddressText.AutoSize = true;
             this.lblAddressText.Location = new System.Drawing.Point(3, 53);
             this.lblAddressText.Name = "lblAddressText";
@@ -166,7 +164,6 @@
             // 
             // lblPercentageText
             // 
-            this.lblPercentageText.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPercentageText.AutoSize = true;
             this.lblPercentageText.Location = new System.Drawing.Point(3, 72);
             this.lblPercentageText.Name = "lblPercentageText";
@@ -292,14 +289,14 @@
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.03093F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.96907F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel7.Size = new System.Drawing.Size(359, 474);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
@@ -395,7 +392,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 748);
+            this.ClientSize = new System.Drawing.Size(996, 741);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel6);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
