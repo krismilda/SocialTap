@@ -7,7 +7,8 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using SocialTap.Maps;
-
+using SocialTap.Utilities;
+using System.Globalization;
 
 namespace SocialTap
 {
@@ -39,6 +40,11 @@ namespace SocialTap
                 SimpleImageAnalysis imageInformation = new SimpleImageAnalysis(bitmap);
                 int percentageOfLiquid = imageInformation.CalculatePercentageOfLiquid();
                 lblPercentage.Text = percentageOfLiquid.ToString();
+
+                var culture = new CultureInfo("en-GB");
+                DateTime localDate = DateTime.Now;
+
+                Log.WriteLineToFile(localDate.ToString(culture) + " " + percentageOfLiquid + "%");
             }
             catch (ArgumentException)
             {

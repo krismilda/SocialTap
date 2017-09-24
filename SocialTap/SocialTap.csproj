@@ -137,6 +137,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImageAnalysis\ImageAnalysis.cs" />
     <Compile Include="ImageAnalysis\ImageDetails.cs" />
     <Compile Include="Location\CoordinatesConverter.cs" />
     <Compile Include="Location\CurrentCoordinate.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ImageAnalysis\SimpleImageAnalysis.cs" />
+    <Compile Include="Utilities\Log.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +188,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\Log.txt" />
     <Content Include="Test Images\Glass1.bmp" />
   </ItemGroup>
   <ItemGroup />
