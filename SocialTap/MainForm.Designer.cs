@@ -42,14 +42,14 @@
             this.imageBox = new Emgu.CV.UI.ImageBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblZoomText = new System.Windows.Forms.Label();
             this.btnFindMap = new System.Windows.Forms.Button();
             this.cmdZoom = new System.Windows.Forms.ComboBox();
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblZoomText = new System.Windows.Forms.PictureBox();
+            this.ImageBoxMap = new System.Windows.Forms.PictureBox();
             this.TblNearbyLocation = new System.Windows.Forms.DataGridView();
             this.ColumnNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +57,7 @@
             this.ColumnPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.imageBox2 = new Emgu.CV.UI.ImageBox();
+            this.lblImageError = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
@@ -64,7 +65,7 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lblZoomText)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageBoxMap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox2)).BeginInit();
@@ -207,7 +208,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 294F));
-            this.tableLayoutPanel4.Controls.Add(this.label1, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.lblZoomText, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnFindMap, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.cmdZoom, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.cmbType, 1, 0);
@@ -218,15 +219,15 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(617, 30);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
-            // label1
+            // lblZoomText
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(275, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 19);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Zoom";
+            this.lblZoomText.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblZoomText.AutoSize = true;
+            this.lblZoomText.Location = new System.Drawing.Point(275, 5);
+            this.lblZoomText.Name = "lblZoomText";
+            this.lblZoomText.Size = new System.Drawing.Size(45, 19);
+            this.lblZoomText.TabIndex = 2;
+            this.lblZoomText.Text = "Zoom";
             // 
             // btnFindMap
             // 
@@ -305,25 +306,27 @@
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.lblZoomText, 0, 2);
-            this.tableLayoutPanel8.Controls.Add(this.TblNearbyLocation, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.TblNearbyLocation, 0, 2);
+            this.tableLayoutPanel8.Controls.Add(this.lblImageError, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.ImageBoxMap, 0, 3);
             this.tableLayoutPanel8.Location = new System.Drawing.Point(368, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 3;
+            this.tableLayoutPanel8.RowCount = 4;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.23809F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 274F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(623, 476);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
-            // lblZoomText
+            // ImageBoxMap
             // 
-            this.lblZoomText.Location = new System.Drawing.Point(3, 179);
-            this.lblZoomText.Name = "lblZoomText";
-            this.lblZoomText.Size = new System.Drawing.Size(615, 294);
-            this.lblZoomText.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.lblZoomText.TabIndex = 3;
-            this.lblZoomText.TabStop = false;
+            this.ImageBoxMap.Location = new System.Drawing.Point(3, 205);
+            this.ImageBoxMap.Name = "ImageBoxMap";
+            this.ImageBoxMap.Size = new System.Drawing.Size(615, 268);
+            this.ImageBoxMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ImageBoxMap.TabIndex = 3;
+            this.ImageBoxMap.TabStop = false;
             // 
             // TblNearbyLocation
             // 
@@ -336,9 +339,9 @@
             this.ColumnName,
             this.ColumnAddress,
             this.ColumnPercentage});
-            this.TblNearbyLocation.Location = new System.Drawing.Point(3, 39);
+            this.TblNearbyLocation.Location = new System.Drawing.Point(3, 60);
             this.TblNearbyLocation.Name = "TblNearbyLocation";
-            this.TblNearbyLocation.Size = new System.Drawing.Size(617, 134);
+            this.TblNearbyLocation.Size = new System.Drawing.Size(617, 139);
             this.TblNearbyLocation.TabIndex = 4;
             // 
             // ColumnNr
@@ -388,6 +391,14 @@
             this.imageBox2.TabIndex = 3;
             this.imageBox2.TabStop = false;
             // 
+            // lblImageError
+            // 
+            this.lblImageError.AutoSize = true;
+            this.lblImageError.Location = new System.Drawing.Point(3, 38);
+            this.lblImageError.Name = "lblImageError";
+            this.lblImageError.Size = new System.Drawing.Size(0, 19);
+            this.lblImageError.TabIndex = 5;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -410,7 +421,8 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lblZoomText)).EndInit();
+            this.tableLayoutPanel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageBoxMap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imageBox2)).EndInit();
@@ -439,8 +451,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.PictureBox lblZoomText;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox ImageBoxMap;
+        private System.Windows.Forms.Label lblZoomText;
         private System.Windows.Forms.ComboBox cmdZoom;
         private System.Windows.Forms.DataGridView TblNearbyLocation;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNr;
@@ -449,6 +461,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPercentage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private Emgu.CV.UI.ImageBox imageBox2;
+        private System.Windows.Forms.Label lblImageError;
     }
 }
 
