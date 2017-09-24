@@ -21,7 +21,8 @@ namespace SocialTap
             currentCoordinate.CalculateCurrentCoordinates();
             String currentCoordinates = CoordinatesConverter.GetConvertedCoordinates(currentCoordinate.latitude, currentCoordinate.longitude);
             HttpClient client = new HttpClient();
-            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get,"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+currentCoordinates+ "&rankby=distance&key=AIzaSyAoqL_K1g-5kTuinL-60Tmcf9udFtc9SLg");
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get,"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="
+                +currentCoordinates+ "&rankby=distance&key=AIzaSyAoqL_K1g-5kTuinL-60Tmcf9udFtc9SLg");
             HttpResponseMessage responseMessage =await client.SendAsync(requestMessage);
             GooglePlacesApiResponse responseData = JsonConvert.DeserializeObject<GooglePlacesApiResponse>(await responseMessage.Content.ReadAsStringAsync());
             return responseData;
