@@ -81,7 +81,6 @@ namespace SocialTap
             }
             catch (ArgumentOutOfRangeException)
             {
-                Console.WriteLine("buvau");
                 TblNearbyLocation.Rows.Clear();
                 ImageBoxMap.Image = null;
                 lblImageError.Text = "Cannot load information";
