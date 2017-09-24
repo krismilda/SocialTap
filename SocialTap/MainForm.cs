@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using SocialTap.Maps;
 using SocialTap.Utilities;
 using System.Globalization;
+using SocialTap.ImageAnalysis;
 
 namespace SocialTap
 {
@@ -34,7 +35,8 @@ namespace SocialTap
             GetLocationInformation();
             try
             {
-                image = new Mat(openFileDialog.FileName);
+                string path = openFileDialog.FileName;
+                image = new Mat(path);
                 imageBox.Image = image;
                 Bitmap bitmap = new Bitmap(image.Bitmap);
                 SimpleImageAnalysis imageInformation = new SimpleImageAnalysis(bitmap);
@@ -45,6 +47,9 @@ namespace SocialTap
                 DateTime localDate = DateTime.Now;
 
                 Log.WriteLineToFile(localDate.ToString(culture) + " " + percentageOfLiquid + "%");
+
+                EmguCVImageAnalysis imgAnalysis = new EmguCVImageAnalysis();
+                imageBox2.Image = imgAnalysis.FindContours(path);
             }
             catch (ArgumentException)
             {

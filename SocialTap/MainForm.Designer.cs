@@ -56,6 +56,7 @@
             this.ColumnAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.imageBox2 = new Emgu.CV.UI.ImageBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
@@ -65,6 +66,8 @@
             this.tableLayoutPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lblZoomText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -369,12 +372,24 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.imageBox2, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 489);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(362, 258);
             this.tableLayoutPanel3.TabIndex = 4;
+            // 
+            // imageBox2
+            // 
+            this.imageBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageBox2.Location = new System.Drawing.Point(4, 4);
+            this.imageBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.imageBox2.Name = "imageBox2";
+            this.imageBox2.Size = new System.Drawing.Size(354, 250);
+            this.imageBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imageBox2.TabIndex = 3;
+            this.imageBox2.TabStop = false;
             // 
             // MainForm
             // 
@@ -400,6 +415,8 @@
             this.tableLayoutPanel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lblZoomText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -434,6 +451,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPercentage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private Emgu.CV.UI.ImageBox imageBox2;
     }
 }
 

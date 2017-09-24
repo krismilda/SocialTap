@@ -137,7 +137,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ImageAnalysis\ImageAnalysis.cs" />
+    <Compile Include="ImageAnalysis\EmguCVImageAnalysis.cs" />
     <Compile Include="ImageAnalysis\ImageDetails.cs" />
     <Compile Include="Location\CoordinatesConverter.cs" />
     <Compile Include="Location\CurrentCoordinate.cs" />
