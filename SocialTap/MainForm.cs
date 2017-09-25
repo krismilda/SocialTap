@@ -17,7 +17,7 @@ namespace SocialTap
     {
         public MainForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
         public async void GetLocationInformation()
         {
@@ -68,13 +68,24 @@ namespace SocialTap
             GoogleStaticMapApiData nearbyPlacesData = new GoogleStaticMapApiData();
             string type = cmbType.Text;
             string zoom = cmdZoom.Text;
-            Bitmap map = await nearbyPlacesData.GetMapResponseDataAsync(type, zoom);
-            TblNearbyLocation.Rows.Clear();
-            lblZoomText.Image = map;
-            for (int i = 0; i < 5; i++)
+            try
             {
-                   TblNearbyLocation.Rows.Add(i+1, nearbyPlacesData.placesList[i].name, nearbyPlacesData.placesList[i].address, nearbyPlacesData.placesList[i].percentage);
+                Bitmap map = await nearbyPlacesData.GetMapResponseDataAsync(type, zoom);
+                TblNearbyLocation.Rows.Clear();
+                ImageBoxMap.Image = map;
+                lblImageError.Text= "";
+                for (int i = 0; i < 5; i++)
+                {
+                    TblNearbyLocation.Rows.Add(i + 1, nearbyPlacesData.placesList[i].name, nearbyPlacesData.placesList[i].address, nearbyPlacesData.placesList[i].percentage);
+                }
             }
+            catch (ArgumentOutOfRangeException)
+            {
+                TblNearbyLocation.Rows.Clear();
+                ImageBoxMap.Image = null;
+                lblImageError.Text = "Cannot load information";
+            }
+
 
 
         }
