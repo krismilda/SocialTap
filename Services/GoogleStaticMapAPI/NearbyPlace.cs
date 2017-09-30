@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SocialTap.Maps
+namespace Services
 {
     public class NearbyPlace
     {

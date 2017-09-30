@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SocialTap.Utilities
+namespace Services.Utilities
 {
-    class Log
+    public class Log
     {
         public static void WriteLineToFile(string str)
         {

@@ -8,9 +8,9 @@ using Emgu.CV;
 using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;
 
-namespace SocialTap.ImageAnalysis
+namespace Services.ImageAnalysis
 {
-    class EmguCVImageAnalysis
+    public class EmguCVImageAnalysis
     {
         public Image<Bgr, Byte> FindContours(string path)
         {

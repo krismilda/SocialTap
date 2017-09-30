@@ -1,10 +1,11 @@
-﻿using System;
+﻿using SocialTap;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SocialTap
+namespace Services
 {
     static class Program
     {
