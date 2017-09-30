@@ -7,7 +7,7 @@ using System.Device.Location;
 using System.Diagnostics;
 using System.Globalization;
 
-namespace SocialTap
+namespace Services
 {
     public class CurrentCoordinate
     {

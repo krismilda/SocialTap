@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SocialTap.Location
+namespace Services
 {
     public class Location
     {

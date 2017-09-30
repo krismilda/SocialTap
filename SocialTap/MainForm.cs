@@ -6,10 +6,10 @@ using social_tap;
 using System.Threading;
 using System.Threading.Tasks;
 
-using SocialTap.Maps;
-using SocialTap.Utilities;
+using Services;
 using System.Globalization;
-using SocialTap.ImageAnalysis;
+using Services.Utilities;
+using Services.ImageAnalysis;
 
 namespace SocialTap
 {

@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using Google.Cloud.Vision.V1;
+using System.Drawing;
 
-namespace SocialTap.ImageAnalysis
+namespace Services.ImageAnalysis
 {
     class ImageDetails
     {
         public List<string> GetDetails(string path)
         {
             List<string> description = new List<string>();
+           /*  
             var client = ImageAnnotatorClient.Create();
             var image = Image.FromFile(path);
             
@@ -18,7 +20,7 @@ namespace SocialTap.ImageAnalysis
                 if (annotation.Description != null)
                     description.Add(annotation.Description);
             }
-            
+            */
             return description;
         }
     }

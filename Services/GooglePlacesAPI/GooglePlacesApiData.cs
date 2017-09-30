@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SocialTap.Location;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace SocialTap
+namespace Services
 {
     public class GooglePlacesApiData
     {
