@@ -96,7 +96,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(350, 91);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(351, 122);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnOpenFile
@@ -115,7 +115,7 @@
             this.lblNameText.AutoSize = true;
             this.lblNameText.Location = new System.Drawing.Point(3, 34);
             this.lblNameText.Name = "lblNameText";
-            this.lblNameText.Size = new System.Drawing.Size(46, 19);
+            this.lblNameText.Size = new System.Drawing.Size(56, 22);
             this.lblNameText.TabIndex = 4;
             this.lblNameText.Text = "Name";
             // 
@@ -124,7 +124,7 @@
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(143, 34);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 19);
+            this.lblName.Size = new System.Drawing.Size(0, 22);
             this.lblName.TabIndex = 5;
             // 
             // errorMessage
@@ -134,41 +134,41 @@
             this.errorMessage.Location = new System.Drawing.Point(144, 0);
             this.errorMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.errorMessage.Name = "errorMessage";
-            this.errorMessage.Size = new System.Drawing.Size(0, 19);
+            this.errorMessage.Size = new System.Drawing.Size(0, 22);
             this.errorMessage.TabIndex = 1;
             this.errorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblAddressText
             // 
             this.lblAddressText.AutoSize = true;
-            this.lblAddressText.Location = new System.Drawing.Point(3, 53);
+            this.lblAddressText.Location = new System.Drawing.Point(3, 56);
             this.lblAddressText.Name = "lblAddressText";
-            this.lblAddressText.Size = new System.Drawing.Size(60, 19);
+            this.lblAddressText.Size = new System.Drawing.Size(76, 22);
             this.lblAddressText.TabIndex = 6;
             this.lblAddressText.Text = "Address";
             // 
             // lblPercentage
             // 
             this.lblPercentage.AutoSize = true;
-            this.lblPercentage.Location = new System.Drawing.Point(143, 72);
+            this.lblPercentage.Location = new System.Drawing.Point(143, 78);
             this.lblPercentage.Name = "lblPercentage";
-            this.lblPercentage.Size = new System.Drawing.Size(0, 19);
+            this.lblPercentage.Size = new System.Drawing.Size(0, 22);
             this.lblPercentage.TabIndex = 3;
             // 
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(143, 53);
+            this.lblAddress.Location = new System.Drawing.Point(143, 56);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(0, 19);
+            this.lblAddress.Size = new System.Drawing.Size(0, 22);
             this.lblAddress.TabIndex = 7;
             // 
             // lblPercentageText
             // 
             this.lblPercentageText.AutoSize = true;
-            this.lblPercentageText.Location = new System.Drawing.Point(3, 72);
+            this.lblPercentageText.Location = new System.Drawing.Point(3, 78);
             this.lblPercentageText.Name = "lblPercentageText";
-            this.lblPercentageText.Size = new System.Drawing.Size(134, 19);
+            this.lblPercentageText.Size = new System.Drawing.Size(122, 44);
             this.lblPercentageText.TabIndex = 2;
             this.lblPercentageText.Text = "Percentage of Liquid";
             // 
@@ -178,7 +178,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.imageBox, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 103);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 134);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -223,9 +223,9 @@
             // 
             this.lblZoomText.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblZoomText.AutoSize = true;
-            this.lblZoomText.Location = new System.Drawing.Point(275, 5);
+            this.lblZoomText.Location = new System.Drawing.Point(275, 0);
             this.lblZoomText.Name = "lblZoomText";
-            this.lblZoomText.Size = new System.Drawing.Size(45, 19);
+            this.lblZoomText.Size = new System.Drawing.Size(41, 30);
             this.lblZoomText.TabIndex = 2;
             this.lblZoomText.Text = "Zoom";
             // 
@@ -256,7 +256,7 @@
             "20"});
             this.cmdZoom.Location = new System.Drawing.Point(326, 3);
             this.cmdZoom.Name = "cmdZoom";
-            this.cmdZoom.Size = new System.Drawing.Size(70, 27);
+            this.cmdZoom.Size = new System.Drawing.Size(70, 30);
             this.cmdZoom.TabIndex = 3;
             this.cmdZoom.Text = "15";
             // 
@@ -269,7 +269,7 @@
             "cafe"});
             this.cmbType.Location = new System.Drawing.Point(78, 3);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(176, 27);
+            this.cmbType.Size = new System.Drawing.Size(176, 30);
             this.cmbType.TabIndex = 1;
             this.cmbType.Text = "restaurant";
             // 
@@ -316,6 +316,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 274F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(623, 476);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
@@ -375,6 +376,7 @@
             this.ImageBoxMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ImageBoxMap.TabIndex = 3;
             this.ImageBoxMap.TabStop = false;
+            this.ImageBoxMap.Click += new System.EventHandler(this.ImageBoxMap_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -401,7 +403,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 741);
             this.Controls.Add(this.tableLayoutPanel3);

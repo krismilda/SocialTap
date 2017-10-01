@@ -11,7 +11,7 @@ namespace SocialTap.Utilities
         public static void WriteLineToFile(string str)
         {
             using (System.IO.StreamWriter file =
-                new System.IO.StreamWriter(@"D:\DatLog.txt", true))
+                new System.IO.StreamWriter(@"C:\Users\Lenovo Yoga 3\source\repos\SocialTap\DatLog.txt", true))
             {
                 file.WriteLine(str);
             }
