@@ -22,7 +22,7 @@ namespace SocialTap
         public async void GetLocationInformation()
         {
             GooglePlacesApiData googleApiData = new GooglePlacesApiData();
-            GooglePlacesApiResponse responseData = await googleApiData.GetApiResponseData();
+            GooglePlacesApiResponse responseData = await googleApiData.GetApiResponseData("");
             lblName.Text = responseData.results[0].name;
             lblAddress.Text = responseData.results[0].vicinity;
         }
