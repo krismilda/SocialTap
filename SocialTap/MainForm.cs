@@ -49,7 +49,8 @@ namespace SocialTap
                 Log.WriteLineToFile(localDate.ToString(culture) + " " + percentageOfLiquid + "%");
 
                 EmguCVImageAnalysis imgAnalysis = new EmguCVImageAnalysis();
-                imageBox2.Image = imgAnalysis.FindContours(path);
+                //imageBox2.Image = imgAnalysis.FindContours(path);
+                imageBox2.Image = imgAnalysis.CannyDetection(path);
             }
             catch (ArgumentException)
             {
