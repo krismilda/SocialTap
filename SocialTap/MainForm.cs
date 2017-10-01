@@ -50,7 +50,10 @@ namespace SocialTap
 
                 EmguCVImageAnalysis imgAnalysis = new EmguCVImageAnalysis();
                 //imageBox2.Image = imgAnalysis.FindContours(path);
-                imageBox2.Image = imgAnalysis.CannyDetection(path);
+
+                //imageBox2.Image = imgAnalysis.CannyDetection(path);
+                Mat modelImage = new Mat(@"../../TestImages/GlassTemplate.jpg");
+                imageBox2.Image = EmguCVImageAnalysis.Draw(modelImage, image);
             }
             catch (ArgumentException)
             {
