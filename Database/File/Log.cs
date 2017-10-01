@@ -11,7 +11,7 @@ namespace Services.Utilities
         public static void WriteLineToFile(string str)
         {
             using (System.IO.StreamWriter file =
-                new System.IO.StreamWriter(@"D:\DatLog.txt", true))
+                new System.IO.StreamWriter(@"..\..\Data\Log.txt", true))
             {
                 file.WriteLine(str);
             }
