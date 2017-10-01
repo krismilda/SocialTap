@@ -175,7 +175,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Log.txt" />
-    <Content Include="Test Images\Glass1.bmp" />
+    <Content Include="TestImages\beer1.jpg" />
+    <Content Include="TestImages\beer2.jpg" />
+    <Content Include="TestImages\beerTemplate.bmp" />
+    <Content Include="TestImages\beerTemplate2.jpg" />
+    <Content Include="TestImages\Glass1.bmp" />
+    <Content Include="TestImages\GlassTemplate.bmp" />
+    <Content Include="TestImages\GlassTemplate.jpg" />
+    <Content Include="TestImages\GlassWater.jpg" />
+    <Content Include="TestImages\GlassWater2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Database\Database.csproj">

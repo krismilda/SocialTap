@@ -385,7 +385,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(362, 258);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(991, 374);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // imageBox2
@@ -394,7 +394,7 @@
             this.imageBox2.Location = new System.Drawing.Point(4, 4);
             this.imageBox2.Margin = new System.Windows.Forms.Padding(4);
             this.imageBox2.Name = "imageBox2";
-            this.imageBox2.Size = new System.Drawing.Size(354, 250);
+            this.imageBox2.Size = new System.Drawing.Size(983, 366);
             this.imageBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imageBox2.TabIndex = 3;
             this.imageBox2.TabStop = false;
@@ -403,7 +403,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 741);
+            this.ClientSize = new System.Drawing.Size(996, 865);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel6);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
