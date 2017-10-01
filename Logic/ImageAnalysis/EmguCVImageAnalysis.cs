@@ -28,7 +28,7 @@ namespace Services.ImageAnalysis
         public Image<Gray, float> SobelDetection(string path)
         {
             Image<Bgr, byte> sourceImage = new Image<Bgr, byte>(path);
-            Image<Gray, byte> sourceImageGray = sourceImage.Convert<Gray, byte>();
+            Image<Gray, byte> sourceImageGray = sourceImage.Convert<Gray, byte>(); 
             Image<Gray, float> imgSobel = new Image<Gray, float>(sourceImage.Width, sourceImage.Height, new Gray(0));
             imgSobel = sourceImageGray.Sobel(1, 1, 3);
             return imgSobel;
@@ -42,7 +42,7 @@ namespace Services.ImageAnalysis
             imgLaplacian = sourceImageGray.Laplace(3);
             return imgLaplacian;
         }
-
+      
         public static void FindMatch(Mat modelImage, Mat observedImage, out VectorOfKeyPoint modelKeyPoints, out VectorOfKeyPoint observedKeyPoints, VectorOfVectorOfDMatch matches, out Mat mask, out Mat homography)
         {
             int k = 2;
