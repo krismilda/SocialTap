@@ -10,6 +10,7 @@ using Services;
 using System.Globalization;
 using Services.Utilities;
 using Services.ImageAnalysis;
+using log4net;
 
 namespace SocialTap
 {
@@ -27,6 +28,8 @@ namespace SocialTap
             lblAddress.Text = responseData.results[0].vicinity;
         }
 
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
             DialogResult drChosenFile;
@@ -43,10 +46,13 @@ namespace SocialTap
                 int percentageOfLiquid = imageInformation.CalculatePercentageOfLiquid();
                 lblPercentage.Text = percentageOfLiquid.ToString();
 
-                var culture = new CultureInfo("en-GB");
-                DateTime localDate = DateTime.Now;
+                //var culture = new CultureInfo("en-GB");
+                //DateTime localDate = DateTime.Now;
 
-                Log.WriteLineToFile(localDate.ToString(culture) + " " + percentageOfLiquid + "%");
+                //Log.WriteLineToFile(localDate.ToString(culture) + " " + percentageOfLiquid + "%");
+                log.Info("Liquid in the picture: " + percentageOfLiquid + "%");
+
+
 
                 EmguCVImageAnalysis imgAnalysis = new EmguCVImageAnalysis();
                 //imageBox2.Image = imgAnalysis.FindContours(path);
