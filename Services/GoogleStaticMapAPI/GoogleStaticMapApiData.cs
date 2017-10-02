@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    
+
     public class GoogleStaticMapApiData
     {
         static String mapSize = "600x300";
@@ -25,10 +25,10 @@ namespace Services
 
             placesList.AddRange(await new NearbyPlacesList().GetNearbyPlacesListAsync(type));
             placesList.ToArray();
-            String url = ConfigurationManager.AppSettings["GoogleStaticMapApiUrl"] + "&size="+mapSize+"&center=" + currentCoordinates + "&zoom=" + zoom + "&" + ConfigurationManager.AppSettings["GoogleStaticMapApiKey"];
+            String url = ConfigurationManager.AppSettings["GoogleStaticMapApiUrl"] + "&size=" + mapSize + "&center=" + currentCoordinates + "&zoom=" + zoom + "&" + ConfigurationManager.AppSettings["GoogleStaticMapApiKey"];
             for (int i = 0; i < 5; i++)
             {
-                url +="&" + ConfigurationManager.AppSettings["GoogleStaticMapApiMarker"] + placesList[0].coordinates;
+                url += "&" + ConfigurationManager.AppSettings["GoogleStaticMapApiMarker"] + (i + 1) + "%7C" + placesList[i].coordinates;
             }
             Uri uri = new Uri(url);
             HttpWebRequest httpRequest = (HttpWebRequest)HttpWebRequest.Create(uri);
