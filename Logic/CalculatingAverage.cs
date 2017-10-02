@@ -10,9 +10,8 @@ namespace Logic
     {
         public static double GetAverage(int number1, int number2)
         {
-
-            return number1 / number2;
-
+            float average= number1 / number2;
+            return Math.Round(average, 2);
         }
     }
 }
