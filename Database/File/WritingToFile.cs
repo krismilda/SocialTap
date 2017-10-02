@@ -26,6 +26,7 @@ namespace Database.File
                 glassInformationFile.Address = glassInformation.Address;
                 glassInformationFile.Sum = glassInformation.Percentage;
                 glassInformationFile.Times = 1;
+                glassInformationFile.Average= glassInformation.Percentage;
                 listofGlass.Add(glassInformationFile);
                 binaryFormatter.Serialize(fileStream, listofGlass);
             }
@@ -47,6 +48,7 @@ namespace Database.File
                 {
                     glass.Sum += glassInformation.Percentage;
                     glass.Times++;
+                    glass.Average = CalculatingAverage.GetAverage(glass.Sum, glass.Times);
                     return true;
                 }
             }

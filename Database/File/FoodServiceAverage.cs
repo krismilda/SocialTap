@@ -16,7 +16,7 @@ namespace Database.File
             {
                 if (glass.Name.Equals(glassInformation.Name) && glass.Address.Equals(glassInformation.Address))
                 {
-                    return CalculatingAverage.GetAverage(glass.Sum, glass.Times).ToString();
+                    return glass.Average.ToString();
                 }
             }
             return "-";

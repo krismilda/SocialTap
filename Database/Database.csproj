@@ -45,6 +45,7 @@
     <Compile Include="File\GlassInformationFile.cs" />
     <Compile Include="File\Log.cs" />
     <Compile Include="File\ReadingFromFile.cs" />
+    <Compile Include="File\TopList.cs" />
     <Compile Include="File\WritingToFile.cs" />
     <Compile Include="GlassInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

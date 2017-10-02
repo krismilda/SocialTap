@@ -49,13 +49,20 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblImageError = new System.Windows.Forms.Label();
+            this.ImageBoxMap = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTopList = new System.Windows.Forms.Label();
+            this.dataTopList = new System.Windows.Forms.DataGridView();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TblNearbyLocation = new System.Windows.Forms.DataGridView();
             this.ColumnNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblImageError = new System.Windows.Forms.Label();
-            this.ImageBoxMap = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.imageBox2 = new Emgu.CV.UI.ImageBox();
             this.tableLayoutPanel1.SuspendLayout();
@@ -65,8 +72,11 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBoxMap)).BeginInit();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTopList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox2)).BeginInit();
             this.SuspendLayout();
@@ -284,7 +294,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1071, 484);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1071, 597);
             this.tableLayoutPanel6.TabIndex = 3;
             // 
             // tableLayoutPanel7
@@ -306,21 +316,104 @@
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.TblNearbyLocation, 0, 2);
             this.tableLayoutPanel8.Controls.Add(this.lblImageError, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.ImageBoxMap, 0, 3);
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel5, 0, 2);
             this.tableLayoutPanel8.Location = new System.Drawing.Point(368, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 4;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.23809F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 274F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(623, 476);
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 281F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 266F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(623, 591);
             this.tableLayoutPanel8.TabIndex = 1;
+            // 
+            // lblImageError
+            // 
+            this.lblImageError.AutoSize = true;
+            this.lblImageError.Location = new System.Drawing.Point(3, 36);
+            this.lblImageError.Name = "lblImageError";
+            this.lblImageError.Size = new System.Drawing.Size(0, 8);
+            this.lblImageError.TabIndex = 5;
+            // 
+            // ImageBoxMap
+            // 
+            this.ImageBoxMap.Location = new System.Drawing.Point(3, 328);
+            this.ImageBoxMap.Name = "ImageBoxMap";
+            this.ImageBoxMap.Size = new System.Drawing.Size(615, 260);
+            this.ImageBoxMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ImageBoxMap.TabIndex = 3;
+            this.ImageBoxMap.TabStop = false;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel9, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.TblNearbyLocation, 0, 1);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 47);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.54546F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.45454F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(617, 275);
+            this.tableLayoutPanel5.TabIndex = 6;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 2;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.9687F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.0313F));
+            this.tableLayoutPanel9.Controls.Add(this.lblTopList, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.dataTopList, 1, 0);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 1;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(611, 111);
+            this.tableLayoutPanel9.TabIndex = 6;
+            // 
+            // lblTopList
+            // 
+            this.lblTopList.AutoSize = true;
+            this.lblTopList.Location = new System.Drawing.Point(3, 0);
+            this.lblTopList.Name = "lblTopList";
+            this.lblTopList.Size = new System.Drawing.Size(64, 19);
+            this.lblTopList.TabIndex = 6;
+            this.lblTopList.Text = "TOP List";
+            // 
+            // dataTopList
+            // 
+            this.dataTopList.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dataTopList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataTopList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Name,
+            this.Address,
+            this.Visible});
+            this.dataTopList.Location = new System.Drawing.Point(106, 3);
+            this.dataTopList.Name = "dataTopList";
+            this.dataTopList.Size = new System.Drawing.Size(345, 105);
+            this.dataTopList.TabIndex = 5;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            // 
+            // Address
+            // 
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            // 
+            // Visible
+            // 
+            this.Visible.HeaderText = "Percentage";
+            this.Visible.Name = "Visible";
             // 
             // TblNearbyLocation
             // 
+            this.TblNearbyLocation.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.TblNearbyLocation.BackgroundColor = System.Drawing.SystemColors.Control;
             this.TblNearbyLocation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.TblNearbyLocation.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -330,9 +423,9 @@
             this.ColumnName,
             this.ColumnAddress,
             this.ColumnPercentage});
-            this.TblNearbyLocation.Location = new System.Drawing.Point(3, 60);
+            this.TblNearbyLocation.Location = new System.Drawing.Point(3, 120);
             this.TblNearbyLocation.Name = "TblNearbyLocation";
-            this.TblNearbyLocation.Size = new System.Drawing.Size(617, 139);
+            this.TblNearbyLocation.Size = new System.Drawing.Size(611, 151);
             this.TblNearbyLocation.TabIndex = 4;
             // 
             // ColumnNr
@@ -359,23 +452,6 @@
             this.ColumnPercentage.Name = "ColumnPercentage";
             this.ColumnPercentage.Width = 80;
             // 
-            // lblImageError
-            // 
-            this.lblImageError.AutoSize = true;
-            this.lblImageError.Location = new System.Drawing.Point(3, 38);
-            this.lblImageError.Name = "lblImageError";
-            this.lblImageError.Size = new System.Drawing.Size(0, 19);
-            this.lblImageError.TabIndex = 5;
-            // 
-            // ImageBoxMap
-            // 
-            this.ImageBoxMap.Location = new System.Drawing.Point(3, 205);
-            this.ImageBoxMap.Name = "ImageBoxMap";
-            this.ImageBoxMap.Size = new System.Drawing.Size(615, 268);
-            this.ImageBoxMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ImageBoxMap.TabIndex = 3;
-            this.ImageBoxMap.TabStop = false;
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
@@ -385,7 +461,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(991, 374);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(371, 374);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // imageBox2
@@ -394,7 +470,7 @@
             this.imageBox2.Location = new System.Drawing.Point(4, 4);
             this.imageBox2.Margin = new System.Windows.Forms.Padding(4);
             this.imageBox2.Name = "imageBox2";
-            this.imageBox2.Size = new System.Drawing.Size(983, 366);
+            this.imageBox2.Size = new System.Drawing.Size(363, 366);
             this.imageBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imageBox2.TabIndex = 3;
             this.imageBox2.TabStop = false;
@@ -403,12 +479,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 733);
+            this.ClientSize = new System.Drawing.Size(993, 741);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel6);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Social Tap";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -422,8 +497,12 @@
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBoxMap)).EndInit();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTopList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imageBox2)).EndInit();
             this.ResumeLayout(false);
@@ -462,6 +541,13 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private Emgu.CV.UI.ImageBox imageBox2;
         private System.Windows.Forms.Label lblImageError;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.Label lblTopList;
+        private System.Windows.Forms.DataGridView dataTopList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Visible;
     }
 }
 

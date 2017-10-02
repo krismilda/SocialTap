@@ -26,6 +26,13 @@ namespace SocialTap
         public MainForm()
         {
             InitializeComponent();
+            TopList t = new TopList();
+            List<GlassInformationFile> list=t.getTopList();
+            for (int i = 0; i < 5; i++)
+            {
+                dataTopList.Rows.Add(list[i].Name, list[i].Address, list[i].Average);
+            }
+
         }
         public async void GetAllGlassInformation()
         {
