@@ -11,21 +11,30 @@ using System.Globalization;
 using Services.Utilities;
 using Services.ImageAnalysis;
 using log4net;
+using log4net.Appender;
+using Database.File;
+using System.Collections.Generic;
+using Database;
 
 namespace SocialTap
 {
     public partial class MainForm : Form
     {
+        public Bitmap bitmap;
+        GlassInformation glassInformation = new GlassInformation();
+
         public MainForm()
         {
             InitializeComponent();
         }
-        public async void GetLocationInformation()
+        public async void GetAllGlassInformation()
         {
-            GooglePlacesApiData googleApiData = new GooglePlacesApiData();
-            GooglePlacesApiResponse responseData = await googleApiData.GetApiResponseData("");
-            lblName.Text = responseData.results[0].name;
-            lblAddress.Text = responseData.results[0].vicinity;
+            await glassInformation.GetGlassInformation(bitmap);
+            lblName.Text = glassInformation.Name;
+            lblAddress.Text = glassInformation.Address;
+            lblPercentage.Text = glassInformation.Percentage.ToString();
+            WritingToFile writing = new WritingToFile();
+            writing.Write(glassInformation);
         }
 
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -35,23 +44,27 @@ namespace SocialTap
             DialogResult drChosenFile;
             drChosenFile = openFileDialog.ShowDialog();
             Mat image;
-            GetLocationInformation();
+           
             try
             {
                 string path = openFileDialog.FileName;
                 image = new Mat(path);
                 imageBox.Image = image;
-                Bitmap bitmap = new Bitmap(image.Bitmap);
-                SimpleImageAnalysis imageInformation = new SimpleImageAnalysis(bitmap);
-                int percentageOfLiquid = imageInformation.CalculatePercentageOfLiquid();
-                lblPercentage.Text = percentageOfLiquid.ToString();
+                bitmap = new Bitmap(image.Bitmap);
+                GetAllGlassInformation();
 
                 //var culture = new CultureInfo("en-GB");
                 //DateTime localDate = DateTime.Now;
 
                 //Log.WriteLineToFile(localDate.ToString(culture) + " " + percentageOfLiquid + "%");
-                log.Info("Liquid in the picture: " + percentageOfLiquid + "%");
+                log.Info("Liquid in the picture: " + glassInformation.Percentage + "%");
 
+                IAppender[] appenders = log.Logger.Repository.GetAppenders();
+                // Check each appender this logger has
+                foreach (IAppender appender in appenders)
+                {
+                    
+                }
 
 
                 EmguCVImageAnalysis imgAnalysis = new EmguCVImageAnalysis();
@@ -84,9 +97,14 @@ namespace SocialTap
                 TblNearbyLocation.Rows.Clear();
                 ImageBoxMap.Image = map;
                 lblImageError.Text= "";
+
                 for (int i = 0; i < 5; i++)
                 {
-                    TblNearbyLocation.Rows.Add(i + 1, nearbyPlacesData.placesList[i].name, nearbyPlacesData.placesList[i].address, nearbyPlacesData.placesList[i].percentage);
+                    GlassInformation glass = new GlassInformation();
+                    glass.Name = nearbyPlacesData.placesList[i].name;
+                    glass.Address = nearbyPlacesData.placesList[i].address;
+                    TblNearbyLocation.Rows.Add(i + 1, glass.Name, glass.Address, FoodServiceAverage.getAverageOfLiquid(glass));
+
                 }
             }
             catch (ArgumentOutOfRangeException)
