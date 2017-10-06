@@ -11,13 +11,13 @@ namespace Services
 {
     public class CurrentCoordinate
     {
-        public double latitude { get; set; }
-        public double longitude { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
 
         public void CalculateCurrentCoordinates()
         {
             GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
-            do
+          /*  do
             {
                 watcher.TryStart(true, TimeSpan.FromMilliseconds(2000));
 
@@ -25,11 +25,12 @@ namespace Services
 
 
             GeoCoordinate coordinate = watcher.Position.Location;
-
-            if (coordinate.IsUnknown != true)
+            */
+        //    if (coordinate.IsUnknown != true)
             {
-                latitude = coordinate.Latitude;
-                longitude = coordinate.Longitude;
+               
+                Latitude = 54.734615;
+                Longitude = 25.247996;
             }
         }
     }

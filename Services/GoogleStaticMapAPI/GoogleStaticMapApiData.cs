@@ -21,7 +21,7 @@ namespace Services
         {
             CurrentCoordinate currentCoordinate = new CurrentCoordinate();
             currentCoordinate.CalculateCurrentCoordinates();
-            String currentCoordinates = CoordinatesConverter.GetConvertedCoordinates(currentCoordinate.latitude, currentCoordinate.longitude);
+            String currentCoordinates = CoordinatesConverter.GetConvertedCoordinates(currentCoordinate.Latitude, currentCoordinate.Longitude);
 
             placesList.AddRange(await new NearbyPlacesList().GetNearbyPlacesListAsync(type));
             placesList.ToArray();

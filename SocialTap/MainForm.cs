@@ -21,25 +21,36 @@ namespace SocialTap
     public partial class MainForm : Form
     {
         public Bitmap bitmap;
-        GlassInformation glassInformation = new GlassInformation();
+        RestaurantInformation glassInformation = new RestaurantInformation();
 
         public MainForm()
         {
+            CustomRangeOfData customRangeOfData = new CustomRangeOfData();
+            customRangeOfData.GetLastDaysData(2);
             InitializeComponent();
+            TopList t = new TopList();
+            List<RestaurantInformationAverage> list=t.getTopList();
+            for (int i = 0; i < 5; i++)
+            {
+                dataTopList.Rows.Add(list[i].Name, list[i].Address, list[i].AverageOfPercentage);
+            }
+            
         }
         public async void GetAllGlassInformation()
         {
+
             await glassInformation.GetGlassInformation(bitmap);
             lblName.Text = glassInformation.Name;
             lblAddress.Text = glassInformation.Address;
             lblPercentage.Text = glassInformation.Percentage.ToString();
+            lblDate.Text =string.Format("{0:d}", glassInformation.Date);
             WritingToFile writing = new WritingToFile();
             writing.Write(glassInformation);
         }
 
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        private void btnOpenFile_Click(object sender, EventArgs e)
+        private void btnOpenFile_Click_1(object sender, EventArgs e)
         {
             DialogResult drChosenFile;
             drChosenFile = openFileDialog.ShowDialog();
@@ -81,7 +92,7 @@ namespace SocialTap
 
         }
 
-        private void btnFindMap_Click(object sender, EventArgs e)
+        private void btnFindMap_Click_1(object sender, EventArgs e)
         {
             GetMap();
 
@@ -100,7 +111,7 @@ namespace SocialTap
 
                 for (int i = 0; i < 5; i++)
                 {
-                    GlassInformation glass = new GlassInformation();
+                    RestaurantInformation glass = new RestaurantInformation();
                     glass.Name = nearbyPlacesData.placesList[i].name;
                     glass.Address = nearbyPlacesData.placesList[i].address;
                     TblNearbyLocation.Rows.Add(i + 1, glass.Name, glass.Address, FoodServiceAverage.getAverageOfLiquid(glass));

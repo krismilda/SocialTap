@@ -9,16 +9,14 @@ using System.Threading.Tasks;
 
 namespace Database.File
 {
-    public class ReadingFromFile
+    public class ReadingFromFile <T>
     {
-
-
-        public static List<GlassInformationFile> Read()
+        public List<T> Read()
         {
-            List<GlassInformationFile> glassInformation = new List<GlassInformationFile>();
+            List<T> glassInformation = new List<T>();
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             FileStream fileStream = new FileStream("D:\\data.bin", FileMode.Open, FileAccess.Read, FileShare.None);
-            glassInformation = (List<GlassInformationFile>)binaryFormatter.Deserialize(fileStream);
+            glassInformation = (List<T>)binaryFormatter.Deserialize(fileStream);
             fileStream.Flush();
             fileStream.Close();
             return glassInformation;

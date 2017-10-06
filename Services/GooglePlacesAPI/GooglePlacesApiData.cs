@@ -19,7 +19,7 @@ namespace Services
         {
             CurrentCoordinate currentCoordinate = new CurrentCoordinate();
             currentCoordinate.CalculateCurrentCoordinates();
-            String currentCoordinates = CoordinatesConverter.GetConvertedCoordinates(currentCoordinate.latitude, currentCoordinate.longitude);
+            String currentCoordinates = CoordinatesConverter.GetConvertedCoordinates(currentCoordinate.Latitude, currentCoordinate.Longitude);
             HttpClient client = new HttpClient();
             HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get,
                 ConfigurationManager.AppSettings["GooglePlacesApiUrl"] + "&location="
