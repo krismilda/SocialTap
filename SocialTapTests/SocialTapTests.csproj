@@ -52,6 +52,7 @@
     <Compile Include="CalculatingAverageTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CalculatePercentageTest.cs" />
+    <Compile Include="CoordinatesConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    class CoordinatesConverter
+    public class CoordinatesConverter
     {
         public static String GetConvertedCoordinates(Double latitude, double longitude)
         {
