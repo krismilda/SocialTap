@@ -7,18 +7,17 @@ using System.Threading.Tasks;
 
 namespace Database.File
 {
-    [Serializable]
-    public class GlassInformationFile: IEnumerable, IComparable<GlassInformationFile>
+    public class RestaurantInformationAverage : IEnumerable, IComparable <RestaurantInformationAverage>
     {
         public String Name { get; set; }
         public String Address { get; set; }
-        public int Sum { get; set; }
+        public int SumOfPercentage { get; set; }
         public int Times { get; set; }
-        public double Average { get; set; }
+        public double AverageOfPercentage { get; set; }
 
-        public int CompareTo(GlassInformationFile glass)
+        public int CompareTo(RestaurantInformationAverage restraurantInformation)
         {
-            return -1*(this.Average.CompareTo(glass.Average));
+            return -1 * (this.AverageOfPercentage.CompareTo(restraurantInformation.AverageOfPercentage));
         }
 
         public IEnumerator GetEnumerator()

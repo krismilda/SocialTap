@@ -8,11 +8,13 @@ namespace Database.File
 {
     public class TopList
     {
-        public List<GlassInformationFile> getTopList()
+        public List<RestaurantInformationAverage> getTopList()
         {
-            List<GlassInformationFile> list = ReadingFromFile.Read();
-            list.Sort();
-            return list;
+            ReadingFromFile<RestaurantInformation> listFile = new ReadingFromFile<RestaurantInformation>();
+            RestaurantInformationPecentageAverage restaurant = new RestaurantInformationPecentageAverage();
+            List<RestaurantInformationAverage> listRestaurants = restaurant.GetListWithPercentageAverage(listFile.Read());
+            listRestaurants.Sort();
+            return listRestaurants;
         }
 
     }

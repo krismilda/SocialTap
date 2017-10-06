@@ -9,14 +9,16 @@ namespace Database.File
 {
     public class FoodServiceAverage
     {
-        public static string getAverageOfLiquid(GlassInformation glassInformation)
+        public static string getAverageOfLiquid(RestaurantInformation restaurantInformation)
         {
-            List<GlassInformationFile> listofGlass = ReadingFromFile.Read();
-            foreach (GlassInformationFile glass in listofGlass)
+            ReadingFromFile<RestaurantInformation> listFile = new ReadingFromFile<RestaurantInformation>();
+            RestaurantInformationPecentageAverage restaurant = new RestaurantInformationPecentageAverage();
+            List<RestaurantInformationAverage> listRestaurants = restaurant.GetListWithPercentageAverage(listFile.Read());
+            foreach (RestaurantInformationAverage restaurantsInformation in listRestaurants)
             {
-                if (glass.Name.Equals(glassInformation.Name) && glass.Address.Equals(glassInformation.Address))
+                if (restaurantsInformation.Name.Equals(restaurantInformation.Name) && restaurantsInformation.Address.Equals(restaurantInformation.Address))
                 {
-                    return glass.Average.ToString();
+                    return restaurantsInformation.AverageOfPercentage.ToString();
                 }
             }
             return "-";
