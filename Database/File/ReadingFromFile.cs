@@ -15,7 +15,7 @@ namespace Database.File
         {
             List<T> glassInformation = new List<T>();
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            FileStream fileStream = new FileStream("D:\\data.bin", FileMode.Open, FileAccess.Read, FileShare.None);
+            FileStream fileStream = new FileStream("C:\\data.bin", FileMode.Open, FileAccess.Read, FileShare.None);
             glassInformation = (List<T>)binaryFormatter.Deserialize(fileStream);
             fileStream.Flush();
             fileStream.Close();

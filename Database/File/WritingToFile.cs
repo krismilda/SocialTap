@@ -17,7 +17,7 @@ namespace Database.File
             ReadingFromFile<RestaurantInformation> readingFromFile = new ReadingFromFile<RestaurantInformation>();
             List<RestaurantInformation> listofGlass = readingFromFile.Read();
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            FileStream fileStream = new FileStream("D:\\data.bin", FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+            FileStream fileStream = new FileStream("C:\\data.bin", FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
             listofGlass.Add(glassInformation);
             binaryFormatter.Serialize(fileStream, listofGlass);
             fileStream.Flush();
