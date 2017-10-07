@@ -18,7 +18,7 @@ namespace Database
         public String Address { get; set; }
         public int Percentage { get; set; }
 
-        public async Task GetGlassInformation(Bitmap bitmap)
+        public async Task GetRestaurantInformation(Bitmap bitmap)
         {
             GooglePlacesApiData googleApiData = new GooglePlacesApiData();
             GooglePlacesApiResponse responseData = await googleApiData.GetApiResponseData("food");

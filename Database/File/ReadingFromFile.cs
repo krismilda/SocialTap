@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -15,7 +16,7 @@ namespace Database.File
         {
             List<T> glassInformation = new List<T>();
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            FileStream fileStream = new FileStream("D:\\data.bin", FileMode.Open, FileAccess.Read, FileShare.None);
+            FileStream fileStream = new FileStream(ConfigurationManager.AppSettings["FileName"], FileMode.Open, FileAccess.Read, FileShare.None);
             glassInformation = (List<T>)binaryFormatter.Deserialize(fileStream);
             fileStream.Flush();
             fileStream.Close();
