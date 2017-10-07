@@ -159,6 +159,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Data\data.bin" />
     <None Include="log4net.config">
@@ -182,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Log.txt" />
+    <None Include="Resources\Recommendationss.bmp" />
     <Content Include="TestImages\beer1.jpg" />
     <Content Include="TestImages\beer2.jpg" />
     <Content Include="TestImages\beerTemplate.bmp" />
