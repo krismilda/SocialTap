@@ -81,7 +81,7 @@
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visible = new System.Windows.Forms.DataGridViewTextBoxColumn();
 
-            this.tabMostVisited = new System.Windows.Forms.TabPage();
+
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panelBMI = new System.Windows.Forms.Panel();
             this.panelRecommend = new System.Windows.Forms.Panel();
@@ -705,14 +705,7 @@
             this.Visible.Name = "Visible";
             // 
 
-            // tabMostVisited
-            // 
-            this.tabMostVisited.Location = new System.Drawing.Point(4, 31);
-            this.tabMostVisited.Name = "tabMostVisited";
-            this.tabMostVisited.Size = new System.Drawing.Size(780, 538);
-            this.tabMostVisited.TabIndex = 3;
-            this.tabMostVisited.Text = "Most Visited";
-            this.tabMostVisited.UseVisualStyleBackColor = true;
+
             // 
             // tabPage1
             // 
