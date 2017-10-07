@@ -449,6 +449,7 @@
             // 
             // tabTOP
             // 
+
             this.tabTOP.Controls.Add(this.tableLayoutPanel11);
             this.tabTOP.Location = new System.Drawing.Point(4, 28);
             this.tabTOP.Name = "tabTOP";
@@ -456,6 +457,7 @@
             this.tabTOP.TabIndex = 2;
             this.tabTOP.Text = "TOP";
             this.tabTOP.UseVisualStyleBackColor = true;
+
             // 
             // tableLayoutPanel11
             // 
@@ -520,8 +522,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(788, 576);
             this.Controls.Add(this.tabMain);
+
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
