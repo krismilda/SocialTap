@@ -28,7 +28,6 @@ namespace Services
             
             if (coordinate.IsUnknown != true)
             {
-               
                 Latitude = coordinate.Latitude;
                 Longitude = coordinate.Longitude;
             }

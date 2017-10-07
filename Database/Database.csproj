@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RestaurantData\MostVisitedList.cs" />
+    <Compile Include="RestaurantData\RestaurantDataAccordingToDurationcs.cs" />
     <Compile Include="RestaurantData\TopList.cs" />
     <Compile Include="RestaurantData\RestaurantAverageOfPercentage.cs" />
     <Compile Include="File\Log.cs" />

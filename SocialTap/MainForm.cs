@@ -15,6 +15,7 @@ using log4net.Appender;
 using Database.File;
 using System.Collections.Generic;
 using Database;
+using Database.RestaurantData;
 
 namespace SocialTap
 {
@@ -131,6 +132,27 @@ namespace SocialTap
                 TblNearbyLocation.Rows.Clear();
                 ImageBoxMap.Image = null;
                 lblImageError.Text = "Cannot load information";
+            }
+        }
+
+        private void btnUploadMostVisited_Click(object sender, EventArgs e)
+        {
+            MostVisitedList mostVisitedList = new MostVisitedList();
+            List<RestaurantInformationAverage> restaurantList = mostVisitedList.GetMostVisitedList(cmbMostVisited.Text);
+            int size;
+            size = restaurantList.Count;
+            if (restaurantList.Capacity < 5)
+            {
+                size = restaurantList.Count;
+            }
+            else
+            {
+                size = 5;
+            }
+            dataMostVisited.Rows.Clear();
+            for (int i = 0; i < size; i++)
+            {
+                dataMostVisited.Rows.Add(restaurantList[i].Name, restaurantList[i].Address, restaurantList[i].Times, restaurantList[i].AverageOfPercentage);
             }
         }
     }

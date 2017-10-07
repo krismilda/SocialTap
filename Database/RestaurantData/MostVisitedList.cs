@@ -1,21 +1,21 @@
-﻿using Database.RestaurantData;
+﻿using Database.File;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Database.File
+namespace Database.RestaurantData
 {
-    public class TopList
+   public  class MostVisitedList
     {
-        public List<RestaurantInformationAverage> GetTopList(String duration)
+        public List<RestaurantInformationAverage> GetMostVisitedList(String duration)
         {
             RestaurantDataAccordingToDurationcs restaurantDataAccordingToDuration = new RestaurantDataAccordingToDurationcs();
-            List <RestaurantInformation> restaurantInformationDurationList = restaurantDataAccordingToDuration.GetDataAccordingToDuration(duration);
+            List<RestaurantInformation> restaurantInformationDurationList = restaurantDataAccordingToDuration.GetDataAccordingToDuration(duration);
             DistictRestaurantsWithAverageOfPercentage restaurant = new DistictRestaurantsWithAverageOfPercentage();
             List<RestaurantInformationAverage> listRestaurants = restaurant.GetListWithAverageOfPercentage(restaurantInformationDurationList);
-            listRestaurants.Sort();
+            listRestaurants.OrderBy(a => a.Times);
             return listRestaurants;
         }
     }
