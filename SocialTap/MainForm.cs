@@ -123,11 +123,144 @@ namespace SocialTap
                 TblNearbyLocation.Rows.Clear();
                 ImageBoxMap.Image = null;
                 lblImageError.Text = "Cannot load information";
+            } 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panelRecommend.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panelBMI.Visible = false;
+        }
+
+        private void Recomendations_Click(object sender, EventArgs e)
+        {
+            panelRecommend.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double bmi;
+            double wgh = double.Parse(Weight.Value.ToString());
+            double hgh2 = Math.Pow(double.Parse(Height.Value.ToString()), 2);
+            bmi = wgh / hgh2;
+            if (bmi.ToString().Length > 5)
+            {
+                textBox1.Text = (wgh / hgh2).ToString().Remove(5);
+                textBox2.Text = (wgh / hgh2).ToString().Remove(5);
             }
+            else
+            {
+                textBox1.Text = (wgh / hgh2).ToString();
+                textBox2.Text = (wgh / hgh2).ToString();
+            }
+            if (bmi < 16.5 && bmi > 11)
+            {
+                label15.Visible = true;
+                label16.Visible = false;
+                label17.Visible = false;
+                label18.Visible = false;
+                label19.Visible = false;
+            }
+            else if (bmi < 18.5 && bmi > 16.5)
+            {
+                label15.Visible = false;
+                label16.Visible = true;
+                label17.Visible = false;
+                label18.Visible = false;
+                label19.Visible = false;
+            }
+            else if (bmi < 25 && bmi > 18.5)
+            {
+                label15.Visible = false;
+                label16.Visible = false;
+                label17.Visible = true;
+                label18.Visible = false;
+                label19.Visible = false;
+            }
+            else if (bmi < 30 && bmi > 25)
+            {
+                label15.Visible = false;
+                label16.Visible = false;
+                label17.Visible = false;
+                label18.Visible = true;
+                label19.Visible = false;
+            }
+            else if (bmi > 30)
+            {
+                label15.Visible = false;
+                label16.Visible = false;
+                label17.Visible = false;
+                label18.Visible = false;
+                label19.Visible = true;
+            }
+            panelBMI.Visible = true;
+        }
 
+        private void Year_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Year.SelectedIndex == 0)
+            {
+                label14.Text = "22";
+            }
+            else if (Year.SelectedIndex == 1)
+            {
+                label14.Text = "23";
+            }
+            else if (Year.SelectedIndex == 2)
+            {
+                label14.Text = "24";
+            }
+            else if (Year.SelectedIndex == 3)
+            {
+                label14.Text = "25";
+            }
+            else if (Year.SelectedIndex == 4)
+            {
+                label14.Text = "26";
+            }
+            else if (Year.SelectedIndex == 5)
+            {
+                label14.Text = "27";
+            }
+        }
 
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TblNearbyLocation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblNameText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelRecommend_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
