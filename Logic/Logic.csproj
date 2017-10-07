@@ -111,6 +111,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculatingAverage.cs" />
     <Compile Include="ImageAnalysis\EmguCVImageAnalysis.cs" />
     <Compile Include="ImageAnalysis\ImageDetails.cs" />
     <Compile Include="ImageAnalysis\SimpleImageAnalysis.cs" />
