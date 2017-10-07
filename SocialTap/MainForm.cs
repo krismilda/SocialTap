@@ -238,42 +238,6 @@ namespace SocialTap
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TblNearbyLocation_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void lblNameText_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelRecommend_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label20_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void btnUploadMostVisited_Click(object sender, EventArgs e)
         {
             MostVisitedList mostVisitedList = new MostVisitedList();

@@ -284,7 +284,6 @@
             this.lblNameText.Size = new System.Drawing.Size(47, 22);
             this.lblNameText.TabIndex = 4;
             this.lblNameText.Text = "Title";
-            this.lblNameText.Click += new System.EventHandler(this.lblNameText_Click);
             // 
             // lblDateText
             // 
@@ -491,8 +490,8 @@
             this.TblNearbyLocation.Location = new System.Drawing.Point(3, 67);
             this.TblNearbyLocation.Name = "TblNearbyLocation";
             this.TblNearbyLocation.Size = new System.Drawing.Size(617, 134);
-            this.TblNearbyLocation.TabIndex = 5;
-            this.TblNearbyLocation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TblNearbyLocation_CellContentClick);
+            this.TblNearbyLocation.TabIndex = 5;        
+            
             // 
             // ColumnNr
             // 
@@ -779,7 +778,6 @@
             this.panelRecommend.Size = new System.Drawing.Size(771, 535);
             this.panelRecommend.TabIndex = 17;
             this.panelRecommend.Visible = false;
-            this.panelRecommend.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRecommend_Paint);
             // 
             // labelBMIYour
             // 
@@ -798,7 +796,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(139, 39);
             this.textBox2.TabIndex = 7;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // buttonBack
             // 
@@ -829,7 +826,6 @@
             this.label20.Size = new System.Drawing.Size(222, 24);
             this.label20.TabIndex = 0;
             this.label20.Text = "RECOMMENDATIONS";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // buttonRecomendations
             // 
@@ -905,7 +901,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(139, 27);
             this.textBox1.TabIndex = 6;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -1199,7 +1194,6 @@
             this.Text = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Social Tap";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabMain.ResumeLayout(false);
             this.tabUploadImage.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
@@ -1316,7 +1310,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPercentage;
 
-        private System.Windows.Forms.Label lblImageError;
+
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button btnUploadTopList;
         private System.Windows.Forms.ComboBox cmbTopList;
