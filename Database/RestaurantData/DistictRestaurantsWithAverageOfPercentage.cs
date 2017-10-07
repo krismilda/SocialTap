@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Database.File
 {
-    public class RestaurantInformationPecentageAverage
+    public class DistictRestaurantsWithAverageOfPercentage
     {
-        public List<RestaurantInformationAverage> GetListWithPercentageAverage(List<RestaurantInformation> listAllGlassInformation)
+        public List<RestaurantInformationAverage> GetListWithAverageOfPercentage (List<RestaurantInformation> listAllRestaurantInformation)
         {
             List<RestaurantInformationAverage> listRestaurantInformation = new List<RestaurantInformationAverage>();
             Boolean ifAlreadyExist;
-            foreach (RestaurantInformation restaurantDataInFile in listAllGlassInformation)
+            foreach (RestaurantInformation restaurantDataInFile in listAllRestaurantInformation)
             {
                 ifAlreadyExist = false;
                 foreach (RestaurantInformationAverage restaurantAverageData in listRestaurantInformation)

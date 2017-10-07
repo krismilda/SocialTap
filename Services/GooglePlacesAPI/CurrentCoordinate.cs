@@ -17,7 +17,7 @@ namespace Services
         public void CalculateCurrentCoordinates()
         {
             GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
-          /*  do
+            do
             {
                 watcher.TryStart(true, TimeSpan.FromMilliseconds(2000));
 
@@ -25,12 +25,12 @@ namespace Services
 
 
             GeoCoordinate coordinate = watcher.Position.Location;
-            */
-        //    if (coordinate.IsUnknown != true)
+            
+            if (coordinate.IsUnknown != true)
             {
                
-                Latitude = 54.734615;
-                Longitude = 25.247996;
+                Latitude = coordinate.Latitude;
+                Longitude = coordinate.Longitude;
             }
         }
     }

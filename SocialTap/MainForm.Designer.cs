@@ -55,19 +55,21 @@
             this.cmdZoom = new System.Windows.Forms.ComboBox();
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.lblImageError = new System.Windows.Forms.Label();
+            this.ImageBoxMap = new System.Windows.Forms.PictureBox();
             this.TblNearbyLocation = new System.Windows.Forms.DataGridView();
             this.ColumnNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImageBoxMap = new System.Windows.Forms.PictureBox();
             this.tabTOP = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTopList = new System.Windows.Forms.Label();
             this.dataTopList = new System.Windows.Forms.DataGridView();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visible = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnUploadTopList = new System.Windows.Forms.Button();
+            this.cmbTopList = new System.Windows.Forms.ComboBox();
             this.tabMostVisited = new System.Windows.Forms.TabPage();
             this.tabMain.SuspendLayout();
             this.tabUploadImage.SuspendLayout();
@@ -79,11 +81,12 @@
             this.tabFind.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBoxMap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).BeginInit();
             this.tabTOP.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTopList)).BeginInit();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -132,7 +135,7 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Window;
             this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.80109F));
@@ -311,8 +314,8 @@
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.0625F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.9375F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 177F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 297F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 334F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(774, 539);
@@ -398,9 +401,17 @@
             this.lblImageError.Size = new System.Drawing.Size(0, 19);
             this.lblImageError.TabIndex = 7;
             // 
+            // ImageBoxMap
+            // 
+            this.ImageBoxMap.Location = new System.Drawing.Point(3, 207);
+            this.ImageBoxMap.Name = "ImageBoxMap";
+            this.ImageBoxMap.Size = new System.Drawing.Size(768, 322);
+            this.ImageBoxMap.TabIndex = 6;
+            this.ImageBoxMap.TabStop = false;
+            // 
             // TblNearbyLocation
             // 
-            this.TblNearbyLocation.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.TblNearbyLocation.BackgroundColor = System.Drawing.SystemColors.Window;
             this.TblNearbyLocation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.TblNearbyLocation.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.TblNearbyLocation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -412,7 +423,7 @@
             this.TblNearbyLocation.GridColor = System.Drawing.SystemColors.Control;
             this.TblNearbyLocation.Location = new System.Drawing.Point(3, 67);
             this.TblNearbyLocation.Name = "TblNearbyLocation";
-            this.TblNearbyLocation.Size = new System.Drawing.Size(617, 171);
+            this.TblNearbyLocation.Size = new System.Drawing.Size(617, 134);
             this.TblNearbyLocation.TabIndex = 5;
             // 
             // ColumnNr
@@ -439,17 +450,8 @@
             this.ColumnPercentage.Name = "ColumnPercentage";
             this.ColumnPercentage.Width = 80;
             // 
-            // ImageBoxMap
-            // 
-            this.ImageBoxMap.Location = new System.Drawing.Point(3, 244);
-            this.ImageBoxMap.Name = "ImageBoxMap";
-            this.ImageBoxMap.Size = new System.Drawing.Size(768, 285);
-            this.ImageBoxMap.TabIndex = 6;
-            this.ImageBoxMap.TabStop = false;
-            // 
             // tabTOP
             // 
-
             this.tabTOP.Controls.Add(this.tableLayoutPanel11);
             this.tabTOP.Location = new System.Drawing.Point(4, 28);
             this.tabTOP.Name = "tabTOP";
@@ -457,39 +459,30 @@
             this.tabTOP.TabIndex = 2;
             this.tabTOP.Text = "TOP";
             this.tabTOP.UseVisualStyleBackColor = true;
-
             // 
             // tableLayoutPanel11
             // 
             this.tableLayoutPanel11.ColumnCount = 1;
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Controls.Add(this.lblTopList, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.dataTopList, 0, 1);
+            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanel11.Location = new System.Drawing.Point(7, 3);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 2;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.098592F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.90141F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.38028F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.61972F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(770, 284);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
-            // lblTopList
-            // 
-            this.lblTopList.AutoSize = true;
-            this.lblTopList.Location = new System.Drawing.Point(3, 0);
-            this.lblTopList.Name = "lblTopList";
-            this.lblTopList.Size = new System.Drawing.Size(64, 19);
-            this.lblTopList.TabIndex = 7;
-            this.lblTopList.Text = "TOP List";
-            // 
             // dataTopList
             // 
+            this.dataTopList.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataTopList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataTopList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Name,
             this.Address,
             this.Visible});
-            this.dataTopList.Location = new System.Drawing.Point(3, 25);
+            this.dataTopList.Location = new System.Drawing.Point(3, 40);
             this.dataTopList.Name = "dataTopList";
             this.dataTopList.Size = new System.Drawing.Size(348, 198);
             this.dataTopList.TabIndex = 5;
@@ -509,6 +502,42 @@
             this.Visible.HeaderText = "Percentage";
             this.Visible.Name = "Visible";
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.31193F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.68807F));
+            this.tableLayoutPanel5.Controls.Add(this.btnUploadTopList, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.cmbTopList, 1, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(545, 31);
+            this.tableLayoutPanel5.TabIndex = 6;
+            // 
+            // btnUploadTopList
+            // 
+            this.btnUploadTopList.Location = new System.Drawing.Point(3, 3);
+            this.btnUploadTopList.Name = "btnUploadTopList";
+            this.btnUploadTopList.Size = new System.Drawing.Size(173, 23);
+            this.btnUploadTopList.TabIndex = 0;
+            this.btnUploadTopList.Text = "UPLOAD TOP LIST";
+            this.btnUploadTopList.UseVisualStyleBackColor = true;
+            this.btnUploadTopList.Click += new System.EventHandler(this.btnUploadTopList_Click);
+            // 
+            // cmbTopList
+            // 
+            this.cmbTopList.FormattingEnabled = true;
+            this.cmbTopList.Items.AddRange(new object[] {
+            "Last Month (30 Days)",
+            "Last Week (7 Days)"});
+            this.cmbTopList.Location = new System.Drawing.Point(190, 3);
+            this.cmbTopList.Name = "cmbTopList";
+            this.cmbTopList.Size = new System.Drawing.Size(178, 27);
+            this.cmbTopList.TabIndex = 1;
+            this.cmbTopList.Text = "Last Month (30 Days)";
+            // 
             // tabMostVisited
             // 
             this.tabMostVisited.Location = new System.Drawing.Point(4, 28);
@@ -522,10 +551,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
             this.ClientSize = new System.Drawing.Size(788, 576);
             this.Controls.Add(this.tabMain);
-
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
@@ -544,12 +571,12 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBoxMap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).EndInit();
             this.tabTOP.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
-            this.tableLayoutPanel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTopList)).EndInit();
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -571,7 +598,6 @@
         private System.Windows.Forms.TabPage tabFind;
         private System.Windows.Forms.TabPage tabTOP;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
-        private System.Windows.Forms.Label lblTopList;
         private System.Windows.Forms.DataGridView dataTopList;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
@@ -595,6 +621,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPercentage;
         private System.Windows.Forms.Label lblImageError;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Button btnUploadTopList;
+        private System.Windows.Forms.ComboBox cmbTopList;
     }
 }
 
