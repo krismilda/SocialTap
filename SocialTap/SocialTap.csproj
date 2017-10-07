@@ -183,7 +183,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Log.txt" />
-    <None Include="Resources\Recommendation.bmp" />
     <None Include="Resources\Recommendationss.bmp" />
     <Content Include="TestImages\beer1.jpg" />
     <Content Include="TestImages\beer2.jpg" />
