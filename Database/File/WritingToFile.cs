@@ -1,6 +1,7 @@
 ﻿using Logic;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -17,7 +18,7 @@ namespace Database.File
             ReadingFromFile<RestaurantInformation> readingFromFile = new ReadingFromFile<RestaurantInformation>();
             List<RestaurantInformation> listofGlass = readingFromFile.Read();
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            FileStream fileStream = new FileStream("D:\\data.bin", FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+            FileStream fileStream = new FileStream(ConfigurationManager.AppSettings["FileName"], FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
             listofGlass.Add(glassInformation);
             binaryFormatter.Serialize(fileStream, listofGlass);
             fileStream.Flush();
