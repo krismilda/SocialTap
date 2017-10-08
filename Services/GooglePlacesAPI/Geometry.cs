@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class Geometry
+    public struct Geometry
     {
         public Location location { get; set; }
         public Object viewport { get; set; }

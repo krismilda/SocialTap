@@ -1,5 +1,6 @@
 ﻿using Database.RestaurantData;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,10 @@ namespace Database.File
         {
             RestaurantDataAccordingToDurationcs restaurantDataAccordingToDuration = new RestaurantDataAccordingToDurationcs();
             List <RestaurantInformation> restaurantInformationDurationList = restaurantDataAccordingToDuration.GetDataAccordingToDuration(duration);
-            DistictRestaurantsWithAverageOfPercentage restaurant = new DistictRestaurantsWithAverageOfPercentage();
-            List<RestaurantInformationAverage> listRestaurants = restaurant.GetListWithAverageOfPercentage(restaurantInformationDurationList);
-            listRestaurants.Sort();
-            return listRestaurants;
+            DistictRestaurantsWithAverageOfPercentage restaurantAverage = new DistictRestaurantsWithAverageOfPercentage();
+            IEnumerable<RestaurantInformationAverage> listRestaurants = restaurantAverage.GetListWithAverageOfPercentage(restaurantInformationDurationList);
+            listRestaurants = listRestaurants.OrderByDescending(n => n.AverageOfPercentage);
+            return listRestaurants.ToList<RestaurantInformationAverage>();
         }
     }
 }

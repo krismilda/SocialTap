@@ -16,6 +16,7 @@ using Database.File;
 using System.Collections.Generic;
 using Database;
 using Database.RestaurantData;
+using System.Configuration;
 
 namespace SocialTap
 {
@@ -98,13 +99,20 @@ namespace SocialTap
         }
         public async void GetAllGlassInformation(Bitmap bitmap)
         {
+            try
+            {
             await glassInformation.GetRestaurantInformation(bitmap);
             lblName.Text = glassInformation.Name;
             lblAddress.Text = glassInformation.Address;
             lblPercentage.Text = glassInformation.Percentage.ToString();
             lblDate.Text = string.Format("{0:d}", glassInformation.Date);
-            WritingToFile writing = new WritingToFile();
-            writing.Write(glassInformation);
+            WritingToFileSerialize <RestaurantInformation> writing = new WritingToFileSerialize <RestaurantInformation> ();
+            writing.Write(glassInformation, fileName:ConfigurationManager.AppSettings["FileName"]);
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+                errorMessage.Text = "Cannot load information";
+            }
         }
         private async void GetMap()
         {
@@ -241,7 +249,7 @@ namespace SocialTap
         private void btnUploadMostVisited_Click(object sender, EventArgs e)
         {
             MostVisitedList mostVisitedList = new MostVisitedList();
-            List<RestaurantInformationAverage> restaurantList = mostVisitedList.GetMostVisitedList(cmbMostVisited.Text);
+            List <RestaurantInformationAverage> restaurantList = mostVisitedList.GetMostVisitedList(cmbMostVisited.Text);
             int size;
             size = restaurantList.Count;
             if (restaurantList.Capacity < 5)

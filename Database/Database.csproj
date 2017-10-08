@@ -47,10 +47,10 @@
     <Compile Include="RestaurantData\TopList.cs" />
     <Compile Include="RestaurantData\RestaurantAverageOfPercentage.cs" />
     <Compile Include="File\Log.cs" />
-    <Compile Include="File\ReadingFromFile.cs" />
+    <Compile Include="File\ReadingFromFileDeserialize.cs" />
     <Compile Include="RestaurantData\RestaurantInformationAverage.cs" />
     <Compile Include="RestaurantData\DistictRestaurantsWithAverageOfPercentage.cs" />
-    <Compile Include="File\WritingToFile.cs" />
+    <Compile Include="File\WritingToFileSerialize.cs" />
     <Compile Include="RestaurantData\RestaurantInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReviewDataInFile.cs" />
