@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class GooglePlacesApiResponse
+    public struct GooglePlacesApiResponse
     {
         public List <Object> html_attributions { get; set; }
         public List<LocationData> results { get; set; }
