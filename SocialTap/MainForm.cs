@@ -16,7 +16,11 @@ using Database.File;
 using System.Collections.Generic;
 using Database;
 using Database.RestaurantData;
+using Logic;
+using Services.BMIregex;
+using System.Text.RegularExpressions;
 using System.Configuration;
+
 
 namespace SocialTap
 {
@@ -158,63 +162,75 @@ namespace SocialTap
             panelRecommend.Visible = true;
         }
 
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            double bmi;
-            double wgh = double.Parse(Weight.Value.ToString());
-            double hgh2 = Math.Pow(double.Parse(Height.Value.ToString()), 2);
-            bmi = wgh / hgh2;
-            if (bmi.ToString().Length > 5)
-            {
-                textBox1.Text = (wgh / hgh2).ToString().Remove(5);
-                textBox2.Text = (wgh / hgh2).ToString().Remove(5);
-            }
+            new Regex_BMI().RegexValidation(@"\d+", Year, labelYear, "Year");
+            if (labelYear.Text == "Year InValid")
+                { panelBMI.Visible = false; }
             else
-            {
-                textBox1.Text = (wgh / hgh2).ToString();
-                textBox2.Text = (wgh / hgh2).ToString();
+            { 
+                double bmi;
+                double wgh = double.Parse(Weight.Value.ToString());
+                double hgh2 = Math.Pow(double.Parse(Height.Value.ToString()), 2);
+
+                bmi = new CountBMI().GetBMI(wgh, hgh2);
+
+
+                    if (bmi.ToString().Length > 5)
+                    {
+                        textBox1.Text = (wgh / hgh2).ToString().Remove(5);
+                        textBox2.Text = (wgh / hgh2).ToString().Remove(5);
+                    }
+                    else
+                    {
+                        textBox1.Text = (wgh / hgh2).ToString();
+                        textBox2.Text = (wgh / hgh2).ToString();
+                    }
+
+                    if (bmi < 16.5 && bmi > 11)
+            
+                {
+                    label15.Visible = true;
+                    label16.Visible = false;
+                    label17.Visible = false;
+                    label18.Visible = false;
+                    label19.Visible = false;
+                }
+                else if (bmi < 18.5 && bmi > 16.5)
+                {
+                    label15.Visible = false;
+                    label16.Visible = true;
+                    label17.Visible = false;
+                    label18.Visible = false;
+                    label19.Visible = false;
+                }
+                else if (bmi < 25 && bmi > 18.5)
+                {
+                    label15.Visible = false;
+                    label16.Visible = false;
+                    label17.Visible = true;
+                    label18.Visible = false;
+                    label19.Visible = false;
+                }
+                else if (bmi < 30 && bmi > 25)
+                {
+                    label15.Visible = false;
+                    label16.Visible = false;
+                    label17.Visible = false;
+                    label18.Visible = true;
+                    label19.Visible = false;
+                }
+                else if (bmi > 30)
+                {
+                    label15.Visible = false;
+                    label16.Visible = false;
+                    label17.Visible = false;
+                    label18.Visible = false;
+                    label19.Visible = true;
+                }
+                panelBMI.Visible = true;
             }
-            if (bmi < 16.5 && bmi > 11)
-            {
-                label15.Visible = true;
-                label16.Visible = false;
-                label17.Visible = false;
-                label18.Visible = false;
-                label19.Visible = false;
-            }
-            else if (bmi < 18.5 && bmi > 16.5)
-            {
-                label15.Visible = false;
-                label16.Visible = true;
-                label17.Visible = false;
-                label18.Visible = false;
-                label19.Visible = false;
-            }
-            else if (bmi < 25 && bmi > 18.5)
-            {
-                label15.Visible = false;
-                label16.Visible = false;
-                label17.Visible = true;
-                label18.Visible = false;
-                label19.Visible = false;
-            }
-            else if (bmi < 30 && bmi > 25)
-            {
-                label15.Visible = false;
-                label16.Visible = false;
-                label17.Visible = false;
-                label18.Visible = true;
-                label19.Visible = false;
-            }
-            else if (bmi > 30)
-            {
-                label15.Visible = false;
-                label16.Visible = false;
-                label17.Visible = false;
-                label18.Visible = false;
-                label19.Visible = true;
-            }
-            panelBMI.Visible = true;
         }
 
         private void Year_SelectedIndexChanged(object sender, EventArgs e)
@@ -267,5 +283,7 @@ namespace SocialTap
             }
 
         }
+
+        
     }
 }
