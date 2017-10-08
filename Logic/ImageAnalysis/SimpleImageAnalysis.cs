@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace social_tap
+namespace Logic.ImageAnalysis
 {
     public class SimpleImageAnalysis
     {

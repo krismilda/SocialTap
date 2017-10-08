@@ -13,7 +13,7 @@ using Emgu.CV.Cuda;
 #endif
 using Emgu.CV.XFeatures2D;
 
-namespace Services.ImageAnalysis
+namespace Logic.ImageAnalysis
 {
     public class EmguCVImageAnalysis
     {
