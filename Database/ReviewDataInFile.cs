@@ -1,6 +1,7 @@
 ﻿using Database.File;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -28,8 +29,8 @@ namespace Database
 
         public  static void SomeMethodRunsAt1600()
         {
-            ReadingFromFile<RestaurantInformation> readingFromFile = new ReadingFromFile<RestaurantInformation>();
-            List<RestaurantInformation> listOfRestaurants = readingFromFile.Read();
+            ReadingFromFileDeserialize<RestaurantInformation> readingFromFile = new ReadingFromFileDeserialize<RestaurantInformation>();
+            List<RestaurantInformation> listOfRestaurants = readingFromFile.Read(fileName: ConfigurationManager.AppSettings["FileName"]);
             listOfRestaurants.Sort();
             foreach (RestaurantInformation restaurantInfo in listOfRestaurants)
             {

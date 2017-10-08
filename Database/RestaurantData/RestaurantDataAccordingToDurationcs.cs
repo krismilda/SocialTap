@@ -1,6 +1,7 @@
 ﻿using Database.File;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +24,8 @@ namespace Database.RestaurantData
                     break;
 
             }
-            ReadingFromFile<RestaurantInformation> readingFromFile = new ReadingFromFile<RestaurantInformation>();
-            List<RestaurantInformation> dataList = readingFromFile.Read();
+            ReadingFromFileDeserialize<RestaurantInformation> readingFromFile = new ReadingFromFileDeserialize<RestaurantInformation>();
+            List<RestaurantInformation> dataList = readingFromFile.Read(fileName: ConfigurationManager.AppSettings["FileName"]);
             List<RestaurantInformation> dataListRange = new List<RestaurantInformation>();
             foreach (RestaurantInformation restaurantData in dataList)
             {
