@@ -63,26 +63,25 @@
             this.ColumnPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabTOP = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataTopList = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnUploadTopList = new System.Windows.Forms.Button();
             this.cmbTopList = new System.Windows.Forms.ComboBox();
+            this.dataTopList = new System.Windows.Forms.DataGridView();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabMostVisited = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.dataMostVisited = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnUploadMostVisited = new System.Windows.Forms.Button();
-            this.cmbMostVisited = new System.Windows.Forms.ComboBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Times = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
-
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnUploadMostVisited = new System.Windows.Forms.Button();
+            this.cmbMostVisited = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.labelYear = new System.Windows.Forms.Label();
             this.panelBMI = new System.Windows.Forms.Panel();
             this.panelRecommend = new System.Windows.Forms.Panel();
             this.labelBMIYour = new System.Windows.Forms.Label();
@@ -135,21 +134,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).BeginInit();
             this.tabTOP.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTopList)).BeginInit();
-
+            this.tabMostVisited.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataMostVisited)).BeginInit();
+            this.tableLayoutPanel7.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelBMI.SuspendLayout();
             this.panelRecommend.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Weight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Height)).BeginInit();
-
-            this.tableLayoutPanel5.SuspendLayout();
-            this.tabMostVisited.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataMostVisited)).BeginInit();
-            this.tableLayoutPanel7.SuspendLayout();
-
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -467,11 +463,9 @@
             // 
             // ImageBoxMap
             // 
-
-            this.ImageBoxMap.Location = new System.Drawing.Point(3, 244);
+            this.ImageBoxMap.Location = new System.Drawing.Point(3, 207);
             this.ImageBoxMap.Name = "ImageBoxMap";
             this.ImageBoxMap.Size = new System.Drawing.Size(768, 285);
-
             this.ImageBoxMap.TabIndex = 6;
             this.ImageBoxMap.TabStop = false;
             // 
@@ -490,8 +484,7 @@
             this.TblNearbyLocation.Location = new System.Drawing.Point(3, 67);
             this.TblNearbyLocation.Name = "TblNearbyLocation";
             this.TblNearbyLocation.Size = new System.Drawing.Size(617, 134);
-            this.TblNearbyLocation.TabIndex = 5;        
-            
+            this.TblNearbyLocation.TabIndex = 5;
             // 
             // ColumnNr
             // 
@@ -541,20 +534,6 @@
             this.tableLayoutPanel11.Size = new System.Drawing.Size(770, 284);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
-
-            // dataTopList
-            // 
-            this.dataTopList.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataTopList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataTopList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Name,
-            this.Address,
-            this.Visible});
-            this.dataTopList.Location = new System.Drawing.Point(3, 40);
-            this.dataTopList.Name = "dataTopList";
-            this.dataTopList.Size = new System.Drawing.Size(596, 198);
-            this.dataTopList.TabIndex = 5;
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
@@ -587,16 +566,46 @@
             "Last Week (7 Days)"});
             this.cmbTopList.Location = new System.Drawing.Point(190, 3);
             this.cmbTopList.Name = "cmbTopList";
-            this.cmbTopList.Size = new System.Drawing.Size(178, 27);
+            this.cmbTopList.Size = new System.Drawing.Size(178, 30);
             this.cmbTopList.TabIndex = 1;
             this.cmbTopList.Text = "Last Month (30 Days)";
+            // 
+            // dataTopList
+            // 
+            this.dataTopList.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataTopList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataTopList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Name,
+            this.Address,
+            this.Visible});
+            this.dataTopList.Location = new System.Drawing.Point(3, 40);
+            this.dataTopList.Name = "dataTopList";
+            this.dataTopList.Size = new System.Drawing.Size(596, 198);
+            this.dataTopList.TabIndex = 5;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            this.Name.Width = 200;
+            // 
+            // Address
+            // 
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            this.Address.Width = 250;
+            // 
+            // Visible
+            // 
+            this.Visible.HeaderText = "Percentage";
+            this.Visible.Name = "Visible";
             // 
             // tabMostVisited
             // 
             this.tabMostVisited.Controls.Add(this.tableLayoutPanel6);
-            this.tabMostVisited.Location = new System.Drawing.Point(4, 28);
+            this.tabMostVisited.Location = new System.Drawing.Point(4, 31);
             this.tabMostVisited.Name = "tabMostVisited";
-            this.tabMostVisited.Size = new System.Drawing.Size(780, 541);
+            this.tabMostVisited.Size = new System.Drawing.Size(780, 538);
             this.tabMostVisited.TabIndex = 3;
             this.tabMostVisited.Text = "Most Visited";
             this.tabMostVisited.UseVisualStyleBackColor = true;
@@ -628,6 +637,28 @@
             this.dataMostVisited.Name = "dataMostVisited";
             this.dataMostVisited.Size = new System.Drawing.Size(696, 198);
             this.dataMostVisited.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 250;
+            // 
+            // Times
+            // 
+            this.Times.HeaderText = "Times";
+            this.Times.Name = "Times";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Percentage";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // tableLayoutPanel7
             // 
@@ -661,54 +692,13 @@
             "Last Week (7 days)"});
             this.cmbMostVisited.Location = new System.Drawing.Point(130, 3);
             this.cmbMostVisited.Name = "cmbMostVisited";
-            this.cmbMostVisited.Size = new System.Drawing.Size(179, 27);
+            this.cmbMostVisited.Size = new System.Drawing.Size(179, 30);
             this.cmbMostVisited.TabIndex = 1;
             this.cmbMostVisited.Text = "Last Month (30 days)";
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Address";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 250;
-            // 
-            // Times
-            // 
-            this.Times.HeaderText = "Times";
-            this.Times.Name = "Times";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Percentage";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.Width = 200;
-            // 
-            // Address
-            // 
-            this.Address.HeaderText = "Address";
-            this.Address.Name = "Address";
-            this.Address.Width = 250;
-            // 
-            // Visible
-            // 
-            this.Visible.HeaderText = "Percentage";
-            this.Visible.Name = "Visible";
-            // 
-
-
-            // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.labelYear);
             this.tabPage1.Controls.Add(this.panelBMI);
             this.tabPage1.Controls.Add(this.buttonCalculateBMI);
             this.tabPage1.Controls.Add(this.Year);
@@ -727,6 +717,15 @@
             this.tabPage1.TabIndex = 4;
             this.tabPage1.Text = "BMI calculator";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // labelYear
+            // 
+            this.labelYear.AutoSize = true;
+            this.labelYear.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelYear.Location = new System.Drawing.Point(364, 193);
+            this.labelYear.Name = "labelYear";
+            this.labelYear.Size = new System.Drawing.Size(0, 23);
+            this.labelYear.TabIndex = 14;
             // 
             // panelBMI
             // 
@@ -752,9 +751,10 @@
             this.panelBMI.Controls.Add(this.label16);
             this.panelBMI.Controls.Add(this.label12);
             this.panelBMI.Controls.Add(this.label15);
+            this.panelBMI.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBMI.Location = new System.Drawing.Point(3, 3);
             this.panelBMI.Name = "panelBMI";
-            this.panelBMI.Size = new System.Drawing.Size(771, 535);
+            this.panelBMI.Size = new System.Drawing.Size(774, 532);
             this.panelBMI.TabIndex = 13;
             this.panelBMI.Visible = false;
             // 
@@ -768,7 +768,7 @@
             this.panelRecommend.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRecommend.Location = new System.Drawing.Point(0, 0);
             this.panelRecommend.Name = "panelRecommend";
-            this.panelRecommend.Size = new System.Drawing.Size(771, 535);
+            this.panelRecommend.Size = new System.Drawing.Size(774, 532);
             this.panelRecommend.TabIndex = 17;
             this.panelRecommend.Visible = false;
             // 
@@ -1172,15 +1172,11 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "height :";
             // 
-
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(805, 578);
-          
-
+            this.ClientSize = new System.Drawing.Size(936, 656);
             this.Controls.Add(this.tabMain);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1205,8 +1201,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.TblNearbyLocation)).EndInit();
             this.tabTOP.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataTopList)).EndInit();
-
+            this.tabMostVisited.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataMostVisited)).EndInit();
+            this.tableLayoutPanel7.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.panelBMI.ResumeLayout(false);
@@ -1216,13 +1216,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Weight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Height)).EndInit();
-
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tabMostVisited.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataMostVisited)).EndInit();
-            this.tableLayoutPanel7.ResumeLayout(false);
-
             this.ResumeLayout(false);
 
         }
@@ -1320,6 +1313,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Times;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-
+        private System.Windows.Forms.Label labelYear;
     }
 }
