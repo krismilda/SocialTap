@@ -46,14 +46,14 @@ namespace SocialTap
                 string path = openFileDialog.FileName;
                 image = new Mat(path);
                 imageBox.Image = image;
-                Bitmap bitmap = new Bitmap(image.Bitmap);
-                GetAllGlassInformation(bitmap);
+                //Bitmap bitmap = new Bitmap(image.Bitmap);
+                //GetAllGlassInformation(bitmap);  //!!!!!!!!!!!!! change needed
 
                 //var culture = new CultureInfo("en-GB");
                 //DateTime localDate = DateTime.Now;
 
                 //Log.WriteLineToFile(localDate.ToString(culture) + " " + percentageOfLiquid + "%");
-                log.Info("Liquid in the picture: " + glassInformation.Percentage + "%");
+                //log.Info("Liquid in the picture: " + glassInformation.Percentage + "%"); //!!!!!change needed
 
                 IAppender[] appenders = log.Logger.Repository.GetAppenders();
                 // Check each appender this logger has
@@ -62,13 +62,9 @@ namespace SocialTap
 
                 }
 
-
-                EmguCVImageAnalysis imgAnalysis = new EmguCVImageAnalysis();
-                //imageBox2.Image = imgAnalysis.FindContours(path);
-
-                //imageBox2.Image = imgAnalysis.CannyDetection(path);
-                Mat modelImage = new Mat(@"../../TestImages/GlassTemplate.jpg");
-                imageBox2.Image = EmguCVImageAnalysis.Draw(modelImage, image);
+                RealPhotoAnalysis rpa = new RealPhotoAnalysis(new Image<Emgu.CV.Structure.Bgr, byte>(path));
+                imageBox2.Image = rpa.VisualRepresentation;
+                lblPercentage.Text = rpa.Percentage + "";
             }
             catch (ArgumentException)
             {
