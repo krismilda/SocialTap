@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace social_tap
+namespace Logic.ImageAnalysis
 {
-   public class SimpleImageAnalysis
+    public class SimpleImageAnalysis
     {
         private Bitmap _Img;
 
@@ -78,10 +78,13 @@ namespace social_tap
                 {
                     Color pixel = _Img.GetPixel(i, j);
 
-                    if ((pixel.R == 0) && (pixel.G == 162) && (pixel.B == 232))
+                    if ((pixel.R > 0) && (pixel.R < 255) ||
+                            (pixel.G > 0) && (pixel.G < 255) ||
+                                (pixel.B > 0) && (pixel.B < 255))
                     {
                         volume++;
                     }
+
                 }
             }
 

@@ -17,7 +17,7 @@ namespace Services
         public void CalculateCurrentCoordinates()
         {
             GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
-            do
+          /*  do
             {
                 watcher.TryStart(true, TimeSpan.FromMilliseconds(2000));
 
