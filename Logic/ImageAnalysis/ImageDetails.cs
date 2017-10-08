@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Google.Cloud.Vision.V1;
 using System.Drawing;
 
-namespace Logic.ImageAnalysis
+namespace Services.ImageAnalysis
 {
     class ImageDetails
     {

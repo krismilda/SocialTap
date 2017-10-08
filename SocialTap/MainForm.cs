@@ -29,20 +29,12 @@ namespace SocialTap
         RestaurantInformation glassInformation = new RestaurantInformation();
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+
         public MainForm()
         {
-            CustomRangeOfData customRangeOfData = new CustomRangeOfData();
-            customRangeOfData.GetLastDaysData(2);
             InitializeComponent();
-            TopList t = new TopList();
-            List<RestaurantInformationAverage> list=t.getTopList();
-            for (int i = 0; i < 5; i++)
-            {
-                dataTopList.Rows.Add(list[i].Name, list[i].Address, list[i].AverageOfPercentage);
-            }
-            
         }
-        
+
         private void btnOpenFile_Click_1(object sender, EventArgs e)
         {
             DialogResult drChosenFile;

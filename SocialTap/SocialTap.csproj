@@ -184,11 +184,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Log.txt" />
-    <Content Include="TestImages\20171007_175823.jpg" />
+    <None Include="Resources\Recommendationss.bmp" />
+    <Content Include="TestImages\beer1.jpg" />
+    <Content Include="TestImages\beer2.jpg" />
     <Content Include="TestImages\beerTemplate.bmp" />
     <Content Include="TestImages\beerTemplate2.jpg" />
     <Content Include="TestImages\Glass1.bmp" />
     <Content Include="TestImages\GlassTemplate.bmp" />
+    <Content Include="TestImages\GlassTemplate.jpg" />
+    <Content Include="TestImages\GlassWater.jpg" />
+    <Content Include="TestImages\GlassWater2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Database\Database.csproj">
@@ -202,6 +207,10 @@
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{6cc9c2c0-4b02-44db-986b-7aae2491d19c}</Project>
       <Name>Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialTapTests\SocialTapTests.csproj">
+      <Project>{5c000945-87e1-47cf-9c9d-43b3932bec57}</Project>
+      <Name>SocialTapTests</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

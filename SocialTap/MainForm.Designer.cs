@@ -1,4 +1,4 @@
-namespace SocialTap
+﻿namespace SocialTap
 {
     partial class MainForm
     {
