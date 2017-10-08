@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
@@ -50,6 +51,16 @@
     <Compile Include="File\TopList.cs" />
     <Compile Include="File\WritingToFile.cs" />
     <Compile Include="RestaurantInformation.cs" />
+    <Compile Include="RestaurantData\MostVisitedList.cs" />
+    <Compile Include="RestaurantData\RestaurantDataAccordingToDurationcs.cs" />
+    <Compile Include="RestaurantData\TopList.cs" />
+    <Compile Include="RestaurantData\RestaurantAverageOfPercentage.cs" />
+    <Compile Include="File\Log.cs" />
+    <Compile Include="File\ReadingFromFileDeserialize.cs" />
+    <Compile Include="RestaurantData\RestaurantInformationAverage.cs" />
+    <Compile Include="RestaurantData\DistictRestaurantsWithAverageOfPercentage.cs" />
+    <Compile Include="File\WritingToFileSerialize.cs" />
+    <Compile Include="RestaurantData\RestaurantInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReviewDataInFile.cs" />
   </ItemGroup>
@@ -63,5 +74,16 @@
       <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{CD2A38FA-A67A-4AFA-A90B-3F7430FC7FB6}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{6CC9C2C0-4B02-44DB-986B-7AAE2491D19C}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

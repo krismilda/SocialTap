@@ -25,12 +25,11 @@ namespace Services
 
 
             GeoCoordinate coordinate = watcher.Position.Location;
-            */
-        //    if (coordinate.IsUnknown != true)
+            
+            if (coordinate.IsUnknown != true)
             {
-               
-                Latitude = 54.734615;
-                Longitude = 25.247996;
+                Latitude = coordinate.Latitude;
+                Longitude = coordinate.Longitude;
             }
         }
     }

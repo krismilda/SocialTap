@@ -8,16 +8,16 @@ namespace Services
 {
     public class NearbyPlace
     {
-        public String name { get; set; }
-        public String address { get; set; }
-        public String percentage { get; set; }
-        public String coordinates { get; set; }
+        public String Name { get; set; }
+        public String Address { get; set; }
+        public String Percentage { get; set; }
+        public String Coordinates { get; set; }
 
         public NearbyPlace(String name, String address, string coordinates)
         {
-            this.name = name;
-            this.address = address;
-            this.coordinates = coordinates;
+            this.Name = name;
+            this.Address = address;
+            this.Coordinates = coordinates;
         }
     }
 }

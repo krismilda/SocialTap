@@ -25,10 +25,12 @@ namespace Services
 
             placesList.AddRange(await new NearbyPlacesList().GetNearbyPlacesListAsync(type));
             placesList.ToArray();
-            String url = ConfigurationManager.AppSettings["GoogleStaticMapApiUrl"] + "&size=" + mapSize + "&center=" + currentCoordinates + "&zoom=" + zoom + "&" + ConfigurationManager.AppSettings["GoogleStaticMapApiKey"];
+            String url = ConfigurationManager.AppSettings["GoogleStaticMapApiUrl"] + "&size=" + mapSize
+                + "&center=" + currentCoordinates + "&zoom=" + zoom
+                + "&" + ConfigurationManager.AppSettings["GoogleStaticMapApiKey"];
             for (int i = 0; i < 5; i++)
             {
-                url += "&" + ConfigurationManager.AppSettings["GoogleStaticMapApiMarker"] + (i + 1) + "%7C" + placesList[i].coordinates;
+                url += "&" + ConfigurationManager.AppSettings["GoogleStaticMapApiMarker"] + (i + 1) + "%7C" + placesList[i].Coordinates;
             }
             Uri uri = new Uri(url);
             HttpWebRequest httpRequest = (HttpWebRequest)HttpWebRequest.Create(uri);

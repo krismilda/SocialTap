@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-   public  class NearbyPlacesList
+    public class NearbyPlacesList
     {
-    public async Task<List<NearbyPlace>> GetNearbyPlacesListAsync(String type)
+        public async Task<List<NearbyPlace>> GetNearbyPlacesListAsync(String type)
         {
             GooglePlacesApiData nearbyPlacesData = new GooglePlacesApiData();
-            GooglePlacesApiResponse placesData =await nearbyPlacesData.GetApiResponseData(type);
+            GooglePlacesApiResponse placesData = await nearbyPlacesData.GetApiResponseData(type);
             List<NearbyPlace> placesList = new List<NearbyPlace>();
             for (int i = 0; i < 5; i++)
             {
-                placesList.Insert(i, new NearbyPlace(placesData.results[i].name, placesData.results[i].vicinity, CoordinatesConverter.GetConvertedCoordinates(placesData.results[i].geometry.location.lat, placesData.results[i].geometry.location.lng)));
+                placesList.Insert(i, new NearbyPlace(placesData.results[i].name, placesData.results[i].vicinity,
+                    CoordinatesConverter.GetConvertedCoordinates(placesData.results[i].geometry.location.lat,
+                    placesData.results[i].geometry.location.lng)));
             }
             return placesList;
         }
