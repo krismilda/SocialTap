@@ -12,18 +12,18 @@ namespace Database.File
         public List<RestaurantInformationAverage> GetListWithAverageOfPercentage(List<RestaurantInformation> listAllRestaurantInformation)
         {
             List<RestaurantInformationAverage> listRestaurantInformation = new List<RestaurantInformationAverage>();
-            var list= from restaurant in listAllRestaurantInformation
-                       group restaurant by new{restaurant.Name,restaurant.Address} into grouping
-                       select new RestaurantInformationAverage
-                       {
-                           Name=grouping.Key.Name,
-                           Address=grouping.Key.Address,
-                           SumOfPercentage = grouping.Sum(a => a.Percentage),
-                           Times = grouping.Count(),
-                           AverageOfPercentage= Math.Round(grouping.Average(a => a.Percentage), 2)
-                       };
+            var listOfRestaurantsAverage = from restaurant in listAllRestaurantInformation
+                                           group restaurant by new { restaurant.Name, restaurant.Address } into grouping
+                                           select new RestaurantInformationAverage
+                                           {
+                                               Name = grouping.Key.Name,
+                                               Address = grouping.Key.Address,
+                                               SumOfPercentage = grouping.Sum(a => a.Percentage),
+                                               Times = grouping.Count(),
+                                               AverageOfPercentage = Math.Round(grouping.Average(a => a.Percentage), 2)
+                                           };
 
-            return list.ToList<RestaurantInformationAverage>();
+            return listOfRestaurantsAverage.ToList<RestaurantInformationAverage>();
         }
     }
 }

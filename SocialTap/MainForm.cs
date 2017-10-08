@@ -133,8 +133,8 @@ namespace SocialTap
                 for (int i = 0; i < 5; i++)
                 {
                     RestaurantInformation glass = new RestaurantInformation();
-                    glass.Name = nearbyPlacesData.placesList[i].name;
-                    glass.Address = nearbyPlacesData.placesList[i].address;
+                    glass.Name = nearbyPlacesData.placesList[i].Name;
+                    glass.Address = nearbyPlacesData.placesList[i].Address;
                     RestaurantAverageOfPercentage restaurantAverageOfPercentage = new RestaurantAverageOfPercentage();
                     TblNearbyLocation.Rows.Add(i + 1, glass.Name, glass.Address, restaurantAverageOfPercentage.GetAverageOfLiquid(glass));
                 }
