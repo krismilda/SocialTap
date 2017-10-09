@@ -113,8 +113,10 @@
   <ItemGroup>
     <Compile Include="CalculatingAverage.cs" />
     <Compile Include="CountBMI.cs" />
+    <Compile Include="ImageAnalysis\DrawOptions.cs" />
     <Compile Include="ImageAnalysis\EmguCVImageAnalysis.cs" />
     <Compile Include="ImageAnalysis\ImageDetails.cs" />
+    <Compile Include="ImageAnalysis\ICalculateLiquidPercentage.cs" />
     <Compile Include="ImageAnalysis\RealPhotoAnalysis.cs" />
     <Compile Include="ImageAnalysis\SimpleImageAnalysis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

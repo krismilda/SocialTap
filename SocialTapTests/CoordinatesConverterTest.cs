@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using social_tap;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Services;
 
 namespace SocialTapTests

@@ -1,4 +1,5 @@
 ﻿using System;
+using Logic.ImageAnalysis;
 using System.Drawing;
 using Emgu.CV;
 using Emgu.CV.CvEnum;
@@ -16,7 +17,7 @@ namespace Services.ImageAnalysis
     /// 2) Access percentage and VisualRepresentation properties.
     /// (C) - MMV
     /// </summary>
-    public class RealPhotoAnalysis 
+    public class RealPhotoAnalysis : ICalculateLiquidPercentage
     {
         private Image<Gray, byte> _img;
         private VectorOfVectorOfPoint _contours;
@@ -30,8 +31,9 @@ namespace Services.ImageAnalysis
         private int _liquidVolume;
         private int _totalVolume;
 
+        private int _percentage;
+
         public Image<Bgr, byte> VisualRepresentation { get; private set; }
-        public int Percentage { get; private set; }
 
         /// <summary>
         /// don't allow users to create instances without passing an image
@@ -44,7 +46,8 @@ namespace Services.ImageAnalysis
         /// </summary>
         /// <param name="img">Source image used to calculate the percentage of
         /// liquid</param>
-        public RealPhotoAnalysis(Image<Bgr, byte> img) //TO DO: perkeist i path
+        public RealPhotoAnalysis(Image<Bgr, byte> img) 
+            //TO DO: perkeist i path
         {
             //Prepare image for further processing
             _img = GetYellowishPixelMask(img);
@@ -68,7 +71,8 @@ namespace Services.ImageAnalysis
         /// Sets the VisualRepresentation property to an image with all the 
         /// calculations illustrated.
         /// </summary>
-        private void GetVisualRepresentation()
+        private void GetVisualRepresentation(DrawOptions drawOptions = DrawOptions.TopContour | 
+                                             DrawOptions.TopApproxContour | DrawOptions.LiquidContour | DrawOptions.ApproxLiquidContour)
         {
             Size imgSize = new Size(_img.Width, _img.Height);
             Image<Bgr, byte> img = new Image<Bgr, byte>(imgSize);
@@ -98,6 +102,8 @@ namespace Services.ImageAnalysis
 
             VisualRepresentation = img;
         }
+
+
 
         /// <summary>
         /// Finds the liquid contour and sets fields _approxLiquidContour 
@@ -233,7 +239,7 @@ namespace Services.ImageAnalysis
         /// </summary>
         private void CalculatePercentage()
         {
-            Percentage = _liquidVolume * 100 / _totalVolume;
+            _percentage = _liquidVolume * 100 / _totalVolume;
         }
 
 
@@ -280,5 +286,9 @@ namespace Services.ImageAnalysis
             }
         }
 
+        int ICalculateLiquidPercentage.CalculatePercentageOfLiquid()
+        {
+            return _percentage;
+        }
     }
 }

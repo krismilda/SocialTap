@@ -1,7 +1,6 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
+using Logic.ImageAnalysis;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using social_tap;
 
 namespace SocialTapTests
 {
@@ -13,7 +12,7 @@ namespace SocialTapTests
         {
             //Arrange
             Bitmap bmp = new Bitmap(@"../../TestData/Glass1.bmp");
-            var simga = new SimpleImageAnalysis(bmp);
+            ICalculateLiquidPercentage simga = new SimpleImageAnalysis(bmp);
 
             //Act
             var percentage = simga.CalculatePercentageOfLiquid();

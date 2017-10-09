@@ -9,8 +9,9 @@ namespace Services.ImageAnalysis
     {
         public List<string> GetDetails(string path)
         {
-            List<string> description = new List<string>();
-           /*  
+            throw new NotImplementedException();
+            //List<string> description = new List<string>();
+            /*  
             var client = ImageAnnotatorClient.Create();
             var image = Image.FromFile(path);
             
@@ -21,7 +22,7 @@ namespace Services.ImageAnalysis
                     description.Add(annotation.Description);
             }
             */
-            return description;
+            //return description;
         }
     }
 }

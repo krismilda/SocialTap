@@ -2,22 +2,13 @@
 using System.Windows.Forms;
 using Emgu.CV;
 using System.Drawing;
-using social_tap;
-using System.Threading;
-using System.Threading.Tasks;
-
 using Services;
-using System.Globalization;
-using Services.ImageAnalysis;
-using log4net;
-using log4net.Appender;
 using Database.File;
 using System.Collections.Generic;
 using Database;
 using Database.RestaurantData;
 using Logic;
 using Services.BMIregex;
-using System.Text.RegularExpressions;
 using System.Configuration;
 
 
