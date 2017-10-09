@@ -43,11 +43,11 @@ namespace SocialTap
 
             try
             {
+                errorMessage.Text = "";
                 string path = openFileDialog.FileName;
                 image = new Mat(path);
                 imageBox.Image = image;
-                //Bitmap bitmap = new Bitmap(image.Bitmap);
-                //GetAllGlassInformation(bitmap);  //!!!!!!!!!!!!! change needed
+                GetAllGlassInformation(path, imageBox2);
 
                 //var culture = new CultureInfo("en-GB");
                 //DateTime localDate = DateTime.Now;
@@ -61,10 +61,6 @@ namespace SocialTap
                 {
 
                 }
-
-                RealPhotoAnalysis rpa = new RealPhotoAnalysis(new Image<Emgu.CV.Structure.Bgr, byte>(path));
-                imageBox2.Image = rpa.VisualRepresentation;
-                lblPercentage.Text = rpa.Percentage + "";
             }
             catch (ArgumentException)
             {
@@ -97,19 +93,19 @@ namespace SocialTap
                 dataTopList.Rows.Add(list[i].Name, list[i].Address, list[i].AverageOfPercentage);
             }
         }
-        public async void GetAllGlassInformation(Bitmap bitmap)
+        public async void GetAllGlassInformation(String path, PictureBox imageBox2)
         {
             try
             {
-            await glassInformation.GetRestaurantInformation(bitmap);
-            lblName.Text = glassInformation.Name;
-            lblAddress.Text = glassInformation.Address;
-            lblPercentage.Text = glassInformation.Percentage.ToString();
-            lblDate.Text = string.Format("{0:d}", glassInformation.Date);
-            WritingToFileSerialize <RestaurantInformation> writing = new WritingToFileSerialize <RestaurantInformation> ();
-            writing.Write(glassInformation, fileName:ConfigurationManager.AppSettings["FileName"]);
+                await glassInformation.GetRestaurantInformation(path, imageBox2);
+                lblName.Text = glassInformation.Name;
+                lblAddress.Text = glassInformation.Address;
+                lblPercentage.Text = glassInformation.Percentage.ToString();
+                lblDate.Text = string.Format("{0:d}", glassInformation.Date);
+                WritingToFileSerialize<RestaurantInformation> writing = new WritingToFileSerialize<RestaurantInformation>();
+                writing.Write(glassInformation, fileName: ConfigurationManager.AppSettings["FileName"]);
             }
-            catch(ArgumentOutOfRangeException)
+            catch (ArgumentOutOfRangeException)
             {
                 errorMessage.Text = "Cannot load information";
             }
@@ -140,7 +136,7 @@ namespace SocialTap
                 TblNearbyLocation.Rows.Clear();
                 ImageBoxMap.Image = null;
                 lblImageError.Text = "Cannot load information";
-            } 
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -158,14 +154,14 @@ namespace SocialTap
             panelRecommend.Visible = true;
         }
 
-       
+
         private void button1_Click(object sender, EventArgs e)
         {
             new Regex_BMI().RegexValidation(@"\d+", Year, labelYear, "Year");
             if (labelYear.Text == "Year InValid")
-                { panelBMI.Visible = false; }
+            { panelBMI.Visible = false; }
             else
-            { 
+            {
                 double bmi;
                 double wgh = double.Parse(Weight.Value.ToString());
                 double hgh2 = Math.Pow(double.Parse(Height.Value.ToString()), 2);
@@ -173,19 +169,19 @@ namespace SocialTap
                 bmi = new CountBMI().GetBMI(wgh, hgh2);
 
 
-                    if (bmi.ToString().Length > 5)
-                    {
-                        textBox1.Text = (wgh / hgh2).ToString().Remove(5);
-                        textBox2.Text = (wgh / hgh2).ToString().Remove(5);
-                    }
-                    else
-                    {
-                        textBox1.Text = (wgh / hgh2).ToString();
-                        textBox2.Text = (wgh / hgh2).ToString();
-                    }
+                if (bmi.ToString().Length > 5)
+                {
+                    textBox1.Text = (wgh / hgh2).ToString().Remove(5);
+                    textBox2.Text = (wgh / hgh2).ToString().Remove(5);
+                }
+                else
+                {
+                    textBox1.Text = (wgh / hgh2).ToString();
+                    textBox2.Text = (wgh / hgh2).ToString();
+                }
 
-                    if (bmi < 16.5 && bmi > 11)
-            
+                if (bmi < 16.5 && bmi > 11)
+
                 {
                     label15.Visible = true;
                     label16.Visible = false;
@@ -261,7 +257,7 @@ namespace SocialTap
         private void btnUploadMostVisited_Click(object sender, EventArgs e)
         {
             MostVisitedList mostVisitedList = new MostVisitedList();
-            List <RestaurantInformationAverage> restaurantList = mostVisitedList.GetMostVisitedList(cmbMostVisited.Text);
+            List<RestaurantInformationAverage> restaurantList = mostVisitedList.GetMostVisitedList(cmbMostVisited.Text);
             int size;
             size = restaurantList.Count;
             if (restaurantList.Capacity < 5)
@@ -280,6 +276,6 @@ namespace SocialTap
 
         }
 
-        
+
     }
 }
