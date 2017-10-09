@@ -111,6 +111,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgeCalibration.cs" />
     <Compile Include="CalculatingAverage.cs" />
     <Compile Include="CountBMI.cs" />
     <Compile Include="ImageAnalysis\DrawOptions.cs" />
