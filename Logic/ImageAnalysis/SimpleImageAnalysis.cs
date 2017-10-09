@@ -9,11 +9,11 @@ namespace social_tap
 {
    public class SimpleImageAnalysis
     {
-        private Bitmap _Img;
+        private Bitmap _img;
 
         public SimpleImageAnalysis(Bitmap img)
         {
-            _Img = img;
+            _img = img;
         }
 
         public static Bitmap CreateImage(String url)
@@ -32,11 +32,11 @@ namespace social_tap
             int x = 0;
             int volume = 0;
 
-            for (int i = 0; i < _Img.Height; i++)
+            for (int i = 0; i < _img.Height; i++)
             {
-                for (int j = 0; j < _Img.Width; j++)
+                for (int j = 0; j < _img.Width; j++)
                 {
-                    Color pixel = _Img.GetPixel(j, i);
+                    Color pixel = _img.GetPixel(j, i);
 
                     if ((pixel.R < 250) && (pixel.G < 250) && (pixel.B < 250)
                         && (pixel.R >= 0) && (pixel.G >= 0) && (pixel.B >= 0))
@@ -44,16 +44,16 @@ namespace social_tap
                         borderPixel = pixel;
                         x = j;
 
-                        while ((pixel == borderPixel) && (j < _Img.Width - 1))
+                        while ((pixel == borderPixel) && (j < _img.Width - 1))
                         {
                             j++;
-                            pixel = _Img.GetPixel(j, i);
+                            pixel = _img.GetPixel(j, i);
                         }
 
-                        while ((pixel != borderPixel) && (j < _Img.Width - 1))
+                        while ((pixel != borderPixel) && (j < _img.Width - 1))
                         {
                             j++;
-                            pixel = _Img.GetPixel(j, i);
+                            pixel = _img.GetPixel(j, i);
                         }
 
                         if (pixel == borderPixel)
@@ -72,11 +72,11 @@ namespace social_tap
         {
             int volume = 0;
 
-            for (int i = 0; i < _Img.Width; i++)
+            for (int i = 0; i < _img.Width; i++)
             {
-                for (int j = 0; j < _Img.Height; j++)
+                for (int j = 0; j < _img.Height; j++)
                 {
-                    Color pixel = _Img.GetPixel(i, j);
+                    Color pixel = _img.GetPixel(i, j);
 
                     if ((pixel.R == 0) && (pixel.G == 162) && (pixel.B == 232))
                     {

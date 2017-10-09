@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 using Services;
 using System.Globalization;
-using Services.Utilities;
 using Services.ImageAnalysis;
 using log4net;
 using log4net.Appender;
@@ -26,7 +25,7 @@ namespace SocialTap
 {
     public partial class MainForm : Form
     {
-        RestaurantInformation glassInformation = new RestaurantInformation();
+        RestaurantInformation restaurantInformation = new RestaurantInformation();
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 
@@ -48,19 +47,6 @@ namespace SocialTap
                 image = new Mat(path);
                 imageBox.Image = image;
                 GetAllGlassInformation(path, imageBox2);
-
-                //var culture = new CultureInfo("en-GB");
-                //DateTime localDate = DateTime.Now;
-
-                //Log.WriteLineToFile(localDate.ToString(culture) + " " + percentageOfLiquid + "%");
-                //log.Info("Liquid in the picture: " + glassInformation.Percentage + "%"); //!!!!!change needed
-
-                IAppender[] appenders = log.Logger.Repository.GetAppenders();
-                // Check each appender this logger has
-                foreach (IAppender appender in appenders)
-                {
-
-                }
             }
             catch (ArgumentException)
             {
@@ -97,13 +83,13 @@ namespace SocialTap
         {
             try
             {
-                await glassInformation.GetRestaurantInformation(path, imageBox2);
-                lblName.Text = glassInformation.Name;
-                lblAddress.Text = glassInformation.Address;
-                lblPercentage.Text = glassInformation.Percentage.ToString();
-                lblDate.Text = string.Format("{0:d}", glassInformation.Date);
+                await restaurantInformation.GetRestaurantInformation(path, imageBox2);
+                lblName.Text = restaurantInformation.Name;
+                lblAddress.Text = restaurantInformation.Address;
+                lblPercentage.Text = restaurantInformation.Percentage.ToString();
+                lblDate.Text = string.Format("{0:d}", restaurantInformation.Date);
                 WritingToFileSerialize<RestaurantInformation> writing = new WritingToFileSerialize<RestaurantInformation>();
-                writing.Write(glassInformation, fileName: ConfigurationManager.AppSettings["FileName"]);
+                writing.Write(restaurantInformation, fileName: ConfigurationManager.AppSettings["FileName"]);
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -124,11 +110,11 @@ namespace SocialTap
 
                 for (int i = 0; i < 5; i++)
                 {
-                    RestaurantInformation glass = new RestaurantInformation();
-                    glass.Name = nearbyPlacesData.placesList[i].Name;
-                    glass.Address = nearbyPlacesData.placesList[i].Address;
+                    RestaurantInformation restaurantInfo = new RestaurantInformation();
+                    restaurantInfo.Name = nearbyPlacesData.placesList[i].Name;
+                    restaurantInfo.Address = nearbyPlacesData.placesList[i].Address;
                     RestaurantAverageOfPercentage restaurantAverageOfPercentage = new RestaurantAverageOfPercentage();
-                    TblNearbyLocation.Rows.Add(i + 1, glass.Name, glass.Address, restaurantAverageOfPercentage.GetAverageOfLiquid(glass));
+                    TblNearbyLocation.Rows.Add(i + 1, restaurantInfo.Name, restaurantInfo.Address, restaurantAverageOfPercentage.GetAverageOfLiquid(restaurantInfo));
                 }
             }
             catch (ArgumentOutOfRangeException)

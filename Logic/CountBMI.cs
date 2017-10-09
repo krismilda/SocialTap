@@ -8,12 +8,12 @@ namespace Logic
 {
     public class CountBMI
     {
-        private double bmi;
+        private double _bmi;
 
         public double GetBMI(double wgh = 65, double hgh2 = 1.75)
         {
-            bmi = wgh / hgh2;
-            return bmi;
+            _bmi = wgh / hgh2;
+            return _bmi;
         }
     }
 }
