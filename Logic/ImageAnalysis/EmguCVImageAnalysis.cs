@@ -15,6 +15,9 @@ using Emgu.CV.XFeatures2D;
 
 namespace Services.ImageAnalysis
 {
+    /// <summary>
+    /// Util class for future use.
+    /// </summary>
     public class EmguCVImageAnalysis
     {
         public Image<Gray, byte> CannyDetection(string path)

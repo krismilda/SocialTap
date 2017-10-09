@@ -1,15 +1,11 @@
 ﻿using Emgu.CV;
 using Services;
 using Services.ImageAnalysis;
-using social_tap;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logic.ImageAnalysis;
 
 namespace Database
 {
@@ -25,13 +21,15 @@ namespace Database
         {
             GooglePlacesApiData googleApiData = new GooglePlacesApiData();
             GooglePlacesApiResponse responseData = await googleApiData.GetApiResponseData("food");
-            RealPhotoAnalysis rpa = new RealPhotoAnalysis(new Image<Emgu.CV.Structure.Bgr, byte>(path));
-            imageBox2.Image = rpa.VisualRepresentation.Bitmap;
-            int percentageOfLiquid = rpa.Percentage;
+            ICalculateLiquidPercentage rpa = new RealPhotoAnalysis(new Image<Emgu.CV.Structure.Bgr, byte>(path));
+            //ICalculateLiquidPercentage rpa = new SimpleImageAnalysis(new System.Drawing.Bitmap(path));
+            int percentageOfLiquid = rpa.CalculatePercentageOfLiquid();
             Date = DateTime.Today;
             Name = responseData.results[0].name;
             Address = responseData.results[0].vicinity;
             Percentage = percentageOfLiquid;
+            RealPhotoAnalysis rpa1 = (RealPhotoAnalysis)rpa;
+            imageBox2.Image = rpa1.VisualRepresentation.Bitmap;
 
         }
         public int CompareTo(RestaurantInformation glass)

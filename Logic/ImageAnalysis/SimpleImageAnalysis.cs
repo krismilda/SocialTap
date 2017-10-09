@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace social_tap
+namespace Logic.ImageAnalysis
 {
-   public class SimpleImageAnalysis
+   public class SimpleImageAnalysis : ICalculateLiquidPercentage
     {
         private Bitmap _img;
 
@@ -88,7 +88,7 @@ namespace social_tap
             return volume;
         }
 
-        public int CalculatePercentageOfLiquid()
+        int ICalculateLiquidPercentage.CalculatePercentageOfLiquid()
         {
             int volumeOfGlass;
             int volumeOfLiquid;
