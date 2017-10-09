@@ -213,31 +213,7 @@ namespace SocialTap
 
         private void Year_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Year.SelectedIndex == 0)
-            {
-                label14.Text = "22";
-            }
-            else if (Year.SelectedIndex == 1)
-            {
-                label14.Text = "23";
-            }
-
-            else if (Year.SelectedIndex == 2)
-            {
-                label14.Text = "24";
-            }
-            else if (Year.SelectedIndex == 3)
-            {
-                label14.Text = "25";
-            }
-            else if (Year.SelectedIndex == 4)
-            {
-                label14.Text = "26";
-            }
-            else if (Year.SelectedIndex == 5)
-            {
-                label14.Text = "27";
-            }
+            label14.Text = (22 + Year.SelectedIndex).ToString();
         }
 
         private void btnUploadMostVisited_Click(object sender, EventArgs e)
