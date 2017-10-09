@@ -213,9 +213,10 @@ namespace SocialTap
 
         private void Year_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label14.Text = (22 + Year.SelectedIndex).ToString();
+            int year = Year.SelectedIndex;
+            year = year.CalibrateAge();
+            label14.Text = year.ToString();
         }
-
         private void btnUploadMostVisited_Click(object sender, EventArgs e)
         {
             MostVisitedList mostVisitedList = new MostVisitedList();
