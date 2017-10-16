@@ -18,7 +18,6 @@ namespace Database.File
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             FileStream fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None);
             glassInformation = (List<T>)binaryFormatter.Deserialize(fileStream);
-            fileStream.Flush();
             fileStream.Close();
             return glassInformation;
         }

@@ -84,7 +84,7 @@ namespace SocialTap
                 lblPercentage.Text = restaurantInformation.Percentage.ToString();
                 lblDate.Text = string.Format("{0:d}", restaurantInformation.Date);
                 WritingToFileSerialize<RestaurantInformation> writing = new WritingToFileSerialize<RestaurantInformation>();
-                writing.Write(restaurantInformation);
+                writing.Write(restaurantInformation, ConfigurationManager.AppSettings["FileName"]);
             }
             catch (ArgumentOutOfRangeException)
             {
