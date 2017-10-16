@@ -10,7 +10,10 @@ using Database.RestaurantData;
 using Logic;
 using Services.BMIregex;
 using System.Configuration;
-
+using System.Data.SqlClient;
+using System.Web.Security;
+using System.Web;
+using System.Runtime.Remoting.Contexts;
 
 namespace SocialTap
 {
@@ -20,9 +23,10 @@ namespace SocialTap
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 
-        public MainForm()
+        public MainForm(string username)
         {
             InitializeComponent();
+            lblusername.Text = "Welcome " + username;
         }
 
         private void btnOpenFile_Click_1(object sender, EventArgs e)
@@ -80,7 +84,7 @@ namespace SocialTap
                 lblPercentage.Text = restaurantInformation.Percentage.ToString();
                 lblDate.Text = string.Format("{0:d}", restaurantInformation.Date);
                 WritingToFileSerialize<RestaurantInformation> writing = new WritingToFileSerialize<RestaurantInformation>();
-                writing.Write(restaurantInformation, fileName: ConfigurationManager.AppSettings["FileName"]);
+                writing.Write(restaurantInformation);
             }
             catch (ArgumentOutOfRangeException)
             {

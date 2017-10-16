@@ -120,6 +120,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.lblusername = new System.Windows.Forms.Label();
             this.tabMain.SuspendLayout();
             this.tabUploadImage.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -694,7 +695,7 @@
             this.cmbMostVisited.Name = "cmbMostVisited";
             this.cmbMostVisited.Size = new System.Drawing.Size(179, 27);
             this.cmbMostVisited.TabIndex = 1;
-            this.cmbMostVisited.Text = "Last Month (30 days)";
+            this.cmbMostVisited.Text = "Last Month (30 Days)";
             // 
             // tabPage1
             // 
@@ -1172,11 +1173,20 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "height :";
             // 
+            // lblusername
+            // 
+            this.lblusername.AutoSize = true;
+            this.lblusername.Location = new System.Drawing.Point(795, 3);
+            this.lblusername.Name = "lblusername";
+            this.lblusername.Size = new System.Drawing.Size(0, 19);
+            this.lblusername.TabIndex = 6;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 656);
+            this.Controls.Add(this.lblusername);
             this.Controls.Add(this.tabMain);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1216,6 +1226,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Weight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Height)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1313,5 +1324,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Times;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Label labelYear;
+        private System.Windows.Forms.Label lblusername;
     }
 }
