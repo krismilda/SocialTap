@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Database.File
 {
@@ -23,7 +20,7 @@ namespace Database.File
                                                AverageOfPercentage = Math.Round(grouping.Average(a => a.Percentage), 2)
                                            };
 
-            return listOfRestaurantsAverage.ToList<RestaurantInformationAverage>();
+            return listOfRestaurantsAverage.ToList();
         }
     }
 }
