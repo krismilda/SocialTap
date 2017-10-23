@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1"
+             x:Class="App1.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="add"
+                     Activated="ToolbarItem_Activated"
+                     
+        />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout 
+            VerticalOptions="CenterAndExpand" 
+            HorizontalOptions="CenterAndExpand"
+            BindingContext="{x:Reference slider}">
+
+            <BoxView Color="Pink" Opacity="{Binding Value}"/>
+
+            <Label BindingContext="{x:Reference slider}"
+                   
+                Text="{Binding Value,
+                StringFormat='Value is {0:F2}'}" 
+                   
+                Opacity="{Binding Value}"
+              x:Name="label"
+            /> 
+            <Slider x:Name="slider"
+                />
+            <Button 
+                Text="Click me"
+                Clicked="Button_Clicked"
+                />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
