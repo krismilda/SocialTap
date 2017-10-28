@@ -9,6 +9,7 @@
                      
         />
     </ContentPage.ToolbarItems>
+  
     <ContentPage.Content>
         <StackLayout 
             VerticalOptions="CenterAndExpand" 
@@ -33,4 +34,15 @@
                 />
         </StackLayout>
     </ContentPage.Content>
+
+    <ListView x:Name="barsListView">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Name}"
+                          Detail="{Binding Location}"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+
 </ContentPage>

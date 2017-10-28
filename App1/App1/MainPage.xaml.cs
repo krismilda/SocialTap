@@ -15,7 +15,21 @@ namespace App1
 
             slider.Value = 0.5;
         }
-        
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
+            {
+                conn.CreateTable<Bar>();
+
+                var bars = conn.Table<Bar>().ToList();
+                barsListView.ItemsSource = bars;
+            }
+                    
+        }
+
         private void Button_Clicked(object sender, EventArgs e)
         {
             DisplayAlert("Title", "Hello world", "ok");
