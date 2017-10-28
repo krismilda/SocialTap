@@ -4,10 +4,12 @@
              x:Class="App1.Page1">
     <ContentPage.Content>
         <StackLayout Margin="10, 10, 10, 0">
+
             <Entry x:Name ="nameEntry"
                    Placeholder="Name"/>
             <Entry x:Name ="locationEntry" 
                    Placeholder="Location"/>
+
             <Button Text="Save"
                     Clicked="Button_Clicked"/>
 

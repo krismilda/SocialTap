@@ -19,6 +19,7 @@ namespace App1
 
         private void Button_Clicked(object sender, EventArgs e)
         {
+
             Bar bar = new Bar()
             {
                 Name = nameEntry.Text,
@@ -34,8 +35,6 @@ namespace App1
                     DisplayAlert("Success", "Bar saved successful", "ok");
                 else
                     DisplayAlert("Failure", "Bar failed to be inserted", "X");
-
-
             }
 
         }

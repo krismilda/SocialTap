@@ -27,6 +27,7 @@ namespace App1
             MainPage = new NavigationPage(new MainPage());
 
         }
+
         protected override void OnStart()
         {
             // Handle when your app starts

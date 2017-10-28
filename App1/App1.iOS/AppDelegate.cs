@@ -4,7 +4,9 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+
 using System.IO;
+
 
 namespace App1.iOS
 {
@@ -23,6 +25,7 @@ namespace App1.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+
             string fileName = "app_db.sqlite";
             string fileLocation = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
             string full_path = Path.Combine(fileLocation, fileName);

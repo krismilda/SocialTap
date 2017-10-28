@@ -20,7 +20,11 @@ namespace Services.ImageAnalysis
     public class RealPhotoAnalysis : ICalculateLiquidPercentage
     {
         private Image<Gray, byte> _img;
+        private Image<Gray, byte> _imgCopy;
         private VectorOfVectorOfPoint _contours;
+        private VectorOfVectorOfPoint _contoursCopy;
+        private VectorOfPoint _redLineContour;
+        private VectorOfPoint _approxRedLineContour;
         private VectorOfPoint _liquidContour;
         private VectorOfPoint _approxLiquidContour;
         private VectorOfPoint _glassTopContour;
@@ -47,10 +51,25 @@ namespace Services.ImageAnalysis
         /// <param name="img">Source image used to calculate the percentage of
         /// liquid</param>
         public RealPhotoAnalysis(Image<Bgr, byte> img) 
-            //TO DO: perkeist i path
         {
+            //Red line detection
+            //Make a copy of the image for red line detection
+            Image<Bgr, byte> imgCopy = img.Clone();
+
+            //Prepare copy for red line detection
+            _imgCopy = GetPixelMask(imgCopy, 20, 160); //Reddish params
+
+            //set _contoursCopy to hold all contours of _imgCopy
+            _contours = new VectorOfVectorOfPoint();
+            CvInvoke.FindContours(_imgCopy, _contoursCopy, null, RetrType.External,
+                ChainApproxMethod.ChainApproxSimple);
+
+            FindLineContour();
+            //
+
+            //Liquid detection
             //Prepare image for further processing
-            _img = GetYellowishPixelMask(img);
+            _img = GetPixelMask(img, 30, 200); //Yellowish params
 
             //set _contours to hold all contours of _img
             _contours = new VectorOfVectorOfPoint();
@@ -65,6 +84,7 @@ namespace Services.ImageAnalysis
             CalculatePercentage();
 
             GetVisualRepresentation();
+            //
         }
 
         /// <summary>
@@ -100,10 +120,37 @@ namespace Services.ImageAnalysis
             points = _approxGlassTopContour.ToArray();
             img.DrawPolyline(points, true, new Bgr(Color.OrangeRed), 5);
 
+            points = _redLineContour.ToArray();
+            img.DrawPolyline(points, true, new Bgr(Color.Crimson), 5);
+
+            points = _approxRedLineContour.ToArray();
+            img.DrawPolyline(points, true, new Bgr(Color.Red), 5);
+
             VisualRepresentation = img;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        private void FindLineContour()
+        {
+            VectorOfPoint contour = new VectorOfPoint();
+            VectorOfPoint approxContour = new VectorOfPoint();
 
+            for (int i = 0; i < _contours.Size; i++)
+            {
+                contour = _contours[i];
+                CvInvoke.ApproxPolyDP(contour, approxContour, CvInvoke.ArcLength(contour, false) * 0.1, true);
+
+                if (CvInvoke.ArcLength(contour, false) > _imgCopy.Width * 0.05)
+                {
+                    break;
+                }
+            }
+
+            _redLineContour = contour;
+            _approxRedLineContour = approxContour;
+        }
 
         /// <summary>
         /// Finds the liquid contour and sets fields _approxLiquidContour 
@@ -248,12 +295,14 @@ namespace Services.ImageAnalysis
         /// A yellowish pixel is a pixel where: 30 &lt; hue &lt; 200 AND saturation &gt; 10
         /// </summary>
         /// <param name="image">The color image to find yellowish mask from</param>
+        /// <param name="lowerRange">The lower boundary of color mask the method gets.</param>
+        /// <param name="upperRange">The upper boundary of color mask the method gets.</param>
         /// <returns>The yellowish pixel mask</returns>
 
         // &lt = "<" (less than)
         // &gt = ">" (greater than) 
 
-        public static Image<Gray, Byte> GetYellowishPixelMask(Image<Bgr, byte> image)
+        public static Image<Gray, Byte> GetPixelMask(Image<Bgr, byte> image, int lowerRange, int upperRange)
         {
             using (Image<Hsv, Byte> hsv = image.Convert<Hsv, Byte>())
             {
@@ -265,8 +314,8 @@ namespace Services.ImageAnalysis
                 {
                     //Using ScalarArrays for input in CVInvoke.InRange() method
                     //
-                    ScalarArray SA1 = new ScalarArray(new MCvScalar(30));
-                    ScalarArray SA2 = new ScalarArray(new MCvScalar(200));
+                    ScalarArray SA1 = new ScalarArray(new MCvScalar(lowerRange));
+                    ScalarArray SA2 = new ScalarArray(new MCvScalar(upperRange));
 
                     //channels[0] is the mask for hue less than 20 or larger than 160
                     CvInvoke.InRange(channels[0], SA1, SA2, channels[0]);
