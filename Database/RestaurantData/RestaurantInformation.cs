@@ -12,6 +12,8 @@ namespace Database
     [Serializable]
     public class RestaurantInformation : IEnumerable, IComparable<RestaurantInformation>
     {
+        public int Id { get; set; }
+        public String Username { get; set; }
         public DateTime Date { get; set; }
         public String Name { get; set; }
         public String Address { get; set; }

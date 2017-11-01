@@ -23,10 +23,10 @@ namespace SocialTap
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 
-        public MainForm(string username)
+        public MainForm()
         {
             InitializeComponent();
-            lblusername.Text = "Welcome " + username;
+            lblusername.Text = "Welcome " + Login.Username;
         }
 
         private void btnOpenFile_Click_1(object sender, EventArgs e)

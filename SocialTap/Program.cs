@@ -1,9 +1,11 @@
-﻿using SocialTap;
+﻿using Database;
+using SocialTap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
 
 namespace Services
 {
@@ -19,5 +21,12 @@ namespace Services
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
         }
+    }
+    public class JobSystemContext : DbContext
+    {
+        public JobSystemContext() : base("name=AspNetConnectionString")
+        {
+        }
+        public DbSet <RestaurantInformation> RestaurantInformation { get; set; }
     }
 }
