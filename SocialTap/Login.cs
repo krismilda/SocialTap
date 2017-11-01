@@ -14,7 +14,6 @@ namespace SocialTap
 {
     public partial class Login : Form
     {
-        public static String Username;
         public Login()
         {
             InitializeComponent();
@@ -26,8 +25,7 @@ namespace SocialTap
             Boolean loginValidation = Membership.ValidateUser(textUsername.Text, textPassword.Text);
             if (loginValidation)
             {
-                Username = textUsername.Text;
-                new MainForm().Show();
+                new MainForm(textUsername.Text).Show();
                 this.Hide();
             }
 

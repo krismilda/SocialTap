@@ -4,15 +4,15 @@ namespace SocialTap.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<Services.JobSystemContext>
+    using Database;
+    internal sealed class Configuration : DbMigrationsConfiguration<SocialTapContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Services.JobSystemContext context)
+        protected override void Seed(SocialTapContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -21,12 +21,13 @@ namespace SocialTap
     {
         RestaurantInformation restaurantInformation = new RestaurantInformation();
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private string _Username;
 
-
-        public MainForm()
+        public MainForm(string username)
         {
             InitializeComponent();
-            lblusername.Text = "Welcome " + Login.Username;
+            _Username = username;
+            lblusername.Text = "Welcome " + _Username;
         }
 
         private void btnOpenFile_Click_1(object sender, EventArgs e)
@@ -78,7 +79,7 @@ namespace SocialTap
         {
             try
             {
-                await restaurantInformation.GetRestaurantInformation(path, imageBox2);
+                await restaurantInformation.GetRestaurantInformation(path, imageBox2, _Username);
                 lblName.Text = restaurantInformation.Name;
                 lblAddress.Text = restaurantInformation.Address;
                 lblPercentage.Text = restaurantInformation.Percentage.ToString();

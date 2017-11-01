@@ -15,9 +15,12 @@ namespace Database.File
 {
     public class WritingToFileSerialize <T>
     {
-        public void Write(T objectToList, string fileName)
-        {/*
-            string cmdString = "INSERT INTO RestaurantData(dateTime, name,address,percentage) VALUES (@val1, @val2, @val3, @val4)";
+        public void Write(RestaurantInformation objectToList, string fileName)
+        {
+            SocialTapContext db = new SocialTapContext();
+            db.RestaurantInformation.Add(objectToList);
+            db.SaveChanges();
+           /* string cmdString = "INSERT INTO RestaurantData(dateTime, name,address,percentage) VALUES (@val1, @val2, @val3, @val4)";
             string connString = @"Server=(localdb)\MSSQLLocalDB; Database=SocialTap;";
             using (SqlConnection conn = new SqlConnection(connString))
             {
@@ -34,7 +37,7 @@ namespace Database.File
             }
         }
 
-            */
+            
             ReadingFromFileDeserialize<T> readingFromFile = new ReadingFromFileDeserialize<T>();
             List<T> listFromFile = readingFromFile.Read(fileName: ConfigurationManager.AppSettings["FileName"]);
             BinaryFormatter binaryFormatter = new BinaryFormatter();
@@ -42,7 +45,7 @@ namespace Database.File
             listFromFile.Add(objectToList);
             binaryFormatter.Serialize(fileStream, listFromFile);
             fileStream.Flush();
-            fileStream.Close();
+            fileStream.Close();*/
         }
     }
 }
