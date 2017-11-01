@@ -22,7 +22,7 @@ namespace Services.ImageAnalysis
         private Image<Gray, byte> _img;
         private Image<Gray, byte> _imgCopy;
         private VectorOfVectorOfPoint _contours;
-        private VectorOfVectorOfPoint _contoursCopy;
+        private VectorOfVectorOfPoint _contoursCopy = new VectorOfVectorOfPoint();
         private VectorOfPoint _redLineContour;
         private VectorOfPoint _approxRedLineContour;
         private VectorOfPoint _liquidContour;
