@@ -15,7 +15,7 @@ namespace Database.File
         public List<RestaurantInformation> Read(String fileName)
         {
             SocialTapContext db = new SocialTapContext();
-            var restaurants = from restaurant in db.RestaurantInformation
+            var restaurants = from restaurant in db.RestaurantInformationTable
                               select restaurant;
             List<RestaurantInformation> restaurantList = restaurants.ToList();
            /*

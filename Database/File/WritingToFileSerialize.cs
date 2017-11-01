@@ -18,7 +18,7 @@ namespace Database.File
         public void Write(RestaurantInformation objectToList, string fileName)
         {
             SocialTapContext db = new SocialTapContext();
-            db.RestaurantInformation.Add(objectToList);
+            db.RestaurantInformationTable.Add(objectToList);
             db.SaveChanges();
            /* string cmdString = "INSERT INTO RestaurantData(dateTime, name,address,percentage) VALUES (@val1, @val2, @val3, @val4)";
             string connString = @"Server=(localdb)\MSSQLLocalDB; Database=SocialTap;";

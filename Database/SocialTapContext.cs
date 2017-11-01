@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using Database.HistoryData;
 
 namespace Database
 {
@@ -12,6 +13,8 @@ namespace Database
         public SocialTapContext() : base("name=AspNetConnectionString")
         {
         }
-        public DbSet<RestaurantInformation> RestaurantInformation { get; set; }
+        public DbSet<RestaurantInformation> RestaurantInformationTable { get; set; }
+        public DbSet<Drink> DrinkInfo { get; set; }
     }
+    
 }
