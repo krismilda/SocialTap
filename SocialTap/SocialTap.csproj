@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201711011048434_addUsernameToRestaurantInformation.Designer.cs">
       <DependentUpon>201711011048434_addUsernameToRestaurantInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711041117534_addDrinkInfo.cs" />
+    <Compile Include="Migrations\201711041117534_addDrinkInfo.Designer.cs">
+      <DependentUpon>201711041117534_addDrinkInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -199,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711011048434_addUsernameToRestaurantInformation.resx">
       <DependentUpon>201711011048434_addUsernameToRestaurantInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711041117534_addDrinkInfo.resx">
+      <DependentUpon>201711041117534_addDrinkInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
