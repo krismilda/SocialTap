@@ -24,7 +24,7 @@ namespace SocialTap
             loginError.Text = "";
             Boolean loginValidation = Membership.ValidateUser(textUsername.Text, textPassword.Text);
             if (loginValidation)
-            {   
+            {
                 new MainForm(textUsername.Text).Show();
                 this.Hide();
             }

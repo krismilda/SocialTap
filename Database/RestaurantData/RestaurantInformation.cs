@@ -12,18 +12,21 @@ namespace Database
     [Serializable]
     public class RestaurantInformation : IEnumerable, IComparable<RestaurantInformation>
     {
+        public int Id { get; set; }
+        public String Username { get; set; }
         public DateTime Date { get; set; }
         public String Name { get; set; }
         public String Address { get; set; }
         public int Percentage { get; set; }
 
-        public async Task GetRestaurantInformation(String path, PictureBox imageBox2)
+        public async Task GetRestaurantInformation(String path, PictureBox imageBox2, string username)
         {
             GooglePlacesApiData googleApiData = new GooglePlacesApiData();
             GooglePlacesApiResponse responseData = await googleApiData.GetApiResponseData("food");
             ICalculateLiquidPercentage rpa = new RealPhotoAnalysis(new Image<Emgu.CV.Structure.Bgr, byte>(path));
             //ICalculateLiquidPercentage rpa = new SimpleImageAnalysis(new System.Drawing.Bitmap(path));
             int percentageOfLiquid = rpa.CalculatePercentageOfLiquid();
+            Username = username;
             Date = DateTime.Today;
             Name = responseData.results[0].name;
             Address = responseData.results[0].vicinity;

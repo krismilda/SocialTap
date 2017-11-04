@@ -14,19 +14,22 @@ using System.Data.SqlClient;
 using System.Web.Security;
 using System.Web;
 using System.Runtime.Remoting.Contexts;
+using Database.HistoryData;
 
 namespace SocialTap
 {
     public partial class MainForm : Form
     {
         RestaurantInformation restaurantInformation = new RestaurantInformation();
+        Drink drinkInfo = new Drink();
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
+        private string _Username;
 
         public MainForm(string username)
         {
             InitializeComponent();
-            lblusername.Text = "Welcome " + username;
+            _Username = username;
+            lblusername.Text = "Welcome " + _Username;
         }
 
         private void btnOpenFile_Click_1(object sender, EventArgs e)
@@ -78,14 +81,37 @@ namespace SocialTap
         {
             try
             {
-                await restaurantInformation.GetRestaurantInformation(path, imageBox2);
+                await restaurantInformation.GetRestaurantInformation(path, imageBox2, _Username);
+                int mililiter = 0;
+                errorMililiter.Text = "";
+                lblCateg.Text = "";
+                try
+                {
+                    mililiter = int.Parse(textBoxMililiter.Text);
+                }
+                catch (FormatException)
+                {
+                    errorMililiter.Text = "Incorrect format of mililiter";
+                    errorMililiter.ForeColor = Color.Red;
+                }
+                string category = comboBoxCategory.Text;
+                new Regex_BMI().RegexValidation(@"\d+", comboBoxCategory, lblCateg, "Category");
+                if (lblCateg.Text == "Category InValid")
+                    category = "Unkown Category";
+                await drinkInfo.GetDrinkInformation(path, imageBox2, mililiter, category);
                 lblName.Text = restaurantInformation.Name;
                 lblAddress.Text = restaurantInformation.Address;
                 lblPercentage.Text = restaurantInformation.Percentage.ToString();
                 lblDate.Text = string.Format("{0:d}", restaurantInformation.Date);
+                lblCategoryT.Text = drinkInfo.Category;
+                lblMililiterT.Text = drinkInfo.Volume.ToString();
                 WritingToFileSerialize<RestaurantInformation> writing = new WritingToFileSerialize<RestaurantInformation>();
                 writing.Write(restaurantInformation, ConfigurationManager.AppSettings["FileName"]);
+                WriteToDbDrinkInfo<Drink> write = new WriteToDbDrinkInfo<Drink>();
+                write.Write(drinkInfo);
             }
+
+
             catch (ArgumentOutOfRangeException)
             {
                 errorMessage.Text = "Cannot load information";
@@ -234,6 +260,19 @@ namespace SocialTap
 
         }
 
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            HistoryList historyList = new HistoryList();
+            List<HistoryInfoSum> list = historyList.GetHistoryList(comboBoxDate.Text);
+            int size;
+            size = list.Count;
+            dataGridHistory.Rows.Clear();
+            for (int i = 0; i < size; i++)
+            {
+                dataGridHistory.Rows.Add(list[i].Category, list[i].SumOfMl);
+            }
+        }
 
+      
     }
 }

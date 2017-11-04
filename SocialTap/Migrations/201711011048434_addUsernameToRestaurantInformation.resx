@@ -117,52 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="tabMain.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ColumnNr.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ColumnName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ColumnAddress.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ColumnPercentage.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Address.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Visible.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Times.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Category.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Mililiters.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
-  </metadata>
+  <data name="Target" xml:space="preserve">
+    <value>H4sIAAAAAAAEAM1Y227bRhB9L5B/IPYpBRytLy+tQSVwZbtwG8mG6eR9RY7kRffC7i4F6dvykE/KL3SWd5G62klQ6IXanTlz5sqRvn35Gn5YShEswFiu1ZCcDU5JACrWCVfzIcnc7N1v5MP7N7+EN4lcBp8ruQsvh5rKDsmzc+klpTZ+BsnsQPLYaKtnbhBrSVmi6fnp6e/07IwCQhDECoLwMVOOS8i/4NeRVjGkLmNirBMQtjzHmyhHDSZMgk1ZDEMSgVnwGCwJrgRn1h+IGQmYUtoxh+wuP1mInNFqHqV4wMTTKgWUmzFhoWR92Ygf6sDpuXeANooVVJxZp+WRgGcXZURoV/1FcSV1xDBmNxhbt/Je53EbkkewjmWGKXenZtrI0k7X8uVIGK81JNfMsSmzMNioeRJU9yd1RWDh+M9JMMqEywwMFWTOMHESPGRTweO/YfWk/wE1VJkQbbbIF+/WDvDowegUjFs9wqz04S4hAV3Xo13FWq2lUzh0p9zFOQkmaJxNBdTF0HI+ctrAn6DAMAfJA3MOjPIYkIezZ71jC4vOKHyqLGIFYguRYMyWH0HN3fOQ4CMJbvkSkuqkZPFJcew4VHImg32GMPa1Ef/8xL3Rnme7QSY/g+lVkhiw9ofbeQATY5LYHPalu40T0qZP+t2DE8kxjsVQ2vhLT6OVdSD9BSzdhu7BCigbyJa811kXwBG43V3ZsCpG2+Ye3OxLzboZoLSYoNWkpVtGbThmaYrpaY3e8iSIirk7ehcdP5pkgUFju2FC1WxrS9iCmMXOLZpGprfcWFfNHRKMEtkT6+VoS/wrc7vS0B1ITVYqbf9cIFRvpC2Z6kA1kb1FZyUWbu431PQOpJQjRTETzGwYeyMtMqm2jc5d2s0ga2M0p4cjFZOqjVKcHI4w6fGYHMmhnkFtkPrwcJz2jGlDtc/7aCHtpLpbVrRXV51XXLdodzV9V6S2Xjd/p8nDsuH2L129DixESIBhWvDEd1/RegMvMIj+FSPB0d9GYMwUn2FdF1sAwQ3ovLPB/X+2KWptIl6yUv30vYb7EO/dXI5cDrqrjFowEz8z81ay5a9ttGPXlQSf3WvXlVex6awkr8Lqrx15Nr7j0tF/7/3QjaLoaUzTVKNHhQ8bRe2Lt4/+wAlp+7dgeA2WzxsI/8tQQeyNNqCVjGdU5QSD0GZUiXRSNgbHsAjZlXF8xmKH1/jetvla+pmJDEVu5BSSO3WfuTRzV9aCnIq15T+ku+3nK9Y65/A+zcP2PVxAmtz30b36I+MiqXnfbii2LRC+rMpxgaxwLUe4+apGmmh1IFAZvmtIQflh8wQyFQhm71XEFvASbjh7PsKcxavqvbEdZH8i1sMeXnM2N0zaEqPR9/9vUP8Hx/v/AE9ApY4SEQAA</value>
+  </data>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
+  </data>
 </root>

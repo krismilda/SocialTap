@@ -12,14 +12,19 @@ namespace Database.File
 {
     public class ReadingFromFileDeserialize <T>
     {
-        public List<T> Read(String fileName)
+        public List<RestaurantInformation> Read(String fileName)
         {
+            SocialTapContext db = new SocialTapContext();
+            var restaurants = from restaurant in db.RestaurantInformationTable
+                              select restaurant;
+            List<RestaurantInformation> restaurantList = restaurants.ToList();
+           /*
             List<T> glassInformation = new List<T>();
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             FileStream fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None);
             glassInformation = (List<T>)binaryFormatter.Deserialize(fileStream);
-            fileStream.Close();
-            return glassInformation;
+            fileStream.Close();*/
+            return restaurantList;
         }
     }
 }
