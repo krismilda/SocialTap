@@ -16,6 +16,7 @@ using System.Web;
 using System.Runtime.Remoting.Contexts;
 using Database.HistoryData;
 using Database.News;
+using System.Threading.Tasks;
 
 namespace SocialTap
 {
@@ -82,7 +83,7 @@ namespace SocialTap
         {
             try
             {
-                await restaurantInformation.GetRestaurantInformation(path, imageBox2, _Username);
+                Task restaurantInformationTask = restaurantInformation.GetRestaurantInformation(path, imageBox2, _Username);
                 int mililiter = 0;
                 errorMililiter.Text = "";
                 lblCateg.Text = "";
@@ -99,6 +100,7 @@ namespace SocialTap
                 new Regex_BMI().RegexValidation(@"\d+", comboBoxCategory, lblCateg, "Category");
                 if (lblCateg.Text == "Category InValid")
                     category = "Unkown Category";
+                await restaurantInformationTask;
                 drinkInfo.GetDrinkInformation(restaurantInformation.Percentage, mililiter, category);
                 lblName.Text = restaurantInformation.Name;
                 lblAddress.Text = restaurantInformation.Address;
@@ -287,9 +289,7 @@ namespace SocialTap
             ReadingNewFromDatabase reading = new ReadingNewFromDatabase();
             List<New> newsList = reading.Read(cmbNewsPeriod.Text);
             dataGridNews.Rows.Clear();
-            Console.WriteLine(newsList.Count);
             newsList.ToArray();
-            Console.WriteLine(newsList[0].Message);
             for(int i=newsList.Count-1; i>=0; i--)
             {
                 dataGridNews.Rows.Add(newsList[i].Date, newsList[i].Username, newsList[i].Message);

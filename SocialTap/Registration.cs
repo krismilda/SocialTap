@@ -35,9 +35,7 @@ namespace SocialTap
             }
             catch (MembershipCreateUserException)
             {
-                
-                errorRegistration.Text = "Username or password format is wrong";
-                errorRegistration.ForeColor = Color.Red;
+                MessageBox.Show("Password should consist of letter, number and special symbol (7 and more symbols)");
             }
         }
 
