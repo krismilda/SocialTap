@@ -15,6 +15,7 @@ using System.Web.Security;
 using System.Web;
 using System.Runtime.Remoting.Contexts;
 using Database.HistoryData;
+using Database.News;
 
 namespace SocialTap
 {
@@ -98,7 +99,7 @@ namespace SocialTap
                 new Regex_BMI().RegexValidation(@"\d+", comboBoxCategory, lblCateg, "Category");
                 if (lblCateg.Text == "Category InValid")
                     category = "Unkown Category";
-                await drinkInfo.GetDrinkInformation(path, imageBox2, mililiter, category);
+                drinkInfo.GetDrinkInformation(restaurantInformation.Percentage, mililiter, category);
                 lblName.Text = restaurantInformation.Name;
                 lblAddress.Text = restaurantInformation.Address;
                 lblPercentage.Text = restaurantInformation.Percentage.ToString();
@@ -273,6 +274,32 @@ namespace SocialTap
             }
         }
 
-      
+        private void btnWriteNew_Click(object sender, EventArgs e)
+        {
+            New news = new New(_Username, textBoxMessage.Text);
+            WritingNewToDatabase writing = new WritingNewToDatabase();
+            writing.Write(news);
+            textBoxMessage.Text = "";
+        }
+
+        private void btnGetNews_Click(object sender, EventArgs e)
+        {
+            ReadingNewFromDatabase reading = new ReadingNewFromDatabase();
+            List<New> newsList = reading.Read(cmbNewsPeriod.Text);
+            dataGridNews.Rows.Clear();
+            Console.WriteLine(newsList.Count);
+            newsList.ToArray();
+            Console.WriteLine(newsList[0].Message);
+            for(int i=newsList.Count-1; i>=0; i--)
+            {
+                dataGridNews.Rows.Add(newsList[i].Date, newsList[i].Username, newsList[i].Message);
+            }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new Main().Show();
+        }
     }
 }

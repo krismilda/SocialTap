@@ -35,6 +35,7 @@
             this.textPassword = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.loginError = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textUsername
@@ -46,7 +47,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(181, 103);
+            this.button1.Location = new System.Drawing.Point(181, 102);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -65,8 +66,6 @@
             // 
             // label2
             // 
-            this.textPassword.PasswordChar = '*';
-            this.textPassword.MaxLength = 14;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(13, 51);
             this.label2.Name = "label2";
@@ -77,13 +76,15 @@
             // textPassword
             // 
             this.textPassword.Location = new System.Drawing.Point(85, 51);
+            this.textPassword.MaxLength = 14;
             this.textPassword.Name = "textPassword";
+            this.textPassword.PasswordChar = '*';
             this.textPassword.Size = new System.Drawing.Size(171, 20);
             this.textPassword.TabIndex = 4;
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(85, 103);
+            this.btnRegister.Location = new System.Drawing.Point(100, 102);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 5;
@@ -99,11 +100,22 @@
             this.loginError.Size = new System.Drawing.Size(0, 13);
             this.loginError.TabIndex = 6;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(16, 102);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 148);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.loginError);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.textPassword);
@@ -127,5 +139,6 @@
         private System.Windows.Forms.TextBox textPassword;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label loginError;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

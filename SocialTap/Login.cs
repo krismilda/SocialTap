@@ -26,7 +26,7 @@ namespace SocialTap
             if (loginValidation)
             {
                 new MainForm(textUsername.Text).Show();
-                this.Hide();
+                this.Close();
             }
 
             else
@@ -40,6 +40,12 @@ namespace SocialTap
         private void btnRegister_Click(object sender, EventArgs e)
         {
             new Registration().Show();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            new Main().Show();
+            this.Close();
         }
     }
 }
