@@ -21,7 +21,6 @@ namespace SocialTap
 
         private void button1_Click(object sender, EventArgs e)
         {
-            loginError.Text = "";
             Boolean loginValidation = Membership.ValidateUser(textUsername.Text, textPassword.Text);
             if (loginValidation)
             {
@@ -31,8 +30,7 @@ namespace SocialTap
 
             else
             {
-                loginError.Text = "Wrong username or password";
-                loginError.ForeColor = Color.Red;
+                MessageBox.Show("Wrong username or password");
             }
 
         }
@@ -40,6 +38,7 @@ namespace SocialTap
         private void btnRegister_Click(object sender, EventArgs e)
         {
             new Registration().Show();
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
