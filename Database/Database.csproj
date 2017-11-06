@@ -54,6 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
+    <Compile Include="File\ReadingNewFromDatabase.cs" />
+    <Compile Include="File\WritingNewToDatabase.cs" />
     <Compile Include="HistoryData\Drink.cs" />
     <Compile Include="File\ReadFromDbDrinkInfo.cs" />
     <Compile Include="File\WriteToDbDrinkInfo.cs" />
@@ -70,6 +73,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="HistoryData\HistoryList.cs" />
+    <Compile Include="News\New.cs" />
     <Compile Include="RestaurantData\MostVisitedList.cs" />
     <Compile Include="RestaurantData\RestaurantDataAccordingToDurationcs.cs" />
     <Compile Include="RestaurantData\TopList.cs" />

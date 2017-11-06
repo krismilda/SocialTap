@@ -30,7 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.tabMain = new System.Windows.Forms.TabControl();
+            this.tabNew = new System.Windows.Forms.TabControl();
+            this.News = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.label24 = new System.Windows.Forms.Label();
+            this.btnWriteNew = new System.Windows.Forms.Button();
+            this.textBoxMessage = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbNewsPeriod = new System.Windows.Forms.ComboBox();
+            this.btnGetNews = new System.Windows.Forms.Button();
+            this.dataGridNews = new System.Windows.Forms.DataGridView();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Message = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabUploadImage = new System.Windows.Forms.TabPage();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -141,7 +154,13 @@
             this.comboBoxDate = new System.Windows.Forms.ComboBox();
             this.btnHistory = new System.Windows.Forms.Button();
             this.lblusername = new System.Windows.Forms.Label();
-            this.tabMain.SuspendLayout();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.tabNew.SuspendLayout();
+            this.News.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridNews)).BeginInit();
             this.tabUploadImage.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -176,19 +195,155 @@
             // 
             this.openFileDialog.FileName = "FileName";
             // 
-            // tabMain
+
+            // tabNew
             // 
-            this.tabMain.Controls.Add(this.tabUploadImage);
-            this.tabMain.Controls.Add(this.tabFind);
-            this.tabMain.Controls.Add(this.tabTOP);
-            this.tabMain.Controls.Add(this.tabMostVisited);
-            this.tabMain.Controls.Add(this.tabBMI);
-            this.tabMain.Controls.Add(this.tabHistory);
-            this.tabMain.Location = new System.Drawing.Point(1, 3);
-            this.tabMain.Name = "tabMain";
-            this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(788, 573);
-            this.tabMain.TabIndex = 5;
+            this.tabNew.Controls.Add(this.News);
+            this.tabNew.Controls.Add(this.tabUploadImage);
+            this.tabNew.Controls.Add(this.tabFind);
+            this.tabNew.Controls.Add(this.tabTOP);
+            this.tabNew.Controls.Add(this.tabMostVisited);
+            this.tabNew.Controls.Add(this.tabBMI);
+            this.tabNew.Controls.Add(this.tabHistory);
+            this.tabNew.Location = new System.Drawing.Point(1, 3);
+            this.tabNew.Name = "tabNew";
+            this.tabNew.SelectedIndex = 0;
+            this.tabNew.Size = new System.Drawing.Size(788, 573);
+            this.tabNew.TabIndex = 5;
+            // 
+            // News
+            // 
+            this.News.Controls.Add(this.tableLayoutPanel8);
+            this.News.Location = new System.Drawing.Point(4, 28);
+            this.News.Name = "News";
+            this.News.Padding = new System.Windows.Forms.Padding(3);
+            this.News.Size = new System.Drawing.Size(780, 541);
+            this.News.TabIndex = 6;
+            this.News.Text = "News";
+            this.News.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 1;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel12, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.dataGridNews, 0, 2);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(7, 6);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 3;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 353F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(767, 529);
+            this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 1;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Controls.Add(this.label24, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.btnWriteNew, 0, 2);
+            this.tableLayoutPanel9.Controls.Add(this.textBoxMessage, 0, 1);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 3;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.3871F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.6129F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(761, 109);
+            this.tableLayoutPanel9.TabIndex = 0;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(3, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(82, 19);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Write a new";
+            // 
+            // btnWriteNew
+            // 
+            this.btnWriteNew.Location = new System.Drawing.Point(3, 82);
+            this.btnWriteNew.Name = "btnWriteNew";
+            this.btnWriteNew.Size = new System.Drawing.Size(75, 23);
+            this.btnWriteNew.TabIndex = 2;
+            this.btnWriteNew.Text = "Write";
+            this.btnWriteNew.UseVisualStyleBackColor = false;
+            this.btnWriteNew.Click += new System.EventHandler(this.btnWriteNew_Click);
+            // 
+            // textBoxMessage
+            // 
+            this.textBoxMessage.Location = new System.Drawing.Point(3, 41);
+            this.textBoxMessage.Name = "textBoxMessage";
+            this.textBoxMessage.Size = new System.Drawing.Size(755, 26);
+            this.textBoxMessage.TabIndex = 1;
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 2;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Controls.Add(this.cmbNewsPeriod, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.btnGetNews, 1, 0);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 132);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 1;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(340, 41);
+            this.tableLayoutPanel12.TabIndex = 1;
+            // 
+            // cmbNewsPeriod
+            // 
+            this.cmbNewsPeriod.FormattingEnabled = true;
+            this.cmbNewsPeriod.Items.AddRange(new object[] {
+            "Today",
+            "Yesterday"});
+            this.cmbNewsPeriod.Location = new System.Drawing.Point(3, 3);
+            this.cmbNewsPeriod.Name = "cmbNewsPeriod";
+            this.cmbNewsPeriod.Size = new System.Drawing.Size(164, 27);
+            this.cmbNewsPeriod.TabIndex = 0;
+            this.cmbNewsPeriod.Text = "Today";
+            // 
+            // btnGetNews
+            // 
+            this.btnGetNews.Location = new System.Drawing.Point(173, 3);
+            this.btnGetNews.Name = "btnGetNews";
+            this.btnGetNews.Size = new System.Drawing.Size(150, 27);
+            this.btnGetNews.TabIndex = 1;
+            this.btnGetNews.Text = "Get News";
+            this.btnGetNews.UseVisualStyleBackColor = true;
+            this.btnGetNews.Click += new System.EventHandler(this.btnGetNews_Click);
+            // 
+            // dataGridNews
+            // 
+            this.dataGridNews.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridNews.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Date,
+            this.User,
+            this.Message});
+            this.dataGridNews.Location = new System.Drawing.Point(3, 179);
+            this.dataGridNews.Name = "dataGridNews";
+            this.dataGridNews.Size = new System.Drawing.Size(546, 347);
+            this.dataGridNews.TabIndex = 2;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            // 
+            // User
+            // 
+            this.User.HeaderText = "User";
+            this.User.Name = "User";
+            // 
+            // Message
+            // 
+            this.Message.HeaderText = "Message";
+            this.Message.Name = "Message";
+            this.Message.Width = 300;
+
             // 
             // tabUploadImage
             // 
@@ -211,7 +366,9 @@
             this.label22.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(7, 63);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(110, 23);
+
+            this.label22.Size = new System.Drawing.Size(89, 19);
+
             this.label22.TabIndex = 3;
             this.label22.Text = "Second step";
             // 
@@ -221,7 +378,9 @@
             this.label21.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(7, 6);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(89, 23);
+
+            this.label21.Size = new System.Drawing.Size(72, 19);
+
             this.label21.TabIndex = 2;
             this.label21.Text = "First step";
             // 
@@ -244,7 +403,9 @@
             this.errorMililiter.AutoSize = true;
             this.errorMililiter.Location = new System.Drawing.Point(114, 25);
             this.errorMililiter.Name = "errorMililiter";
-            this.errorMililiter.Size = new System.Drawing.Size(0, 22);
+
+            this.errorMililiter.Size = new System.Drawing.Size(0, 19);
+
             this.errorMililiter.TabIndex = 7;
             // 
             // lblCateg
@@ -252,7 +413,9 @@
             this.lblCateg.AutoSize = true;
             this.lblCateg.Location = new System.Drawing.Point(414, 22);
             this.lblCateg.Name = "lblCateg";
-            this.lblCateg.Size = new System.Drawing.Size(0, 22);
+
+            this.lblCateg.Size = new System.Drawing.Size(0, 19);
+
             this.lblCateg.TabIndex = 6;
             // 
             // label23
@@ -260,7 +423,9 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(326, 25);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(0, 22);
+
+            this.label23.Size = new System.Drawing.Size(0, 19);
+
             this.label23.TabIndex = 5;
             // 
             // lblChooseDrink
@@ -269,7 +434,9 @@
             this.lblChooseDrink.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChooseDrink.Location = new System.Drawing.Point(282, 0);
             this.lblChooseDrink.Name = "lblChooseDrink";
-            this.lblChooseDrink.Size = new System.Drawing.Size(111, 19);
+
+            this.lblChooseDrink.Size = new System.Drawing.Size(93, 16);
+
             this.lblChooseDrink.TabIndex = 4;
             this.lblChooseDrink.Text = "Choose a drink";
             // 
@@ -279,7 +446,9 @@
             this.lblHowMuchMl.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHowMuchMl.Location = new System.Drawing.Point(4, 0);
             this.lblHowMuchMl.Name = "lblHowMuchMl";
-            this.lblHowMuchMl.Size = new System.Drawing.Size(182, 19);
+
+            this.lblHowMuchMl.Size = new System.Drawing.Size(155, 16);
+
             this.lblHowMuchMl.TabIndex = 3;
             this.lblHowMuchMl.Text = "How much did you offer?";
             // 
@@ -287,7 +456,9 @@
             // 
             this.textBoxMililiter.Location = new System.Drawing.Point(8, 22);
             this.textBoxMililiter.Name = "textBoxMililiter";
-            this.textBoxMililiter.Size = new System.Drawing.Size(100, 30);
+
+            this.textBoxMililiter.Size = new System.Drawing.Size(100, 26);
+
             this.textBoxMililiter.TabIndex = 2;
             // 
             // comboBoxCategory
@@ -301,7 +472,9 @@
             "Cold drink"});
             this.comboBoxCategory.Location = new System.Drawing.Point(286, 22);
             this.comboBoxCategory.Name = "comboBoxCategory";
-            this.comboBoxCategory.Size = new System.Drawing.Size(100, 30);
+
+            this.comboBoxCategory.Size = new System.Drawing.Size(100, 27);
+
             this.comboBoxCategory.TabIndex = 1;
             // 
             // tableLayoutPanel10
@@ -389,7 +562,9 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(712, 160);
+
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(658, 151);
+
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // btnOpenFile
@@ -485,35 +660,43 @@
             // lblMililiter
             // 
             this.lblMililiter.AutoSize = true;
-            this.lblMililiter.Location = new System.Drawing.Point(3, 140);
+
+            this.lblMililiter.Location = new System.Drawing.Point(3, 131);
             this.lblMililiter.Name = "lblMililiter";
-            this.lblMililiter.Size = new System.Drawing.Size(142, 20);
+            this.lblMililiter.Size = new System.Drawing.Size(101, 19);
+
             this.lblMililiter.TabIndex = 11;
             this.lblMililiter.Text = "Mililiter for real";
             // 
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(3, 120);
+
+            this.lblCategory.Location = new System.Drawing.Point(3, 111);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(81, 20);
+            this.lblCategory.Size = new System.Drawing.Size(65, 19);
+
             this.lblCategory.TabIndex = 10;
             this.lblCategory.Text = "Category";
             // 
             // lblCategoryT
             // 
             this.lblCategoryT.AutoSize = true;
-            this.lblCategoryT.Location = new System.Drawing.Point(154, 120);
+
+            this.lblCategoryT.Location = new System.Drawing.Point(143, 111);
             this.lblCategoryT.Name = "lblCategoryT";
-            this.lblCategoryT.Size = new System.Drawing.Size(0, 20);
+            this.lblCategoryT.Size = new System.Drawing.Size(0, 19);
+
             this.lblCategoryT.TabIndex = 12;
             // 
             // lblMililiterT
             // 
             this.lblMililiterT.AutoSize = true;
-            this.lblMililiterT.Location = new System.Drawing.Point(154, 140);
+
+            this.lblMililiterT.Location = new System.Drawing.Point(143, 131);
             this.lblMililiterT.Name = "lblMililiterT";
-            this.lblMililiterT.Size = new System.Drawing.Size(0, 20);
+            this.lblMililiterT.Size = new System.Drawing.Size(0, 19);
+
             this.lblMililiterT.TabIndex = 13;
             // 
             // tabFind
@@ -876,10 +1059,12 @@
             this.tabBMI.Controls.Add(this.label3);
             this.tabBMI.Controls.Add(this.label2);
             this.tabBMI.Controls.Add(this.label7);
-            this.tabBMI.Location = new System.Drawing.Point(4, 31);
+
+            this.tabBMI.Location = new System.Drawing.Point(4, 28);
             this.tabBMI.Name = "tabBMI";
             this.tabBMI.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBMI.Size = new System.Drawing.Size(780, 538);
+            this.tabBMI.Size = new System.Drawing.Size(780, 541);
+
             this.tabBMI.TabIndex = 4;
             this.tabBMI.Text = "BMI calculator";
             this.tabBMI.UseVisualStyleBackColor = true;
@@ -1343,10 +1528,12 @@
             this.tabHistory.Controls.Add(this.dataGridHistory);
             this.tabHistory.Controls.Add(this.comboBoxDate);
             this.tabHistory.Controls.Add(this.btnHistory);
-            this.tabHistory.Location = new System.Drawing.Point(4, 31);
+
+            this.tabHistory.Location = new System.Drawing.Point(4, 28);
             this.tabHistory.Name = "tabHistory";
             this.tabHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHistory.Size = new System.Drawing.Size(780, 538);
+            this.tabHistory.Size = new System.Drawing.Size(780, 541);
+
             this.tabHistory.TabIndex = 5;
             this.tabHistory.Text = "History";
             this.tabHistory.UseVisualStyleBackColor = true;
@@ -1382,7 +1569,9 @@
             "Data of week"});
             this.comboBoxDate.Location = new System.Drawing.Point(252, 34);
             this.comboBoxDate.Name = "comboBoxDate";
-            this.comboBoxDate.Size = new System.Drawing.Size(121, 30);
+
+            this.comboBoxDate.Size = new System.Drawing.Size(121, 27);
+
             this.comboBoxDate.TabIndex = 2;
             // 
             // btnHistory
@@ -1398,24 +1587,43 @@
             // lblusername
             // 
             this.lblusername.AutoSize = true;
-            this.lblusername.Location = new System.Drawing.Point(795, 3);
+            this.lblusername.Location = new System.Drawing.Point(795, 7);
             this.lblusername.Name = "lblusername";
             this.lblusername.Size = new System.Drawing.Size(0, 22);
             this.lblusername.TabIndex = 6;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(897, 5);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(75, 30);
+            this.btnLogout.TabIndex = 7;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 607);
+
+            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.tabNew);
+
             this.Controls.Add(this.lblusername);
-            this.Controls.Add(this.tabMain);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Text = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Social Tap";
-            this.tabMain.ResumeLayout(false);
+            this.tabNew.ResumeLayout(false);
+            this.News.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel9.PerformLayout();
+            this.tableLayoutPanel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridNews)).EndInit();
             this.tabUploadImage.ResumeLayout(false);
             this.tabUploadImage.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -1460,7 +1668,7 @@
 
         #endregion
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.TabControl tabMain;
+        private System.Windows.Forms.TabControl tabNew;
         private System.Windows.Forms.TabPage tabUploadImage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -1573,5 +1781,21 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label lblCateg;
         private System.Windows.Forms.Label errorMililiter;
+
+        private System.Windows.Forms.TabPage News;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button btnWriteNew;
+        private System.Windows.Forms.TextBox textBoxMessage;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.ComboBox cmbNewsPeriod;
+        private System.Windows.Forms.Button btnGetNews;
+        private System.Windows.Forms.DataGridView dataGridNews;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn User;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Message;
+        private System.Windows.Forms.Button btnLogout;
+
     }
 }

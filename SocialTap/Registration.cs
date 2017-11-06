@@ -31,18 +31,23 @@ namespace SocialTap
                 user = Membership.CreateUser(textBoxUsername.Text, textBoxPassword.Text);
                 MessageBox.Show(textBoxUsername.Text + " is created successfully");
                 this.Dispose();
-                this.Close();
+                new Main().Show();
             }
             catch (MembershipCreateUserException)
             {
-                
-                errorRegistration.Text = "Username or password format is wrong";
-                errorRegistration.ForeColor = Color.Red;
+                MessageBox.Show("Password should consist of letter, number and special symbol (7 and more symbols)");
             }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+            new Main().Show();
+            this.Close();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            new Login().Show();
             this.Close();
         }
     }
