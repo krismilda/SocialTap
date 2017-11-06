@@ -18,7 +18,6 @@ namespace Database.HistoryData
         public DateTime Date { get; set; }
         public RestaurantInformation Restaurant { get; set; }
 
-
         public void GetDrinkInformation(int percentageOfLiquid, int mililiter, string category)
         {
             Category = category;

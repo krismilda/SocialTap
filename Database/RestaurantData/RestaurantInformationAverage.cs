@@ -22,7 +22,7 @@ namespace Database.File
 
         public IEnumerator GetEnumerator()
         {
-            return (IEnumerator)GetEnumerator();
+            return GetEnumerator();
         }
     }
 }

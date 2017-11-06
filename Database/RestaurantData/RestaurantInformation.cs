@@ -42,7 +42,7 @@ namespace Database
 
         public IEnumerator GetEnumerator()
         {
-            return (IEnumerator)GetEnumerator();
+            return GetEnumerator();
         }
     }
 }

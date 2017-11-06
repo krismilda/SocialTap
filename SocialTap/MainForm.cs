@@ -15,6 +15,7 @@ using System.Web.Security;
 using System.Web;
 using System.Runtime.Remoting.Contexts;
 using Database.HistoryData;
+
 using Database.News;
 using System.Threading.Tasks;
 
@@ -101,7 +102,7 @@ namespace SocialTap
                 if (lblCateg.Text == "Category InValid")
                     category = "Unkown Category";
                 await restaurantInformationTask;
-                drinkInfo.GetDrinkInformation(restaurantInformation.Percentage, mililiter, category);
+                drinkInfo.GetDrinkInformation(restaurantInformation.Percentage, mililiter, category)
                 lblName.Text = restaurantInformation.Name;
                 lblAddress.Text = restaurantInformation.Address;
                 lblPercentage.Text = restaurantInformation.Percentage.ToString();
@@ -301,5 +302,6 @@ namespace SocialTap
             this.Close();
             new Main().Show();
         }
+
     }
 }
