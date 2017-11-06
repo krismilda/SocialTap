@@ -84,7 +84,7 @@ namespace SocialTap
         {
             try
             {
-                Task restaurantInformationTask = restaurantInformation.GetRestaurantInformation(path, imageBox2, _Username);
+                Task restaurantInformationTask = restaurantInformation.GetRestaurantInformation(path, _Username);
                 int mililiter = 0;
                 errorMililiter.Text = "";
                 lblCateg.Text = "";
@@ -102,7 +102,7 @@ namespace SocialTap
                 if (lblCateg.Text == "Category InValid")
                     category = "Unkown Category";
                 await restaurantInformationTask;
-                drinkInfo.GetDrinkInformation(restaurantInformation.Percentage, mililiter, category)
+                drinkInfo.GetDrinkInformation(restaurantInformation.Percentage, mililiter, category);
                 lblName.Text = restaurantInformation.Name;
                 lblAddress.Text = restaurantInformation.Address;
                 lblPercentage.Text = restaurantInformation.Percentage.ToString();
@@ -300,7 +300,7 @@ namespace SocialTap
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
-            new Main().Show();
+            //new Main().Show();
         }
 
     }

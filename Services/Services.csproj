@@ -59,7 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BMIregex\Regex_BMI.cs" />
     <Compile Include="GooglePlacesAPI\CoordinatesConverter.cs" />
     <Compile Include="GooglePlacesAPI\CurrentCoordinate.cs" />
     <Compile Include="GooglePlacesAPI\Geometry.cs" />

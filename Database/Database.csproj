@@ -54,7 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
+    <Compile Include="BaseRepository.cs" />
     <Compile Include="File\ReadingNewFromDatabase.cs" />
     <Compile Include="File\WritingNewToDatabase.cs" />
     <Compile Include="HistoryData\Drink.cs" />

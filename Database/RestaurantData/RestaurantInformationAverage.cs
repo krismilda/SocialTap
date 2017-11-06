@@ -17,7 +17,7 @@ namespace Database.File
 
         public int CompareTo(RestaurantInformationAverage restraurantInformation)
         {
-            return -1 * (this.AverageOfPercentage.CompareTo(restraurantInformation.AverageOfPercentage));
+            return -1 * (AverageOfPercentage.CompareTo(restraurantInformation.AverageOfPercentage));
         }
 
         public IEnumerator GetEnumerator()

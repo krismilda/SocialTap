@@ -112,6 +112,7 @@
     <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -119,13 +120,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgeCalibration.cs" />
-    <Compile Include="CountBMI.cs" />
+    <Compile Include="Other\AgeCalibration.cs" />
+    <Compile Include="Other\CountBMI.cs" />
     <Compile Include="ImageAnalysis\DrawOptions.cs" />
     <Compile Include="ImageAnalysis\MatchFinding.cs" />
     <Compile Include="ImageAnalysis\ICalculateLiquidPercentage.cs" />
     <Compile Include="ImageAnalysis\RealPhotoAnalysis.cs" />
     <Compile Include="ImageAnalysis\SimpleImageAnalysis.cs" />
+    <Compile Include="Other\Regex_BMI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
