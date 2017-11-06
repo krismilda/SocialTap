@@ -19,11 +19,8 @@ namespace Database.HistoryData
         public RestaurantInformation Restaurant { get; set; }
 
 
-        public async Task GetDrinkInformation(String path, PictureBox imageBox2, int mililiter, string category)
+        public void GetDrinkInformation(int percentageOfLiquid, int mililiter, string category)
         {
-            ICalculateLiquidPercentage rpa = new RealPhotoAnalysis(new Image<Emgu.CV.Structure.Bgr, byte>(path));
-            //ICalculateLiquidPercentage rpa = new SimpleImageAnalysis(new System.Drawing.Bitmap(path));
-            int percentageOfLiquid = rpa.CalculatePercentageOfLiquid();
             Category = category;
             Volume = (mililiter / 100) * percentageOfLiquid;
             Date = DateTime.Today;
