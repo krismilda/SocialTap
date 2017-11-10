@@ -4,10 +4,10 @@ using System.Text;
 
 namespace DataModels
 {
-    class Scan
+    public class Scan
     {
         public int Id { get; set; }
-        public String Username { get; set; } //todo pakeist i User ir permigruot duombazej
+        public SocialTapUser User { get; set; } 
         public DateTime Date { get; set; }
         public Restaurant Place { get; set; }
         public int Percentage { get; set; }

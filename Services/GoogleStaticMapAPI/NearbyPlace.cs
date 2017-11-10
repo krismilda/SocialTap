@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Services
 {
@@ -15,9 +11,9 @@ namespace Services
 
         public NearbyPlace(String name, String address, string coordinates)
         {
-            this.Name = name;
-            this.Address = address;
-            this.Coordinates = coordinates;
+            Name = name;
+            Address = address;
+            Coordinates = coordinates;
         }
     }
 }

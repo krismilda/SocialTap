@@ -63,15 +63,6 @@
     <Compile Include="HistoryData\DistictHistoryData.cs" />
     <Compile Include="HistoryData\HistoryDataAccordingToDurationcs.cs" />
     <Compile Include="HistoryData\HistoryInfoSum.cs" />
-    <Compile Include="Migrations\201711011545311_init.cs" />
-    <Compile Include="Migrations\201711011545311_init.Designer.cs">
-      <DependentUpon>201711011545311_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711011552534_init_2.cs" />
-    <Compile Include="Migrations\201711011552534_init_2.Designer.cs">
-      <DependentUpon>201711011552534_init_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="HistoryData\HistoryList.cs" />
     <Compile Include="News\New.cs" />
     <Compile Include="RestaurantData\MostVisitedList.cs" />
@@ -99,14 +90,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711011545311_init.resx">
-      <DependentUpon>201711011545311_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711011552534_init_2.resx">
-      <DependentUpon>201711011552534_init_2.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
