@@ -19,20 +19,24 @@ namespace Database //todo perkelt i datamodels/isskaidyti
         public String Address { get; set; }
         public int Percentage { get; set; }
 
-        public async Task GetRestaurantInformation(String path, string username) //todo perkelt imagebox settinima i kita vieta
+        public async Task GetRestaurantInformation(String path, PictureBox imageBox2, string username) //todo perkelt imagebox settinima i kita vieta
         {
             GooglePlacesApiData googleApiData = new GooglePlacesApiData();
             GooglePlacesApiResponse responseData = await googleApiData.GetApiResponseData("food");
 
-            ICalculateLiquidPercentage rpa = 
-                                new RealPhotoAnalysis(
-                                    new Image<Emgu.CV.Structure.Bgr, byte>(path));
-
-            Username = username;
-            Date = DateTime.Today;
-            Name = responseData.results[0].name;
-            Address = responseData.results[0].vicinity;
-            Percentage = rpa.CalculatePercentageOfLiquid();
+            ICalculateLiquidPercentage rpa = new RealPhotoAnalysis(new Image<Emgu.CV.Structure.Bgr, byte>(path)); 
+            //ICalculateLiquidPercentage rpa = new SimpleImageAnalysis(new System.Drawing.Bitmap(path));		            
+            
+            int percentageOfLiquid = rpa.CalculatePercentageOfLiquid(); 
+            
+            
+            Username = username; 
+            Date = DateTime.Today; 
+            Name = responseData.results[0].name; 
+            Address = responseData.results[0].vicinity; 
+            Percentage = percentageOfLiquid; 
+            RealPhotoAnalysis rpa1 = (RealPhotoAnalysis)rpa;
+            imageBox2.Image = rpa1.VisualRepresentation.Bitmap;
         }
 
 

@@ -84,7 +84,7 @@ namespace SocialTap
         {
             try
             {
-                Task restaurantInformationTask = restaurantInformation.GetRestaurantInformation(path, _Username);
+                Task restaurantInformationTask = restaurantInformation.GetRestaurantInformation(path, imageBox2, _Username);
                 int mililiter = 0;
                 errorMililiter.Text = "";
                 lblCateg.Text = "";
@@ -300,7 +300,7 @@ namespace SocialTap
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
-            //new Main().Show();
+            new Main().Show();
         }
 
         private void tableLayoutPanel9_Paint(object sender, PaintEventArgs e)

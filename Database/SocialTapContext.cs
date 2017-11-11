@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace DataAccess
+namespace DataBase
 {
-    public class SocialTapContext 
+    public class SocialTapContext : DbContext
     {
         public SocialTapContext() : base("name=AspNetConnectionString")
         {

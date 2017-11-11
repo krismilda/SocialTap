@@ -135,12 +135,6 @@
     </Reference>
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SocialTapMobile\SocialTapMobile.csproj">
-      <Project>{58a9db79-3e50-40ae-981b-86a7f06154c4}</Project>
-      <Name>SocialTapMobile</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
