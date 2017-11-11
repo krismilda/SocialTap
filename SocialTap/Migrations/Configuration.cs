@@ -5,6 +5,8 @@ namespace SocialTap.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
     using Database;
+    using DataBase;
+
     internal sealed class Configuration : DbMigrationsConfiguration<SocialTapContext>
     {
         public Configuration()

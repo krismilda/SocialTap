@@ -15,7 +15,7 @@ namespace App1
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage();
         }
 
         public App(string DB_Path)
