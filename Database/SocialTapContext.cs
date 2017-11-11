@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Database;
+using Database.HistoryData;
+using Database.News;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
-using Database.HistoryData;
-using Database.News;
 
 
-namespace Database
+namespace DataAccess
 {
-    public class SocialTapContext : DbContext
+    public class SocialTapContext 
     {
         public SocialTapContext() : base("name=AspNetConnectionString")
         {
@@ -20,5 +21,5 @@ namespace Database
         public DbSet<New> NewTable { get; set; }
 
     }
-    
+
 }

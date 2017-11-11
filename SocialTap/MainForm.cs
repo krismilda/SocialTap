@@ -303,5 +303,9 @@ namespace SocialTap
             //new Main().Show();
         }
 
+        private void tableLayoutPanel9_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

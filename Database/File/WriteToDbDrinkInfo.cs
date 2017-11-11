@@ -1,4 +1,5 @@
-﻿using Database.HistoryData;
+﻿using DataAccess;
+using Database.HistoryData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
