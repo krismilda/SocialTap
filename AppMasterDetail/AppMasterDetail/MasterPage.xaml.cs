@@ -18,12 +18,19 @@ namespace AppMasterDetail
 
             buttonA.Clicked += async (sender, e) =>
             {
-                await App.NavigateMasterDetail(new A());
+                await App.NavigateMasterDetail(new RegisterPage());
+
             };
 
             buttonB.Clicked += async (sender, e) =>
             {
-                await App.NavigateMasterDetail(new B());
+                await App.NavigateMasterDetail(new LoginPage());
+            };
+
+            buttonScan.Clicked += async (sender, e) =>
+            {
+                await App.NavigateMasterDetail(new ScanPage());
+
             };
         }
     }

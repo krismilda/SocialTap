@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace API.Controllers
 {
@@ -18,6 +19,7 @@ namespace API.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public async Task<IHttpActionResult> Register([FromBody]UserModel userModel)
         {
             if (!ModelState.IsValid)
