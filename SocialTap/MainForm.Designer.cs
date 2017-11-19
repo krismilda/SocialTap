@@ -154,9 +154,12 @@
             this.comboBoxDate = new System.Windows.Forms.ComboBox();
             this.btnHistory = new System.Windows.Forms.Button();
             this.Tweets = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnTweets = new System.Windows.Forms.Button();
             this.lblusername = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.CreateAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TweetText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabNew.SuspendLayout();
             this.News.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -192,6 +195,7 @@
             this.tabHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHistory)).BeginInit();
             this.Tweets.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -1554,6 +1558,7 @@
             // 
             // Tweets
             // 
+            this.Tweets.Controls.Add(this.dataGridView1);
             this.Tweets.Controls.Add(this.btnTweets);
             this.Tweets.Location = new System.Drawing.Point(4, 31);
             this.Tweets.Name = "Tweets";
@@ -1563,11 +1568,23 @@
             this.Tweets.Text = "Tweets";
             this.Tweets.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CreateAt,
+            this.TweetText});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 81);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(794, 396);
+            this.dataGridView1.TabIndex = 1;
+            // 
             // btnTweets
             // 
             this.btnTweets.Location = new System.Drawing.Point(33, 22);
             this.btnTweets.Name = "btnTweets";
-            this.btnTweets.Size = new System.Drawing.Size(156, 37);
+            this.btnTweets.Size = new System.Drawing.Size(156, 31);
             this.btnTweets.TabIndex = 0;
             this.btnTweets.Text = "See tweets";
             this.btnTweets.UseVisualStyleBackColor = true;
@@ -1591,6 +1608,18 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // CreateAt
+            // 
+            this.CreateAt.HeaderText = "Posted";
+            this.CreateAt.Name = "CreateAt";
+            this.CreateAt.Width = 200;
+            // 
+            // TweetText
+            // 
+            this.TweetText.HeaderText = "Tweet";
+            this.TweetText.Name = "TweetText";
+            this.TweetText.Width = 550;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -1601,9 +1630,9 @@
             this.Controls.Add(this.lblusername);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "MainForm";
+            this.Text = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Text = "Social Tap";
+            this.Text = "MainForm";
             this.tabNew.ResumeLayout(false);
             this.News.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
@@ -1649,6 +1678,7 @@
             this.tabHistory.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHistory)).EndInit();
             this.Tweets.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1786,5 +1816,8 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.TabPage Tweets;
         private System.Windows.Forms.Button btnTweets;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreateAt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TweetText;
     }
 }
