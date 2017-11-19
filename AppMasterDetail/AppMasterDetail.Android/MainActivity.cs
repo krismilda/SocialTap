@@ -12,6 +12,11 @@ namespace AppMasterDetail.Droid
     [Activity(Label = "AppMasterDetail", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        Button btnRegistration;
+        Button btnLogin;
+        TextView EmailInput;
+        EditText PasswordInput;
+
         protected override void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -21,7 +26,7 @@ namespace AppMasterDetail.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+            StartActivity(typeof(Activity1));
         }
     }
 }
-
