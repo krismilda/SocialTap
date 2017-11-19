@@ -18,6 +18,8 @@ using Database.HistoryData;
 
 using Database.News;
 using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net;
 
 namespace SocialTap
 {
@@ -287,6 +289,20 @@ namespace SocialTap
 
         private void btnGetNews_Click(object sender, EventArgs e)
         {
+
+            HttpClientHandler clntHand = new HttpClientHandler()
+            {
+                CookieContainer = new CookieContainer(),
+                Proxy = new WebProxy("http://localhost:8888", false),
+                UseProxy = true,
+                UseDefaultCredentials = false
+            };
+
+            
+            using (var client = new HttpClient(clntHand))
+            {
+                var response = client.GetAsync("http://localhost.fiddler:58376/api/TopRestaurants").Result;
+            }
             ReadingNewFromDatabase reading = new ReadingNewFromDatabase();
             List<New> newsList = reading.Read(cmbNewsPeriod.Text);
             dataGridNews.Rows.Clear();
@@ -303,7 +319,8 @@ namespace SocialTap
             new Main().Show();
         }
 
-        private void tableLayoutPanel9_Paint(object sender, PaintEventArgs e)
+       
+        private void btnTweets_Click(object sender, EventArgs e)
         {
 
         }

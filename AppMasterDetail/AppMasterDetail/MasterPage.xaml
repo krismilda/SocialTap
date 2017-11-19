@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMasterDetail.MasterPage"
              Title= "Master"
-             BackgroundColor="LightPink">
+             BackgroundColor="DarkBlue">
 
     <StackLayout Padding="20">
-        <Button x:Name="buttonA" Text="Register" BackgroundColor="LightPink" ></Button>
-        <Button x:Name="buttonB" Text="Log in" BackgroundColor="LightPink"></Button>
+        <Button x:Name="buttonA" Text="Register" BackgroundColor="DarkBlue" ></Button>
+        <Button x:Name="buttonB" Text="Log in" BackgroundColor="DarkBlue"></Button>
+        <Button x:Name="buttonScan" Text="Scan photo" BackgroundColor="DarkBlue"></Button>
     </StackLayout>
 
 </ContentPage>

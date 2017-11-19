@@ -10,11 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace AppMasterDetail
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class B : ContentPage
+    public partial class ScanPage : ContentPage
     {
-        public B()
+        public ScanPage()
         {
             InitializeComponent();
+        }
+
+        private void Upload_Clicked(object sender, EventArgs e)
+        {
+            DisplayAlert("Ok", "Well done", "Back");
         }
     }
 }
