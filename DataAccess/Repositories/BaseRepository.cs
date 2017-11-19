@@ -6,9 +6,9 @@ using DataAccess;
 
 namespace DataAccess
 {
-    public class BaseRepository<T> where T : class
-    {
+    public class BaseRepository<T> : IDisposable where T : class 
 
+    {
         protected readonly SocialTapContext _context;
 
         public BaseRepository()
@@ -54,5 +54,9 @@ namespace DataAccess
             _context.SaveChanges();
         }
 
+        public void Dispose()
+        {
+            _context.Dispose();
+        }
     }
 }

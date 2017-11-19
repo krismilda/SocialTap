@@ -10,8 +10,8 @@ namespace DataAccess
         public SocialTapContext() : base("name = SocialTapDB")
         {
         }
-        public DbSet<Restaurant> RestaurantInformationTable { get; set; }
-        public DbSet<Scan> DrinkInfo { get; set; }
+        public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<Scan> Scans { get; set; }
 
     }
 

@@ -23,6 +23,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMasterDetail", "AppMasterDetail\AppMasterDetail\AppMasterDetail.csproj", "{D50C724F-8F88-419A-88B7-D67F91885645}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMasterDetail.iOS", "AppMasterDetail\AppMasterDetail.iOS\AppMasterDetail.iOS.csproj", "{C91ECE08-8C8E-4FA7-9A59-C2209F9FAE83}"
+
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -588,6 +589,7 @@ Global
 		{C91ECE08-8C8E-4FA7-9A59-C2209F9FAE83}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{C91ECE08-8C8E-4FA7-9A59-C2209F9FAE83}.Release|x64.ActiveCfg = Release|iPhone
 		{C91ECE08-8C8E-4FA7-9A59-C2209F9FAE83}.Release|x86.ActiveCfg = Release|iPhone
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

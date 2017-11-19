@@ -140,6 +140,10 @@
     <Compile Include="SocialTapContext.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataModels\DataModels.csproj">
+      <Project>{f8e468c1-a863-438f-a441-21ddaee74ab6}</Project>
+      <Name>DataModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logic\Logic.csproj">
       <Project>{CD2A38FA-A67A-4AFA-A90B-3F7430FC7FB6}</Project>
       <Name>Logic</Name>
