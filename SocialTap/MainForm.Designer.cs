@@ -104,9 +104,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Times = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnUploadMostVisited = new System.Windows.Forms.Button();
-            this.cmbMostVisited = new System.Windows.Forms.ComboBox();
             this.tabBMI = new System.Windows.Forms.TabPage();
             this.labelYear = new System.Windows.Forms.Label();
             this.panelBMI = new System.Windows.Forms.Panel();
@@ -153,8 +150,17 @@
             this.Mililiters = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBoxDate = new System.Windows.Forms.ComboBox();
             this.btnHistory = new System.Windows.Forms.Button();
+            this.Tweets = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.CreateAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TweetText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnTweets = new System.Windows.Forms.Button();
             this.lblusername = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.cmbMostVisited = new System.Windows.Forms.ComboBox();
+            this.btnUploadMostVisited = new System.Windows.Forms.Button();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmdUser = new System.Windows.Forms.ComboBox();
             this.tabNew.SuspendLayout();
             this.News.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -180,7 +186,6 @@
             this.tabMostVisited.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataMostVisited)).BeginInit();
-            this.tableLayoutPanel7.SuspendLayout();
             this.tabBMI.SuspendLayout();
             this.panelBMI.SuspendLayout();
             this.panelRecommend.SuspendLayout();
@@ -189,6 +194,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Height)).BeginInit();
             this.tabHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHistory)).BeginInit();
+            this.Tweets.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -204,10 +212,11 @@
             this.tabNew.Controls.Add(this.tabMostVisited);
             this.tabNew.Controls.Add(this.tabBMI);
             this.tabNew.Controls.Add(this.tabHistory);
-            this.tabNew.Location = new System.Drawing.Point(1, 3);
+            this.tabNew.Controls.Add(this.Tweets);
+            this.tabNew.Location = new System.Drawing.Point(1, 7);
             this.tabNew.Name = "tabNew";
             this.tabNew.SelectedIndex = 0;
-            this.tabNew.Size = new System.Drawing.Size(788, 573);
+            this.tabNew.Size = new System.Drawing.Size(837, 569);
             this.tabNew.TabIndex = 5;
             // 
             // News
@@ -216,7 +225,7 @@
             this.News.Location = new System.Drawing.Point(4, 28);
             this.News.Name = "News";
             this.News.Padding = new System.Windows.Forms.Padding(3);
-            this.News.Size = new System.Drawing.Size(780, 541);
+            this.News.Size = new System.Drawing.Size(829, 537);
             this.News.TabIndex = 6;
             this.News.Text = "News";
             this.News.UseVisualStyleBackColor = true;
@@ -252,7 +261,6 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(761, 109);
             this.tableLayoutPanel9.TabIndex = 0;
-            this.tableLayoutPanel9.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel9_Paint);
             // 
             // label24
             // 
@@ -354,7 +362,7 @@
             this.tabUploadImage.Location = new System.Drawing.Point(4, 28);
             this.tabUploadImage.Name = "tabUploadImage";
             this.tabUploadImage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUploadImage.Size = new System.Drawing.Size(780, 541);
+            this.tabUploadImage.Size = new System.Drawing.Size(829, 537);
             this.tabUploadImage.TabIndex = 0;
             this.tabUploadImage.Text = "Upload Image";
             this.tabUploadImage.UseVisualStyleBackColor = true;
@@ -676,7 +684,7 @@
             this.tabFind.Location = new System.Drawing.Point(4, 28);
             this.tabFind.Name = "tabFind";
             this.tabFind.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFind.Size = new System.Drawing.Size(780, 541);
+            this.tabFind.Size = new System.Drawing.Size(829, 537);
             this.tabFind.TabIndex = 1;
             this.tabFind.Text = "Find nearby places";
             this.tabFind.UseVisualStyleBackColor = true;
@@ -835,7 +843,7 @@
             this.tabTOP.Controls.Add(this.tableLayoutPanel11);
             this.tabTOP.Location = new System.Drawing.Point(4, 28);
             this.tabTOP.Name = "tabTOP";
-            this.tabTOP.Size = new System.Drawing.Size(780, 541);
+            this.tabTOP.Size = new System.Drawing.Size(829, 537);
             this.tabTOP.TabIndex = 2;
             this.tabTOP.Text = "TOP";
             this.tabTOP.UseVisualStyleBackColor = true;
@@ -925,7 +933,7 @@
             this.tabMostVisited.Controls.Add(this.tableLayoutPanel6);
             this.tabMostVisited.Location = new System.Drawing.Point(4, 28);
             this.tabMostVisited.Name = "tabMostVisited";
-            this.tabMostVisited.Size = new System.Drawing.Size(780, 541);
+            this.tabMostVisited.Size = new System.Drawing.Size(829, 537);
             this.tabMostVisited.TabIndex = 3;
             this.tabMostVisited.Text = "Most Visited";
             this.tabMostVisited.UseVisualStyleBackColor = true;
@@ -980,42 +988,6 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Percentage";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 446F));
-            this.tableLayoutPanel7.Controls.Add(this.btnUploadMostVisited, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.cmbMostVisited, 1, 0);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(573, 33);
-            this.tableLayoutPanel7.TabIndex = 0;
-            // 
-            // btnUploadMostVisited
-            // 
-            this.btnUploadMostVisited.Location = new System.Drawing.Point(3, 3);
-            this.btnUploadMostVisited.Name = "btnUploadMostVisited";
-            this.btnUploadMostVisited.Size = new System.Drawing.Size(114, 23);
-            this.btnUploadMostVisited.TabIndex = 0;
-            this.btnUploadMostVisited.Text = "UPLOAD";
-            this.btnUploadMostVisited.UseVisualStyleBackColor = true;
-            this.btnUploadMostVisited.Click += new System.EventHandler(this.btnUploadMostVisited_Click);
-            // 
-            // cmbMostVisited
-            // 
-            this.cmbMostVisited.FormattingEnabled = true;
-            this.cmbMostVisited.Items.AddRange(new object[] {
-            "Last Month (30 Days)",
-            "Last Week (7 Days)"});
-            this.cmbMostVisited.Location = new System.Drawing.Point(130, 3);
-            this.cmbMostVisited.Name = "cmbMostVisited";
-            this.cmbMostVisited.Size = new System.Drawing.Size(179, 27);
-            this.cmbMostVisited.TabIndex = 1;
-            this.cmbMostVisited.Text = "Last Month (30 Days)";
-            // 
             // tabBMI
             // 
             this.tabBMI.Controls.Add(this.labelYear);
@@ -1033,7 +1005,7 @@
             this.tabBMI.Location = new System.Drawing.Point(4, 28);
             this.tabBMI.Name = "tabBMI";
             this.tabBMI.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBMI.Size = new System.Drawing.Size(780, 541);
+            this.tabBMI.Size = new System.Drawing.Size(829, 537);
             this.tabBMI.TabIndex = 4;
             this.tabBMI.Text = "BMI calculator";
             this.tabBMI.UseVisualStyleBackColor = true;
@@ -1074,7 +1046,7 @@
             this.panelBMI.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBMI.Location = new System.Drawing.Point(3, 3);
             this.panelBMI.Name = "panelBMI";
-            this.panelBMI.Size = new System.Drawing.Size(774, 535);
+            this.panelBMI.Size = new System.Drawing.Size(823, 531);
             this.panelBMI.TabIndex = 13;
             this.panelBMI.Visible = false;
             // 
@@ -1088,7 +1060,7 @@
             this.panelRecommend.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRecommend.Location = new System.Drawing.Point(0, 0);
             this.panelRecommend.Name = "panelRecommend";
-            this.panelRecommend.Size = new System.Drawing.Size(774, 535);
+            this.panelRecommend.Size = new System.Drawing.Size(823, 531);
             this.panelRecommend.TabIndex = 17;
             this.panelRecommend.Visible = false;
             // 
@@ -1500,7 +1472,7 @@
             this.tabHistory.Location = new System.Drawing.Point(4, 28);
             this.tabHistory.Name = "tabHistory";
             this.tabHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHistory.Size = new System.Drawing.Size(780, 541);
+            this.tabHistory.Size = new System.Drawing.Size(829, 537);
             this.tabHistory.TabIndex = 5;
             this.tabHistory.Text = "History";
             this.tabHistory.UseVisualStyleBackColor = true;
@@ -1549,6 +1521,52 @@
             this.btnHistory.UseVisualStyleBackColor = true;
             this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
             // 
+            // Tweets
+            // 
+            this.Tweets.Controls.Add(this.dataGridView1);
+            this.Tweets.Controls.Add(this.btnTweets);
+            this.Tweets.Location = new System.Drawing.Point(4, 28);
+            this.Tweets.Name = "Tweets";
+            this.Tweets.Padding = new System.Windows.Forms.Padding(3);
+            this.Tweets.Size = new System.Drawing.Size(829, 537);
+            this.Tweets.TabIndex = 7;
+            this.Tweets.Text = "Tweets";
+            this.Tweets.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CreateAt,
+            this.TweetText});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 81);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(794, 396);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // CreateAt
+            // 
+            this.CreateAt.HeaderText = "Posted";
+            this.CreateAt.Name = "CreateAt";
+            this.CreateAt.Width = 200;
+            // 
+            // TweetText
+            // 
+            this.TweetText.HeaderText = "Tweet";
+            this.TweetText.Name = "TweetText";
+            this.TweetText.Width = 550;
+            // 
+            // btnTweets
+            // 
+            this.btnTweets.Location = new System.Drawing.Point(33, 22);
+            this.btnTweets.Name = "btnTweets";
+            this.btnTweets.Size = new System.Drawing.Size(156, 31);
+            this.btnTweets.TabIndex = 0;
+            this.btnTweets.Text = "See tweets";
+            this.btnTweets.UseVisualStyleBackColor = true;
+            this.btnTweets.Click += new System.EventHandler(this.btnTweets_Click);
+            // 
             // lblusername
             // 
             this.lblusername.AutoSize = true;
@@ -1567,6 +1585,56 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // cmbMostVisited
+            // 
+            this.cmbMostVisited.FormattingEnabled = true;
+            this.cmbMostVisited.Items.AddRange(new object[] {
+            "Last Month (30 Days)",
+            "Last Week (7 Days)"});
+            this.cmbMostVisited.Location = new System.Drawing.Point(110, 3);
+            this.cmbMostVisited.Name = "cmbMostVisited";
+            this.cmbMostVisited.Size = new System.Drawing.Size(179, 27);
+            this.cmbMostVisited.TabIndex = 1;
+            this.cmbMostVisited.Text = "Last Month (30 Days)";
+            // 
+            // btnUploadMostVisited
+            // 
+            this.btnUploadMostVisited.Location = new System.Drawing.Point(3, 3);
+            this.btnUploadMostVisited.Name = "btnUploadMostVisited";
+            this.btnUploadMostVisited.Size = new System.Drawing.Size(101, 23);
+            this.btnUploadMostVisited.TabIndex = 0;
+            this.btnUploadMostVisited.Text = "UPLOAD";
+            this.btnUploadMostVisited.UseVisualStyleBackColor = true;
+            this.btnUploadMostVisited.Click += new System.EventHandler(this.btnUploadMostVisited_Click);
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 3;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 276F));
+            this.tableLayoutPanel7.Controls.Add(this.btnUploadMostVisited, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.cmbMostVisited, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.cmdUser, 2, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(573, 33);
+            this.tableLayoutPanel7.TabIndex = 0;
+            // 
+            // cmdUser
+            // 
+            this.cmdUser.FormattingEnabled = true;
+            this.cmdUser.Items.AddRange(new object[] {
+            "All Users",
+            "Mine"});
+            this.cmdUser.Location = new System.Drawing.Point(300, 3);
+            this.cmdUser.Name = "cmdUser";
+            this.cmdUser.Size = new System.Drawing.Size(121, 27);
+            this.cmdUser.TabIndex = 2;
+            this.cmdUser.Text = "All Users";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -1577,9 +1645,8 @@
             this.Controls.Add(this.lblusername);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Text = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Text = "Social Tap";
+            this.Text = "MainForm";
             this.tabNew.ResumeLayout(false);
             this.News.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
@@ -1612,7 +1679,6 @@
             this.tabMostVisited.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataMostVisited)).EndInit();
-            this.tableLayoutPanel7.ResumeLayout(false);
             this.tabBMI.ResumeLayout(false);
             this.tabBMI.PerformLayout();
             this.panelBMI.ResumeLayout(false);
@@ -1624,6 +1690,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Height)).EndInit();
             this.tabHistory.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHistory)).EndInit();
+            this.Tweets.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tableLayoutPanel7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1710,11 +1779,8 @@
         private System.Windows.Forms.Button btnUploadTopList;
         private System.Windows.Forms.ComboBox cmbTopList;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.DataGridView dataTopList;
         private System.Windows.Forms.DataGridView dataMostVisited;
-        private System.Windows.Forms.Button btnUploadMostVisited;
-        private System.Windows.Forms.ComboBox cmbMostVisited;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visible;
@@ -1759,6 +1825,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn User;
         private System.Windows.Forms.DataGridViewTextBoxColumn Message;
         private System.Windows.Forms.Button btnLogout;
-
+        private System.Windows.Forms.TabPage Tweets;
+        private System.Windows.Forms.Button btnTweets;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreateAt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TweetText;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Button btnUploadMostVisited;
+        private System.Windows.Forms.ComboBox cmbMostVisited;
+        private System.Windows.Forms.ComboBox cmdUser;
     }
 }

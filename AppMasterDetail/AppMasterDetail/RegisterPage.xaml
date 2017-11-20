@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMasterDetail.RegisterPage">
+   
+
+    <ContentPage.Content>
+        <StackLayout Margin="10, 10, 10, 0">
+
+            <Entry x:Name ="usernameEntry"
+                   Placeholder="Username"/>
+           
+            <Entry x:Name ="passwordEntry" 
+                   Placeholder="Password"
+                   IsPassword="True"/>
+           
+            <Entry x:Name ="passwordConfirmEntry"
+                   Placeholder="Confirm password"
+                   IsPassword="True"/>
+                                        
+            <Button Text="Register"
+                    Clicked="Register_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

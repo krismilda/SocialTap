@@ -20,11 +20,11 @@ namespace Services.ImageAnalysis
     public class RealPhotoAnalysis : ICalculateLiquidPercentage
     {
         private Image<Gray, byte> _img;
-        private Image<Gray, byte> _imgCopy;
+        //private Image<Gray, byte> _imgCopy;
         private VectorOfVectorOfPoint _contours;
-        private VectorOfVectorOfPoint _contoursCopy = new VectorOfVectorOfPoint();
-        private VectorOfPoint _redLineContour;
-        private VectorOfPoint _approxRedLineContour;
+        //private VectorOfVectorOfPoint _contoursCopy = new VectorOfVectorOfPoint();
+        //private VectorOfPoint _redLineContour;
+        //private VectorOfPoint _approxRedLineContour;
         private VectorOfPoint _liquidContour;
         private VectorOfPoint _approxLiquidContour;
         private VectorOfPoint _glassTopContour;
@@ -37,7 +37,11 @@ namespace Services.ImageAnalysis
 
         private int _percentage;
 
-        public Image<Bgr, byte> VisualRepresentation { get; private set; }
+        private Lazy<Image<Bgr, byte>> _visualRepresentation;
+        public Image<Bgr, byte> VisualRepresentation
+        {
+            get { return _visualRepresentation.Value; }
+        }
 
         /// <summary>
         /// don't allow users to create instances without passing an image
@@ -54,17 +58,17 @@ namespace Services.ImageAnalysis
         {
             //Red line detection
             //Make a copy of the image for red line detection
-            Image<Bgr, byte> imgCopy = img.Clone();
+            //Image<Bgr, byte> imgCopy = img.Clone();
 
             //Prepare copy for red line detection
-            _imgCopy = GetPixelMask(imgCopy, 20, 160); //Reddish params
+            //_imgCopy = GetPixelMask(imgCopy, 20, 160); //Reddish params
 
             //set _contoursCopy to hold all contours of _imgCopy
-            _contours = new VectorOfVectorOfPoint();
-            CvInvoke.FindContours(_imgCopy, _contoursCopy, null, RetrType.External,
-                ChainApproxMethod.ChainApproxSimple);
+            //_contours = new VectorOfVectorOfPoint();
+            //CvInvoke.FindContours(_imgCopy, _contoursCopy, null, RetrType.External,
+            //    ChainApproxMethod.ChainApproxSimple);
 
-            FindLineContour();
+            //FindLineContour();
             //
 
             //Liquid detection
@@ -83,16 +87,21 @@ namespace Services.ImageAnalysis
             CalculateTotalVolume();
             CalculatePercentage();
 
-            GetVisualRepresentation();
-            //
+            //GetVisualRepresentation();
+            _visualRepresentation = new Lazy<Image<Bgr, byte>>(() => GetVisualRepresentation(_liquidContour, _approxLiquidContour,
+                                                                    _glassTopContour, _approxGlassTopContour,
+                                                                    _topLiquidPoint1, _topLiquidPoint2));
         }
 
         /// <summary>
         /// Sets the VisualRepresentation property to an image with all the 
         /// calculations illustrated.
         /// </summary>
-        private void GetVisualRepresentation(DrawOptions drawOptions = DrawOptions.TopContour | 
-                                             DrawOptions.TopApproxContour | DrawOptions.LiquidContour | DrawOptions.ApproxLiquidContour)
+        private Image<Bgr, byte> GetVisualRepresentation(VectorOfPoint liquidContour, VectorOfPoint approxLiquidContour, 
+                                                         VectorOfPoint glassTopContour, VectorOfPoint approxGlassTopContour,
+                                                         Point topLiquidPoint1, Point topLiquidPoint2,
+                                                         DrawOptions drawOptions = DrawOptions.TopContour | DrawOptions.TopApproxContour | 
+                                                         DrawOptions.LiquidContour | DrawOptions.ApproxLiquidContour)
         {
             Size imgSize = new Size(_img.Width, _img.Height);
             Image<Bgr, byte> img = new Image<Bgr, byte>(imgSize);
@@ -100,57 +109,57 @@ namespace Services.ImageAnalysis
 
             if (_glassTopContour.Size != 0)
             {
-                Point topPoint1 = new Point(_topLiquidPoint1.X, _glassTopContour.ToArray()[0].Y);
-                Point topPoint2 = new Point(_topLiquidPoint2.X, _glassTopContour.ToArray()[1].Y);
+                Point topPoint1 = new Point(topLiquidPoint1.X, glassTopContour.ToArray()[0].Y);
+                Point topPoint2 = new Point(topLiquidPoint2.X, glassTopContour.ToArray()[1].Y);
 
-                points = new Point[] { topPoint2, _topLiquidPoint2,
-                                   _topLiquidPoint1, topPoint1};
+                points = new Point[] { topPoint2, topLiquidPoint2,
+                                   topLiquidPoint1, topPoint1};
                 img.DrawPolyline(points, true, new Bgr(Color.DarkMagenta), 1);
             }
 
-            points = _liquidContour.ToArray();
+            points = liquidContour.ToArray();
             img.DrawPolyline(points, true, new Bgr(Color.Aqua), 2);
 
-            points = _approxLiquidContour.ToArray();
+            points = approxLiquidContour.ToArray();
             img.DrawPolyline(points, true, new Bgr(Color.DeepPink), 4);
 
-            points = _glassTopContour.ToArray();
+            points = glassTopContour.ToArray();
             img.DrawPolyline(points, true, new Bgr(Color.YellowGreen), 5);
 
-            points = _approxGlassTopContour.ToArray();
+            points = approxGlassTopContour.ToArray();
             img.DrawPolyline(points, true, new Bgr(Color.OrangeRed), 5);
 
-            points = _redLineContour.ToArray();
-            img.DrawPolyline(points, true, new Bgr(Color.Crimson), 5);
+            //points = _redLineContour.ToArray();
+            //img.DrawPolyline(points, true, new Bgr(Color.Crimson), 5);
 
-            points = _approxRedLineContour.ToArray();
-            img.DrawPolyline(points, true, new Bgr(Color.Red), 5);
+            //points = _approxRedLineContour.ToArray();
+            //img.DrawPolyline(points, true, new Bgr(Color.Red), 5);
 
-            VisualRepresentation = img;
+            return img;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        private void FindLineContour()
-        {
-            VectorOfPoint contour = new VectorOfPoint();
-            VectorOfPoint approxContour = new VectorOfPoint();
+        //private void FindLineContour()
+        //{
+        //    VectorOfPoint contour = new VectorOfPoint();
+        //    VectorOfPoint approxContour = new VectorOfPoint();
 
-            for (int i = 0; i < _contours.Size; i++)
-            {
-                contour = _contours[i];
-                CvInvoke.ApproxPolyDP(contour, approxContour, CvInvoke.ArcLength(contour, false) * 0.1, true);
+        //    for (int i = 0; i < _contours.Size; i++)
+        //    {
+        //        contour = _contours[i];
+        //        CvInvoke.ApproxPolyDP(contour, approxContour, CvInvoke.ArcLength(contour, false) * 0.1, true);
 
-                if (CvInvoke.ArcLength(contour, false) > _imgCopy.Width * 0.05)
-                {
-                    break;
-                }
-            }
+        //        if (CvInvoke.ArcLength(contour, false) > _imgCopy.Width * 0.05)
+        //        {
+        //            break;
+        //        }
+        //    }
 
-            _redLineContour = contour;
-            _approxRedLineContour = approxContour;
-        }
+        //    _redLineContour = contour;
+        //    _approxRedLineContour = approxContour;
+        //}
 
         /// <summary>
         /// Finds the liquid contour and sets fields _approxLiquidContour 
