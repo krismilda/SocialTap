@@ -250,7 +250,7 @@ namespace SocialTap
         private void btnUploadMostVisited_Click(object sender, EventArgs e)
         {
             MostVisitedList mostVisitedList = new MostVisitedList();
-            List<RestaurantInformationAverage> restaurantList = mostVisitedList.GetMostVisitedList(cmbMostVisited.Text);
+            List<RestaurantInformationAverage> restaurantList = mostVisitedList.GetMostVisitedList(cmbMostVisited.Text, cmdUser.Text, _Username);
             int size;
             size = restaurantList.Count;
             if (restaurantList.Capacity < 5)
@@ -304,7 +304,7 @@ namespace SocialTap
             
             using (var client = new HttpClient(clntHand))
             {
-                var response = client.GetAsync("http://localhost.fiddler:58376/api/TopRestaurants").Result;
+          //      var response = client.GetAsync("http://localhost.fiddler:58376/api/TopRestaurants").Result;
             }
             ReadingNewFromDatabase reading = new ReadingNewFromDatabase();
             List<New> newsList = reading.Read(cmbNewsPeriod.Text);
