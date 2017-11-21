@@ -64,10 +64,6 @@
       <Project>{cd2a38fa-a67a-4afa-a90b-3f7430fc7fb6}</Project>
       <Name>Logic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Services\Services.csproj">
-      <Project>{6cc9c2c0-4b02-44db-986b-7aae2491d19c}</Project>
-      <Name>Services</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="TestData\Glass1.bmp" />
