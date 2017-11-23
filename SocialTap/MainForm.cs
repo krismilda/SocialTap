@@ -71,11 +71,25 @@ namespace SocialTap
 
         private void btnUploadTopList_Click(object sender, EventArgs e)
         {
-            TopList customTopList = new TopList();
-            List<RestaurantInformationAverage> list = customTopList.GetTopList(cmbTopList.Text);
+            IList<RestaurantInformationAverage> list = null;
+            var builder = new UriBuilder("http://localhost:58376/api/TopRestaurants");
+            var query = HttpUtility.ParseQueryString(builder.Query);
+            query["duration"] = cmbTopList.Text;
+            builder.Query = query.ToString();
+            string url = builder.ToString();
+
+            using (HttpClient client = new HttpClient())
+            using (HttpResponseMessage response = client.GetAsync(url).Result)
+            using (HttpContent content = response.Content)
+            {
+                string result = content.ReadAsStringAsync().Result;
+
+                list = JsonConvert.DeserializeObject<IList<RestaurantInformationAverage>>(result);
+            }
+
             int size;
             size = list.Count;
-            if (list.Capacity < 5)
+            if (list.Count < 5)
             {
                 size = list.Count;
             }
@@ -88,7 +102,9 @@ namespace SocialTap
             {
                 dataTopList.Rows.Add(list[i].Name, list[i].Address, list[i].AverageOfPercentage);
             }
+
         }
+
         public async void GetAllGlassInformation(String path, PictureBox imageBox2)
         {
             try
