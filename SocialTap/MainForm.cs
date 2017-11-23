@@ -323,18 +323,24 @@ namespace SocialTap
             new Main().Show();
         }
 
-
+        public int lastSize = 0;
         private void btnTweets_Click(object sender, EventArgs e)
         {
-            var res = new ListByTag();
-            var tweetsList = res.Tweets.ToList();
+            
+            var resp = new ListByTag();
+            var res =  resp.GetListByTag(label, lastSize);
+            
+            var tweetsList = res.ToList();
             dataGridTweets.Rows.Clear();
             var size = tweetsList.Count();
 
             for (int i = 0; i < size; i++)
             {
-                dataGridTweets.Rows.Add(tweetsList[i].CreatedAt, tweetsList[i].Text);
+                dataGridTweets.Rows.Add(tweetsList[i].CreatedAt, tweetsList[i].Text, tweetsList[i].FavoriteCount);
             }
+
+            lastSize = size;
         }
+
     }
 }

@@ -155,9 +155,11 @@
             this.comboBoxDate = new System.Windows.Forms.ComboBox();
             this.btnHistory = new System.Windows.Forms.Button();
             this.Tweets = new System.Windows.Forms.TabPage();
+            this.label = new System.Windows.Forms.Label();
             this.dataGridTweets = new System.Windows.Forms.DataGridView();
             this.CreateAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TweetText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Likes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTweets = new System.Windows.Forms.Button();
             this.lblusername = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -1573,6 +1575,7 @@
             // 
             // Tweets
             // 
+            this.Tweets.Controls.Add(this.label);
             this.Tweets.Controls.Add(this.dataGridTweets);
             this.Tweets.Controls.Add(this.btnTweets);
             this.Tweets.Location = new System.Drawing.Point(4, 31);
@@ -1583,16 +1586,25 @@
             this.Tweets.Text = "Tweets";
             this.Tweets.UseVisualStyleBackColor = true;
             // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(265, 31);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(0, 22);
+            this.label.TabIndex = 2;
+            // 
             // dataGridTweets
             // 
             this.dataGridTweets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridTweets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CreateAt,
-            this.TweetText});
-            this.dataGridTweets.Location = new System.Drawing.Point(6, 81);
+            this.TweetText,
+            this.Likes});
+            this.dataGridTweets.Location = new System.Drawing.Point(7, 68);
             this.dataGridTweets.Name = "dataGridTweets";
             this.dataGridTweets.RowTemplate.Height = 24;
-            this.dataGridTweets.Size = new System.Drawing.Size(794, 396);
+            this.dataGridTweets.Size = new System.Drawing.Size(816, 396);
             this.dataGridTweets.TabIndex = 1;
             // 
             // CreateAt
@@ -1605,7 +1617,12 @@
             // 
             this.TweetText.HeaderText = "Tweet";
             this.TweetText.Name = "TweetText";
-            this.TweetText.Width = 550;
+            this.TweetText.Width = 500;
+            // 
+            // Likes
+            // 
+            this.Likes.HeaderText = "Likes";
+            this.Likes.Name = "Likes";
             // 
             // btnTweets
             // 
@@ -1693,6 +1710,7 @@
             this.tabHistory.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHistory)).EndInit();
             this.Tweets.ResumeLayout(false);
+            this.Tweets.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTweets)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1829,11 +1847,13 @@
         private System.Windows.Forms.TabPage Tweets;
         private System.Windows.Forms.Button btnTweets;
         private System.Windows.Forms.DataGridView dataGridTweets;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreateAt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TweetText;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Button btnUploadMostVisited;
         private System.Windows.Forms.ComboBox cmbMostVisited;
         private System.Windows.Forms.ComboBox cmdUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreateAt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TweetText;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Likes;
+        private System.Windows.Forms.Label label;
     }
 }
