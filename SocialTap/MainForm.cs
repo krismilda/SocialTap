@@ -23,6 +23,8 @@ using System.Net;
 using Services.TwitterAPI;
 using Tweetinvi.Models;
 using System.Linq;
+using DataAccess;
+using DataModels;
 
 namespace SocialTap
 {
@@ -285,6 +287,7 @@ namespace SocialTap
 
         private void btnWriteNew_Click(object sender, EventArgs e)
         {
+            BaseRepository<Restaurant> b = new BaseRepository<Restaurant>();
             New news = new New(_Username, textBoxMessage.Text);
             WritingNewToDatabase writing = new WritingNewToDatabase();
             writing.Write(news);
