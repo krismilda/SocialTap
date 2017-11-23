@@ -10,7 +10,7 @@ namespace Database.File
 {
     public class ReadingNewFromDatabase
     {
-        public List<New> Read(string time)
+        public List<New> Read(string time = "Today")
         {
             DateTime date = new DateTime();
             switch (time)

@@ -137,6 +137,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BMIController.cs" />
     <Compile Include="Controllers\ImageProcessingController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\ScanController.cs" />
     <Compile Include="Controllers\TopRestaurantsController.cs" />
@@ -160,6 +161,10 @@
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{314d28e1-663d-4494-96b7-dc3360be2428}</Project>
       <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Database\Database.csproj">
+      <Project>{DCA7BC1B-054C-4C0D-9C40-AE5911A28649}</Project>
+      <Name>Database</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataModels\DataModels.csproj">
       <Project>{F8E468C1-A863-438F-A441-21DDAEE74AB6}</Project>

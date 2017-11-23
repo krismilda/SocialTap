@@ -11,7 +11,7 @@ namespace API.Controllers
     {
         public IHttpActionResult Get()
         {
-            return Ok();
+            return Ok("jej");
         }
     }
 }
