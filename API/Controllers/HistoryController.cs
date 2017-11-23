@@ -12,7 +12,7 @@ namespace API.Controllers
         public IHttpActionResult Get()
         {
             HistoryList historyList = new HistoryList();
-            List<HistoryInfoSum> list = historyList.GetHistoryList(DateTime.Today.ToString());
+            List<HistoryInfoSum> list = historyList.GetHistoryList("Last Month (30 Days)");
             return Ok(list);
         }
         

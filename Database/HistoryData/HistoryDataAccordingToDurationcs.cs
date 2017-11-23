@@ -17,12 +17,13 @@ namespace Database.HistoryData
             {
                 case "Last Month (30 Days)":
                     days = 30;
-
                     break;
                 case "Last Week (7 Days)":
                     days = 7;
                     break;
-
+                default:
+                    days = 7;
+                    break;
             }
             ReadFromDbDrinkInfo<Drink> readingFromDb = new ReadFromDbDrinkInfo<Drink>();
             List<Drink> drinkList = readingFromDb.Read();
