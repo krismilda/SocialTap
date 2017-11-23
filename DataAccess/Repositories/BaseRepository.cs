@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using DataAccess;
+using Unity;
+using Microsoft.Practices.Unity.Configuration;
+using static DataAccess.Container;
 
 namespace DataAccess
 {
@@ -13,6 +16,9 @@ namespace DataAccess
 
         public BaseRepository()
         {
+            IUnityContainer container = new UnityContainer();
+            ContainerUnity.RegisterElements(container);
+            ISocialTapContext context = container.Resolve<ISocialTapContext>();
             _context = new SocialTapContext();
         }
 
