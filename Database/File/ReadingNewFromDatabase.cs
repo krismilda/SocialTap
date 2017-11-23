@@ -17,12 +17,15 @@ namespace Database.File
             {
                 case "Today":
                     date = DateTime.Today;
-
                     break;
+
                 case "Yesterday":
                     date = DateTime.Today.AddDays(-1);
                     break;
 
+                default:
+                    date = DateTime.Today;
+                    break;
             }
             SocialTapContext db = new SocialTapContext();
             var allNews = from news in db.NewTable
