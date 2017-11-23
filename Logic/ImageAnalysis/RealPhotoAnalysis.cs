@@ -286,6 +286,11 @@ namespace Services.ImageAnalysis
                 int gapHeight = _topLiquidPoint1.Y - _approxGlassTopContour.ToArray()[0].Y;
 
                 _totalVolume = _liquidVolume + (gapHeight * topLength);
+
+                if (_totalVolume < 0)
+                {
+                    throw new ValueBellowZeroException(_totalVolume.ToString() + "Percentage below 0!!");
+                }
             }
         }
 
@@ -296,6 +301,21 @@ namespace Services.ImageAnalysis
         private void CalculatePercentage()
         {
             _percentage = _liquidVolume * 100 / _totalVolume;
+
+            if (_percentage < 0)
+            {
+                throw new ValueBellowZeroException(_percentage.ToString() + "Percentage below 0!!");
+            }
+        }
+
+        public class ValueBellowZeroException : Exception
+        {
+            public ValueBellowZeroException() { }
+
+            public ValueBellowZeroException(string message) : base(message) { }
+
+            public ValueBellowZeroException(string message, Exception innerException)
+            : base(message, innerException) { }
         }
 
 

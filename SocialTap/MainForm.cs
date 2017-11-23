@@ -327,12 +327,12 @@ namespace SocialTap
         {
             var res = new ListByTag();
             var tweetsList = res.Tweets.ToList();
-            dataGridView1.Rows.Clear();
+            dataGridTweets.Rows.Clear();
             var size = tweetsList.Count();
 
             for (int i = 0; i < size; i++)
             {
-                dataGridView1.Rows.Add(tweetsList[i].CreatedAt, tweetsList[i].Text);
+                dataGridTweets.Rows.Add(tweetsList[i].CreatedAt, tweetsList[i].Text);
             }
         }
     }
