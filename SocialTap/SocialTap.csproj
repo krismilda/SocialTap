@@ -337,9 +337,17 @@
     <Content Include="TestImages\GlassTemplate.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{314D28E1-663D-4494-96B7-DC3360BE2428}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Database\Database.csproj">
       <Project>{dca7bc1b-054c-4c0d-9c40-ae5911a28649}</Project>
       <Name>Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataModels\DataModels.csproj">
+      <Project>{F8E468C1-A863-438F-A441-21DDAEE74AB6}</Project>
+      <Name>DataModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logic\Logic.csproj">
       <Project>{cd2a38fa-a67a-4afa-a90b-3f7430fc7fb6}</Project>

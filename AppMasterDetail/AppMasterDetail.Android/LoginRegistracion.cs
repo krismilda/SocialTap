@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.Net.Http;
 
 namespace AppMasterDetail.Droid
 {
 
 
-    [Activity(Label = "Activity1")]
-    public class Activity1 : Activity
+    [Activity(Label = "Welcome to DRINKLY")]
+    public class LoginRegistration : Activity
     {
         Button btnLogin;
         Button btnRegistration;
@@ -35,22 +36,13 @@ namespace AppMasterDetail.Droid
             btnLogin.Click += BtnLogin_Click;
             btnRegistration.Click += BtnRegistration_Click;
         }
-        void BtnLogin_Click(object sender, System.EventArgs e)
-        {
-          // Autentification autentification = new Autentification();
-         //   Boolean status=autentification.CheckLogin(emailInput.Text, passwordInput.Text);
-         //   if (status)
-            {
 
+            void BtnLogin_Click(object sender, System.EventArgs e)
+            {
             }
-         //   else
-            { 
-          //      errorMessage.Text = "Wrong password or username";
+            void BtnRegistration_Click(object sender, System.EventArgs e)
+            {
+                StartActivity(typeof(Registration));
             }
         }
-        void BtnRegistration_Click(object sender, System.EventArgs e)
-        {
-            
-        }
-    }
 }

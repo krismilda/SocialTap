@@ -13,13 +13,10 @@
             <Entry x:Name ="passwordEntry" 
                    Placeholder="Password"
                    IsPassword="True"/>
-           
+
             <Entry x:Name ="passwordConfirmEntry"
                    Placeholder="Confirm password"
                    IsPassword="True"/>
-                                        
-            <Button Text="Register"
-                    Clicked="Register_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

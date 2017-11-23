@@ -26,7 +26,7 @@ namespace AppMasterDetail.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
-            StartActivity(typeof(Activity1));
+            StartActivity(typeof(Tweets));
         }
     }
 }

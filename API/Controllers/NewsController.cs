@@ -16,7 +16,9 @@ namespace API.Controllers
             try
             {
                 ReadingNewFromDatabase reading = new ReadingNewFromDatabase();
+
                 List<New> newsList = reading.Read(duration);
+
                 return Ok(newsList);
             }
             catch (Exception e)

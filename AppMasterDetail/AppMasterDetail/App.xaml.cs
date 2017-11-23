@@ -9,7 +9,7 @@ namespace AppMasterDetail
 {
     public partial class App : Application
     {
-        public static  MasterDetailPage MasterDetail { get; set;  }
+        public static MasterDetailPage MasterDetail { get; set; }
 
         public async static Task NavigateMasterDetail(Page page)
         {
@@ -20,10 +20,8 @@ namespace AppMasterDetail
         public App()
         {
             InitializeComponent();
-
             MainPage = new AppMasterDetail.MainPage();
         }
-
         protected override void OnStart()
         {
             // Handle when your app starts
