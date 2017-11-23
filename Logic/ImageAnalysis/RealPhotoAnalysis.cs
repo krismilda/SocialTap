@@ -300,7 +300,10 @@ namespace Services.ImageAnalysis
         /// </summary>
         private void CalculatePercentage()
         {
-            _percentage = _liquidVolume * 100 / _totalVolume;
+          
+            Func<int, int, int> percentage = delegate (int _liquidVolume, int _totalVolume) { return _liquidVolume * 100 / _totalVolume; };
+
+            _percentage = percentage(_liquidVolume, _totalVolume);
 
             if (_percentage < 0)
             {
