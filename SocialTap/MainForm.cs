@@ -322,7 +322,6 @@ namespace SocialTap
 
         private void btnWriteNew_Click(object sender, EventArgs e)
         {
-            BaseRepository<Restaurant> b = new BaseRepository<Restaurant>();
             New news = new New(_Username, textBoxMessage.Text);
 
             using (var client = new HttpClient())
