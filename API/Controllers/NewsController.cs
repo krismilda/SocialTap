@@ -11,12 +11,12 @@ namespace API.Controllers
 {
     public class NewsController : ApiController
     {
-        public IHttpActionResult Get()
+        public IHttpActionResult Get([FromUri]string duration)
         {
             try
             {
                 ReadingNewFromDatabase reading = new ReadingNewFromDatabase();
-                List<New> newsList = reading.Read("Today");
+                List<New> newsList = reading.Read(duration);
                 return Ok(newsList);
             }
             catch (Exception e)

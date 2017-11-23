@@ -279,7 +279,7 @@
             this.btnWriteNew.TabIndex = 2;
             this.btnWriteNew.Text = "Write";
             this.btnWriteNew.UseVisualStyleBackColor = false;
-            this.btnWriteNew.Click += new System.EventHandler(this.btnWriteNew_Click);
+            this.btnWriteNew.Click += new System.EventHandler(this.btnWriteNew_ClickAsync);
             // 
             // textBoxMessage
             // 
@@ -322,7 +322,7 @@
             this.btnGetNews.TabIndex = 1;
             this.btnGetNews.Text = "Get News";
             this.btnGetNews.UseVisualStyleBackColor = true;
-            this.btnGetNews.Click += new System.EventHandler(this.btnGetNews_Click);
+            this.btnGetNews.Click += new System.EventHandler(this.btnGetNews_ClickAsync);
             // 
             // dataGridNews
             // 
