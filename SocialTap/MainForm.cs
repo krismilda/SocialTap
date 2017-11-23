@@ -276,8 +276,15 @@ namespace SocialTap
         private void btnHistory_Click(object sender, EventArgs e)
         {
             IList<HistoryInfoSum> list = null;
+
+            var builder = new UriBuilder("http://localhost:58376/api/History");
+            var query = HttpUtility.ParseQueryString(builder.Query);
+            query["duration"] = comboBoxDate.Text;          
+            builder.Query = query.ToString();
+            string url = builder.ToString();    
+            
             using (HttpClient client = new HttpClient())
-            using (HttpResponseMessage response = client.GetAsync("http://localhost:58376/api/History").Result)
+            using (HttpResponseMessage response = client.GetAsync(url).Result)
             using (HttpContent content = response.Content)
             {
                 string result = content.ReadAsStringAsync().Result;
@@ -354,5 +361,9 @@ namespace SocialTap
             lastSize = size;
         }
 
+        private void comboBoxDate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
