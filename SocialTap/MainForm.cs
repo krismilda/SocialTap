@@ -24,6 +24,7 @@ using Services.TwitterAPI;
 using Tweetinvi.Models;
 using Newtonsoft.Json;
 using System.Linq;
+using System.Text;
 
 using DataAccess;
 using DataModels;
@@ -320,9 +321,13 @@ namespace SocialTap
             }
         }
 
-        private void btnWriteNew_Click(object sender, EventArgs e)
+        private async void btnWriteNew_ClickAsync(object sender, EventArgs e)
         {
+
+            btnWriteNew.Enabled = false;
+            
             BaseRepository<Restaurant> b = new BaseRepository<Restaurant>();
+
             New news = new New(_Username, textBoxMessage.Text);
 
             using (var client = new HttpClient())
@@ -331,20 +336,30 @@ namespace SocialTap
 
                 var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
 
-                var response = client.PostAsync("http://localhost:58376/api/News", httpContent).Result;
+                var response = await client.PostAsync("http://localhost:58376/api/News", httpContent);
+
             }
             textBoxMessage.Text = "";
+
+            btnWriteNew.Enabled = true;
         }
 
-        private void btnGetNews_Click(object sender, EventArgs e)
+        private async void btnGetNews_ClickAsync(object sender, EventArgs e)
         {
+            btnGetNews.Enabled = false;
+
+            var builder = new UriBuilder("http://localhost:58376/api/News");
+            var query = HttpUtility.ParseQueryString(builder.Query);
+            query["duration"] = cmbNewsPeriod.Text;
+            builder.Query = query.ToString();
+            string url = builder.ToString();
+
             IList<New> newsList = null;
             using (HttpClient client = new HttpClient())
-            using (HttpResponseMessage response = client.GetAsync("http://localhost:58376/api/News").Result)
+            using (HttpResponseMessage response = await client.GetAsync(url))
             using (HttpContent content = response.Content)
             {
-                string result = content.ReadAsStringAsync().Result;
-
+                string result = await content.ReadAsStringAsync();
                 newsList = JsonConvert.DeserializeObject<IList<New>>(result);
             }
                
@@ -355,6 +370,8 @@ namespace SocialTap
             {
                 dataGridNews.Rows.Add(newsList[i].Date, newsList[i].Username, newsList[i].Message);
             }
+
+            btnGetNews.Enabled = true;
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
