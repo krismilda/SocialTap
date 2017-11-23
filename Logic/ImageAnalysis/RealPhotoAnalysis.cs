@@ -93,11 +93,11 @@ namespace Services.ImageAnalysis
                                                                     _topLiquidPoint1, _topLiquidPoint2));
         }
 
-        /// <summary>
-        /// Sets the VisualRepresentation property to an image with all the 
-        /// calculations illustrated.
-        /// </summary>
-        private Image<Bgr, byte> GetVisualRepresentation(VectorOfPoint liquidContour, VectorOfPoint approxLiquidContour, 
+            /// <summary>
+            /// Sets the VisualRepresentation property to an image with all the 
+            /// calculations illustrated.
+            /// </summary>
+            private Image<Bgr, byte> GetVisualRepresentation(VectorOfPoint liquidContour, VectorOfPoint approxLiquidContour, 
                                                          VectorOfPoint glassTopContour, VectorOfPoint approxGlassTopContour,
                                                          Point topLiquidPoint1, Point topLiquidPoint2,
                                                          DrawOptions drawOptions = DrawOptions.TopContour | DrawOptions.TopApproxContour | 
@@ -370,6 +370,12 @@ namespace Services.ImageAnalysis
         int ICalculateLiquidPercentage.CalculatePercentageOfLiquid()
         {
             return _percentage;
+        }
+
+        public static int GetPercentage(Bitmap bmp)
+        {
+            ICalculateLiquidPercentage rpa = new RealPhotoAnalysis(new Image<Bgr, byte>(bmp));
+            return rpa.CalculatePercentageOfLiquid();
         }
     }
 }
