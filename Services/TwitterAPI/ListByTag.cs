@@ -22,8 +22,6 @@ namespace Services.TwitterAPI
                                      ConfigurationManager.AppSettings["userAccessToken"],
                                      ConfigurationManager.AppSettings["userAccessSecret"]);
              
-            //Tweets = Search.SearchTweets("#drinkly");
-
             Tweets = Search.SearchTweets(new SearchTweetsParameters("#drinkly")
             {
                 MaximumNumberOfResults = 100,
