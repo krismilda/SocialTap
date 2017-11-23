@@ -19,7 +19,7 @@ namespace Database.HistoryData
             DistictHistoryData drinkSum = new DistictHistoryData();
             IEnumerable<HistoryInfoSum> list = drinkSum.GetListWithSum(DrinkInformationDurationList);
             
-            return list.ToList<HistoryInfoSum>();
+            return list.ToList();
         }
     }
 }

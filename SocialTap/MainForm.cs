@@ -22,9 +22,14 @@ using System.Net.Http;
 using System.Net;
 using Services.TwitterAPI;
 using Tweetinvi.Models;
+using Newtonsoft.Json;
 using System.Linq;
+
 using DataAccess;
 using DataModels;
+
+using System.Text;
+
 
 namespace SocialTap
 {
@@ -70,11 +75,25 @@ namespace SocialTap
 
         private void btnUploadTopList_Click(object sender, EventArgs e)
         {
-            TopList customTopList = new TopList();
-            List<RestaurantInformationAverage> list = customTopList.GetTopList(cmbTopList.Text);
+            IList<RestaurantInformationAverage> list = null;
+            var builder = new UriBuilder("http://localhost:58376/api/TopRestaurants");
+            var query = HttpUtility.ParseQueryString(builder.Query);
+            query["duration"] = cmbTopList.Text;
+            builder.Query = query.ToString();
+            string url = builder.ToString();
+
+            using (HttpClient client = new HttpClient())
+            using (HttpResponseMessage response = client.GetAsync(url).Result)
+            using (HttpContent content = response.Content)
+            {
+                string result = content.ReadAsStringAsync().Result;
+
+                list = JsonConvert.DeserializeObject<IList<RestaurantInformationAverage>>(result);
+            }
+
             int size;
             size = list.Count;
-            if (list.Capacity < 5)
+            if (list.Count < 5)
             {
                 size = list.Count;
             }
@@ -87,7 +106,9 @@ namespace SocialTap
             {
                 dataTopList.Rows.Add(list[i].Name, list[i].Address, list[i].AverageOfPercentage);
             }
+
         }
+
         public async void GetAllGlassInformation(String path, PictureBox imageBox2)
         {
             try
@@ -106,7 +127,7 @@ namespace SocialTap
                     errorMililiter.ForeColor = Color.Red;
                 }
                 string category = comboBoxCategory.Text;
-                new Regex_BMI().RegexValidation(@"\d+", comboBoxCategory, lblCateg, "Category");
+                new Regex_BMI().RegexValidation(@"[A-Z]+", comboBoxCategory, lblCateg, "Category");
                 if (lblCateg.Text == "Category InValid")
                     category = "Unkown Category";
                 await restaurantInformationTask;
@@ -274,8 +295,22 @@ namespace SocialTap
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            HistoryList historyList = new HistoryList();
-            List<HistoryInfoSum> list = historyList.GetHistoryList(comboBoxDate.Text);
+            IList<HistoryInfoSum> list = null;
+
+            var builder = new UriBuilder("http://localhost:58376/api/History");
+            var query = HttpUtility.ParseQueryString(builder.Query);
+            query["duration"] = comboBoxDate.Text;          
+            builder.Query = query.ToString();
+            string url = builder.ToString();    
+            
+            using (HttpClient client = new HttpClient())
+            using (HttpResponseMessage response = client.GetAsync(url).Result)
+            using (HttpContent content = response.Content)
+            {
+                string result = content.ReadAsStringAsync().Result;
+
+                list = JsonConvert.DeserializeObject<IList<HistoryInfoSum>>(result);
+            }
             int size;
             size = list.Count;
             dataGridHistory.Rows.Clear();
@@ -289,32 +324,34 @@ namespace SocialTap
         {
             BaseRepository<Restaurant> b = new BaseRepository<Restaurant>();
             New news = new New(_Username, textBoxMessage.Text);
-            WritingNewToDatabase writing = new WritingNewToDatabase();
-            writing.Write(news);
+
+            using (var client = new HttpClient())
+            {
+                var content = JsonConvert.SerializeObject(news);
+
+                var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+
+                var response = client.PostAsync("http://localhost:58376/api/News", httpContent).Result;
+            }
             textBoxMessage.Text = "";
         }
 
         private void btnGetNews_Click(object sender, EventArgs e)
         {
-
-            HttpClientHandler clntHand = new HttpClientHandler()
+            IList<New> newsList = null;
+            using (HttpClient client = new HttpClient())
+            using (HttpResponseMessage response = client.GetAsync("http://localhost:58376/api/News").Result)
+            using (HttpContent content = response.Content)
             {
-                CookieContainer = new CookieContainer(),
-                Proxy = new WebProxy("http://localhost:8888", false),
-                UseProxy = true,
-                UseDefaultCredentials = false
-            };
+                string result = content.ReadAsStringAsync().Result;
 
-            
-            using (var client = new HttpClient(clntHand))
-            {
-          //      var response = client.GetAsync("http://localhost.fiddler:58376/api/TopRestaurants").Result;
+                newsList = JsonConvert.DeserializeObject<IList<New>>(result);
             }
-            ReadingNewFromDatabase reading = new ReadingNewFromDatabase();
-            List<New> newsList = reading.Read(cmbNewsPeriod.Text);
+               
             dataGridNews.Rows.Clear();
-            newsList.ToArray();
+
             for(int i=newsList.Count-1; i>=0; i--)
+
             {
                 dataGridNews.Rows.Add(newsList[i].Date, newsList[i].Username, newsList[i].Message);
             }
@@ -329,10 +366,10 @@ namespace SocialTap
         public int lastSize = 0;
         private void btnTweets_Click(object sender, EventArgs e)
         {
-            
+
             var resp = new ListByTag();
-            var res =  resp.GetListByTag(label, lastSize);
-            
+            var res = resp.GetListByTag(label, lastSize);
+
             var tweetsList = res.ToList();
             dataGridTweets.Rows.Clear();
             var size = tweetsList.Count();
@@ -345,5 +382,9 @@ namespace SocialTap
             lastSize = size;
         }
 
+        private void comboBoxDate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

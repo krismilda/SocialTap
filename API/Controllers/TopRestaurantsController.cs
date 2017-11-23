@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Database.File;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,9 +10,11 @@ namespace API.Controllers
 {
     public class TopRestaurantsController : ApiController
     {
-        public IHttpActionResult Get()
+        public IHttpActionResult Get([FromUri]string duration)
         {
-            return Ok();
+            TopList customTopList = new TopList();
+            List<RestaurantInformationAverage> list = customTopList.GetTopList(duration);
+            return Ok(list);
         }
     }
 }

@@ -8,13 +8,18 @@ using System.Threading.Tasks;
 
 namespace Database.File
 {
-    public class WritingNewToDatabase
+    public class WritingNewToDatabase : IDisposable
     {
-        public void Write(New newToFile)
+        private SocialTapContext _db = new SocialTapContext();
+        public void Dispose()
         {
-            SocialTapContext db = new SocialTapContext();
-            db.NewTable.Add(newToFile);
-            db.SaveChanges();
+            _db.Dispose();
+        }
+
+        public void Write(New newToFile)
+        {    
+            _db.NewTable.Add(newToFile);
+            _db.SaveChanges();
         }
     }
 }
