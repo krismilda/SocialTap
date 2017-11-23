@@ -22,8 +22,10 @@ using System.Net.Http;
 using System.Net;
 using Services.TwitterAPI;
 using Tweetinvi.Models;
-using System.Linq;
 using Newtonsoft.Json;
+using System.Linq;
+using System.Text;
+
 
 namespace SocialTap
 {
@@ -294,22 +296,34 @@ namespace SocialTap
         private void btnWriteNew_Click(object sender, EventArgs e)
         {
             New news = new New(_Username, textBoxMessage.Text);
-            WritingNewToDatabase writing = new WritingNewToDatabase();
-            writing.Write(news);
+
+            using (var client = new HttpClient())
+            {
+                var content = JsonConvert.SerializeObject(news);
+
+                var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+
+                var response = client.PostAsync("http://localhost:58376/api/News", httpContent).Result;
+            }
             textBoxMessage.Text = "";
         }
 
         private void btnGetNews_Click(object sender, EventArgs e)
         {
-            using (var client = new HttpClient())
+            IList<New> newsList = null;
+            using (HttpClient client = new HttpClient())
+            using (HttpResponseMessage response = client.GetAsync("http://localhost:58376/api/News").Result)
+            using (HttpContent content = response.Content)
             {
-                var response = client.GetAsync("http://localhost:58376/api/News").Result;
+                string result = content.ReadAsStringAsync().Result;
+
+                newsList = JsonConvert.DeserializeObject<IList<New>>(result);
             }
-            ReadingNewFromDatabase reading = new ReadingNewFromDatabase();
-            List<New> newsList = reading.Read(cmbNewsPeriod.Text);
+               
             dataGridNews.Rows.Clear();
-            newsList.ToArray();
-            for (int i = newsList.Count - 1; i >= 0; i--)
+
+            for(int i=newsList.Count-1; i>=0; i--)
+
             {
                 dataGridNews.Rows.Add(newsList[i].Date, newsList[i].Username, newsList[i].Message);
             }
