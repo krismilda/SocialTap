@@ -23,6 +23,7 @@ using System.Net;
 using Services.TwitterAPI;
 using Tweetinvi.Models;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace SocialTap
 {
@@ -104,7 +105,7 @@ namespace SocialTap
                     errorMililiter.ForeColor = Color.Red;
                 }
                 string category = comboBoxCategory.Text;
-                new Regex_BMI().RegexValidation(@"\d+", comboBoxCategory, lblCateg, "Category");
+                new Regex_BMI().RegexValidation(@"[A-Z]+", comboBoxCategory, lblCateg, "Category");
                 if (lblCateg.Text == "Category InValid")
                     category = "Unkown Category";
                 await restaurantInformationTask;
@@ -272,8 +273,15 @@ namespace SocialTap
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            HistoryList historyList = new HistoryList();
-            List<HistoryInfoSum> list = historyList.GetHistoryList(comboBoxDate.Text);
+            IList<HistoryInfoSum> list = null;
+            using (HttpClient client = new HttpClient())
+            using (HttpResponseMessage response = client.GetAsync("http://localhost:58376/api/News").Result)
+            using (HttpContent content = response.Content)
+            {
+                string result = content.ReadAsStringAsync().Result;
+
+                list = JsonConvert.DeserializeObject<IList<HistoryInfoSum>>(result);
+            }
             int size;
             size = list.Count;
             dataGridHistory.Rows.Clear();
@@ -301,7 +309,7 @@ namespace SocialTap
             List<New> newsList = reading.Read(cmbNewsPeriod.Text);
             dataGridNews.Rows.Clear();
             newsList.ToArray();
-            for(int i=newsList.Count-1; i>=0; i--)
+            for (int i = newsList.Count - 1; i >= 0; i--)
             {
                 dataGridNews.Rows.Add(newsList[i].Date, newsList[i].Username, newsList[i].Message);
             }
@@ -316,10 +324,10 @@ namespace SocialTap
         public int lastSize = 0;
         private void btnTweets_Click(object sender, EventArgs e)
         {
-            
+
             var resp = new ListByTag();
-            var res =  resp.GetListByTag(label, lastSize);
-            
+            var res = resp.GetListByTag(label, lastSize);
+
             var tweetsList = res.ToList();
             dataGridTweets.Rows.Clear();
             var size = tweetsList.Count();
