@@ -26,7 +26,12 @@ namespace Services.TwitterAPI
             {
                 MaximumNumberOfResults = 100,
             });
-        }
 
+        }
+        public List<ITweet> GetTweets()
+        {
+            var res = new ListByTag();
+            return res.Tweets.ToList();
+        }
     }
 }

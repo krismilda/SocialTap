@@ -18,8 +18,8 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -113,6 +113,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Tweetinvi.Core, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Net.Http.Formatting">
@@ -135,6 +136,7 @@
     <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\ScanController.cs" />
     <Compile Include="Controllers\TopRestaurantsController.cs" />
+    <Compile Include="Controllers\TweetController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Startup.cs" />
@@ -156,6 +158,10 @@
       <Project>{314d28e1-663d-4494-96b7-dc3360be2428}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Database\Database.csproj">
+      <Project>{DCA7BC1B-054C-4C0D-9C40-AE5911A28649}</Project>
+      <Name>Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataModels\DataModels.csproj">
       <Project>{F8E468C1-A863-438F-A441-21DDAEE74AB6}</Project>
       <Name>DataModels</Name>
@@ -163,6 +169,10 @@
     <ProjectReference Include="..\Logic\Logic.csproj">
       <Project>{CD2A38FA-A67A-4AFA-A90B-3F7430FC7FB6}</Project>
       <Name>Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{6CC9C2C0-4B02-44DB-986B-7AAE2491D19C}</Project>
+      <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

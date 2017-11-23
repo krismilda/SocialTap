@@ -10,7 +10,7 @@ namespace API.Controllers
     public class AccountController : ApiController
     {
         private AuthRepository _repo = null;
-
+   
         public AccountController()
         {
             _repo = new AuthRepository();
