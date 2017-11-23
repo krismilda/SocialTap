@@ -24,6 +24,7 @@ using Services.TwitterAPI;
 using Tweetinvi.Models;
 using Newtonsoft.Json;
 using System.Linq;
+using System.Text;
 
 namespace SocialTap
 {
@@ -287,8 +288,15 @@ namespace SocialTap
         private void btnWriteNew_Click(object sender, EventArgs e)
         {
             New news = new New(_Username, textBoxMessage.Text);
-            WritingNewToDatabase writing = new WritingNewToDatabase();
-            writing.Write(news);
+
+            using (var client = new HttpClient())
+            {
+                var content = JsonConvert.SerializeObject(news);
+
+                var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+
+                var response = client.PostAsync("http://localhost:58376/api/News", httpContent).Result;
+            }
             textBoxMessage.Text = "";
         }
 
