@@ -18,27 +18,41 @@ namespace AppMasterDetail
 
         private void Register_Clicked(object sender, EventArgs e)
         {
+            DataService.getDataFromService();
+           /* var client = new HttpClient();
+            client.MaxResponseContentBufferSize = 256000;
 
-            using (var client = new HttpClient())
-            {
-                var user = new Dictionary<string, string>
-                    {
-                        { "UserName", "Tomas" },
-                        { "Password", "superPass" },
-                        { "ConfirmPassword", "superPass"}
-                    };
+            var uri = new Uri("https://developer.xamarin.com/guides/xamarin-forms/cloud-services/consuming/rest/");
+
+            var response = client.GetAsync(uri);
+
+            var res = response.Result;
+
+            var eeee = res.Content;*/
+
+            //using (var client = new HttpClient())
+            //{
+            //    var user = new Dictionary<string, string>
+            //        {
+            //            { "UserName", "Tomas" },
+            //            { "Password", "superPass" },
+            //            { "ConfirmPassword", "superPass"}
+            //        };
 
 
-                var content = JsonConvert.SerializeObject(user);
+            //    var content = JsonConvert.SerializeObject(user);
 
-                var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+            //    var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
 
-                //content.Headers.ContentType = MediaTypeHeaderValue.Parse("Application/Json");
+            //    //content.Headers.ContentType = MediaTypeHeaderValue.Parse("Application/Json");
 
-                var response = client.PostAsync("http://localhost:58376/api/Account/Register", httpContent).Result;
-            }
-               
+            //    var response = client.PostAsync("http://localhost:58376/api/Account/Register", httpContent).Result;
+            //}
 
-        }
+
+        
+
+
+    }
     }
 }

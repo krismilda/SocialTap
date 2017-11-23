@@ -40,6 +40,7 @@ namespace SocialTap
             lblusername.Text = "Welcome " + _Username;
         }
 
+
         private void btnOpenFile_Click_1(object sender, EventArgs e)
         {
             DialogResult drChosenFile;

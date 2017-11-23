@@ -18,7 +18,7 @@ namespace AppMasterDetail
                 client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
 
-                var response = await client.GetAsync("http://localhost:58376/api/TopRestaurants");
+                var response = await client.GetAsync("http://drinklyapi20171122074316.azurewebsites.net/api/TopRestaurants");
 
                 var responseString = await response.Content.ReadAsStringAsync();
 
