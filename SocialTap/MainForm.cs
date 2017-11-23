@@ -24,6 +24,10 @@ using Services.TwitterAPI;
 using Tweetinvi.Models;
 using Newtonsoft.Json;
 using System.Linq;
+
+using DataAccess;
+using DataModels;
+
 using System.Text;
 
 
@@ -71,11 +75,25 @@ namespace SocialTap
 
         private void btnUploadTopList_Click(object sender, EventArgs e)
         {
-            TopList customTopList = new TopList();
-            List<RestaurantInformationAverage> list = customTopList.GetTopList(cmbTopList.Text);
+            IList<RestaurantInformationAverage> list = null;
+            var builder = new UriBuilder("http://localhost:58376/api/TopRestaurants");
+            var query = HttpUtility.ParseQueryString(builder.Query);
+            query["duration"] = cmbTopList.Text;
+            builder.Query = query.ToString();
+            string url = builder.ToString();
+
+            using (HttpClient client = new HttpClient())
+            using (HttpResponseMessage response = client.GetAsync(url).Result)
+            using (HttpContent content = response.Content)
+            {
+                string result = content.ReadAsStringAsync().Result;
+
+                list = JsonConvert.DeserializeObject<IList<RestaurantInformationAverage>>(result);
+            }
+
             int size;
             size = list.Count;
-            if (list.Capacity < 5)
+            if (list.Count < 5)
             {
                 size = list.Count;
             }
@@ -88,7 +106,9 @@ namespace SocialTap
             {
                 dataTopList.Rows.Add(list[i].Name, list[i].Address, list[i].AverageOfPercentage);
             }
+
         }
+
         public async void GetAllGlassInformation(String path, PictureBox imageBox2)
         {
             try
@@ -276,8 +296,15 @@ namespace SocialTap
         private void btnHistory_Click(object sender, EventArgs e)
         {
             IList<HistoryInfoSum> list = null;
+
+            var builder = new UriBuilder("http://localhost:58376/api/History");
+            var query = HttpUtility.ParseQueryString(builder.Query);
+            query["duration"] = comboBoxDate.Text;          
+            builder.Query = query.ToString();
+            string url = builder.ToString();    
+            
             using (HttpClient client = new HttpClient())
-            using (HttpResponseMessage response = client.GetAsync("http://localhost:58376/api/History").Result)
+            using (HttpResponseMessage response = client.GetAsync(url).Result)
             using (HttpContent content = response.Content)
             {
                 string result = content.ReadAsStringAsync().Result;
@@ -295,6 +322,7 @@ namespace SocialTap
 
         private void btnWriteNew_Click(object sender, EventArgs e)
         {
+            BaseRepository<Restaurant> b = new BaseRepository<Restaurant>();
             New news = new New(_Username, textBoxMessage.Text);
 
             using (var client = new HttpClient())
@@ -354,5 +382,9 @@ namespace SocialTap
             lastSize = size;
         }
 
+        private void comboBoxDate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

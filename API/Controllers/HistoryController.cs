@@ -9,10 +9,10 @@ namespace API.Controllers
 {
     public class HistoryController : ApiController
     {
-        public IHttpActionResult Get()
+        public IHttpActionResult Get([FromUri]string duration)
         {
             HistoryList historyList = new HistoryList();
-            List<HistoryInfoSum> list = historyList.GetHistoryList("Last Month (30 Days)");
+            List<HistoryInfoSum> list = historyList.GetHistoryList(duration);
             return Ok(list);
         }
         
