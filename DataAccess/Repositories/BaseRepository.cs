@@ -12,7 +12,7 @@ namespace DataAccess
     public class BaseRepository<T> : IDisposable where T : class 
 
     {
-        protected readonly SocialTapContext _context;
+        protected readonly ISocialTapContext _context;
 
         public BaseRepository()
         {

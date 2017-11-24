@@ -49,6 +49,6 @@ namespace Database //todo perkelt i datamodels/isskaidyti
             return -1 * (Date.CompareTo(glass.Date));
         }
 
-    
+
     }
 }

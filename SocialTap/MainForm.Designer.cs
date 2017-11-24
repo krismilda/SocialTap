@@ -1638,14 +1638,14 @@
             // lblusername
             // 
             this.lblusername.AutoSize = true;
-            this.lblusername.Location = new System.Drawing.Point(795, 7);
+            this.lblusername.Location = new System.Drawing.Point(844, 7);
             this.lblusername.Name = "lblusername";
             this.lblusername.Size = new System.Drawing.Size(0, 19);
             this.lblusername.TabIndex = 6;
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(897, 5);
+            this.btnLogout.Location = new System.Drawing.Point(840, 44);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(75, 30);
             this.btnLogout.TabIndex = 7;
@@ -1663,7 +1663,6 @@
             this.Controls.Add(this.lblusername);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Text = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "MainForm";
             this.tabNew.ResumeLayout(false);

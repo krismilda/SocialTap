@@ -9,5 +9,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Server=(localdb)\MSSQLLocalDB; Database=SocialTap</Value>
     </Setting>
+    <Setting Name="WelcomeSetting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Hello</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
