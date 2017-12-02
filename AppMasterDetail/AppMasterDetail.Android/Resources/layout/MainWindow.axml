@@ -6,12 +6,6 @@
     android:minWidth="25px"
     android:minHeight="25px"
     android:id="@+id/linearLayout1">
-    <GridLayout
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/gridLayout1" />
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,38 +13,84 @@
         <TableRow
             android:id="@+id/tableRow1">
             <Button
-                android:text="UPLOAD DATA"
+                android:text="Tweets"
                 android:layout_column="0"
-                android:id="@+id/btnUploadData" />
+                android:id="@+id/btnTweet" />
             <Button
-                android:text="SEARCH RESTAURANT"
+                android:text="News"
                 android:layout_column="1"
-                android:id="@+id/btnSearch" />
+                android:id="@+id/btnNews" />
             <Button
-                android:text="HISTORY DATA"
+                android:text="Upload Data"
                 android:layout_column="2"
-                android:id="@+id/btnHistory"
-                android:layout_width="172.5dp"
-                android:layout_marginRight="0.0dp" />
+                android:id="@+id/btnUpload"
+                android:layout_width="147.5dp" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow2">
+            <Button
+                android:text="Search"
+                android:layout_column="0"
+                android:id="@+id/btnSearch"
+                android:layout_marginRight="0.0dp"
+                android:layout_marginLeft="0.0dp" />
+            <Button
+                android:text="Historical Data"
+                android:layout_column="1"
+                android:id="@+id/btnData" />
             <Button
                 android:text="BMI"
-                android:layout_column="3"
-                android:id="@+id/btnBMI"
-                android:layout_width="133.5dp"
-                android:layout_marginLeft="0.0dp" />
+                android:layout_column="2"
+                android:id="@+id/btnBMI" />
         </TableRow>
     </TableLayout>
+    <StackView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/stackView1" />
     <TextView
-        android:text="NEWS"
+        android:text="Tweets"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:layout_marginBottom="9.0dp" />
+        android:id="@+id/textView1" />
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tableLayout2"
+        android:backgroundTint="#ff00ffff">
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:background="@android:color/darker_gray"
+            android:layout_height="18.0dp">
+            <TextView
+                android:text="Date"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="0"
+                android:id="@+id/textView5"
+                android:layout_width="89.5dp" />
+            <TextView
+                android:text="Message"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="1"
+                android:id="@+id/textView6"
+                android:layout_width="226.0dp"
+                android:layout_height="18.0dp"
+                android:layout_marginBottom="0.0dp" />
+            <TextView
+                android:text="Likes"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="2"
+                android:id="@+id/textView7"
+                android:layout_width="56.5dp" />
+        </TableRow>
+    </TableLayout>
+    <ListView
         android:minWidth="25px"
-        android:minHeight="25px" />
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView1" />
 </LinearLayout>

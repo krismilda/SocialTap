@@ -380,8 +380,8 @@ namespace SocialTap
         private void btnTweets_Click(object sender, EventArgs e)
         {
 
-            var resp = new ListByTag();
-            var res = resp.GetListByTag(label, lastSize);
+          //  var resp = new ListByTag();
+          /* // var res = resp.GetListByTag(label, lastSize);
 
             var tweetsList = res.ToList();
             dataGridTweets.Rows.Clear();
@@ -392,7 +392,7 @@ namespace SocialTap
                 dataGridTweets.Rows.Add(tweetsList[i].CreatedAt, tweetsList[i].Text, tweetsList[i].FavoriteCount);
             }
 
-            lastSize = size;
+            lastSize = size;*/
         }
 
         private void comboBoxDate_SelectedIndexChanged(object sender, EventArgs e)

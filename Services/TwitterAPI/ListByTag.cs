@@ -28,13 +28,12 @@ namespace Services.TwitterAPI
             MyEvent += new Action<Label, string>(MyEventHandler);
         }
 
-        public IEnumerable<ITweet> GetListByTag(Label label, int lastSize)
+        public List<Tweet> GetListByTag()
         {
-
-            Auth.SetUserCredentials(ConfigurationManager.AppSettings["consumerKey"],
-                                     ConfigurationManager.AppSettings["consumerSecret"],
-                                     ConfigurationManager.AppSettings["userAccessToken"],
-                                     ConfigurationManager.AppSettings["userAccessSecret"]);
+                        Auth.SetUserCredentials("MCFAVXP8HAiIPc9NVaHgnHn5x",
+                                     "NsJxyblOmm6UXfGq1yBTGUE1e2IREcu2OL98pJG4y4N1zWwGEl",
+                                     "932271865191682049-oyEYeq9bOLm8L2GLSXeZRTUYKs8CFHx",
+                                     "pvryBwdzpdkSc9yNMgJwC7B8J4AEXWQkU0EC3LWaKpTJ2");
 
             Tweets = Search.SearchTweets(new SearchTweetsParameters("#drinkly")
             {
@@ -42,13 +41,22 @@ namespace Services.TwitterAPI
             });
 
             var tweetsAmountNow = Tweets.ToList().Count;
+            List<Tweet> tweetList = new List<Tweet>();
 
-            if (lastSize < tweetsAmountNow)
+            foreach(ITweet a in Tweets)
+            {
+                Tweet aa = new Tweet();
+                aa.CreatedAt = a.CreatedAt;
+                aa.Text = a.Text;
+                aa.FavoriteCount = a.FavoriteCount;
+                tweetList.Add(aa);
+            }
+           /* if (lastSize < tweetsAmountNow)
                 MyEvent(label, "New tweet!!");
             else
                 MyEvent(label, "No new tweets :(");
-            
-            return Tweets;
+            */
+            return tweetList;
         }
 
     }

@@ -13,7 +13,7 @@ namespace AppMasterDetail
     {
         public static async Task Login(string username, string password, string confirmPassword)
         {
-            using(HttpClient client = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
                 var user = new Dictionary<string, string>
                    {
@@ -23,43 +23,28 @@ namespace AppMasterDetail
                   };
                 var content = JsonConvert.SerializeObject(user);
                 var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
-                var response = client.PostAsync("http://localhost:58376/api/Account/Register", httpContent).Result;
-                int a = 5;
+                var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/Account/Register", httpContent);
+
             }
         }
 
-        public static async Task <Restaurant> GetTweetList ()
+        public static async Task<List<Tweet>> GetTweetList()
         {
-          
-
-            Restaurant r = new Restaurant();
-            r.Name = "Musu25 restoranas";
-            r.Address = "Adresas";
-            r.Percentage = 2;
-
-            using (var client = new HttpClient())
-            {
-                var content = JsonConvert.SerializeObject(r);
-
-                var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
-                var response = await client.PostAsync("http://drinkly.azurewebsites.net/api/Tweet", httpContent);
-            }
-
 
             using (HttpClient client = new HttpClient())
             {
                 try
                 {
-                client.MaxResponseContentBufferSize = 256000;
+                    client.MaxResponseContentBufferSize = 256000;
 
-                var uri = new Uri("http://drinkly.azurewebsites.net/api/Tweet");
+                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/Tweet");
 
-                var response = await client.GetAsync(uri);
-                string json = response.Content.ReadAsStringAsync().Result;
-                var data = JsonConvert.DeserializeObject<Restaurant>(json);
-                return data;
+                    var response = await client.GetAsync(uri);
+                    string json = response.Content.ReadAsStringAsync().Result;
+                    var data = JsonConvert.DeserializeObject<List<Tweet>>(json);
+                    return data;
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     string s = e.ToString();
                 }
@@ -69,7 +54,7 @@ namespace AppMasterDetail
 
         public static async Task<Restaurant> GetRestaurant()
         {
-            using(HttpClient client = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
                 client.MaxResponseContentBufferSize = 256000;
 
