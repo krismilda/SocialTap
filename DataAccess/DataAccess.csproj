@@ -101,6 +101,10 @@
   <ItemGroup>
     <Compile Include="Container.cs" />
     <Compile Include="ISocialTapContext.cs" />
+    <Compile Include="Migrations\201712052002589_addNewTable.cs" />
+    <Compile Include="Migrations\201712052002589_addNewTable.Designer.cs">
+      <DependentUpon>201712052002589_addNewTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\AuthRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Migrations\201711101627544_Init.cs" />
@@ -136,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711101700446_Fix_scan.resx">
       <DependentUpon>201711101700446_Fix_scan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712052002589_addNewTable.resx">
+      <DependentUpon>201712052002589_addNewTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
