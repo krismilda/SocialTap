@@ -19,6 +19,11 @@ namespace API.Controllers
         {
             ListByTag s = new ListByTag();
             var sa=s.GetListByTag();
+            Tweet bv = new Tweet();
+            bv.Text = "sdfsdf";
+            bv.CreatedAt = DateTime.Today;
+            bv.FavoriteCount = 5;
+            sa.Add(bv);
             return Ok(sa);
         }
         [HttpPost]

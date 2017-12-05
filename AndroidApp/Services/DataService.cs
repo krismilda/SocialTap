@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
+using Newtonsoft.Json;
 
-namespace AppMasterDetail
+namespace AndroidApp
 {
     public static class DataService
     {
         public static async Task Register(string username, string password, string confirmPassword)
         {
-            using (HttpClient client = new HttpClient())
+        /*    using (HttpClient client = new HttpClient())
             {
                 var user = new Dictionary<string, string>
                    {
@@ -23,11 +24,11 @@ namespace AppMasterDetail
                        { "Password", password },
                        { "ConfirmPassword", confirmPassword}
                   };
-                var content = JsonConvert.SerializeObject(user);
-                var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+               // var content = JsonConvert.SerializeObject(user);
+           //     var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/Account/Register", httpContent);
 
-            }
+            }*/
         }
 
         public static async Task<List<Tweet>> GetTweetList()
@@ -42,9 +43,10 @@ namespace AppMasterDetail
                     var uri = new Uri("http://drinkly1.azurewebsites.net/api/Tweet");
 
                     var response = await client.GetAsync(uri);
-                    string json = response.Content.ReadAsStringAsync().Result;
-                    var data = JsonConvert.DeserializeObject<List<Tweet>>(json);
-                    return data;
+
+                    var resultObject = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<List<Tweet>>(resultObject);
+                      return data;
                 }
                 catch (Exception e)
                 {
@@ -64,8 +66,8 @@ namespace AppMasterDetail
 
                 var response = await client.GetAsync(uri);
                 string json = response.Content.ReadAsStringAsync().Result;
-                var data = JsonConvert.DeserializeObject<Restaurant>(json);
-                return data;
+             //   var data = JsonConvert.DeserializeObject<Restaurant>(json);
+                return null;
             }
         }
 

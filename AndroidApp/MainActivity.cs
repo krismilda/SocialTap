@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
+﻿using Android.App;
 using Android.Widget;
-using AppMasterDetail.Droid.Adapters;
+using Android.OS;
+using Plugin.Geolocator;
+using System;
+using System.Collections.Generic;
 
-namespace AppMasterDetail.Droid
+namespace AndroidApp
 {
-    [Activity(Label = "Tweets",Theme = "@style/Base.Theme.AppCompat.Light")]
-    public class Tweets : Activity
+    [Activity(Label = "DRINKLY", MainLauncher = true)]
+    public class MainActivity : Activity
     {
         Button btnUpload;
         Button btnSearch;
@@ -24,6 +18,7 @@ namespace AppMasterDetail.Droid
         Button btnTweet;
         ListView listView1;
         List<Tweet> tweets;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -49,7 +44,8 @@ namespace AppMasterDetail.Droid
         }
         void BtnSearch_Click(object sender, System.EventArgs e)
         {
-    
+            StartActivity(typeof(Searching));
+
         }
         void BtnHistory_Click(object sender, System.EventArgs e)
         {
@@ -62,9 +58,13 @@ namespace AppMasterDetail.Droid
         }
         async void btnTweet_ClickAsync(object sender, System.EventArgs e)
         {
-            tweets=await DataService.GetTweetList();     
-            listView1.Adapter = new TweetAdapter(this, tweets);
+            tweets = await DataService.GetTweetList();
+            listView1.Adapter = new Droid.Adapters.TweetAdapter(this, tweets);
+        }
+
+        public void getApiData() { 
+}
         }
 
     }
-}
+ 

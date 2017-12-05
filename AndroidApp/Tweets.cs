@@ -9,11 +9,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using AppMasterDetail.Droid.Adapters;
+using AndroidApp.Droid.Adapters;
 
-namespace AppMasterDetail.Droid
+namespace AndroidApp
 {
-    [Activity(Label = "Tweets",Theme = "@style/Base.Theme.AppCompat.Light")]
+    [Activity(Label = "Tweets")]
     public class Tweets : Activity
     {
         Button btnUpload;

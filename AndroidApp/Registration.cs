@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace AppMasterDetail.Droid
+namespace AndroidApp
 {
     [Activity(Label = "Activity1")]
     public class Registration : Activity

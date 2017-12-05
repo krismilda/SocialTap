@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:orientation="horizontal"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/linearLayout1"
+    p1:minWidth="25px"
+    p1:minHeight="25px">
+    <TableLayout
+        p1:layout_width="381.0dp"
+        p1:layout_height="20.5dp"
+        p1:id="@+id/tableLayout1"
+        p1:layout_marginBottom="0.0dp"
+        p1:layout_marginTop="0.0dp">
+        <TableRow
+            p1:id="@+id/tableRow1">
+            <TextView
+                p1:text="Date"
+                p1:layout_column="0"
+                p1:id="@+id/textView1"
+                p1:layout_width="89.5dp" />
+            <TextView
+                p1:text="Text"
+                p1:layout_column="1"
+                p1:id="@+id/textView2"
+                p1:layout_width="226.0dp" />
+            <TextView
+                p1:text="Likes"
+                p1:layout_column="2"
+                p1:id="@+id/textView3"
+                p1:layout_width="56.5dp" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
