@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using DataAccess;
 using SocialTap;
 using System;
 using System.Collections.Generic;
@@ -20,12 +19,10 @@ namespace Services
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm("aaaa"));
-
-            var builder = new ContainerBuilder();
-            builder.RegisterType<SocialTapContext>().As<ISocialTapContext>();
+            Application.Run(new Main());
         }
     }
 

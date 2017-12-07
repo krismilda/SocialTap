@@ -1,4 +1,5 @@
-﻿using Database.RestaurantData;
+﻿using DataAccess;
+using Database.RestaurantData;
 using DataModels;
 using Services.TwitterAPI;
 using System;
@@ -14,15 +15,25 @@ namespace API.Controllers
     public class TweetController : ApiController
     {
         [HttpGet]
-        public Restaurant Get()
+        public IHttpActionResult Get()
         {
-            Restaurant r = new Restaurant();
-            r.Name = "Restr";
-         //   MostVisitedList n = new MostVisitedList();
-          //  var s= n.GetMostVisitedList("30 days",  "sd","sdf");
-           // var res = new ListByTag().GetTweets();
-            return r;
+            ListByTag s = new ListByTag();
+            var sa=s.GetListByTag();
+            Tweet bv = new Tweet();
+            bv.Text = "sdfsdf";
+            bv.CreatedAt = DateTime.Today;
+            bv.FavoriteCount = 5;
+            sa.Add(bv);
+            return Ok(sa);
         }
-    
+        [HttpPost]
+        public IHttpActionResult Post(Restaurant r)
+        {
+            SocialTapContext s = new SocialTapContext();
+            s.Restaurants.Add(r);
+            s.SaveChanges();
+            return Ok();
+        }
+        
     }
 }

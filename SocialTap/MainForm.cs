@@ -26,9 +26,6 @@ using Newtonsoft.Json;
 using System.Linq;
 using System.Text;
 
-using DataAccess;
-using DataModels;
-
 using System.Text;
 
 
@@ -45,7 +42,8 @@ namespace SocialTap
         {
             InitializeComponent();
             _Username = username;
-            lblusername.Text = "Welcome " + _Username;
+            var msg = Properties.Settings.Default.WelcomeSetting;
+            lblusername.Text = msg + " " + _Username;
         }
 
 
@@ -325,8 +323,6 @@ namespace SocialTap
         {
 
             btnWriteNew.Enabled = false;
-            
-            BaseRepository<Restaurant> b = new BaseRepository<Restaurant>();
 
             New news = new New(_Username, textBoxMessage.Text);
 
@@ -384,8 +380,8 @@ namespace SocialTap
         private void btnTweets_Click(object sender, EventArgs e)
         {
 
-            var resp = new ListByTag();
-            var res = resp.GetListByTag(label, lastSize);
+          //  var resp = new ListByTag();
+          /* // var res = resp.GetListByTag(label, lastSize);
 
             var tweetsList = res.ToList();
             dataGridTweets.Rows.Clear();
@@ -396,7 +392,7 @@ namespace SocialTap
                 dataGridTweets.Rows.Add(tweetsList[i].CreatedAt, tweetsList[i].Text, tweetsList[i].FavoriteCount);
             }
 
-            lastSize = size;
+            lastSize = size;*/
         }
 
         private void comboBoxDate_SelectedIndexChanged(object sender, EventArgs e)

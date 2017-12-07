@@ -9,12 +9,12 @@ namespace DataAccess
 {
     class Container
     {
-        public class ContainerUnity
+      /*  public class ContainerUnity
         {
             public static void RegisterElements(IUnityContainer container)
             {
                 container.RegisterType<ISocialTapContext, SocialTapContext>();
             }
-        }
+        }*/
     }
 }

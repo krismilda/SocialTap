@@ -8,7 +8,8 @@ namespace AppMasterDetail
 {
     public class Tweet
     {
-        DateTime CreatedAt { get; set; }
-        String Text { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public string Text { get; set; }
+        public int FavoriteCount { get; set; }
     }
 }

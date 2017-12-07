@@ -32,7 +32,7 @@ namespace AppMasterDetail.Droid
         }
         void BtnRegistration_Click(object sender, System.EventArgs e)
         {
-            DataService.Login(InputEmail.Text, InputPassword.Text, InputConfirmPassword.Text);
+            DataService.Register(InputEmail.Text, InputPassword.Text, InputConfirmPassword.Text);
         }
     }
 }

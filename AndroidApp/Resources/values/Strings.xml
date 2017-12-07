@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">AndroidApp</string>
+  <string name="res_type">Type of Service</string>
+  <string-array name="car_array">
+    <item>Restaurant</item>
+    <item>Cafe</item>
+    <item>Bar</item>
+  </string-array>
+</resources>

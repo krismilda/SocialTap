@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="20px"
+        android:layout_width="match_parent"
+        android:layout_height="18.5dp"
+        android:id="@+id/linearLayout1">
+        <TableLayout
+            android:layout_width="383.0dp"
+            android:layout_height="19.0dp"
+            android:id="@+id/tableLayout1">
+            <TableRow
+                android:id="@+id/tableRow1">
+                <TextView
+                    android:text="Name"
+                    android:layout_column="0"
+                    android:id="@+id/tname"
+                    android:layout_width="151.0dp"
+                    android:clickable="true" />
+                <TextView
+                    android:text="Address"
+                    android:layout_column="1"
+                    android:id="@+id/taddress"
+                    android:layout_width="159.0dp" />
+                <TextView
+                    android:text="%"
+                    android:layout_column="2"
+                    android:id="@+id/tpercentage"
+                    android:layout_width="35.0dp" />
+                <TextView
+                    android:text="ID"
+                    android:layout_column="3"
+                    android:id="@+id/ticon"
+                    android:layout_width="19.0dp" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</LinearLayout>

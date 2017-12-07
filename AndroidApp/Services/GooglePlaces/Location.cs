@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logic.ImageAnalysis.ImageAnalysisException
+namespace AndroidApp
 {
-    class ValueBellowZeroException
+    public struct Location
     {
+        public double lat { get; set; }
+        public double lng { get; set; }
     }
 }

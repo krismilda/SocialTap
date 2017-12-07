@@ -18,7 +18,7 @@ namespace AppMasterDetail
 
             buttonA.Clicked += async (sender, e) =>
             {
-                await App.NavigateMasterDetail(new RegisterPage());
+                await App.NavigateMasterDetail(new ListViewPage1());
 
             };
 

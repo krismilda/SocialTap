@@ -12,14 +12,10 @@ namespace DataAccess
     public class BaseRepository<T> : IDisposable where T : class 
 
     {
-        protected readonly SocialTapContext _context;
+        protected readonly SocialTapContext _context = new SocialTapContext();
 
         public BaseRepository()
         {
-            IUnityContainer container = new UnityContainer();
-            ContainerUnity.RegisterElements(container);
-            ISocialTapContext context = container.Resolve<ISocialTapContext>();
-            _context = new SocialTapContext();
         }
 
         public T Get(int id)
