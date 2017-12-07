@@ -1,5 +1,4 @@
 ﻿using DataAccess;
-using Database.RestaurantData;
 using DataModels;
 using Services.TwitterAPI;
 using System;

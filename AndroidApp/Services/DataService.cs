@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using Newtonsoft.Json;
-
 namespace AndroidApp
 {
     public static class DataService
@@ -30,7 +29,22 @@ namespace AndroidApp
 
             }*/
         }
-
+        public static async Task AddNew(News news)
+        {
+            using (HttpClient client = new HttpClient())
+             {
+                 var newsJson = new Dictionary<string, string>
+                    {
+                        { "Id","b0343219-5c8b-44be-8407-a747a6ff1a41"},
+                        { "Date", news.Date.ToString()},
+                        { "Text", news.Text}
+                   };
+                 var content = JsonConvert.SerializeObject(newsJson);
+                 var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+                 var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/News", httpContent);
+             int a = 5;
+             }
+        }
         public static async Task<List<Tweet>> GetTweetList()
         {
 
@@ -58,17 +72,25 @@ namespace AndroidApp
 
         public static async Task<Restaurant> GetRestaurant()
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                client.MaxResponseContentBufferSize = 256000;
+                using (HttpClient client = new HttpClient())
+                {
+                    client.MaxResponseContentBufferSize = 256000;
 
-                var uri = new Uri("http://drinklyapi20171122074316.azurewebsites.net/api/TopRestaurants");
+                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/Restaurant");
 
-                var response = await client.GetAsync(uri);
-                string json = response.Content.ReadAsStringAsync().Result;
-             //   var data = JsonConvert.DeserializeObject<Restaurant>(json);
-                return null;
+                    var response = await client.GetAsync(uri);
+                    string json = response.Content.ReadAsStringAsync().Result;
+                    //   var data = JsonConvert.DeserializeObject<Restaurant>(json);
+                }
             }
+            catch (Exception e)
+            {
+                string s = e.ToString();
+            }
+                return null;
+           
         }
 
         public static async Task SearchRestaurant()

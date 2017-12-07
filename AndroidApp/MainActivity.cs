@@ -4,6 +4,9 @@ using Android.OS;
 using Plugin.Geolocator;
 using System;
 using System.Collections.Generic;
+using Android.Gms.Maps;
+using Android.Support.V4.App;
+using Android.Gms.Maps.Model;
 
 namespace AndroidApp
 {
@@ -24,7 +27,7 @@ namespace AndroidApp
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.MainWindow);
 
-            btnUpload = FindViewById<Button>(Resource.Id.btnUpload);
+           btnUpload = FindViewById<Button>(Resource.Id.btnUpload);
             btnSearch = FindViewById<Button>(Resource.Id.btnSearch);
             btnHistory = FindViewById<Button>(Resource.Id.btnData);
             btnTweet = FindViewById<Button>(Resource.Id.btnTweet);
@@ -37,7 +40,9 @@ namespace AndroidApp
             btnBMI.Click += BtnBMI_Click;
             btnNews.Click += btnNews_Click;
             btnTweet.Click += btnTweet_ClickAsync;
+          
         }
+
 
         void BtnUpload_Click(object sender, System.EventArgs e)
         {
@@ -55,6 +60,7 @@ namespace AndroidApp
         }
         void btnNews_Click(object sender, System.EventArgs e)
         {
+            StartActivity(typeof(NewsActivity));
         }
         async void btnTweet_ClickAsync(object sender, System.EventArgs e)
         {

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:text="Write a New"
+        android:layout_width="112.5dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnWrite" />
+    <TextView
+        android:text="Text"
+        android:layout_width="match_parent"
+        android:layout_height="73.0dp"
+        android:id="@+id/text" />
+    <Button
+        android:text="Get All News"
+        android:layout_width="149.5dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGet" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tableLayout1">
+        <TableRow
+            android:id="@+id/tableRow1">
+            <TextView
+                android:text="Date"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="0"
+                android:id="@+id/textView6"
+                android:layout_width="45.0dp" />
+            <TextView
+                android:text="User"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="1"
+                android:id="@+id/textView7"
+                android:layout_width="55.0dp" />
+            <TextView
+                android:text="Message"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="2"
+                android:id="@+id/textView8"
+                android:layout_width="276.0dp" />
+        </TableRow>
+    </TableLayout>
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listNews" />
+</LinearLayout>
