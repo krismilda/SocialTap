@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using Newtonsoft.Json;
+using System.IO;
+using System.Globalization;
+using System.Text.RegularExpressions;
+
 namespace AndroidApp
 {
     public static class DataService
@@ -160,7 +164,24 @@ namespace AndroidApp
                 }
                 return null;
 
+        public static async Task<string> Upload(byte[] image)
+        {
+            using (var client = new HttpClient())
+            {
+                using (var content =
+                    new MultipartFormDataContent("Upload----" + DateTime.Now.ToString(CultureInfo.InvariantCulture)))
+                {
+                    content.Add(new StreamContent(new MemoryStream(image)), "bilddatei", "upload.bmp");
+
+                    using (var message = await client.PostAsync("http://drinkly1.azurewebsites.net/api/ImageProcessing", content))
+                    {
+                        var input = await message.Content.ReadAsStringAsync();
+
+                        return JsonConvert.DeserializeObject<string>(input);
+                    }
+                }
             }
         }
+
     }
 }
