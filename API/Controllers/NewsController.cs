@@ -17,33 +17,31 @@ namespace API.Controllers
     public class NewsController : ApiController
     {
         SocialTapContext context = new SocialTapContext();
- 
+
         [HttpGet]
         public IHttpActionResult Get()
         {
-     
-
-            New news = new New();
-            news.Date = DateTime.Today;
-            news.Text = "labass";
-            news.User_Id = "b0343219-5c8b-44be-8407-a747a6ff1a41";
-            context.News.Add(news);
-            try
-            {
-    context.SaveChanges();
-            }
-        catch(Exception e)
-            {
-                string g = e.ToString();
-            }
-            var newsList=context.News.ToList();
-            return Ok(newsList);
+            var newsList = context.News.ToList();
+            var list = from news in newsList
+                       select new
+                       {
+                           date = news.Date,
+                           text = news.Text,
+                           username = news.SocialTapUser.UserName
+        };
+           
+            return Ok(list.ToList());
         }
 
         // POST api/Account/Register
         [HttpPost]        
-        public async Task<IHttpActionResult> Post(New news)
+        public IHttpActionResult Post(New news)
         {
+            //*************************************
+            //REIKIA DABARTINIO USERIO
+            var list = context.Users.ToList();
+            news.SocialTapUser = list.ElementAt(0);
+            //**************************************
             context.News.Add(news);
             context.SaveChanges();
             return Ok();

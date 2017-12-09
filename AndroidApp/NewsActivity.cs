@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using AndroidApp.Adapters;
 
 namespace AndroidApp
 {
@@ -17,7 +18,7 @@ namespace AndroidApp
     {
         Button btnWriteNew;
         Button btnGetNews;
-        TextView text;
+        EditText textNew;
         ListView listNews;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,22 +28,20 @@ namespace AndroidApp
 
             btnWriteNew = FindViewById<Button>(Resource.Id.btnWrite);
             btnGetNews = FindViewById<Button>(Resource.Id.btnGet);
-            text = FindViewById<TextView>(Resource.Id.text);
+            textNew = FindViewById<EditText>(Resource.Id.textNew);
             listNews = FindViewById<ListView>(Resource.Id.listNews);
             btnWriteNew.Click += btnWriteNew_Click;
-            btnGetNews.Click += btnGetNews_Click;
+            btnGetNews.Click += btnGetNews_ClickAsync;
         }
         public void btnWriteNew_Click(object sender, System.EventArgs e)
         {
-            
-            News news = new News();
-            news.Date = DateTime.Today;
-            news.Text = "Labas";
-            DataService.AddNew(news);
+            DataService.AddNew(textNew.Text);
+            textNew.Text = "";
         }
-        public void btnGetNews_Click(object sender, System.EventArgs e)
+        public async void btnGetNews_ClickAsync(object sender, System.EventArgs e)
         {
-
+            var newsList= await DataService.GetNewsList();
+            listNews.Adapter = new NewAdapter(this, newsList);
         }
     }
 }

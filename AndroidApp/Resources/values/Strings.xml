@@ -8,4 +8,5 @@
     <item>Bar</item>
   </string-array>
   <string name="google_maps_key">AIzaSyDHUjzlvT_Sn256rRCN9ilid-y1lhht8Nk</string>
+  <string name="openCamera">Open Camera</string>
 </resources>

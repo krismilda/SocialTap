@@ -15,7 +15,7 @@ namespace AndroidApp
     {
         public static async Task Register(string username, string password, string confirmPassword)
         {
-        /*    using (HttpClient client = new HttpClient())
+           using (HttpClient client = new HttpClient())
             {
                 var user = new Dictionary<string, string>
                    {
@@ -23,27 +23,50 @@ namespace AndroidApp
                        { "Password", password },
                        { "ConfirmPassword", confirmPassword}
                   };
-               // var content = JsonConvert.SerializeObject(user);
-           //     var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+               var content = JsonConvert.SerializeObject(user);
+                var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/Account/Register", httpContent);
 
-            }*/
+            }
         }
-        public static async Task AddNew(News news)
+        public static async Task AddNew(string text)
         {
+
             using (HttpClient client = new HttpClient())
              {
                  var newsJson = new Dictionary<string, string>
                     {
-                        { "Id","b0343219-5c8b-44be-8407-a747a6ff1a41"},
-                        { "Date", news.Date.ToString()},
-                        { "Text", news.Text}
+                        { "Date", DateTime.Today.ToString()},
+                        { "Text", text}
                    };
                  var content = JsonConvert.SerializeObject(newsJson);
                  var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
                  var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/News", httpContent);
-             int a = 5;
              }
+        }
+        public static async Task<List<News>> GetNewsList()
+        {
+
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.MaxResponseContentBufferSize = 256000;
+
+                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/News");
+
+                    var response = await client.GetAsync(uri);
+
+                    var resultObject = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<List<News>>(resultObject);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    string s = e.ToString();
+                }
+            }
+            return null;
         }
         public static async Task<List<Tweet>> GetTweetList()
         {

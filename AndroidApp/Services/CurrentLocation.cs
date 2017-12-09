@@ -26,14 +26,15 @@ namespace AndroidApp.Services
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 50;
 
-            if (locator.IsGeolocationEnabled)
+            if ((locator != null) && (locator.IsListening != true))
             {
+
                 var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
                 NumberFormatInfo numberFormat = new NumberFormatInfo();
                 numberFormat.NumberDecimalSeparator = ".";
                 Lat = position.Latitude;
                 Lng = position.Longitude;
-                string currentPosition=position.Latitude.ToString(numberFormat) + "," + position.Longitude.ToString(numberFormat);
+                string currentPosition = position.Latitude.ToString(numberFormat) + "," + position.Longitude.ToString(numberFormat);
                 return currentPosition;
             }
             return null;
