@@ -2983,6 +2983,7 @@ namespace AndroidApp
 		public partial class Id
 		{
 			
+
 			// aapt resource value: 0x7f0b00fd
 			public const int InputConfirmPassword = 2131427581;
 			
@@ -2991,6 +2992,7 @@ namespace AndroidApp
 			
 			// aapt resource value: 0x7f0b00fc
 			public const int InputPassword = 2131427580;
+
 			
 			// aapt resource value: 0x7f0b008f
 			public const int PasswordInput = 2131427471;
@@ -3103,8 +3105,10 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b0098
 			public const int btnNews = 2131427480;
 			
+
 			// aapt resource value: 0x7f0b00ff
 			public const int btnRegister = 2131427583;
+
 			
 			// aapt resource value: 0x7f0b0093
 			public const int btnRegistration = 2131427475;
@@ -3112,11 +3116,13 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b009b
 			public const int btnSearch = 2131427483;
 			
+
 			// aapt resource value: 0x7f0b0104
 			public const int btnSearchPl = 2131427588;
 			
 			// aapt resource value: 0x7f0b00e2
 			public const int btnSelect = 2131427554;
+
 			
 			// aapt resource value: 0x7f0b0097
 			public const int btnTweet = 2131427479;
@@ -3277,9 +3283,10 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b00e0
 			public const int imagev = 2131427552;
 			
+
 			// aapt resource value: 0x7f0b00fa
 			public const int imageve = 2131427578;
-			
+
 			// aapt resource value: 0x7f0b00a6
 			public const int info = 2131427494;
 			
@@ -3321,6 +3328,7 @@ namespace AndroidApp
 			
 			// aapt resource value: 0x7f0b0108
 			public const int masked = 2131427592;
+
 			
 			// aapt resource value: 0x7f0b00cf
 			public const int media_actions = 2131427535;
@@ -3541,12 +3549,13 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b0056
 			public const int spacer = 2131427414;
 			
+
 			// aapt resource value: 0x7f0b0106
 			public const int spinner = 2131427590;
 			
 			// aapt resource value: 0x7f0b00e6
 			public const int spinner1 = 2131427558;
-			
+
 			// aapt resource value: 0x7f0b0008
 			public const int split_action_bar = 2131427336;
 			
@@ -3596,6 +3605,7 @@ namespace AndroidApp
 			public const int tableRow3 = 2131427488;
 			
 			// aapt resource value: 0x7f0b00e7
+
 			public const int tableRow4 = 2131427559;
 			
 			// aapt resource value: 0x7f0b00ea
@@ -3615,6 +3625,7 @@ namespace AndroidApp
 			
 			// aapt resource value: 0x7f0b0101
 			public const int taddress = 2131427585;
+
 			
 			// aapt resource value: 0x7f0b0013
 			public const int terrain = 2131427347;
@@ -3625,12 +3636,13 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b00db
 			public const int text2 = 2131427547;
 			
+
 			// aapt resource value: 0x7f0b00e9
 			public const int textDrink = 2131427561;
 			
 			// aapt resource value: 0x7f0b00e4
 			public const int textIMilis = 2131427556;
-			
+
 			// aapt resource value: 0x7f0b00c5
 			public const int textNew = 2131427525;
 			
@@ -3643,6 +3655,7 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b008e
 			public const int textView1 = 2131427470;
 			
+
 			// aapt resource value: 0x7f0b00e3
 			public const int textView10 = 2131427555;
 			
@@ -3675,6 +3688,7 @@ namespace AndroidApp
 			
 			// aapt resource value: 0x7f0b0105
 			public const int textView4 = 2131427589;
+
 			
 			// aapt resource value: 0x7f0b00a1
 			public const int textView5 = 2131427489;
@@ -3697,6 +3711,7 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b000d
 			public const int textinput_error = 2131427341;
 			
+
 			// aapt resource value: 0x7f0b00f8
 			public const int textmil = 2131427576;
 			
@@ -3711,7 +3726,7 @@ namespace AndroidApp
 			
 			// aapt resource value: 0x7f0b0103
 			public const int ticon = 2131427587;
-			
+
 			// aapt resource value: 0x7f0b00d4
 			public const int time = 2131427540;
 			
@@ -3733,8 +3748,10 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b00c2
 			public const int tnUser = 2131427522;
 			
+
 			// aapt resource value: 0x7f0b0100
 			public const int tname = 2131427584;
+
 			
 			// aapt resource value: 0x7f0b0034
 			public const int top = 2131427380;
@@ -3745,8 +3762,10 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b0081
 			public const int touch_outside = 2131427457;
 			
+
 			// aapt resource value: 0x7f0b0102
 			public const int tpercentage = 2131427586;
+
 			
 			// aapt resource value: 0x7f0b000a
 			public const int transition_current_scene = 2131427338;
@@ -3763,8 +3782,10 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b000e
 			public const int view_offset_helper = 2131427342;
 			
+
 			// aapt resource value: 0x7f0b0107
 			public const int visible = 2131427591;
+
 			
 			// aapt resource value: 0x7f0b00b9
 			public const int volume_item_container = 2131427513;
@@ -4073,6 +4094,7 @@ namespace AndroidApp
 			public const int photo = 2130903109;
 			
 			// aapt resource value: 0x7f030046
+
 			public const int PhotoAnalysis = 2130903110;
 			
 			// aapt resource value: 0x7f030047
@@ -4101,6 +4123,7 @@ namespace AndroidApp
 			
 			// aapt resource value: 0x7f03004f
 			public const int upload = 2130903119;
+
 			
 			static Layout()
 			{

@@ -7,12 +7,14 @@
     <item>Cafe</item>
     <item>Bar</item>
   </string-array>
+
   <string-array name="drinks_array">
     <item>Alcohol</item>
     <item>Hot Drink</item>
     <item>Cold Drink</item>
     <item>Water</item>
   </string-array>
+
   <string name="google_maps_key">AIzaSyDHUjzlvT_Sn256rRCN9ilid-y1lhht8Nk</string>
   <string name="openCamera">Open Camera</string>
 </resources>
