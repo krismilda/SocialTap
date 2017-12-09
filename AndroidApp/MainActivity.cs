@@ -46,7 +46,8 @@ namespace AndroidApp
 
         void BtnUpload_Click(object sender, System.EventArgs e)
         {
-            StartActivity(typeof(ImageRecognition));
+            StartActivity(typeof(UploadImage));
+
         }
         void BtnSearch_Click(object sender, System.EventArgs e)
         {
