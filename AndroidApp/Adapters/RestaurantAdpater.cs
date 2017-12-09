@@ -43,9 +43,7 @@ namespace AndroidApp.Adapters
                 view = context.LayoutInflater.Inflate(Resource.Layout.Restaurants, null);
             view.FindViewById<TextView>(Resource.Id.tname).Text = item.Name;
             view.FindViewById<TextView>(Resource.Id.taddress).Text = item.Address;
-            view.FindViewById<TextView>(Resource.Id.tpercentage).Text = item.Percentage.ToString();
-            view.FindViewById<TextView>(Resource.Id.ticon).Text = item.Id.ToString();
-
+            view.FindViewById<TextView>(Resource.Id.tpercentage).Text = item.Average.ToString();
             return view;
         }
     }

@@ -55,6 +55,7 @@ namespace AndroidApp
         }
         void BtnHistory_Click(object sender, System.EventArgs e)
         {
+            StartActivity(typeof(HistoryTop));
         }
         void BtnBMI_Click(object sender, System.EventArgs e)
         {

@@ -13,6 +13,11 @@
     <item>Cold Drink</item>
     <item>Water</item>
   </string-array>
+  <string-array name="timePeriod_array">
+    <item>LastMonth (30 days)</item>
+    <item>Las Week (7 days)</item>
+    <item>All Time</item>
+  </string-array>
   <string name="google_maps_key">AIzaSyDHUjzlvT_Sn256rRCN9ilid-y1lhht8Nk</string>
   <string name="openCamera">Open Camera</string>
 </resources>

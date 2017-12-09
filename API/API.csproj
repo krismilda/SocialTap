@@ -192,10 +192,6 @@
       <Project>{314d28e1-663d-4494-96b7-dc3360be2428}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Database\Database.csproj">
-      <Project>{dca7bc1b-054c-4c0d-9c40-ae5911a28649}</Project>
-      <Name>Database</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DataModels\DataModels.csproj">
       <Project>{f8e468c1-a863-438f-a441-21ddaee74ab6}</Project>
       <Name>DataModels</Name>

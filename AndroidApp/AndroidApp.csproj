@@ -171,6 +171,7 @@
     <Compile Include="Adapters\NewAdapter.cs" />
     <Compile Include="Adapters\RestaurantAdpater.cs" />
     <Compile Include="Adapters\TweetAdapter.cs" />
+    <Compile Include="HistoryTop.cs" />
     <Compile Include="ImageRecognition.cs" />
     <Compile Include="maps.cs" />
     <Compile Include="Models\News.cs" />
@@ -240,12 +241,17 @@
     <AndroidResource Include="Resources\layout\PhotoAnalysis.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\History.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main2.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\values\Strings.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />
