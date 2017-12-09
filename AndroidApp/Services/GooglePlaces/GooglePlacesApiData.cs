@@ -16,11 +16,8 @@ namespace AndroidApp
     public class GooglePlacesApiData
     {
 
-        public async Task<GooglePlacesApiResponse> GetApiResponseData(string type)
+        public async Task<GooglePlacesApiResponse> GetApiResponseData(string type, string location)
         {
-
-            CurrentLocation currentCoordinate = new CurrentLocation();
-            string location = await currentCoordinate.GetLocationAsync();
             HttpClient client = new HttpClient();
             string url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?rankby=distance&location="
                 + location + "&type="+type+"&key=AIzaSyAoqL_K1g-5kTuinL-60Tmcf9udFtc9SLg";

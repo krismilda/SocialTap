@@ -22,7 +22,9 @@ namespace API.Controllers
 
         public IHttpActionResult Post(Restaurant restaurant)
         {
-            _rep.Add(restaurant);
+            SocialTapContext context = new SocialTapContext();
+            context.Restaurants.Add(restaurant);
+            context.SaveChanges();
             return Ok();
         }
     }

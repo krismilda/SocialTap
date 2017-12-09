@@ -193,21 +193,24 @@
       <Name>DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Database\Database.csproj">
-      <Project>{DCA7BC1B-054C-4C0D-9C40-AE5911A28649}</Project>
+      <Project>{dca7bc1b-054c-4c0d-9c40-ae5911a28649}</Project>
       <Name>Database</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataModels\DataModels.csproj">
-      <Project>{F8E468C1-A863-438F-A441-21DDAEE74AB6}</Project>
+      <Project>{f8e468c1-a863-438f-a441-21ddaee74ab6}</Project>
       <Name>DataModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logic\Logic.csproj">
-      <Project>{CD2A38FA-A67A-4AFA-A90B-3F7430FC7FB6}</Project>
+      <Project>{cd2a38fa-a67a-4afa-a90b-3f7430fc7fb6}</Project>
       <Name>Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{6CC9C2C0-4B02-44DB-986B-7AAE2491D19C}</Project>
       <Name>Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

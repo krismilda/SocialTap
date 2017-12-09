@@ -12,7 +12,7 @@ namespace DataAccess
         }
         public DbSet<Restaurant> Restaurants { get; set; }
         public DbSet<Scan> Scans { get; set; }
-
+        public DbSet<New> News { get; set; }
     }
 
 }
