@@ -1,5 +1,4 @@
 ﻿using DataAccess;
-using Database.RestaurantData;
 using DataModels;
 using Services.TwitterAPI;
 using System;
@@ -17,22 +16,9 @@ namespace API.Controllers
         [HttpGet]
         public IHttpActionResult Get()
         {
-            ListByTag s = new ListByTag();
-            var sa=s.GetListByTag();
-            Tweet bv = new Tweet();
-            bv.Text = "sdfsdf";
-            bv.CreatedAt = DateTime.Today;
-            bv.FavoriteCount = 5;
-            sa.Add(bv);
-            return Ok(sa);
-        }
-        [HttpPost]
-        public IHttpActionResult Post(Restaurant r)
-        {
-            SocialTapContext s = new SocialTapContext();
-            s.Restaurants.Add(r);
-            s.SaveChanges();
-            return Ok();
+            ListByTag tweetsList = new ListByTag();
+            var tweets=tweetsList.GetListByTag();
+            return Ok(tweets);
         }
         
     }

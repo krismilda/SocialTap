@@ -1,47 +1,51 @@
-﻿using Database.File;
-using Database.News;
+﻿using DataAccess;
+using DataAccess.Repositories;
+using DataModels;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace API.Controllers
 {
     public class NewsController : ApiController
     {
-        public IHttpActionResult Get([FromUri]string duration)
+        SocialTapContext context = new SocialTapContext();
+
+        [HttpGet]
+        public IHttpActionResult Get()
         {
-            try
-            {
-                ReadingNewFromDatabase reading = new ReadingNewFromDatabase();
-
-                List<New> newsList = reading.Read(duration);
-
-                return Ok(newsList);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-
+            var newsList = context.News.ToList();
+            var list = from news in newsList
+                       select new
+                       {
+                           date = news.Date,
+                           text = news.Text,
+                           username = news.SocialTapUser.UserName
+        };
+           
+            return Ok(list.ToList());
         }
 
-        public IHttpActionResult Post([FromBody] New @new)
+        // POST api/Account/Register
+        [HttpPost]        
+        public IHttpActionResult Post(New news)
         {
-            try
-            {
-                using (WritingNewToDatabase writing = new WritingNewToDatabase())
-                {
-                    writing.Write(@new);
-                    return Ok();
-                }
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
+            //*************************************
+            //REIKIA DABARTINIO USERIO
+            var list = context.Users.ToList();
+            news.SocialTapUser = list.ElementAt(0);
+            //**************************************
+            context.News.Add(news);
+            context.SaveChanges();
+            return Ok();
         }
+
     }
 }

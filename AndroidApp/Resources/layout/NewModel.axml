@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="20.0dp"
+        android:id="@+id/linearLayout1">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout1">
+            <TableRow
+                android:id="@+id/tableRow1">
+                <TextView
+                    android:text="Date"
+                    android:layout_column="0"
+                    android:id="@+id/tnDate"
+                    android:layout_width="75.0dp" />
+                <TextView
+                    android:text="User"
+                    android:layout_column="1"
+                    android:id="@+id/tnUser"
+                    android:layout_width="100.0dp" />
+                <TextView
+                    android:text="Message"
+                    android:layout_column="2"
+                    android:id="@+id/tnText"
+                    android:layout_width="205.0dp" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</LinearLayout>

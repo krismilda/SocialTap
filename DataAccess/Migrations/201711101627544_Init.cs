@@ -7,6 +7,26 @@ namespace DataAccess.Migrations
     {
         public override void Up()
         {
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Scans", "Place_Id", "dbo.Restaurants");
+            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
+            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Scans", new[] { "Place_Id" });
+            DropTable("dbo.AspNetUserLogins");
+            DropTable("dbo.AspNetUserClaims");
+            DropTable("dbo.AspNetUsers");
+            DropTable("dbo.AspNetUserRoles");
+            DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Restaurants");
+            DropTable("dbo.Scans");
+            DropTable("dbo.News");
             CreateTable(
                 "dbo.Scans",
                 c => new
@@ -124,6 +144,7 @@ namespace DataAccess.Migrations
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Restaurants");
             DropTable("dbo.Scans");
+            DropTable("dbo.News");
         }
     }
 }

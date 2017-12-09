@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using Newtonsoft.Json;
-
 namespace AndroidApp
 {
     public static class DataService
     {
         public static async Task Register(string username, string password, string confirmPassword)
         {
-        /*    using (HttpClient client = new HttpClient())
+           using (HttpClient client = new HttpClient())
             {
                 var user = new Dictionary<string, string>
                    {
@@ -24,13 +23,51 @@ namespace AndroidApp
                        { "Password", password },
                        { "ConfirmPassword", confirmPassword}
                   };
-               // var content = JsonConvert.SerializeObject(user);
-           //     var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+               var content = JsonConvert.SerializeObject(user);
+                var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/Account/Register", httpContent);
 
-            }*/
+            }
         }
+        public static async Task AddNew(string text)
+        {
 
+            using (HttpClient client = new HttpClient())
+             {
+                 var newsJson = new Dictionary<string, string>
+                    {
+                        { "Date", DateTime.Today.ToString()},
+                        { "Text", text}
+                   };
+                 var content = JsonConvert.SerializeObject(newsJson);
+                 var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+                 var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/News", httpContent);
+             }
+        }
+        public static async Task<List<News>> GetNewsList()
+        {
+
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.MaxResponseContentBufferSize = 256000;
+
+                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/News");
+
+                    var response = await client.GetAsync(uri);
+
+                    var resultObject = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<List<News>>(resultObject);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    string s = e.ToString();
+                }
+            }
+            return null;
+        }
         public static async Task<List<Tweet>> GetTweetList()
         {
 
@@ -58,17 +95,25 @@ namespace AndroidApp
 
         public static async Task<Restaurant> GetRestaurant()
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                client.MaxResponseContentBufferSize = 256000;
+                using (HttpClient client = new HttpClient())
+                {
+                    client.MaxResponseContentBufferSize = 256000;
 
-                var uri = new Uri("http://drinklyapi20171122074316.azurewebsites.net/api/TopRestaurants");
+                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/Restaurant");
 
-                var response = await client.GetAsync(uri);
-                string json = response.Content.ReadAsStringAsync().Result;
-             //   var data = JsonConvert.DeserializeObject<Restaurant>(json);
-                return null;
+                    var response = await client.GetAsync(uri);
+                    string json = response.Content.ReadAsStringAsync().Result;
+                    //   var data = JsonConvert.DeserializeObject<Restaurant>(json);
+                }
             }
+            catch (Exception e)
+            {
+                string s = e.ToString();
+            }
+                return null;
+           
         }
 
         public static async Task SearchRestaurant()
