@@ -16,9 +16,12 @@ using Xamarin.Forms.PlatformConfiguration;
 
 namespace AndroidApp
 {
+
     [Activity(Label = "DRINKLY")]
+
     public class ImageRecognition : Activity
     {
+
 
 
         Button btnCalculate;
@@ -27,9 +30,11 @@ namespace AndroidApp
         EditText textDrink;
         Spinner spinner1;
 
+
         protected void onCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
             SetContentView(Resource.Layout.PhotoAnalysis);
             btnCalculate = FindViewById<Button>(Resource.Id.btnCalculate);
             btnMake = FindViewById<Button>(Resource.Id.btnMakes);
@@ -53,4 +58,5 @@ namespace AndroidApp
 
         }
     }
+
 }
