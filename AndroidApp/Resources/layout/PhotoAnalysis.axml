@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:orientation="vertical"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/linearLayout1">
+    <TableLayout
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/tableLayout1">
+        <TableRow
+            p1:id="@+id/tableRow1">
+            <Button
+                p1:text="Make Photo"
+                p1:layout_column="0"
+                p1:id="@+id/btnMakes"
+                p1:layout_height="35.5dp"
+                p1:layout_width="113.0dp" />
+            <Button
+                p1:text="Select from Gallery"
+                p1:layout_column="1"
+                p1:id="@+id/btnSelect"
+                p1:layout_height="36.0dp" />
+        </TableRow>
+        <TableRow
+            p1:id="@+id/tableRow2">
+            <TextView
+                p1:text="Milliliters"
+                p1:textAppearance="?android:attr/textAppearanceSmall"
+                p1:layout_column="0"
+                p1:id="@+id/textView10" />
+            <EditText
+                p1:id="@+id/textIMilis"
+                p1:layout_column="1"
+                p1:layout_height="42.5dp"
+                p1:layout_marginLeft="8.5dp" />
+        </TableRow>
+        <TableRow
+            p1:id="@+id/tableRow3">
+            <TextView
+                p1:text="Drink"
+                p1:textAppearance="?android:attr/textAppearanceSmall"
+                p1:layout_column="0"
+                p1:id="@+id/textView11" />
+            <Spinner
+                p1:layout_column="1"
+                p1:id="@+id/spinner1"
+                p1:layout_marginLeft="10.5dp" />
+        </TableRow>
+        <TableRow
+            p1:id="@+id/tableRow4">
+            <TextView
+                p1:text="Price"
+                p1:textAppearance="?android:attr/textAppearanceSmall"
+                p1:layout_column="0"
+                p1:id="@+id/textView19" />
+            <EditText
+                p1:id="@+id/textDrink"
+                p1:layout_column="1"
+                p1:layout_height="39.0dp"
+                p1:layout_width="102.0dp"
+                p1:layout_marginLeft="8.5dp" />
+        </TableRow>
+        <TableRow
+            p1:id="@+id/tableRow5">
+            <Button
+                p1:text="Calculate"
+                p1:layout_column="0"
+                p1:id="@+id/btnCalculate"
+                p1:layout_height="37.5dp" />
+        </TableRow>
+    </TableLayout>
+    <TextView
+        p1:text="Information"
+        p1:textAppearance="?android:attr/textAppearanceSmall"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/textView22" />
+    <TableLayout
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/tableLayout2">
+        <TableRow
+            p1:id="@+id/tableRow6">
+            <TextView
+                p1:text="Restaurant Name"
+                p1:textAppearance="?android:attr/textAppearanceSmall"
+                p1:layout_column="0"
+                p1:id="@+id/textView32" />
+            <TextView
+                p1:layout_column="1"
+                p1:id="@+id/textres"
+                p1:layout_width="237.0dp"
+                p1:layout_marginLeft="9.5dp" />
+        </TableRow>
+        <TableRow
+            p1:id="@+id/tableRow7">
+            <TextView
+                p1:text="Restaurant Address"
+                p1:textAppearance="?android:attr/textAppearanceSmall"
+                p1:layout_column="0"
+                p1:id="@+id/textView33" />
+            <TextView
+                p1:layout_column="1"
+                p1:id="@+id/textresa"
+                p1:layout_marginLeft="9.0dp" />
+        </TableRow>
+        <TableRow
+            p1:id="@+id/tableRow8">
+            <TextView
+                p1:text="Percentage of Liquid"
+                p1:textAppearance="?android:attr/textAppearanceSmall"
+                p1:layout_column="0"
+                p1:id="@+id/textView34" />
+            <TextView
+                p1:layout_column="1"
+                p1:id="@+id/textper"
+                p1:layout_marginLeft="9.0dp" />
+        </TableRow>
+        <TableRow
+            p1:id="@+id/tableRow9">
+            <TextView
+                p1:text="Real Amount of Drink"
+                p1:textAppearance="?android:attr/textAppearanceSmall"
+                p1:layout_column="0"
+                p1:id="@+id/textView38" />
+            <TextView
+                p1:layout_column="1"
+                p1:id="@+id/textmil"
+                p1:layout_marginLeft="7.5dp" />
+        </TableRow>
+    </TableLayout>
+    <ScrollView
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="match_parent"
+        p1:layout_height="296.0dp"
+        p1:id="@+id/scrollView1">
+        <ImageView
+            p1:src="@android:drawable/ic_menu_gallery"
+            p1:layout_width="match_parent"
+            p1:layout_height="match_parent"
+            p1:id="@+id/imageve" />
+    </ScrollView>
+</LinearLayout>

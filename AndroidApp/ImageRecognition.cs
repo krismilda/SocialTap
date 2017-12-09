@@ -16,56 +16,41 @@ using Xamarin.Forms.PlatformConfiguration;
 
 namespace AndroidApp
 {
-    [Activity(Label = "ImageRecognition")]
+    [Activity(Label = "DRINKLY")]
     public class ImageRecognition : Activity
     {
 
 
-        Button btnTackPic;
-        Uri photoPath;
-        ImageView ivThumbnailPhoto;
-
-        static int TAKE_PICTURE = 1;
+        Button btnCalculate;
+        Button btnMake;
+        EditText textMili;
+        EditText textDrink;
+        Spinner spinner1;
 
         protected void onCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.photo);
-
-            // Get reference to views
-
-            btnTackPic = (Button)FindViewById(Resource.Id.btnphoto);
-            ivThumbnailPhoto = (ImageView)FindViewById(Resource.Id.imagev);
-            btnTackPic.Click += onClick;
-
+            SetContentView(Resource.Layout.PhotoAnalysis);
+            btnCalculate = FindViewById<Button>(Resource.Id.btnCalculate);
+            btnMake = FindViewById<Button>(Resource.Id.btnMakes);
+            textMili = FindViewById<EditText>(Resource.Id.textIMilis);
+            textDrink = FindViewById<EditText>(Resource.Id.textDrink);
+            spinner1 = FindViewById<Spinner>(Resource.Id.spinner1);
+            var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.drinks_array, Android.Resource.Layout.SimpleSpinnerItem);
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinner1.Adapter = adapter;
+            btnCalculate.Click += btnCalculate_Click;
+            btnMake.Click += btnMake_ClickAsync;
         }
 
 
-        void onClick(object sender, System.EventArgs e)
-            {
-            // TODO Auto-generated method stub
-
-
-            Intent cameraIntent = new Intent();
-            StartActivityForResult(cameraIntent, TAKE_PICTURE);
-       
+        void btnCalculate_Click(object sender, System.EventArgs e)
+        {
 
         }
+        async void btnMake_ClickAsync(object sender, System.EventArgs e)
+        {
 
-
-        protected void onActivityResult(int requestCode, int resultCode, Intent intent)
-{
-
-
-    if (requestCode == TAKE_PICTURE )
-    {
-                Bitmap photo = (Bitmap)intent.Extras.Get("data");
-        ivThumbnailPhoto.SetImageBitmap(photo);
-      //  ivThumbnailPhoto.SetVisibility(imagev.VISIBLE);
-
-
-
+        }
     }
-}
-}
 }
