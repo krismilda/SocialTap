@@ -165,9 +165,11 @@
     <Compile Include="Controllers\BMIController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\ImageProcessingController.cs" />
+    <Compile Include="Controllers\MostVisitedController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\ScanController.cs" />
+    <Compile Include="Controllers\TopDrinksController.cs" />
     <Compile Include="Controllers\TopRestaurantsController.cs" />
     <Compile Include="Controllers\TweetController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -191,10 +193,6 @@
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{314d28e1-663d-4494-96b7-dc3360be2428}</Project>
       <Name>DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Database\Database.csproj">
-      <Project>{dca7bc1b-054c-4c0d-9c40-ae5911a28649}</Project>
-      <Name>Database</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataModels\DataModels.csproj">
       <Project>{f8e468c1-a863-438f-a441-21ddaee74ab6}</Project>

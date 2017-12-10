@@ -25,7 +25,7 @@ namespace API
         {
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
-                AllowInsecureHttp = System.Diagnostics.Debugger.IsAttached,
+                AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/api/Account/Login"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(365),
                 Provider = new SimpleAuthorizationServerProvider()

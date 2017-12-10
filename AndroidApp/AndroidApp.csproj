@@ -19,7 +19,7 @@
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
@@ -170,12 +170,23 @@
   <ItemGroup>
     <Compile Include="Adapters\NewAdapter.cs" />
     <Compile Include="Adapters\RestaurantAdpater.cs" />
+    <Compile Include="Adapters\RestaurantMostAdapter.cs" />
+    <Compile Include="Adapters\TopDrinksAdapter.cs" />
     <Compile Include="Adapters\TweetAdapter.cs" />
+
     <Compile Include="BMIActivity.cs" />
+
     <Compile Include="ImageRecognition.cs" />
+    <Compile Include="Login.cs" />
+
+    <Compile Include="HistoryTop.cs" />
+
     <Compile Include="maps.cs" />
+
     <Compile Include="Models\BMI.cs" />
+
     <Compile Include="Models\News.cs" />
+    <Compile Include="MostVisited.cs" />
     <Compile Include="NewsActivity.cs" />
     <Compile Include="Searching.cs" />
     <Compile Include="Services\BMI\CategoryOfAge.cs" />
@@ -194,7 +205,9 @@
     <Compile Include="Services\GooglePlaces\Location.cs" />
     <Compile Include="Services\GooglePlaces\LocationData.cs" />
     <Compile Include="Models\Tweet.cs" />
+    <Compile Include="TopDrinks.cs" />
     <Compile Include="Tweets.cs" />
+    <Compile Include="UploadImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -239,7 +252,31 @@
     <AndroidResource Include="Resources\layout\photo.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+
     <AndroidResource Include="Resources\layout\BMIpage.axml">
+
+    <AndroidResource Include="Resources\layout\PhotoAnalysis.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+
+    <AndroidResource Include="Resources\layout\Login.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+
+    <AndroidResource Include="Resources\layout\History.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\MostVisited.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\RestaurantMost.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\TopDrinks.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\RestaurantDrinks.axml">
+
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -247,7 +284,9 @@
     <AndroidResource Include="Resources\layout\Main2.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\values\Strings.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />
