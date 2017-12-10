@@ -15,5 +15,6 @@ namespace AndroidApp
         public int Times { get; set; }
         public string Drink { get; set; }
         public double Millimeters { get; set; }
+
     }
 }

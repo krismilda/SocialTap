@@ -173,6 +173,7 @@ namespace AndroidApp
                 {
                     client.MaxResponseContentBufferSize = 256000;
 
+
                     var uri = new Uri("http://drinkly1.azurewebsites.net/api/MostVisited/?duration=" + period);
 
                     var response = await client.GetAsync(uri);
@@ -197,6 +198,7 @@ namespace AndroidApp
                     client.MaxResponseContentBufferSize = 256000;
 
                     var uri = new Uri("http://drinkly1.azurewebsites.net/api/TopDrinks/?duration=" + period);
+r
 
                     var response = await client.GetAsync(uri);
 
