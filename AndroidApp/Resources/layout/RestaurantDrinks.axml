@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="18.0dp"
+        android:id="@+id/linearLayout1">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout1">
+            <TableRow
+                android:id="@+id/tableRow1">
+                <TextView
+                    android:text="Name"
+                    android:layout_column="0"
+                    android:id="@+id/textDname"
+                    android:layout_width="100.0dp" />
+                <TextView
+                    android:text="Address"
+                    android:layout_column="1"
+                    android:id="@+id/textDaddress"
+                    android:layout_width="100.0dp" />
+                <TextView
+                    android:text="Drink"
+                    android:layout_column="2"
+                    android:id="@+id/textDdrink"
+                    android:layout_width="80.0dp" />
+                <TextView
+                    android:text="Millimeters"
+                    android:layout_column="3"
+                    android:id="@+id/textDmili"
+                    android:layout_width="70.0dp" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -65,6 +65,7 @@ namespace AndroidApp
         }
         void btnDrinks_ClickAsync(object sender, System.EventArgs e)
         {
+            StartActivity(typeof(TopDrinks));
         }
         void btnMost_ClickAsync(object sender, System.EventArgs e)
         {
