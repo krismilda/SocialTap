@@ -172,6 +172,7 @@
     <Compile Include="Adapters\RestaurantAdpater.cs" />
     <Compile Include="Adapters\TweetAdapter.cs" />
     <Compile Include="ImageRecognition.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="maps.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="NewsActivity.cs" />
@@ -238,6 +239,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\PhotoAnalysis.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Login.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
