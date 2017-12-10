@@ -19,7 +19,7 @@
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
@@ -173,18 +173,11 @@
     <Compile Include="Adapters\RestaurantMostAdapter.cs" />
     <Compile Include="Adapters\TopDrinksAdapter.cs" />
     <Compile Include="Adapters\TweetAdapter.cs" />
-
     <Compile Include="BMIActivity.cs" />
-
-    <Compile Include="ImageRecognition.cs" />
     <Compile Include="Login.cs" />
-
     <Compile Include="HistoryTop.cs" />
-
     <Compile Include="maps.cs" />
-
     <Compile Include="Models\BMI.cs" />
-
     <Compile Include="Models\News.cs" />
     <Compile Include="MostVisited.cs" />
     <Compile Include="NewsActivity.cs" />
@@ -252,17 +245,15 @@
     <AndroidResource Include="Resources\layout\photo.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-
     <AndroidResource Include="Resources\layout\BMIpage.axml">
-
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\PhotoAnalysis.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-
     <AndroidResource Include="Resources\layout\Login.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-
     <AndroidResource Include="Resources\layout\History.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -276,7 +267,6 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\RestaurantDrinks.axml">
-
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

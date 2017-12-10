@@ -200,7 +200,7 @@ namespace AndroidApp
                 {
                     client.MaxResponseContentBufferSize = 256000;
 
-                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/TopRestaurants/?duration=" + period);
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/TopRestaurants/?duration=" + period);
 
                     var response = await client.GetAsync(uri);
 
@@ -224,7 +224,7 @@ namespace AndroidApp
                     client.MaxResponseContentBufferSize = 256000;
 
 
-                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/MostVisited/?duration=" + period);
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/MostVisited/?duration=" + period);
 
                     var response = await client.GetAsync(uri);
 
@@ -247,7 +247,7 @@ namespace AndroidApp
                 {
                     client.MaxResponseContentBufferSize = 256000;
 
-                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/TopDrinks/?duration=" + period);
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/TopDrinks/?duration=" + period);
 
 
                     var response = await client.GetAsync(uri);
@@ -313,7 +313,7 @@ namespace AndroidApp
                 {
                     client.MaxResponseContentBufferSize = 256000;
                    
-                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/BMI" + "?" +"Weight=" + weight + "&" + "Height=" + height);
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/BMI" + "?" +"Weight=" + weight + "&" + "Height=" + height);
                     //var values = new Dictionary<string, int> { { "Weight", weight },
                     //                                           { "Height", height }
                     //                                         };
