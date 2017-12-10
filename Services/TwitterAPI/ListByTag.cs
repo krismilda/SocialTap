@@ -28,7 +28,7 @@ namespace Services.TwitterAPI
             MyEvent += new Action<Label, string>(MyEventHandler);
         }
 
-        public List<Tweet> GetListByTag()
+        public IEnumerable<ITweet> GetListByTag()
         {
                         Auth.SetUserCredentials("MCFAVXP8HAiIPc9NVaHgnHn5x",
                                      "NsJxyblOmm6UXfGq1yBTGUE1e2IREcu2OL98pJG4y4N1zWwGEl",
@@ -41,22 +41,15 @@ namespace Services.TwitterAPI
             });
 
             var tweetsAmountNow = Tweets.ToList().Count;
-            List<Tweet> tweetList = new List<Tweet>();
+      
 
-            foreach(ITweet a in Tweets)
-            {
-                Tweet aa = new Tweet();
-                aa.CreatedAt = a.CreatedAt;
-                aa.Text = a.Text;
-                aa.FavoriteCount = a.FavoriteCount;
-                tweetList.Add(aa);
-            }
+           
            /* if (lastSize < tweetsAmountNow)
                 MyEvent(label, "New tweet!!");
             else
                 MyEvent(label, "No new tweets :(");
             */
-            return tweetList;
+            return Tweets;
         }
 
     }

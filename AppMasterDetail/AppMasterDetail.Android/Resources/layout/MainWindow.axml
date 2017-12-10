@@ -10,10 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tableLayout1">
-        <TableRow
+        <TableRow xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/tableRow1"
             android:backgroundTint="#ff00ffff"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             app:backgroundTint="#ff7fffd4">
             <Button
                 android:text="Tweets"

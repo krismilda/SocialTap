@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using Newtonsoft.Json;
+using AndroidApp.Models;
+using System.Collections.Specialized;
+
 using System.IO;
 using System.Globalization;
 using System.Text.RegularExpressions;
@@ -16,6 +19,7 @@ using Android.Content;
 using Android.App;
 using Android.Net;
 using AndroidApp.Models;
+
 
 namespace AndroidApp
 {
@@ -29,6 +33,7 @@ namespace AndroidApp
 
         static DataService()
         {
+
             _client = new HttpClient(); // { BaseAddress = new System.Uri("http://drinkly1.azurewebsites.net/api/") };
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken);
@@ -36,6 +41,7 @@ namespace AndroidApp
 
         public static async Task<HttpResponseMessage> Register(string username, string password, string confirmPassword)
         {
+
             using (HttpClient client = new HttpClient())
             {
                 var user = new Dictionary<string, string>
@@ -163,7 +169,6 @@ namespace AndroidApp
                 string s = e.ToString();
             }
             return null;
-
         }
 
         public static async Task SearchRestaurant()
@@ -348,5 +353,35 @@ namespace AndroidApp
             MuteNotification = _storageReference.GetBoolean("NotificationMute", false);
         }
 
+        public static async Task<double> GetBMI(int weight, int height)
+        {
+
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.MaxResponseContentBufferSize = 256000;
+                   
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/BMI" + "?" +"Weight=" + weight + "&" + "Height=" + height);
+                    //var values = new Dictionary<string, int> { { "Weight", weight },
+                    //                                           { "Height", height }
+                    //                                         };
+                    //var result = ur.ExtendQuery(values);
+                    var response = await client.PutAsync(uri, null);
+
+                    var resultObject = await response.Content.ReadAsStringAsync();
+
+                    var data = JsonConvert.DeserializeObject<double>(resultObject);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    string s = e.ToString();
+                }
+            }
+            return 0;
+        }
+
     }
+
 }
