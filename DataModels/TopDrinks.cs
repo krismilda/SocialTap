@@ -8,6 +8,8 @@ namespace DataModels
 {
     public class TopDrinks
     {
+
+
         public int Place_Id { get; set; }
         public string Drink { get; set; }
         public double Sum { get; set; }

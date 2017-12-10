@@ -22,14 +22,16 @@ namespace API.Controllers
                         .Where(t => (DateTime.Compare(t.Date.AddDays(30), DateTime.Today) >= 0))
                         .ToList();
                     var drinks = from a in scanList
-                            group a by new { a.Place_Id, a.Drink } into b
-                            select new TopDrinks
-                            {
-                                Place_Id = b.Key.Place_Id,
-                                Drink = b.Key.Drink,
-                                Sum = b.Sum(x => x.Millimeters)
-                            };
-                    var drinksList = drinks.OrderByDescending(t => new { t.Place_Id, t.Sum }).ToList();
+                                 group a by new { a.Place_Id, a.Drink } into b
+                                 orderby b.Key.Place_Id, b.Sum(x => x.Millimeters) descending
+                                 select new TopDrinks
+                                 {
+                                     Place_Id = b.Key.Place_Id,
+                                     Drink = b.Key.Drink,
+                                     Sum = b.Sum(x => x.Millimeters)
+                                 };
+
+                    var drinksList = drinks.ToList();
                     var restaurants = context.Restaurants.ToList();
                     List<DrinkTop> topDrinks = new List<DrinkTop>();
 
