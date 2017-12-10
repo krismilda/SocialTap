@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="550.0dp"
+        android:id="@+id/linearLayout1">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout1">
+            <TableRow
+                android:id="@+id/tableRow1">
+                <Button
+                    android:text="GET LIST"
+                    android:layout_column="0"
+                    android:id="@+id/btnmostD"
+                    android:layout_height="37.5dp" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow2">
+                <TextView
+                    android:text="Period"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="0"
+                    android:id="@+id/textView10" />
+                <Spinner
+                    android:layout_column="1"
+                    android:id="@+id/spinnerperiodD"
+                    android:layout_width="206.0dp" />
+            </TableRow>
+        </TableLayout>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout2">
+            <TableRow
+                android:id="@+id/tableRow3">
+                <TextView
+                    android:text="Name"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="0"
+                    android:id="@+id/textView20"
+                    android:layout_width="100.0dp" />
+                <TextView
+                    android:text="Address"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="1"
+                    android:id="@+id/textView21"
+                    android:layout_width="100.0dp" />
+                <TextView
+                    android:text="Drink"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="2"
+                    android:id="@+id/textView22"
+                    android:layout_width="80.0dp" />
+                <TextView
+                    android:text="Millimeters"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="3"
+                    android:id="@+id/textView26"
+                    android:layout_width="70.0dp" />
+            </TableRow>
+        </TableLayout>
+        <ListView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listDrinks" />
+    </LinearLayout>
+</LinearLayout>
