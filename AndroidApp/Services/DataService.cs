@@ -12,14 +12,30 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using Android.Content;
+using Android.App;
+using Android.Net;
 
 namespace AndroidApp
 {
     public static class DataService
     {
-        public static async Task Register(string username, string password, string confirmPassword)
+        private static string _userToken;
+        private static ISharedPreferences _storageReference;
+        private static HttpClient _client;
+        public static bool ShowNotification;
+        public static bool MuteNotification;
+
+        static DataService()
         {
-           using (HttpClient client = new HttpClient())
+            _client = new HttpClient(); // { BaseAddress = new System.Uri("http://drinkly1.azurewebsites.net/api/") };
+            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken);
+        }
+
+        public static async Task<HttpResponseMessage> Register(string username, string password, string confirmPassword)
+        {
+            using (HttpClient client = new HttpClient())
             {
                 var user = new Dictionary<string, string>
                    {
@@ -27,26 +43,55 @@ namespace AndroidApp
                        { "Password", password },
                        { "ConfirmPassword", confirmPassword}
                   };
-               var content = JsonConvert.SerializeObject(user);
+                var content = JsonConvert.SerializeObject(user);
                 var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/Account/Register", httpContent);
-
+                return response;
             }
         }
+
+        public static async Task<HttpResponseMessage> Login(string username, string password)
+        {
+            using (HttpClient client = new HttpClient())
+            using (var request = new HttpRequestMessage(HttpMethod.Post, "http://drinkly1.azurewebsites.net/api/Account/Login"))
+            {
+                var headerValues = new List<KeyValuePair<string, string>>
+                {
+                    new KeyValuePair<string, string>("grant_type", "password"),
+                    new KeyValuePair<string, string>("username", username),
+                    new KeyValuePair<string, string>("password", password)
+                };
+                request.Content = new FormUrlEncodedContent(headerValues);
+
+                var res = client.SendAsync(request).Result;
+                var response = await client.SendAsync(request);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    _userToken = JsonConvert.DeserializeObject<string>(responseContent);
+                    _storageReference = Application.Context.GetSharedPreferences("Token", FileCreationMode.Private);
+                    var editor = _storageReference.Edit();
+                    editor.PutString("UserToken", _userToken);
+                    editor.Apply();
+                }
+                return response;
+            }
+        }
+
         public static async Task AddNew(string text)
         {
 
             using (HttpClient client = new HttpClient())
-             {
-                 var newsJson = new Dictionary<string, string>
+            {
+                var newsJson = new Dictionary<string, string>
                     {
                         { "Date", DateTime.Today.ToString()},
                         { "Text", text}
                    };
-                 var content = JsonConvert.SerializeObject(newsJson);
-                 var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
-                 var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/News", httpContent);
-             }
+                var content = JsonConvert.SerializeObject(newsJson);
+                var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+                var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/News", httpContent);
+            }
         }
         public static async Task<List<News>> GetNewsList()
         {
@@ -57,7 +102,7 @@ namespace AndroidApp
                 {
                     client.MaxResponseContentBufferSize = 256000;
 
-                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/News");
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/News");
 
                     var response = await client.GetAsync(uri);
 
@@ -81,13 +126,13 @@ namespace AndroidApp
                 {
                     client.MaxResponseContentBufferSize = 256000;
 
-                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/Tweet");
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/Tweet");
 
                     var response = await client.GetAsync(uri);
 
                     var resultObject = await response.Content.ReadAsStringAsync();
                     var data = JsonConvert.DeserializeObject<List<Tweet>>(resultObject);
-                      return data;
+                    return data;
                 }
                 catch (Exception e)
                 {
@@ -105,7 +150,7 @@ namespace AndroidApp
                 {
                     client.MaxResponseContentBufferSize = 256000;
 
-                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/Restaurant");
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/Restaurant");
 
                     var response = await client.GetAsync(uri);
                     string json = response.Content.ReadAsStringAsync().Result;
@@ -116,8 +161,8 @@ namespace AndroidApp
             {
                 string s = e.ToString();
             }
-                return null;
-           
+            return null;
+
         }
 
         public static async Task SearchRestaurant()
@@ -243,6 +288,15 @@ namespace AndroidApp
 
             }
             return null;
+        }
+
+
+        public static void GetUserToken()
+        {
+            _storageReference = Application.Context.GetSharedPreferences("Token", FileCreationMode.Private);
+            _userToken = _storageReference.GetString("UserToken", null);
+            ShowNotification = _storageReference.GetBoolean("Notification", false);
+            MuteNotification = _storageReference.GetBoolean("NotificationMute", false);
         }
 
     }

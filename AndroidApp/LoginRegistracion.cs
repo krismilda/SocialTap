@@ -32,17 +32,18 @@ namespace AndroidApp
             btnRegistration = FindViewById<Button>(Resource.Id.btnRegistration);
             emailInput = FindViewById<EditText>(Resource.Id.emailInput);
             passwordInput = FindViewById<EditText>(Resource.Id.PasswordInput);
-          //  errorMessage = FindViewById<TextView>(Resource.Id.textinput_error);
+            //  errorMessage = FindViewById<TextView>(Resource.Id.textinput_error);
             btnLogin.Click += BtnLogin_Click;
             btnRegistration.Click += BtnRegistration_Click;
         }
 
-            void BtnLogin_Click(object sender, System.EventArgs e)
-            {
-            }
-            void BtnRegistration_Click(object sender, System.EventArgs e)
-            {
-                StartActivity(typeof(Registration));
-            }
+        void BtnLogin_Click(object sender, System.EventArgs e)
+        {
+            StartActivity(typeof(Login));
         }
+        void BtnRegistration_Click(object sender, System.EventArgs e)
+        {
+            StartActivity(typeof(Registration));
+        }
+    }
 }
