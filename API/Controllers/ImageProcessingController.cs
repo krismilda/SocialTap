@@ -23,10 +23,9 @@ namespace API.Controllers
             if (Request.Content.IsMimeMultipartContent())
             {
                 Bitmap bmp = null;
-                int percentage = 0;
                 
                 Request.Content.LoadIntoBufferAsync().Wait();
-                Request.Content.ReadAsMultipartAsync<MultipartMemoryStreamProvider>(
+                var t = Request.Content.ReadAsMultipartAsync<MultipartMemoryStreamProvider>(
                         new MultipartMemoryStreamProvider()).ContinueWith((task) =>
                         {
                             MultipartMemoryStreamProvider provider = task.Result;
@@ -34,9 +33,9 @@ namespace API.Controllers
                             Stream stream = content.ReadAsStreamAsync().Result;
                             Image image = Image.FromStream(stream);
                             bmp = new Bitmap(stream);
-                            percentage = RealPhotoAnalysis.GetPercentage(bmp);
+                            return RealPhotoAnalysis.GetPercentage(bmp);
                         });
-                return Ok(percentage);
+                return Ok(t.Result);
             }
             else
             {

@@ -10,9 +10,9 @@ namespace Logic
     {
         private double _bmi;
 
-        public double GetBMI(double wgh = 65, double hgh2 = 1.75)
+        public double GetBMI(double wgh = 65, double hgh = 1.75)
         {
-            _bmi = wgh / hgh2;
+            _bmi = ((wgh*1000) / (hgh*hgh))*10;
             return _bmi;
         }
     }

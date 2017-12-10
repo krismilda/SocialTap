@@ -88,7 +88,7 @@ namespace AndroidApp
                 bitmapData = stream.ToArray();
             }
 
-            var percentage = int.Parse(await DataService.Upload(bitmapData));
+            var percentage = await DataService.Upload(bitmapData);
         }
         async void btnMake_ClickAsync(object sender, System.EventArgs e)
         {
@@ -116,7 +116,7 @@ namespace AndroidApp
                     bitmapData = stream.ToArray();
                 }
 
-                var percentage = int.Parse(await DataService.Upload(bitmapData));
+                var percentage = await DataService.Upload(bitmapData);
             }
         }
     }

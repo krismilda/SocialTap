@@ -3010,18 +3010,6 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b0110
 			public const int InputPassword = 2131427600;
 
-
-			// aapt resource value: 0x7f0b0109
-			public const int InputConfirmPassword = 2131427593;
-
-			
-			// aapt resource value: 0x7f0b010f
-			public const int InputEmail = 2131427599;
-			
-
-			// aapt resource value: 0x7f0b0110
-			public const int InputPassword = 2131427600;
-
 			// aapt resource value: 0x7f0b00a4
 			public const int PasswordInput = 2131427492;
 			
@@ -3411,9 +3399,6 @@ namespace AndroidApp
 			public const int listNews = 2131427552;
 
 			
-			// aapt resource value: 0x7f0b00e0
-			public const int listNews = 2131427552;
-
 			// aapt resource value: 0x7f0b009f
 			public const int listTop = 2131427487;
 			
@@ -3440,9 +3425,6 @@ namespace AndroidApp
 			
 			// aapt resource value: 0x7f0b0048
 			public const int mini = 2131427400;
-
-			// aapt resource value: 0x7f0b00cc
-			public const int mr_art = 2131427532;
 
 			// aapt resource value: 0x7f0b00cc
 			public const int mr_art = 2131427532;
@@ -3516,9 +3498,6 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b00d3
 			public const int mr_volume_item_icon = 2131427539;
 			
-			// aapt resource value: 0x7f0b00d4
-			public const int mr_volume_slider = 2131427540;
-
 			// aapt resource value: 0x7f0b00d4
 			public const int mr_volume_slider = 2131427540;
 
@@ -3777,11 +3756,6 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b00f5
 			public const int text = 2131427573;
 			
-
-
-			// aapt resource value: 0x7f0b00f5
-			public const int text = 2131427573;
-			
 			// aapt resource value: 0x7f0b00f3
 			public const int text2 = 2131427571;
 			
@@ -3949,9 +3923,6 @@ namespace AndroidApp
 			// aapt resource value: 0x7f0b00da
 			public const int tnDate = 2131427546;
 
-      
-			// aapt resource value: 0x7f0b00da
-			public const int tnDate = 2131427546;
 
 			// aapt resource value: 0x7f0b00dc
 			public const int tnText = 2131427548;

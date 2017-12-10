@@ -243,7 +243,7 @@ namespace AndroidApp
                     client.MaxResponseContentBufferSize = 256000;
 
                     var uri = new Uri("http://drinkly1.azurewebsites.net/api/TopDrinks/?duration=" + period);
-r
+
 
                     var response = await client.GetAsync(uri);
 
@@ -258,24 +258,28 @@ r
                 return null;
             }
         }
-        public static async Task<string> Upload(byte[] image)
+        public static async Task<int?> Upload(byte[] image)
         {
             using (var client = new HttpClient())
             {
                 try
                 {
-                using (var content =
-                    new MultipartFormDataContent("Upload----" + DateTime.Now.ToString(CultureInfo.InvariantCulture)))
-                {
-                    content.Add(new StreamContent(new MemoryStream(image)), "bilddatei", "upload.bmp");
-
-                    using (var message = await client.PostAsync("http://drinkly1.azurewebsites.net/api/ImageProcessing", content))
+                    using (var content = new MultipartFormDataContent("Upload----"))
                     {
-                        var input = await message.Content.ReadAsStringAsync();
+                        var imgStream = new MemoryStream(image);
+                        var streamContent = new StreamContent(imgStream);
+                        var imageContent = new ByteArrayContent(streamContent.ReadAsByteArrayAsync().Result);
+                        imageContent.Headers.ContentType = MediaTypeHeaderValue.Parse("multipart/form-data");
 
-                        return JsonConvert.DeserializeObject<string>(input);
+                        content.Add(imageContent, "image");
+                    
+                        using (var message = await client.PostAsync("http://drinkly1.azurewebsites.net/api/ImageProcessing", content))
+                        {
+                            var input = await message.Content.ReadAsStringAsync();
+
+                            return JsonConvert.DeserializeObject<int>(input);
+                        }
                     }
-                }
                 }
                 catch(Exception e)
                 {
