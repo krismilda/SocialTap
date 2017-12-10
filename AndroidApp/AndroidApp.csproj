@@ -171,13 +171,14 @@
     <Compile Include="Adapters\NewAdapter.cs" />
     <Compile Include="Adapters\RestaurantAdpater.cs" />
     <Compile Include="Adapters\TweetAdapter.cs" />
+    <Compile Include="BMIActivity.cs" />
     <Compile Include="ImageRecognition.cs" />
     <Compile Include="maps.cs" />
-    <Compile Include="Models\GetUserModel.cs" />
-    <Compile Include="Models\GetUserTokenModel.cs" />
+    <Compile Include="Models\BMI.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="NewsActivity.cs" />
     <Compile Include="Searching.cs" />
+    <Compile Include="Services\BMI\CategoryOfAge.cs" />
     <Compile Include="Services\CurrentLocation.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="LoginRegistracion.cs" />
@@ -236,6 +237,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\photo.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\BMIpage.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

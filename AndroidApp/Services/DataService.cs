@@ -9,13 +9,16 @@ using System.Threading.Tasks;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using Newtonsoft.Json;
+using AndroidApp.Models;
+using System.Collections.Specialized;
+
 namespace AndroidApp
 {
     public static class DataService
     {
         public static async Task Register(string username, string password, string confirmPassword)
         {
-           using (HttpClient client = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
                 var user = new Dictionary<string, string>
                    {
@@ -23,7 +26,7 @@ namespace AndroidApp
                        { "Password", password },
                        { "ConfirmPassword", confirmPassword}
                   };
-               var content = JsonConvert.SerializeObject(user);
+                var content = JsonConvert.SerializeObject(user);
                 var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/Account/Register", httpContent);
 
@@ -33,16 +36,16 @@ namespace AndroidApp
         {
 
             using (HttpClient client = new HttpClient())
-             {
-                 var newsJson = new Dictionary<string, string>
+            {
+                var newsJson = new Dictionary<string, string>
                     {
                         { "Date", DateTime.Today.ToString()},
                         { "Text", text}
                    };
-                 var content = JsonConvert.SerializeObject(newsJson);
-                 var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
-                 var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/News", httpContent);
-             }
+                var content = JsonConvert.SerializeObject(newsJson);
+                var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+                var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/News", httpContent);
+            }
         }
         public static async Task<List<News>> GetNewsList()
         {
@@ -83,7 +86,7 @@ namespace AndroidApp
 
                     var resultObject = await response.Content.ReadAsStringAsync();
                     var data = JsonConvert.DeserializeObject<List<Tweet>>(resultObject);
-                      return data;
+                    return data;
                 }
                 catch (Exception e)
                 {
@@ -112,8 +115,7 @@ namespace AndroidApp
             {
                 string s = e.ToString();
             }
-                return null;
-           
+            return null;
         }
 
         public static async Task SearchRestaurant()
@@ -139,5 +141,35 @@ namespace AndroidApp
             }
         }
 
+        public static async Task<double> GetBMI(int weight, int height)
+        {
+
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.MaxResponseContentBufferSize = 256000;
+                   
+                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/BMI" + "?" +"Weight=" + weight + "&" + "Height=" + height);
+                    //var values = new Dictionary<string, int> { { "Weight", weight },
+                    //                                           { "Height", height }
+                    //                                         };
+                    //var result = ur.ExtendQuery(values);
+                    var response = await client.PutAsync(uri, null);
+
+                    var resultObject = await response.Content.ReadAsStringAsync();
+
+                    var data = JsonConvert.DeserializeObject<double>(resultObject);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    string s = e.ToString();
+                }
+            }
+            return 0;
+        }
+
     }
+
 }

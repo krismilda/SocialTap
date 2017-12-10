@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <EditText
+      android:inputType="numberDecimal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/editText1" />
+  <TextView
+      android:text="Height"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView1" />
+  <EditText
+      android:inputType="numberDecimal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/editText2" />
+  <TextView
+      android:text="Weight"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView2" />
+  <EditText
+      android:inputType="numberDecimal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/editText3" />
+  <TextView
+      android:text="Age"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView3" />
+  <GridView
+      android:minWidth="25px"
+      android:minHeight="25px"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/gridView1" />
+  <Space
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/space2" />
+  <Space
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/space1" />
+  <Button
+      android:text="Count"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/button1" />
+  <TextView
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView4" />
+  <TextView
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView5" />
+</LinearLayout>
