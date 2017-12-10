@@ -34,12 +34,12 @@ namespace Database //todo perkelt i datamodels/isskaidyti
             //ICalculateLiquidPercentage rpa = new SimpleImageAnalysis(new System.Drawing.Bitmap(path));		 
             RealPhotoAnalysis rpa1 = (RealPhotoAnalysis)rpa;
             imageBox2.Image = rpa1.VisualRepresentation.Bitmap;
-            GooglePlacesApiResponse responseData = await googleApiData.GetApiResponseData("food");
+           // GooglePlacesApiResponse responseData = await googleApiData.GetApiResponseData("food");
             int percentageOfLiquid = rpa.CalculatePercentageOfLiquid();
             Username = username;
             Date = DateTime.Today;
-            Name = responseData.results[0].name;
-            Address = responseData.results[0].vicinity;
+           // Name = responseData.results[0].name;
+       //     Address = responseData.results[0].vicinity;
             Percentage = percentageOfLiquid;
         }
 

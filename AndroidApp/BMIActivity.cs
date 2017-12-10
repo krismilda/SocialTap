@@ -42,6 +42,7 @@ namespace AndroidApp
 
         async void BtnCount_ClickAsync(object sender, System.EventArgs e)
         {
+            bmi = 0;
 
             int he = int.Parse(height.Text.ToString());
             int we = int.Parse(weight.Text.ToString());

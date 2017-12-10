@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="294.0dp"
+        android:id="@+id/linearLayout1">
+        <TableLayout
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout1">
+            <TableRow
+                android:id="@+id/tableRow1">
+                <Button
+                    android:text="GET INFORMATION"
+                    android:layout_column="0"
+                    android:id="@+id/btnGetInfo" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow2">
+                <TextView
+                    android:text="Period"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="0"
+                    android:id="@+id/textView10" />
+                <Spinner
+                    android:layout_column="1"
+                    android:id="@+id/spinner7"
+                    android:layout_width="191.0dp" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow3">
+                <TextView
+                    android:text="INFORMATION"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="0"
+                    android:id="@+id/textView11" />
+                <TextView
+                    android:layout_column="1"
+                    android:id="@+id/textdlo" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow4">
+                <TextView
+                    android:text="Money for Drinks"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="0"
+                    android:id="@+id/textView14" />
+                <TextView
+                    android:layout_column="1"
+                    android:id="@+id/textlo" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow5">
+                <TextView
+                    android:text="Paid Money No Drinks"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="0"
+                    android:id="@+id/textView17" />
+                <TextView
+                    android:layout_column="1"
+                    android:id="@+id/textView25" />
+            </TableRow>
+        </TableLayout>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout2">
+            <TableRow
+                android:id="@+id/tableRow6">
+                <TextView
+                    android:text="Drink"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="0"
+                    android:id="@+id/textView21"
+                    android:layout_width="134.5dp" />
+                <TextView
+                    android:text="Money"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="1"
+                    android:id="@+id/textView22"
+                    android:layout_width="107.5dp" />
+                <TextView
+                    android:text="Lost Money"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="2"
+                    android:id="@+id/textView23"
+                    android:layout_width="126.0dp" />
+            </TableRow>
+        </TableLayout>
+        <ListView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="417.5dp"
+            android:id="@+id/listmoney" />
+    </LinearLayout>
+</LinearLayout>

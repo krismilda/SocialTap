@@ -129,7 +129,7 @@ namespace SocialTap
                 new Regex_BMI().RegexValidation(@"[A-Z]+", comboBoxCategory, lblCateg, "Category");
                 if (lblCateg.Text == "Category InValid")
                     category = "Unkown Category";
-                await restaurantInformationTask;
+                //await restaurantInformationTask;
                 drinkInfo.GetDrinkInformation(restaurantInformation.Percentage, mililiter, category);
                 lblName.Text = restaurantInformation.Name;
                 lblAddress.Text = restaurantInformation.Address;
@@ -137,10 +137,10 @@ namespace SocialTap
                 lblDate.Text = string.Format("{0:d}", restaurantInformation.Date);
                 lblCategoryT.Text = drinkInfo.Category;
                 lblMililiterT.Text = drinkInfo.Volume.ToString();
-                WritingToFileSerialize<RestaurantInformation> writing = new WritingToFileSerialize<RestaurantInformation>();
-                writing.Write(restaurantInformation, ConfigurationManager.AppSettings["FileName"]);
-                WriteToDbDrinkInfo<Drink> write = new WriteToDbDrinkInfo<Drink>();
-                write.Write(drinkInfo);
+              //  WritingToFileSerialize<RestaurantInformation> writing = new WritingToFileSerialize<RestaurantInformation>();
+          //      writing.Write(restaurantInformation, ConfigurationManager.AppSettings["FileName"]);
+             //   WriteToDbDrinkInfo<Drink> write = new WriteToDbDrinkInfo<Drink>();
+             //   write.Write(drinkInfo);
             }
 
 

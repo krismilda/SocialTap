@@ -54,15 +54,16 @@ namespace AndroidApp
         }
         async void btnGets_ClickAsync(object sender, System.EventArgs e)
         {
-
             var tops = await DataService.GetTopRestaurant(period);
             listTop.Adapter = new RestaurantAdapter(this, tops);
         }
         void btnTop_ClickAsync(object sender, System.EventArgs e)
         {
+            StartActivity(typeof(HistoryTop));
         }
         void btnMoney_ClickAsync(object sender, System.EventArgs e)
         {
+            StartActivity(typeof(Money));
         }
         void btnDrinks_ClickAsync(object sender, System.EventArgs e)
         {
