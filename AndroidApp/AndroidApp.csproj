@@ -168,19 +168,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\MoneyAdapter.cs" />
     <Compile Include="Adapters\NewAdapter.cs" />
     <Compile Include="Adapters\RestaurantAdpater.cs" />
     <Compile Include="Adapters\RestaurantMostAdapter.cs" />
     <Compile Include="Adapters\TopDrinksAdapter.cs" />
     <Compile Include="Adapters\TweetAdapter.cs" />
-
-    <Compile Include="ImageRecognition.cs" />
     <Compile Include="Login.cs" />
-
     <Compile Include="HistoryTop.cs" />
-
     <Compile Include="maps.cs" />
+    <Compile Include="Models\Moneys.cs" />
     <Compile Include="Models\News.cs" />
+    <Compile Include="Money.cs" />
     <Compile Include="MostVisited.cs" />
     <Compile Include="NewsActivity.cs" />
     <Compile Include="Searching.cs" />
@@ -249,11 +248,9 @@
     <AndroidResource Include="Resources\layout\PhotoAnalysis.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-
     <AndroidResource Include="Resources\layout\Login.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-
     <AndroidResource Include="Resources\layout\History.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -267,6 +264,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\RestaurantDrinks.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Money.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\MoneyModel.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

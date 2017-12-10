@@ -15,6 +15,7 @@ using System.Text.RegularExpressions;
 using Android.Content;
 using Android.App;
 using Android.Net;
+using AndroidApp.Models;
 
 namespace AndroidApp
 {
@@ -195,7 +196,7 @@ namespace AndroidApp
                 {
                     client.MaxResponseContentBufferSize = 256000;
 
-                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/TopRestaurants/?duration=" + period);
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/TopRestaurants/?duration=" + period);
 
                     var response = await client.GetAsync(uri);
 
@@ -219,7 +220,7 @@ namespace AndroidApp
                     client.MaxResponseContentBufferSize = 256000;
 
 
-                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/MostVisited/?duration=" + period);
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/MostVisited/?duration=" + period);
 
                     var response = await client.GetAsync(uri);
 
@@ -242,13 +243,61 @@ namespace AndroidApp
                 {
                     client.MaxResponseContentBufferSize = 256000;
 
-                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/TopDrinks/?duration=" + period);
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/TopDrinks/?duration=" + period);
 
 
                     var response = await client.GetAsync(uri);
 
                     var resultObject = await response.Content.ReadAsStringAsync();
                     var data = JsonConvert.DeserializeObject<List<Restaurant>>(resultObject);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    string s = e.ToString();
+                }
+                return null;
+            }
+        }
+        public static async Task<Moneys> GetMoneyCommon(string period)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.MaxResponseContentBufferSize = 256000;
+
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/MoneyHistory/GetCommon/?duration=" + period);
+
+
+                    var response = await client.GetAsync(uri);
+
+                    var resultObject = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<Moneys>(resultObject);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    string s = e.ToString();
+                }
+                return null;
+            }
+        }
+        public static async Task<List<Moneys>> GetMoneyDrink(string period)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.MaxResponseContentBufferSize = 256000;
+
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/MoneyHistoryDrink/GetDrink/?duration=" + period);
+
+
+                    var response = await client.GetAsync(uri);
+
+                    var resultObject = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<List<Moneys>>(resultObject);
                     return data;
                 }
                 catch (Exception e)
