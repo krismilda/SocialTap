@@ -30,7 +30,10 @@ namespace Services.ImageAnalysis
             get { return _visualRepresentation.Value; }
         }
         private RealPhotoAnalysis() { }
-
+        private RealPhotoAnalysis(string path) {
+            ICalculateLiquidPercentage rpa = new RealPhotoAnalysis(new Image<Emgu.CV.Structure.Bgr, byte>(path));
+            RealPhotoAnalysis rpa1 = (RealPhotoAnalysis)rpa;
+        }
         public RealPhotoAnalysis(Image<Bgr, byte> img) 
         {
             _img = GetPixelMask(img, 30, 200); 

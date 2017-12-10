@@ -11,6 +11,8 @@ namespace AndroidApp
         public int Id { get; set; }
         public String Name { get; set; }
         public String Address { get; set; }
-        public int Percentage { get; set; }
+        public double Average { get; set; }
+        public int Times { get; set; }
+
     }
 }

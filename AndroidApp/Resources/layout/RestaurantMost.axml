@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:orientation="vertical"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="match_parent"
+    p1:layout_height="43px"
+    p1:id="@+id/linearLayout1">
+    <TableLayout
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/tableLayout1">
+        <TableRow
+            p1:id="@+id/tableRow3">
+            <TextView
+                p1:text="Name"
+                p1:layout_column="0"
+                p1:id="@+id/texttmname"
+                p1:layout_width="143.0dp" />
+            <TextView
+                p1:text="Address"
+                p1:layout_column="1"
+                p1:id="@+id/texttmaddress"
+                p1:layout_width="153.0dp" />
+            <TextView
+                p1:text="Times"
+                p1:layout_column="2"
+                p1:id="@+id/texttmtimes"
+                p1:layout_width="45.0dp" />
+            <TextView
+                p1:text="%"
+                p1:layout_column="3"
+                p1:id="@+id/texttmper"
+                p1:layout_width="27.0dp" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

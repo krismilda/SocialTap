@@ -18,7 +18,9 @@ namespace API.Controllers
 {
     public class ImageProcessingController : ApiController
     {
-        public IHttpActionResult Post()
+
+   
+     public IHttpActionResult Post()
         {
             if (Request.Content.IsMimeMultipartContent())
             {
