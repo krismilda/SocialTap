@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="549.5dp"
+        android:id="@+id/linearLayout1">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout1">
+            <TableRow
+                android:id="@+id/tableRow1">
+                <Button
+                    android:text="TOP Restaurants"
+                    android:layout_column="0"
+                    android:id="@+id/btnTop"
+                    android:layout_height="56.5dp"
+                    android:layout_width="121.5dp" />
+                <Button
+                    android:text="Most Visited"
+                    android:layout_column="1"
+                    android:id="@+id/btnMost"
+                    android:layout_marginTop="8.0dp"
+                    android:layout_width="140.0dp" />
+                <Button
+                    android:layout_column="2"
+                    android:id="@+id/btnDrinks"
+                    android:text="TOP Drinks"
+                    android:layout_marginTop="0.0dp"
+                    android:layout_width="94.5dp" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow2">
+                <Button
+                    android:text="Money On Drinks"
+                    android:layout_column="1"
+                    android:id="@+id/btnMoney" />
+            </TableRow>
+        </TableLayout>
+        <TextView
+            android:text="Top 10 Restaurants"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout2">
+            <TableRow
+                android:id="@+id/tableRow3">
+                <TextView
+                    android:text="Time Period"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="0"
+                    android:id="@+id/textView14"
+                    android:layout_width="89.5dp" />
+                <Spinner
+                    android:layout_column="1"
+                    android:id="@+id/spinner3"
+                    android:layout_width="178.5dp" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow5">
+                <Button
+                    android:text="GET TOP LIST"
+                    android:layout_column="0"
+                    android:id="@+id/btnGet" />
+            </TableRow>
+        </TableLayout>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout3">
+            <TableRow
+                android:id="@+id/tableRow6">
+                <TextView
+                    android:text="Name"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="0"
+                    android:id="@+id/textView26"
+                    android:layout_width="166.0dp" />
+                <TextView
+                    android:text="Address"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="1"
+                    android:id="@+id/textView27"
+                    android:layout_width="166.0dp" />
+                <TextView
+                    android:text="%"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="2"
+                    android:id="@+id/textView28"
+                    android:layout_width="35.0dp" />
+            </TableRow>
+        </TableLayout>
+        <ListView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listTop" />
+    </LinearLayout>
+</LinearLayout>

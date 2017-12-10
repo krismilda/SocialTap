@@ -106,11 +106,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BMICalculationData.cs" />
+    <Compile Include="DrinkTop.cs" />
     <Compile Include="New.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Restaurant.cs" />
     <Compile Include="Scan.cs" />
     <Compile Include="SocialTapUser.cs" />
+    <Compile Include="TopDrinks.cs" />
     <Compile Include="UserModel.cs" />
   </ItemGroup>
   <ItemGroup>
