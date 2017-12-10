@@ -170,11 +170,12 @@
   <ItemGroup>
     <Compile Include="Adapters\NewAdapter.cs" />
     <Compile Include="Adapters\RestaurantAdpater.cs" />
+    <Compile Include="Adapters\RestaurantMostAdapter.cs" />
     <Compile Include="Adapters\TweetAdapter.cs" />
     <Compile Include="HistoryTop.cs" />
-    <Compile Include="ImageRecognition.cs" />
     <Compile Include="maps.cs" />
     <Compile Include="Models\News.cs" />
+    <Compile Include="MostVisited.cs" />
     <Compile Include="NewsActivity.cs" />
     <Compile Include="Searching.cs" />
     <Compile Include="Services\CurrentLocation.cs" />
@@ -241,11 +242,15 @@
     <AndroidResource Include="Resources\layout\PhotoAnalysis.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-
     <AndroidResource Include="Resources\layout\History.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-
+    <AndroidResource Include="Resources\layout\MostVisited.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\RestaurantMost.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main2.axml">

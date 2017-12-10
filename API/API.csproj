@@ -165,6 +165,7 @@
     <Compile Include="Controllers\BMIController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\ImageProcessingController.cs" />
+    <Compile Include="Controllers\MostVisitedController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\ScanController.cs" />
