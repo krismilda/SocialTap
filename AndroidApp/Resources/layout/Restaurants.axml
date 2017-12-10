@@ -22,23 +22,18 @@
                     android:text="Name"
                     android:layout_column="0"
                     android:id="@+id/tname"
-                    android:layout_width="151.0dp"
+                    android:layout_width="166.0dp"
                     android:clickable="true" />
                 <TextView
                     android:text="Address"
                     android:layout_column="1"
                     android:id="@+id/taddress"
-                    android:layout_width="159.0dp" />
+                    android:layout_width="166.0dp" />
                 <TextView
                     android:text="%"
                     android:layout_column="2"
                     android:id="@+id/tpercentage"
                     android:layout_width="35.0dp" />
-                <TextView
-                    android:text="ID"
-                    android:layout_column="3"
-                    android:id="@+id/ticon"
-                    android:layout_width="19.0dp" />
             </TableRow>
         </TableLayout>
     </LinearLayout>

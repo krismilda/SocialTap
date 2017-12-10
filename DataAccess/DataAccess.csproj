@@ -105,6 +105,18 @@
     <Compile Include="Migrations\201712052002589_addNewTable.Designer.cs">
       <DependentUpon>201712052002589_addNewTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712091833558_AddColumsToScan.cs" />
+    <Compile Include="Migrations\201712091833558_AddColumsToScan.Designer.cs">
+      <DependentUpon>201712091833558_AddColumsToScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712091910573_addColumnRestaurant.cs" />
+    <Compile Include="Migrations\201712091910573_addColumnRestaurant.Designer.cs">
+      <DependentUpon>201712091910573_addColumnRestaurant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712091913588_addColumnsToRestaurant.cs" />
+    <Compile Include="Migrations\201712091913588_addColumnsToRestaurant.Designer.cs">
+      <DependentUpon>201712091913588_addColumnsToRestaurant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\AuthRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Migrations\201711101627544_Init.cs" />
@@ -144,6 +156,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712052002589_addNewTable.resx">
       <DependentUpon>201712052002589_addNewTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712091833558_AddColumsToScan.resx">
+      <DependentUpon>201712091833558_AddColumsToScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712091910573_addColumnRestaurant.resx">
+      <DependentUpon>201712091910573_addColumnRestaurant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712091913588_addColumnsToRestaurant.resx">
+      <DependentUpon>201712091913588_addColumnsToRestaurant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

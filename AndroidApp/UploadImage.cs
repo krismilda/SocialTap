@@ -12,7 +12,9 @@ using Android.Widget;
 using Plugin.Media;
 using Android.Graphics;
 using AndroidApp.Services;
+
 using System.IO;
+
 
 namespace AndroidApp
 {
@@ -82,6 +84,7 @@ namespace AndroidApp
         }
         async void btnMake_ClickAsync(object sender, System.EventArgs e)
         {
+
             byte[] bitmapData;
 
             imageve.SetImageDrawable(null);
@@ -96,6 +99,7 @@ namespace AndroidApp
                 var file = await CrossMedia.Current.TakePhotoAsync(mediaOptions);
                 var filePath = file.Path;
                 bitmap = BitmapFactory.DecodeFile(filePath);
+
                 imageve.SetImageBitmap(Bitmap.CreateScaledBitmap(bitmap, 300, 500, false));
 
                 using (var stream = new MemoryStream())
@@ -108,5 +112,6 @@ namespace AndroidApp
             }
         }
     }
+
 
 }

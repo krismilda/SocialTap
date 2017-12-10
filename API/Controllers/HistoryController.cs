@@ -1,4 +1,4 @@
-﻿using Database.HistoryData;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +11,9 @@ namespace API.Controllers
     {
         public IHttpActionResult Get([FromUri]string duration)
         {
-            HistoryList historyList = new HistoryList();
-            List<HistoryInfoSum> list = historyList.GetHistoryList(duration);
-            return Ok(list);
+          //  HistoryList historyList = new HistoryList();
+          //  List<HistoryInfoSum> list = historyList.GetHistoryList(duration);
+            return Ok();
         }
         
     }
