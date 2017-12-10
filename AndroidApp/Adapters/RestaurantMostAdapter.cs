@@ -12,11 +12,11 @@ using Android.Widget;
 
 namespace AndroidApp.Adapters
 {
-    public class RestaurantAdapter : BaseAdapter<Restaurant>
+    public class RestaurantMostAdapter : BaseAdapter<Restaurant>
     {
         List<Restaurant> items;
         Activity context;
-        public RestaurantAdapter(Activity context, List<Restaurant> items)
+        public RestaurantMostAdapter(Activity context, List<Restaurant> items)
             : base()
         {
             this.context = context;
@@ -40,10 +40,11 @@ namespace AndroidApp.Adapters
 
             View view = convertView;
             if (view == null) // no view to re-use, create new
-                view = context.LayoutInflater.Inflate(Resource.Layout.Restaurants, null);
-            view.FindViewById<TextView>(Resource.Id.tname).Text = item.Name;
-            view.FindViewById<TextView>(Resource.Id.taddress).Text = item.Address;
-            view.FindViewById<TextView>(Resource.Id.tpercentage).Text = item.Average.ToString();
+                view = context.LayoutInflater.Inflate(Resource.Layout.RestaurantMost, null);
+            view.FindViewById<TextView>(Resource.Id.texttmname).Text = item.Name;
+            view.FindViewById<TextView>(Resource.Id.texttmaddress).Text = item.Address;
+            view.FindViewById<TextView>(Resource.Id.texttmtimes).Text = item.Times.ToString();
+            view.FindViewById<TextView>(Resource.Id.texttmper).Text = item.Average.ToString();
             return view;
         }
     }

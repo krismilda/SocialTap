@@ -44,7 +44,7 @@
                 p1:id="@+id/textView11" />
             <Spinner
                 p1:layout_column="1"
-                p1:id="@+id/spinner1"
+                p1:id="@+id/spinner4"
                 p1:layout_marginLeft="10.5dp" />
         </TableRow>
         <TableRow

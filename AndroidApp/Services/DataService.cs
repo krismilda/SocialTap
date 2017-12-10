@@ -187,11 +187,83 @@ namespace AndroidApp
                 System.Diagnostics.Debug.WriteLine("Unable to get location, may need to increase timeout: " + ex);
             }
         }
+        public static async Task<List<Restaurant>> GetTopRestaurant(string period)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.MaxResponseContentBufferSize = 256000;
 
+                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/TopRestaurants/?duration=" + period);
+
+                    var response = await client.GetAsync(uri);
+
+                    var resultObject = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<List<Restaurant>>(resultObject);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    string s = e.ToString();
+                }
+                return null;
+            }
+        }
+        public static async Task<List<Restaurant>> GetMostVisited(string period)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.MaxResponseContentBufferSize = 256000;
+
+
+                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/MostVisited/?duration=" + period);
+
+                    var response = await client.GetAsync(uri);
+
+                    var resultObject = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<List<Restaurant>>(resultObject);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    string s = e.ToString();
+                }
+                return null;
+            }
+        }
+        public static async Task<List<Restaurant>> GetTopDrinks(string period)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.MaxResponseContentBufferSize = 256000;
+
+                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/TopDrinks/?duration=" + period);
+r
+
+                    var response = await client.GetAsync(uri);
+
+                    var resultObject = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<List<Restaurant>>(resultObject);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    string s = e.ToString();
+                }
+                return null;
+            }
+        }
         public static async Task<string> Upload(byte[] image)
         {
             using (var client = new HttpClient())
             {
+                try
+                {
                 using (var content =
                     new MultipartFormDataContent("Upload----" + DateTime.Now.ToString(CultureInfo.InvariantCulture)))
                 {
@@ -204,7 +276,14 @@ namespace AndroidApp
                         return JsonConvert.DeserializeObject<string>(input);
                     }
                 }
+                }
+                catch(Exception e)
+                {
+                    string s = e.ToString();
+                }
+
             }
+            return null;
         }
 
 
