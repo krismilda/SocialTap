@@ -68,6 +68,7 @@ namespace AndroidApp
         }
         void btnMost_ClickAsync(object sender, System.EventArgs e)
         {
+            StartActivity(typeof(MostVisited));
         }
 
     }

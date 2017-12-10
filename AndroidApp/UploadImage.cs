@@ -45,7 +45,7 @@ namespace AndroidApp
             btnSelect = FindViewById<Button>(Resource.Id.btnSelect);
             textMili = FindViewById<EditText>(Resource.Id.textIMilis);
             textDrink = FindViewById<EditText>(Resource.Id.textDrink);
-            spinner1 = FindViewById<Spinner>(Resource.Id.spinner1);
+            spinner1 = FindViewById<Spinner>(Resource.Id.spinner4);
             textres = FindViewById<TextView>(Resource.Id.textres);
             textresa = FindViewById<TextView>(Resource.Id.textresa);
             textper = FindViewById<TextView>(Resource.Id.textper);
@@ -80,7 +80,15 @@ namespace AndroidApp
                 bitmap = BitmapFactory.DecodeFile(filePath);
                 imageve.SetImageBitmap(Bitmap.CreateScaledBitmap(bitmap, 300, 500, false));
 
-            }           
+            }
+            byte[] bitmapData;
+            using (var stream = new MemoryStream())
+            {
+                bitmap.Compress(Bitmap.CompressFormat.Png, 0, stream);
+                bitmapData = stream.ToArray();
+            }
+
+            var percentage = int.Parse(await DataService.Upload(bitmapData));
         }
         async void btnMake_ClickAsync(object sender, System.EventArgs e)
         {
