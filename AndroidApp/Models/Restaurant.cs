@@ -13,5 +13,6 @@ namespace AndroidApp
         public String Address { get; set; }
         public double Average { get; set; }
         public int Times { get; set; }
+
     }
 }

@@ -7,7 +7,7 @@
     <item>Cafe</item>
     <item>Bar</item>
   </string-array>
-
+r
   <string-array name="drinks_array">
     <item>Alcohol</item>
     <item>Hot Drink</item>
@@ -32,7 +32,7 @@
     <item>Percentage</item>
   </string-array>
   
-  
+
   <string name="google_maps_key">AIzaSyDHUjzlvT_Sn256rRCN9ilid-y1lhht8Nk</string>
   <string name="openCamera">Open Camera</string>
 </resources>

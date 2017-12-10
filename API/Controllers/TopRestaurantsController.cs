@@ -17,6 +17,7 @@ namespace API.Controllers
             switch (duration)
             {
                 case "All Time":
+
                     var y = context.Restaurants.ToList();
                     var topList = context.Restaurants.Select(t => new
                     {
