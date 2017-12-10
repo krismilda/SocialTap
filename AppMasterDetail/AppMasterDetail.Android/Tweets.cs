@@ -56,6 +56,7 @@ namespace AppMasterDetail.Droid
         }
         void BtnBMI_Click(object sender, System.EventArgs e)
         {
+
         }
         void btnNews_Click(object sender, System.EventArgs e)
         {
