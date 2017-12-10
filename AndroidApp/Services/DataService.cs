@@ -173,7 +173,32 @@ namespace AndroidApp
                 {
                     client.MaxResponseContentBufferSize = 256000;
 
+
                     var uri = new Uri("http://drinkly1.azurewebsites.net/api/MostVisited/?duration=" + period);
+
+                    var response = await client.GetAsync(uri);
+
+                    var resultObject = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<List<Restaurant>>(resultObject);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    string s = e.ToString();
+                }
+                return null;
+            }
+        }
+        public static async Task<List<Restaurant>> GetTopDrinks(string period)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.MaxResponseContentBufferSize = 256000;
+
+                    var uri = new Uri("http://drinkly1.azurewebsites.net/api/TopDrinks/?duration=" + period);
+r
 
                     var response = await client.GetAsync(uri);
 

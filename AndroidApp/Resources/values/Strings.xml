@@ -7,7 +7,7 @@
     <item>Cafe</item>
     <item>Bar</item>
   </string-array>
-r
+
   <string-array name="drinks_array">
     <item>Alcohol</item>
     <item>Hot Drink</item>
@@ -21,6 +21,12 @@ r
     <item>All Time</item>
   </string-array>
   
+
+    <string-array name="timePeriod2_array">
+    <item>LastMonth (30 days)</item>
+    <item>Las Week (7 days)</item>
+  </string-array>
+
   <string-array name="timeOrder2_array">
     <item>Ascending</item>
     <item>Descending</item>
