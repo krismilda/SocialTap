@@ -30,9 +30,9 @@ namespace AndroidApp
             InputConfirmPassword= FindViewById<EditText>(Resource.Id.InputConfirmPassword);
             btnRegister.Click += BtnRegistration_Click;
         }
-        void BtnRegistration_Click(object sender, System.EventArgs e)
+        async void BtnRegistration_Click(object sender, System.EventArgs e)
         {
-            DataService.Register(InputEmail.Text, InputPassword.Text, InputConfirmPassword.Text);
+            await DataService.Register(InputEmail.Text, InputPassword.Text, InputConfirmPassword.Text);
         }
     }
 }
