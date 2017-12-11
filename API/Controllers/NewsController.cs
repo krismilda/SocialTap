@@ -38,7 +38,7 @@ namespace API.Controllers
         {
             //*************************************
             //REIKIA DABARTINIO USERIO
-            var list = context.Users.ToList();
+            var list = context.Users.ToList().Where(x => x.Id == System.Web.HttpContext.Current.User.Identity.GetUserId());
             news.SocialTapUser = list.ElementAt(0);
             //**************************************
             context.News.Add(news);
