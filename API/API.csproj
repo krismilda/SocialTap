@@ -163,7 +163,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BMIController.cs" />
-    <Compile Include="Controllers\HistoryController.cs" />
+    <Compile Include="Controllers\DeleteOldDataController.cs" />
     <Compile Include="Controllers\ImageProcessingController.cs" />
     <Compile Include="Controllers\MoneyHistoryController.cs" />
     <Compile Include="Controllers\MoneyHistoryDrinkController.cs" />
