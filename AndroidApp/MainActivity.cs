@@ -10,7 +10,7 @@ using Android.Gms.Maps.Model;
 
 namespace AndroidApp
 {
-    [Activity(Label = "DRINKLY", MainLauncher = true)]
+    [Activity(Label = "DRINKLY")]
     public class MainActivity : Activity
     {
         Button btnUpload;

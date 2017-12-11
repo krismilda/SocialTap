@@ -15,7 +15,7 @@ namespace AndroidApp
 {
 
 
-    [Activity(Label = "Welcome to DRINKLY")]
+    [Activity(Label = "Welcome to DRINKLY", MainLauncher = true)]
     public class LoginRegistration : Activity
     {
         Button btnLogin;
@@ -39,7 +39,12 @@ namespace AndroidApp
 
         void BtnLogin_Click(object sender, System.EventArgs e)
         {
-            StartActivity(typeof(Login));
+            var response = DataService.Login(emailInput.Text, passwordInput.Text);
+
+            if (response.IsSuccessStatusCode)
+            {
+                StartActivity(typeof(MainActivity));
+            }
         }
         void BtnRegistration_Click(object sender, System.EventArgs e)
         {

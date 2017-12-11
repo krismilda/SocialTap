@@ -24,9 +24,9 @@ namespace AndroidApp
             
             btnLoginForm.Click += BtnLogin_Click;
         }
-        async void BtnLogin_Click(object sender, System.EventArgs e)
+        void BtnLogin_Click(object sender, System.EventArgs e)
         {
-            await DataService.Login(InputEmailLoginForm.Text, InputPasswordLoginForm.Text);
+            DataService.Login(InputEmailLoginForm.Text, InputPasswordLoginForm.Text);
         }
     }
 }

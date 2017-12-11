@@ -57,7 +57,7 @@ namespace AndroidApp
             }
         }
 
-        public static async Task<HttpResponseMessage> Login(string username, string password)
+        public static HttpResponseMessage Login(string username, string password)
         {
             using (HttpClient client = new HttpClient())
             using (var request = new HttpRequestMessage(HttpMethod.Post, "http://drinkly1.azurewebsites.net/api/Account/Login"))
