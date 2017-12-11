@@ -13,7 +13,7 @@ using AndroidApp.Adapters;
 
 namespace AndroidApp
 {
-    [Activity(Label = "NewsActivity")]
+    [Activity(Label = "DRINKLY")]
     public class NewsActivity : Activity
     {
         Button btnWriteNew;

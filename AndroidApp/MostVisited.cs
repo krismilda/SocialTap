@@ -13,7 +13,7 @@ using AndroidApp.Adapters;
 
 namespace AndroidApp
 {
-    [Activity(Label = "MostVisited")]
+    [Activity(Label = "DRINKLY")]
     public class MostVisited : Activity
     {
         Button btnGetm;

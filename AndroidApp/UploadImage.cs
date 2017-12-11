@@ -18,7 +18,7 @@ using System.IO;
 
 namespace AndroidApp
 {
-    [Activity(Label = "UploadImage")]
+    [Activity(Label = "DRINKLY")]
     public class UploadImage : Activity
     {
         Button btnCalculate;

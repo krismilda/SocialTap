@@ -1,5 +1,6 @@
 ﻿using DataAccess;
 using DataModels;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +28,8 @@ namespace API.Controllers
                 context.Restaurants.Add(res);
                 context.SaveChanges();
                 Scan scans = new Scan();
-                var users = context.Users.Where(t => t.Id == scan.User_id).ToList();
-                scans.SocialTapUser = users.ElementAt(0);
+                var lista = context.Users.ToList().Where(x => x.Id == System.Web.HttpContext.Current.User.Identity.GetUserId());
+                scans.SocialTapUser = lista.First();
                 scans.Date = DateTime.Today;
                 scans.Percentage = scan.Percentage;
                 scans.Millimeters = scan.Millimeters;
@@ -44,8 +45,8 @@ namespace API.Controllers
                 list.ElementAt(0).Sum += scan.Percentage;
                 context.SaveChanges();
                 Scan scans = new Scan();
-                var users = context.Users.Where(t => t.Id == scan.User_id).ToList();
-                scans.SocialTapUser = users.ElementAt(0);
+                var lista = context.Users.ToList().Where(x => x.Id == System.Web.HttpContext.Current.User.Identity.GetUserId());
+                scans.SocialTapUser = lista.First();
                 scans.Date = DateTime.Today;
                 scans.Millimeters = scan.Millimeters;
                 scans.Drink = scan.Drink;

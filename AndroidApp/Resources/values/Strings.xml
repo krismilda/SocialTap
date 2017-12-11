@@ -16,15 +16,15 @@
   </string-array>
   
   <string-array name="timePeriod_array">
-    <item>LastMonth (30 days)</item>
-    <item>Las Week (7 days)</item>
+    <item>Last Month (30 days)</item>
+    <item>Last Week (7 days)</item>
     <item>All Time</item>
   </string-array>
   
 
     <string-array name="timePeriod2_array">
-    <item>LastMonth (30 days)</item>
-    <item>Las Week (7 days)</item>
+    <item>Last Month (30 days)</item>
+    <item>Last Week (7 days)</item>
   </string-array>
 
   <string-array name="timeOrder2_array">

@@ -17,7 +17,7 @@ namespace API.Controllers
 
             switch (duration)
             {
-                case "LastMonth (30 days)":
+                case "Last Month (30 days)":
                     var scanList = context.Scans.ToList()
                         .Where(t => (DateTime.Compare(t.Date.AddDays(30), DateTime.Today) >= 0))
                         .ToList();
@@ -47,7 +47,7 @@ namespace API.Controllers
       
                     return Ok(topDrinks);
                     break;
-                case "Las Week (7 days)":
+                case "Last Week (7 days)":
                     var scanList2 = context.Scans.ToList()
                         .Where(t => (DateTime.Compare(t.Date.AddDays(7), DateTime.Today) >= 0))
                         .ToList();

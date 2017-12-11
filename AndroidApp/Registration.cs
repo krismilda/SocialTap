@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace AndroidApp
 {
-    [Activity(Label = "Activity1")]
+    [Activity(Label = "DRINKLY")]
     public class Registration : Activity
     {
         Button btnRegister;

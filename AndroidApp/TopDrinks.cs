@@ -13,7 +13,7 @@ using AndroidApp.Adapters;
 
 namespace AndroidApp
 {
-    [Activity(Label = "TopDrinks")]
+    [Activity(Label = "DRINKLY")]
     public class TopDrinks : Activity
     {
         Button btnmostD;

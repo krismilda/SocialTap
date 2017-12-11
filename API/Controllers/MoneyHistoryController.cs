@@ -16,7 +16,7 @@ namespace API.Controllers
         {
             switch (duration)
             {
-                case "LastMonth (30 days)":
+                case "Last Month (30 days)":
                     var allMoney = context.Scans.ToList()
              .Where(t => (DateTime.Compare(t.Date.AddDays(30), DateTime.Today) >= 0))
              .Select(t => t.Price).Aggregate((a, b) => a + b);
@@ -30,7 +30,7 @@ namespace API.Controllers
                     break;
 
 
-                case "Las Week (7 days)":
+                case "Last Week (7 days)":
                     var allMoney2 = context.Scans.ToList()
                                     .Where(t => (DateTime.Compare(t.Date.AddDays(7), DateTime.Today) >= 0))
                                     .Sum(t => t.Price);

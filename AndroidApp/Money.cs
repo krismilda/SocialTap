@@ -13,7 +13,7 @@ using AndroidApp.Adapters;
 
 namespace AndroidApp
 {
-    [Activity(Label = "Money")]
+    [Activity(Label = "DRINKLY")]
     public class Money : Activity
     {
         Button buttonGetInfo;

@@ -36,11 +36,8 @@ namespace API.Controllers
         [HttpPost]        
         public IHttpActionResult Post(New news)
         {
-            //*************************************
-            //REIKIA DABARTINIO USERIO
             var list = context.Users.ToList().Where(x => x.Id == System.Web.HttpContext.Current.User.Identity.GetUserId());
-            news.SocialTapUser = list.ElementAt(0);
-            //**************************************
+            news.SocialTapUser = list.First();
             context.News.Add(news);
             context.SaveChanges();
             return Ok();

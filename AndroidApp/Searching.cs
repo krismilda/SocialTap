@@ -18,7 +18,7 @@ using AndroidApp.Services;
 
 namespace AndroidApp
 {
-    [Activity(Label = "Searching")]
+    [Activity(Label = "DRINKLY")]
     public class Searching : FragmentActivity, IOnMapReadyCallback
     {
         Button btnSearchPl;
@@ -40,7 +40,7 @@ namespace AndroidApp
             name = FindViewById<TextView>(Resource.Id.tname);
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.car_array, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-           // listRestaurants = FindViewById<ListView>(Resource.Id.listRestaurants);
+            // listRestaurants = FindViewById<ListView>(Resource.Id.listRestaurants);
             spinner.Adapter = adapter;
             btnSearchPl.Click += btnSearchPl_ClickAsync;
         }
@@ -50,7 +50,7 @@ namespace AndroidApp
             type = spinner.GetItemAtPosition(e.Position).ToString();
             string toast = string.Format("Selected type is {0}", type);
             Toast.MakeText(this, toast, ToastLength.Long).Show();
-            
+
         }
         /*   async void btnSearchPl_ClickAsync(object sender, System.EventArgs e)
            {
@@ -100,13 +100,13 @@ namespace AndroidApp
             nMap = googleMap;
             CameraUpdate camera = CameraUpdateFactory.NewLatLngZoom(CurrentLatLng, 15);
             nMap.MoveCamera(camera);
-            foreach(LocationData r in response.results)
+            foreach (LocationData r in response.results)
             {
                 MarkerOptions options = new MarkerOptions()
                .SetPosition(new LatLng(r.geometry.location.lat, r.geometry.location.lng))
                .SetTitle(r.name)
                .SetIcon(BitmapDescriptorFactory.DefaultMarker(223))
-           .SetSnippet(r.vicinity+" Percentage:44")
+               .SetSnippet(r.vicinity)
            ;
 
                 nMap.AddMarker(options);

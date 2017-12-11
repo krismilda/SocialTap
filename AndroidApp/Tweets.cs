@@ -13,7 +13,7 @@ using AndroidApp.Droid.Adapters;
 
 namespace AndroidApp
 {
-    [Activity(Label = "Tweets")]
+    [Activity(Label = "DRINKLY")]
     public class Tweets : Activity
     {
         Button btnUpload;

@@ -27,7 +27,7 @@ namespace API.Controllers
                     }).OrderByDescending(t => t.Times).ToList();
                     return Ok(topList);
                     break;
-                case "LastMonth (30 days)":
+                case "Last Month (30 days)":
 
                     var topList2 = context.Scans.ToList()
                                 .Where(t => (DateTime.Compare(t.Date.AddDays(30), DateTime.Today) >= 0))
@@ -43,7 +43,7 @@ namespace API.Controllers
                                 .ToList();
                     return Ok(topList2);
                     break;
-                case "Las Week (7 days)":
+                case "Last Week (7 days)":
                     var topList3 = context.Scans.ToList()
                                 .Where(t => (DateTime.Compare(t.Date.AddDays(7), DateTime.Today) >= 0))
                                 .GroupBy(t => t.Place_Id).ToList()

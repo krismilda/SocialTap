@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace AndroidApp
 {
-    [Activity(Label = "maps")]
+    [Activity(Label = "DRINKLY")]
     public class maps : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
