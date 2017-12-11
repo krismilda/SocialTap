@@ -25,7 +25,7 @@ namespace AndroidApp
 {
     public static class DataService
     {
-        private static string _userToken;
+        private static Token _userToken;
         private static ISharedPreferences _storageReference;
         private static HttpClient _client;
         public static bool ShowNotification;
@@ -36,7 +36,7 @@ namespace AndroidApp
 
             _client = new HttpClient(); // { BaseAddress = new System.Uri("http://drinkly1.azurewebsites.net/api/") };
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken);
+            //_client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
         }
 
         public static async Task<HttpResponseMessage> Register(string username, string password, string confirmPassword)
@@ -70,15 +70,15 @@ namespace AndroidApp
                 };
                 request.Content = new FormUrlEncodedContent(headerValues);
 
-                var res = client.SendAsync(request).Result;
-                var response = await client.SendAsync(request);
+                var response = client.SendAsync(request).Result;
+                
                 if (response.IsSuccessStatusCode)
                 {
-                    var responseContent = await response.Content.ReadAsStringAsync();
-                    _userToken = JsonConvert.DeserializeObject<string>(responseContent);
+                    var responseContent = response.Content.ReadAsStringAsync().Result;
+                    _userToken = JsonConvert.DeserializeObject<Token>(responseContent);
                     _storageReference = Application.Context.GetSharedPreferences("Token", FileCreationMode.Private);
                     var editor = _storageReference.Edit();
-                    editor.PutString("UserToken", _userToken);
+                    editor.PutString("UserToken", _userToken.access_token);
                     editor.Apply();
                 }
                 return response;
@@ -368,7 +368,7 @@ namespace AndroidApp
         public static void GetUserToken()
         {
             _storageReference = Application.Context.GetSharedPreferences("Token", FileCreationMode.Private);
-            _userToken = _storageReference.GetString("UserToken", null);
+            _userToken.access_token = _storageReference.GetString("UserToken", null);
             ShowNotification = _storageReference.GetBoolean("Notification", false);
             MuteNotification = _storageReference.GetBoolean("NotificationMute", false);
         }
@@ -402,6 +402,11 @@ namespace AndroidApp
             return 0;
         }
 
+    }
+
+    public class Token
+    {
+        public string access_token { get; set; }
     }
 
 }
