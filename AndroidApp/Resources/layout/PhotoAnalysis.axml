@@ -75,7 +75,8 @@
         p1:textAppearance="?android:attr/textAppearanceSmall"
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
-        p1:id="@+id/textView22" />
+        p1:id="@+id/textView22"
+        p1:background="@color/primary_dark_material_light" />
     <TableLayout
         p1:minWidth="25px"
         p1:minHeight="25px"

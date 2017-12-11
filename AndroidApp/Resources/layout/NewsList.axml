@@ -23,7 +23,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/tableLayout1">
         <TableRow
-            android:id="@+id/tableRow1">
+            android:id="@+id/tableRow1"
+            android:background="@color/primary_dark_material_light">
             <TextView
                 android:text="Date"
                 android:textAppearance="?android:attr/textAppearanceSmall"

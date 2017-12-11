@@ -40,7 +40,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/tableLayout2">
             <TableRow
-                android:id="@+id/tableRow3">
+                android:id="@+id/tableRow3"
+                android:background="@color/primary_dark_material_light">
                 <TextView
                     android:text="Name"
                     android:textAppearance="?android:attr/textAppearanceSmall"
