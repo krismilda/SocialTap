@@ -35,7 +35,7 @@ namespace AndroidApp
         {
 
             _client = new HttpClient(); // { BaseAddress = new System.Uri("http://drinkly1.azurewebsites.net/api/") };
-            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //_client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             //_client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
         }
 
@@ -90,6 +90,8 @@ namespace AndroidApp
 
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
                 var newsJson = new Dictionary<string, string>
                     {
                         { "Date", DateTime.Today.ToString()},
@@ -125,6 +127,8 @@ namespace AndroidApp
 
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
                 try
                 {
                     client.MaxResponseContentBufferSize = 256000;
@@ -175,6 +179,9 @@ namespace AndroidApp
             {
                 using (HttpClient client = new HttpClient())
                 {
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
+
                     client.MaxResponseContentBufferSize = 256000;
 
                     var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/Restaurant");
@@ -217,6 +224,8 @@ namespace AndroidApp
         {
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
                 try
                 {
                     client.MaxResponseContentBufferSize = 256000;
@@ -240,6 +249,8 @@ namespace AndroidApp
         {
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
                 try
                 {
                     client.MaxResponseContentBufferSize = 256000;
@@ -264,6 +275,8 @@ namespace AndroidApp
         {
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
                 try
                 {
                     client.MaxResponseContentBufferSize = 256000;
@@ -288,6 +301,8 @@ namespace AndroidApp
         {
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
                 try
                 {
                     client.MaxResponseContentBufferSize = 256000;
@@ -312,6 +327,8 @@ namespace AndroidApp
         {
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
                 try
                 {
                     client.MaxResponseContentBufferSize = 256000;
@@ -336,6 +353,8 @@ namespace AndroidApp
         {
             using (var client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
                 try
                 {
                     using (var content = new MultipartFormDataContent("Upload----"))
@@ -378,6 +397,8 @@ namespace AndroidApp
 
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
                 try
                 {
                     client.MaxResponseContentBufferSize = 256000;
