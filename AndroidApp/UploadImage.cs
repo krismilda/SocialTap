@@ -33,6 +33,7 @@ namespace AndroidApp
         ImageView imageve;
         Button btnSelect;
         Bitmap bitmap;
+        string drink;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -58,9 +59,16 @@ namespace AndroidApp
             btnMake.Click += btnMake_ClickAsync;
             btnSelect.Click += btnSelect_ClickAsync;
             imageve.SetImageDrawable(null);
+            spinner1.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+        }
+        private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Spinner spinner = (Spinner)sender;
+            drink = spinner.GetItemAtPosition(e.Position).ToString();
         }
         async void btnCalculate_ClickAsync(object sender, System.EventArgs e)
         {
+            byte[] bitmapData;
             CurrentLocation currentLocation = new CurrentLocation();
             string location = await currentLocation.GetLocationAsync();
             GooglePlacesApiData placesData = new GooglePlacesApiData();
@@ -68,7 +76,20 @@ namespace AndroidApp
             textres.Text = response.results[0].name;
             textresa.Text = response.results[0].vicinity;
             string restaurantId = response.results[0].place_id;
-;
+            using (var stream = new MemoryStream())
+            {
+                bitmap.Compress(Bitmap.CompressFormat.Png, 0, stream);
+                bitmapData = stream.ToArray();
+            }
+
+           // var percentage = await DataService.Upload(bitmapData);
+            var percentage = 98;
+            await DataService.PostScan(percentage, drink, response.results[0].name, response.results[0].vicinity, response.results[0].place_id, textMili.Text, textDrink.Text,  "6713e236-5929-403b-8ecd-db31e49d0111");
+            textper.Text = percentage.ToString();
+            double mili;
+            mili= Double.Parse(textMili.Text);
+            textmil.Text = (mili * (percentage * 0.01)).ToString();
+
         }
         async void btnSelect_ClickAsync(object sender, System.EventArgs e)
         {
@@ -88,13 +109,11 @@ namespace AndroidApp
                 bitmapData = stream.ToArray();
             }
 
-            var percentage = await DataService.Upload(bitmapData);
+             var percentage = await DataService.Upload(bitmapData);
+
         }
         async void btnMake_ClickAsync(object sender, System.EventArgs e)
         {
-
-            byte[] bitmapData;
-
             imageve.SetImageDrawable(null);
             if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
             {
@@ -109,14 +128,6 @@ namespace AndroidApp
                 bitmap = BitmapFactory.DecodeFile(filePath);
 
                 imageve.SetImageBitmap(Bitmap.CreateScaledBitmap(bitmap, 300, 500, false));
-
-                using (var stream = new MemoryStream())
-                {
-                    bitmap.Compress(Bitmap.CompressFormat.Png, 0, stream);
-                    bitmapData = stream.ToArray();
-                }
-
-                var percentage = await DataService.Upload(bitmapData);
             }
         }
     }

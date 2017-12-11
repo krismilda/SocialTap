@@ -100,6 +100,26 @@ namespace AndroidApp
                 var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/News", httpContent);
             }
         }
+        public static async Task PostScan(int percentage, string drink, string name, string address, string place_id, string millimeters, string price, string user_id)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                var newsJson = new Dictionary<string, string>
+                    {
+                        { "Name", name },
+                        { "Place_id", place_id},
+                        { "Address", address},
+                        { "Percentage", percentage.ToString()},
+                        { "User_id", user_id},
+                        { "Millimeters", millimeters.ToString()},
+                        { "Drink", drink.ToString()},
+                        { "Price", price.ToString()},
+                   };
+                var content = JsonConvert.SerializeObject(newsJson);
+                var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+                var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/UploadScan", httpContent);
+            }
+        }
         public static async Task<List<News>> GetNewsList()
         {
 
@@ -327,7 +347,7 @@ namespace AndroidApp
 
                         content.Add(imageContent, "image");
                     
-                        using (var message = await client.PostAsync("http://drinkly1.azurewebsites.net/api/ImageProcessing", content))
+                        using (var message = await client.PostAsync("http://http://localhost:59646//api/ImageProcessing", content))
                         {
                             var input = await message.Content.ReadAsStringAsync();
 

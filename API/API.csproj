@@ -174,6 +174,7 @@
     <Compile Include="Controllers\TopDrinksController.cs" />
     <Compile Include="Controllers\TopRestaurantsController.cs" />
     <Compile Include="Controllers\TweetController.cs" />
+    <Compile Include="Controllers\UploadScanController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Startup.cs" />

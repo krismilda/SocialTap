@@ -33,7 +33,6 @@ namespace API.Controllers
             return Ok(list.ToList());
         }
 
-        // POST api/Account/Register
         [HttpPost]        
         public IHttpActionResult Post(New news)
         {

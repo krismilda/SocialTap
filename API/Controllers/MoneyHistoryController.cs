@@ -19,7 +19,7 @@ namespace API.Controllers
                 case "LastMonth (30 days)":
                     var allMoney = context.Scans.ToList()
              .Where(t => (DateTime.Compare(t.Date.AddDays(30), DateTime.Today) >= 0))
-             .Sum(t => t.Price);
+             .Select(t => t.Price).Aggregate((a, b) => a + b);
                     var allMoneyRounded = Math.Round(allMoney, 2);
                     var lostMoney = context.Scans.ToList()
                                  .Where(t => (DateTime.Compare(t.Date.AddDays(30), DateTime.Today) >= 0))
@@ -28,6 +28,8 @@ namespace API.Controllers
 
                     return Ok(new { Money_Paid = allMoneyRounded, Money_Lost = lostMoneyRounded });
                     break;
+
+
                 case "Las Week (7 days)":
                     var allMoney2 = context.Scans.ToList()
                                     .Where(t => (DateTime.Compare(t.Date.AddDays(7), DateTime.Today) >= 0))
