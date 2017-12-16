@@ -15,7 +15,7 @@ namespace AndroidApp
 {
 
 
-    [Activity(Label = "Welcome to DRINKLY", MainLauncher = true)]
+    [Activity(Label = "DRINKLY", MainLauncher = true, Theme = "@android:style/Theme.Light.NoTitleBar")]
     public class LoginRegistration : Activity
     {
         Button btnLogin;
@@ -26,7 +26,7 @@ namespace AndroidApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.main);
+            SetContentView(Resource.Layout.loginn);
 
             btnLogin = FindViewById<Button>(Resource.Id.btnLogin);
             btnRegistration = FindViewById<Button>(Resource.Id.btnRegistration);

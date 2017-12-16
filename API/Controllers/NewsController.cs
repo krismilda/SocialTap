@@ -21,7 +21,7 @@ namespace API.Controllers
         [HttpGet]
         public IHttpActionResult Get()
         {
-            var newsList = context.News.ToList();
+            var newsList = context.News.OrderByDescending(t=>t.Date).ToList();
             var list = from news in newsList
                        select new
                        {

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="@drawable/uuuu">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="83.5dp"
+        android:id="@+id/linearLayout2">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="82.5dp"
+            android:id="@+id/tableLayout2"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:padding="20px"
+            android:background="@color/bright_foreground_disabled_material_dark">
+            <TableRow
+                android:id="@+id/tableRow7"
+                android:layout_height="79.0dp"
+                android:background="@color/bright_foreground_disabled_material_dark">
+                <ImageView
+                    android:src="@drawable/yyy"
+                    android:layout_column="0"
+                    android:id="@+id/imageView1"
+                    android:layout_width="73.0dp" />
+                <TextView
+                    android:text="WELCOME TO DRINKLY"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_column="1"
+                    android:id="@+id/textView33"
+                    android:layout_height="68.5dp"
+                    android:layout_width="260.0dp"
+                    android:gravity="center" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="474.5dp"
+        android:paddingLeft="50px"
+        android:paddingRight="40px"
+        android:id="@+id/linearLayout1">
+        <TableLayout
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="315.0dp"
+            android:layout_height="474.5dp"
+            android:paddingTop="10px"
+            android:id="@+id/tableLayout1">
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="279.5dp">
+                <ImageButton
+                    android:src="@drawable/beern"
+                    android:paddingRight="20px"
+                    android:layout_column="0"
+                    android:id="@+id/btnUpload"
+                    android:background="@color/design_fab_shadow_end_color"
+                    android:clickable="true" />
+                <ImageButton
+                    android:paddingLeft="20px"
+                    android:src="@drawable/opo"
+                    android:layout_column="1"
+                    android:id="@+id/btnNews"
+                    android:background="@color/design_fab_shadow_end_color"
+                    android:clickable="true" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow2">
+                <TextView
+                    android:paddingBottom="10px"
+                    android:text="UPLOAD PHOTO"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_column="0"
+                    android:id="@+id/textView10"
+                    android:gravity="center" />
+                <TextView
+                    android:paddingBottom="10px"
+                    android:text="NEWS"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_column="1"
+                    android:id="@+id/textView11"
+                    android:gravity="center" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="302.5dp">
+                <ImageButton
+                    android:paddingRight="20px"
+                    android:src="@drawable/mapn"
+                    android:layout_column="0"
+                    android:id="@+id/btnSearch"
+                    android:text="OK"
+                    android:background="@color/design_fab_shadow_end_color"
+                    android:clickable="true" />
+                <ImageButton
+                    android:paddingLeft="20px"
+                    android:src="@drawable/analytics"
+                    android:layout_column="1"
+                    android:id="@+id/btnData"
+                    android:background="@color/design_fab_shadow_end_color"
+                    android:clickable="true"
+                    android:layout_width="171.5dp" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="281.5dp">
+                <TextView
+                    android:paddingBottom="10px"
+                    android:text="SEARCH PLACES"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_column="0"
+                    android:id="@+id/textView14"
+                    android:gravity="center" />
+                <TextView
+                    android:paddingBottom="15px"
+                    android:text="HISTORICAL DATA"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_column="1"
+                    android:id="@+id/textView15"
+                    android:gravity="center"
+                    android:layout_width="179.0dp"
+                    android:layout_marginRight="0.0dp" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow5">
+                <ImageButton
+                    android:paddingRight="20px"
+                    android:src="@drawable/dumbbell"
+                    android:layout_column="0"
+                    android:id="@+id/btnBMI"
+                    android:background="@color/design_fab_shadow_end_color"
+                    android:clickable="true" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow6">
+                <TextView
+                    android:paddingRight="10px"
+                    android:text="BMI"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_column="0"
+                    android:id="@+id/textView20"
+                    android:gravity="center" />
+                <TextView
+                    android:minWidth="30px"
+                    android:minHeight="30px"
+                    android:layout_column="1"
+                    android:id="@+id/textView25" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</LinearLayout>

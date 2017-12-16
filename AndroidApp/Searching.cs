@@ -18,7 +18,7 @@ using AndroidApp.Services;
 
 namespace AndroidApp
 {
-    [Activity(Label = "DRINKLY")]
+    [Activity(Label = "DRINKLY", Theme = "@android:style/Theme.Light.NoTitleBar")]
     public class Searching : FragmentActivity, IOnMapReadyCallback
     {
         Button btnSearchPl;
@@ -33,7 +33,7 @@ namespace AndroidApp
         {
             base.OnCreate(bundle);
             // Set our view from the "main" layout resource  
-            SetContentView(Resource.Layout.SearchList);
+            SetContentView(Resource.Layout.searchn);
             spinner = FindViewById<Spinner>(Resource.Id.spinner);
             btnSearchPl = FindViewById<Button>(Resource.Id.btnSearchPl);
             spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
@@ -48,9 +48,6 @@ namespace AndroidApp
         {
             Spinner spinner = (Spinner)sender;
             type = spinner.GetItemAtPosition(e.Position).ToString();
-            string toast = string.Format("Selected type is {0}", type);
-            Toast.MakeText(this, toast, ToastLength.Long).Show();
-
         }
         /*   async void btnSearchPl_ClickAsync(object sender, System.EventArgs e)
            {

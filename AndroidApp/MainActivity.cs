@@ -10,14 +10,14 @@ using Android.Gms.Maps.Model;
 
 namespace AndroidApp
 {
-    [Activity(Label = "DRINKLY")]
+    [Activity(Label = "DRINKLY", Theme = "@android:style/Theme.Light.NoTitleBar")]
     public class MainActivity : Activity
     {
-        Button btnUpload;
-        Button btnSearch;
-        Button btnHistory;
-        Button btnBMI;
-        Button btnNews;
+        ImageButton btnUpload;
+        ImageButton btnSearch;
+        ImageButton btnHistory;
+        ImageButton btnBMI;
+        ImageButton btnNews;
         Button btnTweet;
         ListView listView1;
         List<Tweet> tweets;
@@ -25,22 +25,21 @@ namespace AndroidApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.MainWindow);
+            SetContentView(Resource.Layout.mainn);
 
-            btnUpload = FindViewById<Button>(Resource.Id.btnUpload);
-            btnSearch = FindViewById<Button>(Resource.Id.btnSearch);
-            btnHistory = FindViewById<Button>(Resource.Id.btnData);
-            btnTweet = FindViewById<Button>(Resource.Id.btnTweet);
-            btnNews = FindViewById<Button>(Resource.Id.btnNews);
-            btnBMI = FindViewById<Button>(Resource.Id.btnBMI);
-            listView1 = FindViewById<ListView>(Resource.Id.listView1);
+            btnUpload = FindViewById<ImageButton>(Resource.Id.btnUpload);
+            btnSearch = FindViewById<ImageButton>(Resource.Id.btnSearch);
+            btnHistory = FindViewById<ImageButton>(Resource.Id.btnData);
+        //    btnTweet = FindViewById<Button>(Resource.Id.btnTweet);
+            btnNews = FindViewById<ImageButton>(Resource.Id.btnNews);
+            btnBMI = FindViewById<ImageButton>(Resource.Id.btnBMI);
+          ///  listView1 = FindViewById<ListView>(Resource.Id.listView1);
             btnUpload.Click += BtnUpload_Click;
             btnSearch.Click += BtnSearch_Click;
             btnHistory.Click += BtnHistory_Click;
             btnBMI.Click += BtnBMI_Click;
             btnNews.Click += btnNews_Click;
-            btnTweet.Click += btnTweet_ClickAsync;
-          
+           // btnTweet.Click += btnTweet_ClickAsync;
         }
 
 

@@ -18,17 +18,17 @@
                 p1:text="Date"
                 p1:layout_column="0"
                 p1:id="@+id/textView1"
-                p1:layout_width="89.5dp" />
+                p1:layout_width="70.0dp" />
             <TextView
                 p1:text="Text"
                 p1:layout_column="1"
                 p1:id="@+id/textView2"
-                p1:layout_width="226.0dp" />
+                p1:layout_width="250.0dp" />
             <TextView
                 p1:text="Likes"
                 p1:layout_column="2"
                 p1:id="@+id/textView3"
-                p1:layout_width="56.5dp" />
+                p1:layout_width="36.5dp" />
         </TableRow>
     </TableLayout>
 </LinearLayout>

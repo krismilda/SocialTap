@@ -22,7 +22,7 @@
                     android:text="Date"
                     android:layout_column="0"
                     android:id="@+id/tnDate"
-                    android:layout_width="75.0dp" />
+                    android:layout_width="70.0dp" />
                 <TextView
                     android:text="User"
                     android:layout_column="1"
@@ -32,7 +32,7 @@
                     android:text="Message"
                     android:layout_column="2"
                     android:id="@+id/tnText"
-                    android:layout_width="205.0dp" />
+                    android:layout_width="192.0dp" />
             </TableRow>
         </TableLayout>
     </LinearLayout>
