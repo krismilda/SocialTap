@@ -171,6 +171,7 @@
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\ScanController.cs" />
+    <Compile Include="Controllers\TopDrinks2Controller.cs" />
     <Compile Include="Controllers\TopDrinksController.cs" />
     <Compile Include="Controllers\TopRestaurantsController.cs" />
     <Compile Include="Controllers\TweetController.cs" />

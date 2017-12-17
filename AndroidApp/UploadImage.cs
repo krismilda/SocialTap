@@ -84,7 +84,7 @@ namespace AndroidApp
 
            // var percentage = await DataService.Upload(bitmapData);
             var percentage = 98;
-            await DataService.PostScan(percentage, drink, response.results[0].name, response.results[0].vicinity, response.results[0].place_id, textMili.Text, textDrink.Text,  "6713e236-5929-403b-8ecd-db31e49d0111");
+            await DataService.PostScan(percentage, drink, response.results[0].name, response.results[0].vicinity, response.results[0].place_id, textMili.Text, textDrink.Text);
             textper.Text = percentage.ToString();
             double mili;
             mili= Double.Parse(textMili.Text);

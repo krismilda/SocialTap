@@ -42,7 +42,7 @@ namespace AndroidApp.Adapters
             if (view == null) // no view to re-use, create new
             view = context.LayoutInflater.Inflate(Resource.Layout.RestaurantDrinks, null);
             view.FindViewById<TextView>(Resource.Id.textDname).Text = item.Name;
-            view.FindViewById<TextView>(Resource.Id.textDaddress).Text = item.Address;
+          //  view.FindViewById<TextView>(Resource.Id.textDaddress).Text = item.Address;
             view.FindViewById<TextView>(Resource.Id.textDdrink).Text = item.Drink;
             view.FindViewById<TextView>(Resource.Id.textDmili).Text = item.Millimeters.ToString();
             return view;

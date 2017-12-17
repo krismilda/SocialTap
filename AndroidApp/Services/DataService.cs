@@ -102,7 +102,7 @@ namespace AndroidApp
                 var response = await client.PostAsync("http://drinkly1.azurewebsites.net/api/News", httpContent);
             }
         }
-        public static async Task PostScan(int percentage, string drink, string name, string address, string place_id, string millimeters, string price, string user_id)
+        public static async Task PostScan(int percentage, string drink, string name, string address, string place_id, string millimeters, string price)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -112,7 +112,6 @@ namespace AndroidApp
                         { "Place_id", place_id},
                         { "Address", address},
                         { "Percentage", percentage.ToString()},
-                        { "User_id", user_id},
                         { "Millimeters", millimeters.ToString()},
                         { "Drink", drink.ToString()},
                         { "Price", price.ToString()},
@@ -282,6 +281,32 @@ namespace AndroidApp
                     client.MaxResponseContentBufferSize = 256000;
 
                     var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/TopDrinks/?duration=" + period);
+
+
+                    var response = await client.GetAsync(uri);
+
+                    var resultObject = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<List<Restaurant>>(resultObject);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    string s = e.ToString();
+                }
+                return null;
+            }
+        }
+        public static async Task<List<Restaurant>> GetTopDrinks2(string period)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
+                try
+                {
+                    client.MaxResponseContentBufferSize = 256000;
+
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/TopDrinks2/?duration=" + period);
 
 
                     var response = await client.GetAsync(uri);

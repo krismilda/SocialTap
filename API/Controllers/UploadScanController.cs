@@ -28,7 +28,7 @@ namespace API.Controllers
                 context.Restaurants.Add(res);
                 context.SaveChanges();
                 Scan scans = new Scan();
-                var lista = context.Users.ToList().Where(x => x.Id == System.Web.HttpContext.Current.User.Identity.GetUserId());
+                var lista = context.Users.ToList().Where(x => x.Id == "897b973b-0050-4474-8e7c-858a3f53f2d2");
                 scans.SocialTapUser = lista.First();
                 scans.Date = DateTime.Today;
                 scans.Percentage = scan.Percentage;
@@ -45,7 +45,7 @@ namespace API.Controllers
                 list.ElementAt(0).Sum += scan.Percentage;
                 context.SaveChanges();
                 Scan scans = new Scan();
-                var lista = context.Users.ToList().Where(x => x.Id == System.Web.HttpContext.Current.User.Identity.GetUserId());
+                var lista = context.Users.ToList().Where(x => x.Id == "897b973b-0050-4474-8e7c-858a3f53f2d2");
                 scans.SocialTapUser = lista.First();
                 scans.Date = DateTime.Today;
                 scans.Millimeters = scan.Millimeters;

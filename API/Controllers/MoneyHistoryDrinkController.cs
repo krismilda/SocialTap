@@ -15,12 +15,14 @@ namespace API.Controllers
 
         public IHttpActionResult GetDrink([FromUri]string duration)
         {
+            var list = context.Users.ToList().Where(x => x.Id == System.Web.HttpContext.Current.User.Identity.GetUserId());
             switch (duration)
             {
                 case "Last Month (30 days)":
 
                     var moneyList2 = context.Scans.ToList()
                                 .Where(t => (DateTime.Compare(t.Date.AddDays(30), DateTime.Today) >= 0))
+                                .Where(t => t.User_Id.Equals(list.First().Id))
                                 .GroupBy(t => t.Drink).ToList()
                                 .Select(g => new
                                 {
@@ -33,6 +35,7 @@ namespace API.Controllers
                 case "Last Week (7 days)":
                     var moneyList3 = context.Scans.ToList()
                               .Where(t => (DateTime.Compare(t.Date.AddDays(7), DateTime.Today) >= 0))
+                              .Where(t => t.User_Id.Equals(list.First().Id))
                               .GroupBy(t => t.Drink).ToList()
                               .Select(g => new
                               {

@@ -17,27 +17,26 @@
             android:layout_height="wrap_content"
             android:id="@+id/tableLayout1">
             <TableRow
-                android:id="@+id/tableRow1">
+                android:id="@+id/tableRow1"
+                android:background="@color/bright_foreground_disabled_material_dark">
                 <TextView
                     android:text="Name"
                     android:layout_column="0"
                     android:id="@+id/textDname"
-                    android:layout_width="100.0dp" />
-                <TextView
-                    android:text="Address"
-                    android:layout_column="1"
-                    android:id="@+id/textDaddress"
-                    android:layout_width="100.0dp" />
+                    android:layout_width="168.0dp"
+                    android:textColor="@color/common_google_signin_btn_text_light_pressed" />
                 <TextView
                     android:text="Drink"
-                    android:layout_column="2"
+                    android:layout_column="1"
                     android:id="@+id/textDdrink"
-                    android:layout_width="80.0dp" />
+                    android:layout_width="113.0dp"
+                    android:textColor="@color/common_google_signin_btn_text_light_pressed" />
                 <TextView
                     android:text="Millimeters"
                     android:layout_column="3"
                     android:id="@+id/textDmili"
-                    android:layout_width="70.0dp" />
+                    android:layout_width="36.0dp"
+                    android:textColor="@color/common_google_signin_btn_text_light_pressed" />
             </TableRow>
         </TableLayout>
     </LinearLayout>

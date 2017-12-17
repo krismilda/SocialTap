@@ -10,10 +10,13 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using AndroidApp.Adapters;
+using Microcharts;
+using SkiaSharp;
+using Microcharts.Droid;
 
 namespace AndroidApp
 {
-    [Activity(Label = "DRINKLY")]
+    [Activity(Label = "DRINKLY", Theme = "@android:style/Theme.Light.NoTitleBar")]
     public class TopDrinks : Activity
     {
         Button btnmostD;
@@ -23,7 +26,7 @@ namespace AndroidApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.TopDrinks);
+            SetContentView(Resource.Layout.topDrinksn);
 
             btnmostD = FindViewById<Button>(Resource.Id.btnmostD);
             spinnerPeriod = FindViewById<Spinner>(Resource.Id.spinnerperiodD);
@@ -32,19 +35,39 @@ namespace AndroidApp
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinnerPeriod.Adapter = adapter;
 
-            spinnerPeriod.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
-            btnmostD.Click += btnmostD_ClickAsync;
+            spinnerPeriod.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelectedAsync);
+          //  btnmostD.Click += btnmostD_ClickAsync;
             // Create your application here
         }
-        private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        private async void spinner_ItemSelectedAsync(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
             period = spinner.GetItemAtPosition(e.Position).ToString();
-        }
-        async void btnmostD_ClickAsync(object sender, System.EventArgs e)
-        {
             var listDrinks = await DataService.GetTopDrinks(period);
-            listDrink.Adapter= new TopDrinksAdapter(this, listDrinks);
+            var listDrinks2 = await DataService.GetTopDrinks2(period);
+            var entries = new List<Entry>();
+            listDrink.Adapter = new TopDrinksAdapter(this, listDrinks2);
+            var Colors = new List<string>();
+            Colors.Add("#266489");
+            Colors.Add("#68B9C0");
+            Colors.Add("#F80202");
+            Colors.Add("#FAD101");
+            Colors.Add("#FB5000");
+            int a = 0;
+            foreach (Restaurant r in listDrinks)
+            {
+                Entry es = new Entry((float)r.Sum)
+                {
+                    Label = r.Drink,
+                    ValueLabel = r.Sum.ToString()+" ml",
+                    Color = SKColor.Parse(Colors.ElementAt(a))
+                };
+                a++;
+                entries.Add(es);
+            }
+            var chart = new DonutChart() { Entries = entries };
+            var chartView = FindViewById<ChartView>(Resource.Id.chartView);
+            chartView.Chart = chart;
         }
     }
 }

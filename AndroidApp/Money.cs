@@ -10,16 +10,20 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using AndroidApp.Adapters;
+using Microcharts;
+using AndroidApp.Models;
+using SkiaSharp;
+using Microcharts.Droid;
 
 namespace AndroidApp
 {
     [Activity(Label = "DRINKLY")]
     public class Money : Activity
     {
-        Button buttonGetInfo;
+        //Button buttonGetInfo;
         TextView textall;
         TextView textlo;
-        ListView listmoney;
+       // ListView listmoney;
         Spinner spinner7;
         string period;
         internal string Drink;
@@ -27,32 +31,63 @@ namespace AndroidApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Money);
+            SetContentView(Resource.Layout.moneyn);
             // Create your application here
 
-            buttonGetInfo = FindViewById<Button>(Resource.Id.btnGetInfo);
+           // buttonGetInfo = FindViewById<Button>(Resource.Id.btnGetInfo);
             textall = FindViewById<TextView>(Resource.Id.textdlo);
             textlo = FindViewById<TextView>(Resource.Id.textlo);
-            listmoney = FindViewById<ListView>(Resource.Id.listmoney);
+           // listmoney = FindViewById<ListView>(Resource.Id.listmoney);
             spinner7 = FindViewById<Spinner>(Resource.Id.spinner7);
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.timePeriod2_array, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner7.Adapter = adapter;
-            buttonGetInfo.Click += buttonGetInfo_ClickAsync;
-            spinner7.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+           // buttonGetInfo.Click += buttonGetInfo_ClickAsync;
+            spinner7.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelectedAsync);
         }
-        private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        private async void spinner_ItemSelectedAsync(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
             period = spinner.GetItemAtPosition(e.Position).ToString();
-        }
-        async void buttonGetInfo_ClickAsync(object sender, System.EventArgs e)
-        {
             var allData = await DataService.GetMoneyCommon(period);
             textall.Text = allData.Money_paid.ToString();
-            textlo.Text= allData.Money_lost.ToString();
+            textlo.Text = allData.Money_lost.ToString();
             var listDrink = await DataService.GetMoneyDrink(period);
-            listmoney.Adapter = new MoneyAdapter(this, listDrink);
+
+            var entries = new List<Entry>();
+            var entries2 = new List<Entry>();
+            var Colors = new List<string>();
+            Colors.Add("#266489");
+            Colors.Add("#68B9C0");
+            Colors.Add("#F80202");
+            Colors.Add("#FAD101");
+            Colors.Add("#FB5000");
+            int a = 0;
+            foreach (Moneys r in listDrink)
+            {
+                Entry es = new Entry((float)r.Money_paid)
+                {
+                    Label = r.Drink,
+                    ValueLabel = Math.Round(r.Money_paid, 2).ToString() + " EUR",
+                    Color = SKColor.Parse(Colors.ElementAt(a))
+                };
+                entries.Add(es);
+                Entry es2 = new Entry((float)r.Money_lost)
+                {
+                    Label = r.Drink,
+                    ValueLabel = Math.Round(r.Money_lost, 2).ToString() + " EUR",
+                    Color = SKColor.Parse(Colors.ElementAt(a))
+                };
+                a++;
+                entries2.Add(es2);
+            }
+            var chart = new DonutChart() { Entries = entries };
+            var chart2 = new DonutChart() { Entries = entries2 };
+            var chartView3 = FindViewById<ChartView>(Resource.Id.chartView3);
+            var chartView4 = FindViewById<ChartView>(Resource.Id.chartView4);
+            chartView3.Chart = chart;
+            chartView4.Chart = chart2;
         }
     }
-}
+
+    }

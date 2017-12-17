@@ -44,7 +44,8 @@
                     android:id="@+id/textView11" />
                 <TextView
                     android:layout_column="1"
-                    android:id="@+id/textdlo" />
+                    android:id="@+id/textdlo"
+                    android:text="sss" />
             </TableRow>
             <TableRow
                 android:id="@+id/tableRow4">
@@ -55,7 +56,8 @@
                     android:id="@+id/textView14" />
                 <TextView
                     android:layout_column="1"
-                    android:id="@+id/textlo" />
+                    android:id="@+id/textlo"
+                    android:text="sssss" />
             </TableRow>
             <TableRow
                 android:id="@+id/tableRow5">
