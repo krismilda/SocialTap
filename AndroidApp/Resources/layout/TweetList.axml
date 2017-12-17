@@ -13,22 +13,26 @@
         p1:layout_marginBottom="0.0dp"
         p1:layout_marginTop="0.0dp">
         <TableRow
-            p1:id="@+id/tableRow1">
+            p1:id="@+id/tableRow1"
+            p1:background="@color/bright_foreground_disabled_material_dark">
             <TextView
                 p1:text="Date"
                 p1:layout_column="0"
                 p1:id="@+id/textView1"
-                p1:layout_width="70.0dp" />
+                p1:layout_width="82.0dp"
+                p1:textColor="@color/common_google_signin_btn_text_light_pressed" />
             <TextView
                 p1:text="Text"
                 p1:layout_column="1"
                 p1:id="@+id/textView2"
-                p1:layout_width="250.0dp" />
+                p1:layout_width="218.0dp"
+                p1:textColor="@color/common_google_signin_btn_text_light_pressed" />
             <TextView
                 p1:text="Likes"
                 p1:layout_column="2"
                 p1:id="@+id/textView3"
-                p1:layout_width="36.5dp" />
+                p1:layout_width="36.5dp"
+                p1:textColor="@color/common_google_signin_btn_text_light_pressed" />
         </TableRow>
     </TableLayout>
 </LinearLayout>

@@ -31,7 +31,7 @@
                     android:src="@drawable/yyy"
                     android:layout_column="0"
                     android:id="@+id/imageView1"
-                    android:layout_width="73.0dp" />
+                    android:layout_width="83.5dp" />
                 <TextView
                     android:text="DRINKLY"
                     android:textAppearance="?android:attr/textAppearanceLarge"
@@ -69,10 +69,10 @@
                     android:layout_marginLeft="16.0dp" />
             </TableRow>
         </TableLayout>
-      <fragment
-    android:id="@+id/map"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:name="com.google.android.gms.maps.MapFragment" />
+        <fragment
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.google.android.gms.maps.MapFragment" />
     </LinearLayout>
 </LinearLayout>

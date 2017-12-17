@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:padding="20px"
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayout1"
+        android:background="@drawable/uuuu">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="82.5dp"
+            android:id="@+id/tableLayout2"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:padding="20px"
+            android:background="@color/bright_foreground_disabled_material_dark">
+            <TableRow
+                android:id="@+id/tableRow7"
+                android:layout_height="79.0dp"
+                android:background="@color/bright_foreground_disabled_material_dark">
+                <ImageView
+                    android:src="@drawable/yyy"
+                    android:layout_column="0"
+                    android:id="@+id/imageView1"
+                    android:layout_width="83.5dp" />
+                <TextView
+                    android:text="DRINKLY"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_column="1"
+                    android:id="@+id/textView33"
+                    android:layout_height="68.5dp"
+                    android:layout_width="260.0dp"
+                    android:gravity="center" />
+            </TableRow>
+        </TableLayout>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout3">
+            <TableRow
+                android:id="@+id/tableRow8"
+                android:layout_height="46.5dp">
+                <Button
+                    android:text="MAKE PHOTO"
+                    android:layout_column="0"
+                    android:id="@+id/btnMakes"
+                    android:layout_marginBottom="4.0dp"
+                    android:layout_marginTop="1.0dp"
+                    android:layout_height="44.0dp" />
+                <Button
+                    android:text="SELECT FROM GALLERY"
+                    android:layout_column="1"
+                    android:id="@+id/btnSelect"
+                    android:layout_marginLeft="9.5dp"
+                    android:layout_marginTop="1.5dp"
+                    android:layout_height="45.0dp" />
+            </TableRow>
+        </TableLayout>
+        <TableLayout
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout4"
+            android:background="@color/bright_foreground_disabled_material_dark">
+            <TableRow
+                android:id="@+id/tableRow9">
+                <TextView
+                    android:text="Drink"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="0"
+                    android:id="@+id/textView43"
+                    android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                    android:layout_width="83.5dp"
+                    android:layout_marginBottom="5.0dp" />
+                <Spinner
+                    android:layout_column="1"
+                    android:id="@+id/spinner4"
+                    android:layout_width="258.0dp"
+                    android:layout_marginLeft="6.0dp" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow10">
+                <TextView
+                    android:text="Milliliters"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView10"
+                    android:layout_column="0"
+                    android:layout_width="83.5dp"
+                    android:textColor="@color/common_google_signin_btn_text_light_pressed" />
+                <EditText
+                    android:id="@+id/textIMilis"
+                    android:layout_column="1"
+                    android:layout_height="38.0dp"
+                    android:inputType="numberDecimal" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow11">
+                <TextView
+                    android:text="Price"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView10"
+                    android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                    android:layout_column="0" />
+                <EditText
+                    android:id="@+id/textDrink"
+                    android:layout_column="1"
+                    android:layout_height="41.0dp"
+                    android:inputType="numberDecimal" />
+            </TableRow>
+        </TableLayout>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout5">
+            <TableRow
+                android:id="@+id/tableRow12"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_height="19.0dp">
+                <TextView
+                    android:text="INFORMATION"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_column="0"
+                    android:id="@+id/textView44"
+                    android:textColor="@color/bright_foreground_disabled_material_dark"
+                    android:background="@color/cardview_dark_background"
+                    android:layout_marginTop="2.0dp"
+                    android:layout_width="364.5dp"
+                    android:layout_marginBottom="0.5dp" />
+            </TableRow>
+        </TableLayout>
+        <TableLayout
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout6"
+            android:background="@color/bright_foreground_disabled_material_dark">
+            <TableRow
+                android:id="@+id/tableRow13">
+                <TextView
+                    android:text="Restaurant Name"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView32"
+                    android:layout_column="0"
+                    android:textColor="@color/common_google_signin_btn_text_light_pressed" />
+                <TextView
+                    android:id="@+id/textres"
+                    android:layout_column="1" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow14">
+                <TextView
+                    android:text="Restaurant Address"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView33"
+                    android:layout_column="0"
+                    android:textColor="@color/common_google_signin_btn_text_light_pressed" />
+                <TextView
+                    android:id="@+id/textresa"
+                    android:layout_column="1"
+                    android:layout_width="192.5dp" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow15">
+                <TextView
+                    android:text="Percentage of Liquid"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView34"
+                    android:layout_column="0"
+                    android:textColor="@color/common_google_signin_btn_text_light_pressed" />
+                <TextView
+                    android:id="@+id/textper"
+                    android:layout_column="1" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow16">
+                <TextView
+                    android:text="Real Amount of Drink"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView38"
+                    android:layout_column="0"
+                    android:layout_marginRight="15.0dp"
+                    android:textColor="@color/common_google_signin_btn_text_light_pressed" />
+                <TextView
+                    android:id="@+id/textmil"
+                    android:layout_column="1"
+                    android:layout_width="217.0dp" />
+            </TableRow>
+        </TableLayout>
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:id="@+id/imageve"
+            android:layout_width="324.5dp"
+            android:layout_height="216.0dp"
+            android:layout_marginTop="7.0dp"
+            android:layout_marginLeft="18.5dp" />
+    </LinearLayout>
+</LinearLayout>

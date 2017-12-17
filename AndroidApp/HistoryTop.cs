@@ -14,7 +14,7 @@ using AndroidApp;
 
 namespace AndroidApp
 {
-    [Activity(Label = "HistoryTop")]
+    [Activity(Label = "HistoryTop", Theme = "@android:style/Theme.Light.NoTitleBar")]
     public class HistoryTop : Activity
     {
         Button btnMost;
@@ -28,50 +28,21 @@ namespace AndroidApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.History);
-            btnGets = FindViewById<Button>(Resource.Id.btnGet);
-            btnMost = FindViewById<Button>(Resource.Id.btnMost);
-            btnTop = FindViewById<Button>(Resource.Id.btnTop);
-            btnMoney = FindViewById<Button>(Resource.Id.btnMoney);
-            btnDrinks = FindViewById<Button>(Resource.Id.btnDrinks);
+            SetContentView(Resource.Layout.topRestaurantsn);
             listTop = FindViewById<ListView>(Resource.Id.listTop);
             spinner3 = FindViewById<Spinner>(Resource.Id.spinner3);
-            btnGets.Click += btnGets_ClickAsync;
-            btnTop.Click += btnTop_ClickAsync;
-            btnMoney.Click += btnMoney_ClickAsync;
-            btnDrinks.Click += btnDrinks_ClickAsync;
-            btnMost.Click += btnMost_ClickAsync;
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.timePeriod_array, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner3.Adapter = adapter;
-            spinner3.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            spinner3.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelectedAsync);
         }
 
-        private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        private async void spinner_ItemSelectedAsync(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
             period = spinner.GetItemAtPosition(e.Position).ToString();
-        }
-        async void btnGets_ClickAsync(object sender, System.EventArgs e)
-        {
             var tops = await DataService.GetTopRestaurant(period);
             listTop.Adapter = new RestaurantAdapter(this, tops);
-        }
-        void btnTop_ClickAsync(object sender, System.EventArgs e)
-        {
-            StartActivity(typeof(HistoryTop));
-        }
-        void btnMoney_ClickAsync(object sender, System.EventArgs e)
-        {
-            StartActivity(typeof(Money));
-        }
-        void btnDrinks_ClickAsync(object sender, System.EventArgs e)
-        {
-            StartActivity(typeof(TopDrinks));
-        }
-        void btnMost_ClickAsync(object sender, System.EventArgs e)
-        {
-            StartActivity(typeof(MostVisited));
         }
 
     }

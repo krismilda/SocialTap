@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:padding="20px"
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayout1"
+        android:background="@drawable/uuuu">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="82.5dp"
+            android:id="@+id/tableLayout2"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:padding="20px"
+            android:background="@color/bright_foreground_disabled_material_dark">
+            <TableRow
+                android:id="@+id/tableRow7"
+                android:layout_height="79.0dp"
+                android:background="@color/bright_foreground_disabled_material_dark">
+                <ImageView
+                    android:src="@drawable/yyy"
+                    android:layout_column="0"
+                    android:id="@+id/imageView1"
+                    android:layout_width="83.5dp" />
+                <TextView
+                    android:text="DRINKLY"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_column="1"
+                    android:id="@+id/textView33"
+                    android:layout_height="68.5dp"
+                    android:layout_width="260.0dp"
+                    android:gravity="center" />
+            </TableRow>
+        </TableLayout>
+        <TableLayout
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout3">
+            <TableRow
+                android:id="@+id/tableRow8">
+                <ImageButton
+                    android:padding="20px"
+                    android:src="@drawable/podium"
+                    android:layout_column="0"
+                    android:id="@+id/btnTop"
+                    android:background="@color/design_fab_shadow_end_color"
+                    android:layout_marginRight="0.0dp" />
+                <ImageButton
+                    android:padding="20px"
+                    android:src="@drawable/location"
+                    android:layout_column="1"
+                    android:id="@+id/btnMost"
+                    android:background="@color/design_fab_shadow_end_color" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow9">
+                <TextView
+                    android:padding="20px"
+                    android:paddingBottom="5px"
+                    android:text="TOP RESTAURANTS"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/textView10"
+                    android:gravity="center"
+                    android:layout_column="0" />
+                <TextView
+                    android:padding="20px"
+                    android:paddingBottom="5px"
+                    android:text="MOST VISITED"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/textView10"
+                    android:gravity="center"
+                    android:layout_column="1" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow10">
+                <ImageButton
+                    android:padding="20px"
+                    android:src="@drawable/wine"
+                    android:layout_column="0"
+                    android:id="@+id/btnDrinks"
+                    android:background="@color/design_fab_shadow_end_color" />
+                <ImageButton
+                    android:padding="20px"
+                    android:src="@drawable/moneybag"
+                    android:layout_column="1"
+                    android:id="@+id/btnMoney"
+                    android:background="@color/design_fab_shadow_end_color" />
+            </TableRow>
+            <TableRow
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:id="@+id/tableRow11">
+                <TextView
+                    android:padding="20px"
+                    android:paddingBottom="5px"
+                    android:text="TOP DRINKS"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/textView10"
+                    android:gravity="center"
+                    android:layout_column="0" />
+                <TextView
+                    android:padding="20px"
+                    android:paddingBottom="5px"
+                    android:text="MONEY ON DRINKS"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/textView10"
+                    android:gravity="center"
+                    android:layout_column="1"
+                    android:layout_width="151.0dp" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</LinearLayout>

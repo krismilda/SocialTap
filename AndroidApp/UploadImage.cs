@@ -18,7 +18,7 @@ using System.IO;
 
 namespace AndroidApp
 {
-    [Activity(Label = "DRINKLY")]
+    [Activity(Label = "DRINKLY", Theme = "@android:style/Theme.Light.NoTitleBar")]
     public class UploadImage : Activity
     {
         Button btnCalculate;
@@ -37,11 +37,11 @@ namespace AndroidApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.PhotoAnalysis);
+            SetContentView(Resource.Layout.photoAnalysisn);
 
             // Create your application here
 
-            btnCalculate = FindViewById<Button>(Resource.Id.btnCalculate);
+          //  btnCalculate = FindViewById<Button>(Resource.Id.btnCalculate);
             btnMake = FindViewById<Button>(Resource.Id.btnMakes);
             btnSelect = FindViewById<Button>(Resource.Id.btnSelect);
             textMili = FindViewById<EditText>(Resource.Id.textIMilis);
@@ -55,7 +55,7 @@ namespace AndroidApp
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.drinks_array, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner1.Adapter = adapter;
-            btnCalculate.Click += btnCalculate_ClickAsync;
+           // btnCalculate.Click += btnCalculate_ClickAsync;
             btnMake.Click += btnMake_ClickAsync;
             btnSelect.Click += btnSelect_ClickAsync;
             imageve.SetImageDrawable(null);
@@ -66,7 +66,7 @@ namespace AndroidApp
             Spinner spinner = (Spinner)sender;
             drink = spinner.GetItemAtPosition(e.Position).ToString();
         }
-        async void btnCalculate_ClickAsync(object sender, System.EventArgs e)
+        async void Calculate()
         {
             byte[] bitmapData;
             CurrentLocation currentLocation = new CurrentLocation();
@@ -108,9 +108,7 @@ namespace AndroidApp
                 bitmap.Compress(Bitmap.CompressFormat.Png, 0, stream);
                 bitmapData = stream.ToArray();
             }
-
-             var percentage = await DataService.Upload(bitmapData);
-
+            Calculate();
         }
         async void btnMake_ClickAsync(object sender, System.EventArgs e)
         {
@@ -129,6 +127,7 @@ namespace AndroidApp
 
                 imageve.SetImageBitmap(Bitmap.CreateScaledBitmap(bitmap, 300, 500, false));
             }
+            Calculate();
         }
     }
 
