@@ -9,10 +9,17 @@
   </string-array>
 
   <string-array name="drinks_array">
-    <item>Alcohol</item>
-    <item>Hot Drink</item>
-    <item>Cold Drink</item>
+    <item>Beer</item>
+    <item>Cocktails</item>
+    <item>Coffee</item>
+    <item>Juice</item>
+    <item>Milk</item>
+    <item>Liquer</item>
+    <item>Strong Drinks</item>
+    <item>Tea</item>
     <item>Water</item>
+    <item>Wine</item>
+    <item>Other Drinks</item>
   </string-array>
   
   <string-array name="timePeriod_array">

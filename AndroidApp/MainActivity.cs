@@ -37,7 +37,6 @@ namespace AndroidApp
             btnUpload.Click += BtnUpload_Click;
             btnSearch.Click += BtnSearch_Click;
             btnHistory.Click += BtnHistory_Click;
-            btnBMI.Click += BtnBMI_Click;
             btnNews.Click += btnNews_Click;
            // btnTweet.Click += btnTweet_ClickAsync;
         }
@@ -56,10 +55,6 @@ namespace AndroidApp
         void BtnHistory_Click(object sender, System.EventArgs e)
         {
             StartActivity(typeof(Historyn));
-        }
-        void BtnBMI_Click(object sender, System.EventArgs e)
-        {
-            StartActivity(typeof(BMIActivity));
         }
         void btnNews_Click(object sender, System.EventArgs e)
         {

@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace AndroidApp
 {
-    [Activity(Label = "DRINKLY")]
+    [Activity(Label = "DRINKLY", Theme = "@android:style/Theme.Light.NoTitleBar")]
     public class Registration : Activity
     {
         Button btnRegister;
@@ -22,7 +22,7 @@ namespace AndroidApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Registration);
+            SetContentView(Resource.Layout.registracion);
 
             btnRegister = FindViewById<Button>(Resource.Id.btnRegister);
             InputEmail = FindViewById<EditText>(Resource.Id.InputEmail);
@@ -32,7 +32,11 @@ namespace AndroidApp
         }
         async void BtnRegistration_Click(object sender, System.EventArgs e)
         {
-            await DataService.Register(InputEmail.Text, InputPassword.Text, InputConfirmPassword.Text);
+            var response=await DataService.Register(InputEmail.Text, InputPassword.Text, InputConfirmPassword.Text);
+            if (response.IsSuccessStatusCode)
+            {
+                StartActivity(typeof(MainActivity));
+            }
         }
     }
 }

@@ -60,18 +60,8 @@
                     android:layout_width="272.0dp" />
             </TableRow>
         </TableLayout>
-        <TextView
-            android:text="MONEY ON DRINKS"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/textView44"
-            android:textColor="@color/bright_foreground_disabled_material_dark"
-            android:background="@color/cardview_dark_background"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8.0dp"
-            android:layout_marginBottom="7.0dp" />
         <TableLayout
-            android:layout_width="match_parent"
+            android:layout_width="342.0dp"
             android:layout_height="wrap_content"
             android:id="@+id/tableLayout4"
             android:background="@color/bright_foreground_disabled_material_dark">
@@ -102,24 +92,53 @@
                     android:layout_width="186.5dp" />
             </TableRow>
         </TableLayout>
+        <TextView
+            android:text="MONEY ON DRINKS"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/textView44"
+            android:textColor="@color/bright_foreground_disabled_material_dark"
+            android:background="@color/cardview_dark_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7.0dp"
+            android:layout_marginBottom="9.0dp" />
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="140.0dp">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <microcharts.droid.ChartView
                     android:id="@+id/chartView3"
-                    android:layout_width="338.0dp"
-                    android:layout_height="155.75dp"
+                    android:layout_width="339.0dp"
+                    android:layout_height="124.5dp"
                     android:paddingLeft="@dimen/abc_action_bar_overflow_padding_end_material"
                     android:layout_marginLeft="0.0dp"
                     android:layout_marginTop="0.0dp" />
+            </LinearLayout>
+        </ScrollView>
+        <TextView
+            android:text="PAID MONEY NO DRINKS"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/textView44"
+            android:textColor="@color/bright_foreground_disabled_material_dark"
+            android:background="@color/cardview_dark_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7.0dp"
+            android:layout_marginBottom="9.0dp" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="160.0dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <microcharts.droid.ChartView
                     android:id="@+id/chartView4"
-                    android:layout_width="330.0dp"
-                    android:layout_height="155.75dp"
+                    android:layout_width="338.5dp"
+                    android:layout_height="130.5dp"
                     android:paddingLeft="@dimen/abc_action_bar_overflow_padding_end_material"
                     android:layout_marginLeft="0.0dp"
                     android:layout_marginTop="0.0dp" />

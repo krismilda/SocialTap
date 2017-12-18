@@ -296,6 +296,32 @@ namespace AndroidApp
                 return null;
             }
         }
+        public static async Task<Boolean> MaxAlco()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _userToken.access_token);
+                try
+                {
+                    client.MaxResponseContentBufferSize = 256000;
+
+                    var uri = new System.Uri("http://drinkly1.azurewebsites.net/api/CheckAmountOfAlcohol");
+
+
+                    var response = await client.GetAsync(uri);
+
+                    var resultObject = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<Boolean>(resultObject);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    string s = e.ToString();
+                }
+                return false;
+            }
+        }
         public static async Task<List<Restaurant>> GetTopDrinks2(string period)
         {
             using (HttpClient client = new HttpClient())
