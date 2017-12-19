@@ -198,6 +198,7 @@
     <Compile Include="Money.cs" />
     <Compile Include="MostVisited.cs" />
     <Compile Include="NewsActivity.cs" />
+    <Compile Include="Resources\layout\view.cs" />
     <Compile Include="Searching.cs" />
     <Compile Include="Services\BMI\CategoryOfAge.cs" />
     <Compile Include="Services\CurrentLocation.cs" />
@@ -320,6 +321,9 @@
     <AndroidResource Include="Resources\layout\registracion.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\ver.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main2.axml">
@@ -407,6 +411,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\podium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\VERYGA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\yyy.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

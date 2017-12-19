@@ -34,6 +34,7 @@ namespace AndroidApp
         Button btnSelect;
         Bitmap bitmap;
         string drink;
+        static int i=0;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -81,9 +82,24 @@ namespace AndroidApp
                 bitmap.Compress(Bitmap.CompressFormat.Png, 0, stream);
                 bitmapData = stream.ToArray();
             }
-
-           // var percentage = await DataService.Upload(bitmapData);
-            var percentage = 78;
+            int percentage=100;
+            // var percentage = await DataService.Upload(bitmapData);
+            if (i == 0)
+            {
+                percentage = 90;
+                i++;
+            }
+            if (i == 1)
+            {
+                percentage = 54;
+                i++;
+            }
+            if (i == 2)
+                {
+                    percentage = 90;
+                    i++;
+                }
+            
             await DataService.PostScan(percentage, drink, response.results[0].name, response.results[0].vicinity, response.results[0].place_id, textMili.Text, textDrink.Text);
             textper.Text = percentage.ToString();
             double mili;
@@ -94,8 +110,8 @@ namespace AndroidApp
             {
                 AlertDialog.Builder builder;
                 builder = new AlertDialog.Builder(this);
-                builder.SetTitle("To Much Alcohol");
-                builder.SetMessage("sdfsdf");
+                builder.SetTitle("Too Much Alcohol!!!");
+                builder.SetMessage("That's way too much alcohol for you this week...");
                 builder.SetCancelable(false);
                 builder.SetPositiveButton("OK", delegate { });
                 Dialog dialog = builder.Create();

@@ -2347,26 +2347,26 @@ namespace AndroidApp
 			// aapt resource value: 0x7f020054
 			public const int avd_hide_password = 2130837588;
 			
-			// aapt resource value: 0x7f020138
-			public const int avd_hide_password_1 = 2130837816;
-			
 			// aapt resource value: 0x7f020139
-			public const int avd_hide_password_2 = 2130837817;
+			public const int avd_hide_password_1 = 2130837817;
 			
 			// aapt resource value: 0x7f02013a
-			public const int avd_hide_password_3 = 2130837818;
+			public const int avd_hide_password_2 = 2130837818;
+			
+			// aapt resource value: 0x7f02013b
+			public const int avd_hide_password_3 = 2130837819;
 			
 			// aapt resource value: 0x7f020055
 			public const int avd_show_password = 2130837589;
 			
-			// aapt resource value: 0x7f02013b
-			public const int avd_show_password_1 = 2130837819;
-			
 			// aapt resource value: 0x7f02013c
-			public const int avd_show_password_2 = 2130837820;
+			public const int avd_show_password_1 = 2130837820;
 			
 			// aapt resource value: 0x7f02013d
-			public const int avd_show_password_3 = 2130837821;
+			public const int avd_show_password_2 = 2130837821;
+			
+			// aapt resource value: 0x7f02013e
+			public const int avd_show_password_3 = 2130837822;
 			
 			// aapt resource value: 0x7f020056
 			public const int bcak1 = 2130837590;
@@ -3004,11 +3004,11 @@ namespace AndroidApp
 			// aapt resource value: 0x7f020129
 			public const int notification_icon_background = 2130837801;
 			
-			// aapt resource value: 0x7f020136
-			public const int notification_template_icon_bg = 2130837814;
-			
 			// aapt resource value: 0x7f020137
-			public const int notification_template_icon_low_bg = 2130837815;
+			public const int notification_template_icon_bg = 2130837815;
+			
+			// aapt resource value: 0x7f020138
+			public const int notification_template_icon_low_bg = 2130837816;
 			
 			// aapt resource value: 0x7f02012a
 			public const int notification_tile_bg = 2130837802;
@@ -3041,10 +3041,13 @@ namespace AndroidApp
 			public const int uuuu = 2130837811;
 			
 			// aapt resource value: 0x7f020134
-			public const int wine = 2130837812;
+			public const int VERYGA = 2130837812;
 			
 			// aapt resource value: 0x7f020135
-			public const int yyy = 2130837813;
+			public const int wine = 2130837813;
+			
+			// aapt resource value: 0x7f020136
+			public const int yyy = 2130837814;
 			
 			static Drawable()
 			{
@@ -4435,6 +4438,12 @@ namespace AndroidApp
 			
 			// aapt resource value: 0x7f030063
 			public const int upload = 2130903139;
+			
+			// aapt resource value: 0x7f030064
+			public const int ver = 2130903140;
+			
+			// aapt resource value: 0x7f030065
+			public const int yyy = 2130903141;
 			
 			static Layout()
 			{
