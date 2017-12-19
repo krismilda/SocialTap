@@ -83,13 +83,24 @@ namespace AndroidApp
             }
 
            // var percentage = await DataService.Upload(bitmapData);
-            var percentage = 98;
+            var percentage = 78;
             await DataService.PostScan(percentage, drink, response.results[0].name, response.results[0].vicinity, response.results[0].place_id, textMili.Text, textDrink.Text);
             textper.Text = percentage.ToString();
             double mili;
             mili= Double.Parse(textMili.Text);
             textmil.Text = (mili * (percentage * 0.01)).ToString();
-
+            Boolean b = await DataService.MaxAlco();
+            if (b == true)
+            {
+                AlertDialog.Builder builder;
+                builder = new AlertDialog.Builder(this);
+                builder.SetTitle("To Much Alcohol");
+                builder.SetMessage("sdfsdf");
+                builder.SetCancelable(false);
+                builder.SetPositiveButton("OK", delegate { });
+                Dialog dialog = builder.Create();
+                dialog.Show();
+            }
         }
         async void btnSelect_ClickAsync(object sender, System.EventArgs e)
         {

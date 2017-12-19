@@ -52,7 +52,10 @@ namespace AndroidApp
             Colors.Add("#68B9C0");
             Colors.Add("#F80202");
             Colors.Add("#FAD101");
-            Colors.Add("#FB5000");
+            Colors.Add("#BEF781");
+            Colors.Add("#848484");
+            Colors.Add("#0174DF");
+            Colors.Add("#B45F04");
             int a = 0;
             foreach (Restaurant r in listDrinks)
             {

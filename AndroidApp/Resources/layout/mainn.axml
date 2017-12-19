@@ -52,7 +52,8 @@
         android:layout_height="474.5dp"
         android:paddingLeft="50px"
         android:paddingRight="40px"
-        android:id="@+id/linearLayout1">
+        android:id="@+id/linearLayout1"
+        android:layout_marginTop="36.5dp">
         <TableLayout
             android:minWidth="25px"
             android:minHeight="25px"
@@ -60,24 +61,27 @@
             android:layout_height="474.5dp"
             android:id="@+id/tableLayout1">
             <TableRow
+                android:padding="15px"
                 android:id="@+id/tableRow1"
                 android:layout_width="279.5dp">
                 <ImageButton
                     android:src="@drawable/beern"
-                    android:paddingRight="20px"
+                    android:paddingRight="15px"
                     android:layout_column="0"
                     android:id="@+id/btnUpload"
                     android:background="@color/design_fab_shadow_end_color"
                     android:clickable="true" />
                 <ImageButton
-                    android:paddingLeft="20px"
+                    android:paddingLeft="15px"
                     android:src="@drawable/opo"
                     android:layout_column="1"
                     android:id="@+id/btnNews"
                     android:background="@color/design_fab_shadow_end_color"
-                    android:clickable="true" />
+                    android:clickable="true"
+                    android:layout_width="175.5dp" />
             </TableRow>
             <TableRow
+                android:padding="15px"
                 android:id="@+id/tableRow2">
                 <TextView
                     android:paddingBottom="5px"
@@ -95,10 +99,11 @@
                     android:gravity="center" />
             </TableRow>
             <TableRow
+                android:padding="15px"
                 android:id="@+id/tableRow3"
                 android:layout_width="302.5dp">
                 <ImageButton
-                    android:paddingRight="20px"
+                    android:paddingRight="15px"
                     android:src="@drawable/mapn"
                     android:layout_column="0"
                     android:id="@+id/btnSearch"
@@ -106,15 +111,16 @@
                     android:background="@color/design_fab_shadow_end_color"
                     android:clickable="true" />
                 <ImageButton
-                    android:paddingLeft="20px"
+                    android:paddingLeft="15px"
                     android:src="@drawable/analytics"
                     android:layout_column="1"
                     android:id="@+id/btnData"
                     android:background="@color/design_fab_shadow_end_color"
                     android:clickable="true"
-                    android:layout_width="171.5dp" />
+                    android:layout_width="178.5dp" />
             </TableRow>
             <TableRow
+                android:padding="15px"
                 android:id="@+id/tableRow4"
                 android:layout_width="281.5dp">
                 <TextView
@@ -133,31 +139,6 @@
                     android:gravity="center"
                     android:layout_width="179.0dp"
                     android:layout_marginRight="0.0dp" />
-            </TableRow>
-            <TableRow
-                android:id="@+id/tableRow5">
-                <ImageButton
-                    android:paddingRight="20px"
-                    android:src="@drawable/dumbbell"
-                    android:layout_column="0"
-                    android:id="@+id/btnBMI"
-                    android:background="@color/design_fab_shadow_end_color"
-                    android:clickable="true" />
-            </TableRow>
-            <TableRow
-                android:id="@+id/tableRow6">
-                <TextView
-                    android:paddingRight="10px"
-                    android:text="BMI"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_column="0"
-                    android:id="@+id/textView20"
-                    android:gravity="center" />
-                <TextView
-                    android:minWidth="30px"
-                    android:minHeight="30px"
-                    android:layout_column="1"
-                    android:id="@+id/textView25" />
             </TableRow>
         </TableLayout>
     </LinearLayout>
